@@ -1,4 +1,4 @@
-# Pryect Integrador 
+# Pryecto Integrador 
 ## Integrantes: 
 - Robert Yamil Tassara 
 - Jessica André 
