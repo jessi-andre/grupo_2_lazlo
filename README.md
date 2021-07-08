@@ -1,6 +1,6 @@
 # Pryecto Integrador 
 ## Integrantes: 
-- Robert Yamil Tassara 
+- Roberto Yamil Tassara 
 - Jessica André 
 - Florencia Saldaño  
 - Cecilia Adriana Meza
