@@ -7,7 +7,7 @@
 
 ### 👩 André, Jessica 
  - 30 años
- - Estudiante de programación
+ - Estudiante de programación.
 
 
 ### 🧔 Tassara, Roberto Yamil
