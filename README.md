@@ -29,3 +29,6 @@ Este sitio comercializa mochilas con alto impacto tecnológico e indumentaria r�
 - [Trown](https://www.trown.com.ar/)
 
 Decidimos usar estas páginas como referentes ya que no solo están vinculadas con la temática sino que también nos gusto muchísimo el diseño en general de "Db", el menú de "TOPO DESIGNS", idea  y la distribución de colores de "Trown"
+
+## Tablero de Trello
+[Trello](https://trello.com/b/nGhts51n/grupo-2-c10)
