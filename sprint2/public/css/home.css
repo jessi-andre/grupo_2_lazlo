@@ -1,0 +1,13 @@
+header div logo{
+    width: 30px;
+    height: 50px;
+}
+
+.burger-menu{
+    margin: 18px 20px 18px 900px;
+    text-align: rigth;
+    color:black;
+    width: 50px;
+    font-size: 35px;
+    border-radius: 5px;
+}
