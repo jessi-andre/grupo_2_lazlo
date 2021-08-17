@@ -4,10 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carrito de Compras - Lazlo</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    
+    <header>
+        <a href="/" class="logo">
+            <img src="images/logo.png" alt="">
+            <h1>Lazlo</h1>
+        </a>
+        <aside class="header-nav">
+            <div class="btn-cerrarMenu">
+                <i class="fas fa-times"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">mochilas</a></li>
+                    <li><a href="#">indumentaria</a></li>
+                    <li><a href="#">historia</a></li>
+                    <li><a href="#">comunidad</a></li>
+
+                    <form action="" class="busqueda">
+                        <input type="search" name="busqueda" id="busqueda" placeholder="Busca tu producto...">
+                        <i class="fas fa-search"></i>
+                    </form>
+                </ul>
+                <!--ul class="usuario-nav">
+                    <li><a href=""><i class="fas fa-user"></i></a></li>
+                    <li><a href="#">iniciar sesión</a></li>  
+                    <li><a href="#">crear cuenta</a></li> 
+                </ul-->
+            </nav>
+        </aside>
+        <div class="btns-menu">
+            <div class="btn-user">
+                <a href="/login"><i class="fas fa-user"></i></a>
+            </div>
+            <div class="btn-carrito">
+                <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+            <div class="btn-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
 </body>
 </html>
