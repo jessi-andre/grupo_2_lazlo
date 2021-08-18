@@ -1,0 +1,258 @@
+main{
+    width: 92%;
+    margin: 20px auto;
+}
+
+main h2{
+    color:var(--marron);
+    font-family: 'Bebas Neue', cursive;
+    margin: 40px 0 10px;
+    text-align:center;
+}
+
+/*-- PRODUCTOS DEL CARRITO ---*/
+
+main .productosCarrito{
+    display:flex;
+    flex-direction: column;
+    align-items:flex-end;
+}
+
+main table{
+    width:100%;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+main tr td{
+    border-bottom: 2px dashed var(--marron);
+}
+
+main table tr:last-child td{
+    border: none;
+}
+
+main .productosCarrito table .t-body td{
+    text-align: center;
+    padding:20px 10px;
+}
+
+main .productosCarrito table .t-body td:nth-child(2){
+    text-align: left;
+}
+
+main .productosCarrito table tr.t-body td img{
+    width: 200px;
+}
+
+main .productosCarrito table tr.t-body td div{
+    width: 30px;
+    height:30px;
+    border: 2px solid var(--marron);
+    border-radius: 50%;
+    color: var(--marron);
+}
+
+main .productosCarrito table tr.t-body td:last-child div{
+    background-color:var(--marron);
+    border: 0;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/*-- BOTÓN ---*/
+
+main .btn{
+    padding: 12px 15px;
+    border:none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px rgba(87, 87, 87, .7);
+    cursor:pointer;
+    transition: opacity .5s, box-shadow .5s;
+}
+
+main .btn:hover{
+    opacity: .9;
+    box-shadow: 0 0 1px rgba(87, 87, 87, .7);
+}
+
+main .productosCarrito .btn-vaciar{
+    background-color: var(--grisClaro);
+    margin: 10px 0 20px; 
+}
+
+/*-- FORMULARIO DE ENVIO ---*/
+
+main .envioCarrito .envio{
+    background-color: var(--grisClaro);
+    border-radius:5px;
+    padding: 10px;
+}
+
+main .envioCarrito .envio h3{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+main .envioCarrito .envio form{
+    width: 90%;
+    margin:0 auto;
+}
+
+main .envioCarrito .envio form .input, main .envioCarrito .envio form  .select{
+    margin: 20px 0;
+}
+
+main .envioCarrito .envio form .radio{
+    display:flex;
+    align-items: center;
+    flex-wrap:wrap;
+}
+
+main .envioCarrito .envio form .radio p{
+    width: 100%;
+    font-weight: 400;
+    margin: 0 0 10px;
+}
+
+main .envioCarrito .envio form .radio i{
+    margin: 0 0 0 10px;
+}
+
+main .envioCarrito .envio form .radio input{
+    margin:0 25px 0 10px;
+    cursor:pointer;
+}
+
+main .envioCarrito .envio form .radio label{
+    cursor:pointer;
+}
+
+main .envioCarrito .envio form .full-width input, main .envioCarrito .envio form .full-width select{
+    width:100%;
+    padding: 8px;
+    border:none;
+    border-radius: 5px;
+}
+
+/*-- TOTAL ---*/
+
+main .totalCarrito{
+    margin: 20px 0;
+    padding:0 15px;
+}
+
+main .totalCarrito table tr td{
+    padding: 20px 5px;
+}
+
+main .totalCarrito table tr:last-child td{
+    font-weight:600;
+}
+
+main .totalCarrito table tr td:last-child{
+    text-align: right;
+}
+
+main .totalCarrito .btn-comprar{
+    width:100%;
+    background-color: var(--marron);
+    color:#fff;
+    margin: 20px 0 0;
+}
+
+/*---MEDIA QUERY---*/
+/*--tablet--*/
+
+@media (min-width : 768px){
+    /*-- PRODUCTOS DEL CARRITO ---*/
+
+    main .productosCarrito table .t-body td{
+        padding:30px 10px;
+    }
+
+    main .productosCarrito table tr.t-body td img{
+        width: 100px;
+    }
+
+    /*-- FORMULARIO DE ENVIO ---*/
+
+    main .envioCarrito{
+        display:flex;
+        align-items:flex-end;
+        justify-content: space-between;
+    }
+
+    main .envioCarrito .envio{
+        width: 48%;
+    }
+
+    main .totalCarrito{
+        width: 48%;
+        margin:  0;
+        padding:0 ;
+    }
+}
+
+/*--desktop--*/
+
+@media (min-width : 1024px){
+    main{
+        width: 90%;
+        margin: 20px auto;
+        display:flex;
+        align-items:flex-start;
+        justify-content: space-between;
+        flex-wrap:wrap;
+    }
+
+    main h2{
+        width: 100%;
+        font-size:1.7em;
+    }
+
+    /*-- PRODUCTOS DEL CARRITO ---*/
+
+    main .productosCarrito{
+        width: 46%;
+    }
+
+    main .productosCarrito table .t-body td{
+        padding:30px 20px;
+    }
+
+    main .productosCarrito table .t-body td:first-child{
+        padding:30px 0px;
+    }
+
+    main .productosCarrito table .t-body td:nth-child(2){
+        text-align:center;
+        font-weight: 600;
+    }
+
+    main .productosCarrito table tr.t-body td img{
+        width: 70px;
+    }
+
+    main .productosCarrito .btn-vaciar{
+        background-color: var(--grisClaro);
+        margin: 5px 0 0; 
+    }
+
+    /*-- FORMULARIO DE ENVIO ---*/
+
+    main .envioCarrito{
+        width: 46%;
+        margin: 40px 0 0;
+        flex-direction: column;
+    }
+
+    main .envioCarrito .envio{
+        width: 100%;
+    }
+
+    main .totalCarrito{
+        width: 100%;
+        margin: 30px 0 0;
+    }
+}

@@ -1,13 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carrito de Compras</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    
+<body class="carrito">
+    <header>
+        <a href="/" class="logo">
+            <img src="logo.png" alt="">
+        </a>
+        <aside class="header-nav">
+            <div class="btn-cerrarMenu">
+                <i class="fas fa-times"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">mochilas</a></li>
+                    <li><a href="#">indumentaria</a></li>
+                    <li><a href="#">historia</a></li>
+                    <li><a href="#">comunidad</a></li>
+
+                    <form action="" class="busqueda">
+                        <input type="search" name="busqueda" id="busqueda" placeholder="Busca tu producto...">
+                        <i class="fas fa-search"></i>
+                    </form>
+                </ul>
+            </nav>
+        </aside>
+        <div class="btns-menu">
+            <div class="btn-user">
+                <a href="/login"><i class="fas fa-user"></i></a>
+            </div>
+            <div class="btn-carrito">
+                <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+            <div class="btn-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h2>Mi Carrito</h2>
+        <section class="productosCarrito">
+            <table>
+                <tr class="t-body">
+                    <td><img src="img/mochila.jpeg"></td>
+                    <td>Nombre porducto</td>
+                    <td>$1234</td>
+                    <td><div>1</div></td>
+                    <td><div>X</div></td>
+                </tr>
+                <tr class="t-body">
+                    <td><img src="img/mochila2.jpeg"></td>
+                    <td>Nombre porducto</td>
+                    <td>$1234</td>
+                    <td><div>1</div></td>
+                    <td><div>X</div></td>
+                </tr>
+                <tr class="t-body">
+                    <td><img src="img/mochila3.jpeg"></td>
+                    <td>Nombre porducto</td>
+                    <td>$1234</td>
+                    <td><div>1</div></td>
+                    <td><div>X</div></td>
+                </tr>
+            </table>
+            <button class="btn-vaciar btn">Vaciar carrito</button>
+        </section>
+        <section class="envioCarrito">
+            <div class="envio">
+                <form action="">
+                    <div class="input radio">
+                        <p>Solicitar envio express  <i class="fas fa-shipping-fast"></i></p>
+                        <label for="envio-si">Sí</label>
+                        <input type="radio" name="envio" value="si" id="envio-si" checked>
+                        <label for="envio-no">No</label>
+                        <input type="radio" name="envio" value="no" id="envio-no">
+                    </div>
+                    <div class="select full-width">
+                        <select name="provincias">
+                            <option value="-" selected hidden>Provincia</option>
+                            <option value="ba">Buenos Aires</option>
+                            <option value="ca">Catamarca</option>
+                            <option value="ch">Chaco</option>
+                            <option value="ct">Chubut</option>
+                            <option value="cb">Córdoba</option>
+                            <option value="cr">Corrientes</option>
+                            <option value="er">Entre Ríos</option>
+                            <option value="fo">Formosa</option>
+                            <option value="jy">Jujuy</option>
+                            <option value="lp">La Pampa</option>
+                            <option value="lr">La Rioja</option>
+                            <option value="mz">Mendoza</option>
+                            <option value="mi">Miciones</option>
+                            <option value="nqn">Neuquén</option>
+                            <option value="rn">Rio Negro</option>
+                            <option value="sa">Salta</option>
+                            <option value="sj">San Juan</option>
+                            <option value="sl">San Luis</option>
+                            <option value="sc">Santa Cruz</option>
+                            <option value="sf">Santa Fe</option>
+                            <option value="sw">Santiago del Estero</option>
+                            <option value="tf">Tierra del Fuego</option>
+                            <option value="tu">Tucumán</option>
+                        </select>
+                    </div>
+                    <div class="select full-width">
+                        <select name="Localidad">
+                            <option value="-" selected hidden>Localidad</option>
+                            <option value="ba">Buenos Aires</option>
+                            <option value="ca">Catamarca</option>
+                        </select>
+                    </div>
+                    <div class="input full-width">
+                        <input type="number" name="codigo-postal" placeholder="Código postal">
+                    </div>
+                    <div class="input full-width">
+                        <input type="text" name="calle" placeholder="Calle">
+                    </div>
+                    <div class="input full-width">
+                        <input type="text" name="numero-calle" placeholder="Número / Piso / Depto">
+                    </div>
+                </form>
+            </div>
+            <div class="totalCarrito">
+                <table>
+                    <tr>
+                        <td>Subtotal</td>
+                        <td>$9876</td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>$9987</td>
+                    </tr>
+                </table>
+                <button class="btn-comprar  btn">Comprar</button>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
