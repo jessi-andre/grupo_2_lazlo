@@ -13,15 +13,9 @@ a{
     color: var(--grisOscuro)
 }
 
-img{
-    display:block;
-    max-width: 100%;
-}
-
 input, p, li, a,th, td, button,select, option{
     font-family: 'Noto Sans KR', sans-serif;
 }
-
 
 :root{
     --marron:#957255;
