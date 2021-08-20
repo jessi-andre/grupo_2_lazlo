@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR&display=swap');
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+li{list-style:none;}
+
+a{
+    text-decoration: none;
+    color: var(--grisOscuro)
+}
+
+input, p, li, a,th, td, button,select, option{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+:root{
+    --marron:#957255;
+    --grisOscuro: #181913;
+    --grisClaro:#dedcdc;
+}
