@@ -5,34 +5,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Lazlo - HOME</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/sprint2/public/css/home.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://boxicons.com/">
-    <link rel="stylesheet" href="/https://fonts.google.com/">
 </head>
 
 <body>
-    <div class="home">
-        <header>
-            <img class="logo" src="/images/logoOscuro.png.png" alt="">
-            <div class="burger-menu">
-                <i class="fa fa-bars burger"></i>
+    <header>
+        <a href="/" class="logo">
+            <img src="images/logo.png" alt="">
+        </a>
+        <aside class="header-nav">
+            <div class="btn-cerrarMenu">
+                <i class="fas fa-times"></i>
             </div>
-
             <nav>
-                <ul class="ingresos">
-                    <ol><a href="#">Mochilas</a></ol>
-                    <ol><a href="#">Indumentaria</a></ol>
-                    <ol><a href="#">Historia</a></ol>
-                    <ol><a href="">comunidad</a></ol>
-                </ul>
-                
+                <ul>
+                    <li><a href="#">Mochilas</a></li>
+                    <li><a href="#">Indumentaria</a></li>
+                    <li><a href="#">Historia</a></li>
+                    <li><a href="#">Comunidad</a></li>
 
+                    <form action="" class="busqueda">
+                        <input type="search" name="busqueda" id="busqueda" placeholder="">
+                        <i class="fas fa-search"></i>
+                    </form>
+                </ul>
             </nav>
-    </div>
+        </aside>
+        <div class="btns-menu">
+            <div class="btn-user">
+                <a href="/login"><i class="fas fa-user"></i></a>
+            </div>
+            <div class="btn-carrito">
+                <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+            <div class="btn-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
     </header>
+
+
+    <main>
+        <article>
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/images/blog-header.jpg" class="d-block w-100" alt="imagen carousel">
+                    </div>
+                </div>
+        </article>
+
+    </main>
 </body>
 
 </html>
