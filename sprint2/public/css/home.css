@@ -1,42 +1,88 @@
-header .logo{
-    width:70px;
-    display:block;
-}
-header .logo img{
-    max-width:99%;
-    display:block;
+/*CAROUSEL*/
+section main .carousel-slide {
+    padding: 2px;
+
 }
 
-
-header{
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 1px 0px 10px rgba(161, 161, 161, .9);
-    padding: 11px;
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
-    flex-wrap:wrap;
-}
-
-header .header-nav{
-    position: static;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(145, 117, 95, 0.7);
-    z-index:1;
-    display: none;
-}
-
-
-main .carousel-slide{
+main .carousel-slide {
     align-items: center;
     width: 100%;
-    height: 500px;
+    height: 450px;
     margin: -10px;
     box-sizing: border-box;
     display: flex;
-
 }
+/*Titulo del medio*/
+
+.Productos h1 {
+    font-family: 'Bebas Neue', cursive;
+    margin: 15px 20px 0;
+    
+}
+/*IMAGENES DEl PRODUCTOS*/
+
+.imagenes-productos {
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap;
+    align-items: center;
+}
+
+.imagenes-productos article {
+    width: 46%;
+    position: relative;
+    margin: 5px;
+    border-radius: 15px;
+}
+
+.imagenes-productos article img {
+    max-width: 100%;
+    object-fit: cover;
+    width: 100%;
+    height: 220px;
+    border-radius: 15px;
+}
+
+.imagenes-productos article .boton-ver-mas{
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--marron);
+    padding: 5px 10px;
+    border-radius: 8px;
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+
+/*BANNER DE PIE*/
+
+.banner-final {
+    padding: 2px;
+    width: 100%;
+    position: relative;
+}
+
+.banner-final article img{
+    max-width: 100%;
+    object-fit: cover;
+    width: 100%;
+    height: 120px;
+}
+
+.banner-final h2{
+    color: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+}
+
+/*.banner-final .boton-ver-mas{
+
+}*/

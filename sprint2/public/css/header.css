@@ -134,6 +134,9 @@ header .btn-carrito, header .btn-menu, header .btn-user{
     padding: 5px 10px;
     font-size: 2em;
 }
+header .btn-carrito i{
+    color: var(--grisOscuro)!important;
+}
 
 header .btn-user a{
     color:  var(--marron);

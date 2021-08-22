@@ -1,9 +1,9 @@
-main{
+.corrito main{
     width: 92%;
     margin: 20px auto;
 }
 
-main h2{
+.carrito main h2{
     color:var(--marron);
     font-family: 'Bebas Neue', cursive;
     margin: 40px 0 10px;
@@ -197,7 +197,7 @@ main .totalCarrito .btn-comprar{
 /*--desktop--*/
 
 @media (min-width : 1024px){
-    main{
+    .carrito main{
         width: 90%;
         margin: 20px auto;
         display:flex;

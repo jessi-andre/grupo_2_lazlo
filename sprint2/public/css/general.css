@@ -13,20 +13,7 @@ a{
     color: var(--grisOscuro)
 }
 
-<<<<<<< HEAD
-h1{
-    display:none;
-}
-
-input, p, li, a{
-=======
-img{
-    display:block;
-    max-width: 100%;
-}
-
 input, p, li, a,th, td, button,select, option{
->>>>>>> 88f91ff1becf8f6838ccc2094f43b81ecc5eca7c
     font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -34,9 +21,6 @@ input, p, li, a,th, td, button,select, option{
 :root{
     --marron:#957255;
     --grisOscuro: #181913;
-<<<<<<< HEAD
     --grisClaro:#848181;
-=======
     --grisClaro:#dedcdc;
->>>>>>> 88f91ff1becf8f6838ccc2094f43b81ecc5eca7c
 }
