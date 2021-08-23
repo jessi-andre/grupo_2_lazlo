@@ -1,23 +1,24 @@
 /*CAROUSEL*/
 section main .carousel-slide {
-    padding: 2px;
-
-}
-
-main .carousel-slide {
-    align-items: center;
+    padding: 1px;
     width: 100%;
-    height: 450px;
-    margin: -10px;
-    box-sizing: border-box;
-    display: flex;
 }
+
+main .carousel-slide img {
+    max-width: 100%;
+    object-fit: cover;
+    width: 100%;
+    height: 270px;
+    opacity: ;
+}
+
 /*Titulo del medio*/
 
 .Productos h1 {
     font-family: 'Bebas Neue', cursive;
     margin: 15px 20px 0;
-    
+    font-size: 36px;
+    text-align: center;
 }
 /*IMAGENES DEl PRODUCTOS*/
 
@@ -40,17 +41,18 @@ main .carousel-slide {
 .imagenes-productos article img {
     max-width: 100%;
     object-fit: cover;
-    width: 100%;
-    height: 220px;
-    border-radius: 15px;
+    width: 90%;
+    height: 206px;
+    border-radius: 6px;
+    display: block;
 }
 
 .imagenes-productos article .boton-ver-mas{
     text-decoration: none;
     color: #fff;
     background-color: var(--marron);
-    padding: 5px 10px;
-    border-radius: 8px;
+    padding: 4px 11px;
+    border-radius: 5px;
     display: block;
     position: absolute;
     bottom: 10px;
@@ -59,11 +61,10 @@ main .carousel-slide {
 }
 
 
-
 /*BANNER DE PIE*/
 
 .banner-final {
-    padding: 2px;
+    padding: 1px;
     width: 100%;
     position: relative;
 }
@@ -72,17 +73,41 @@ main .carousel-slide {
     max-width: 100%;
     object-fit: cover;
     width: 100%;
-    height: 120px;
+    height: 200px;
 }
 
 .banner-final h2{
     color: #fff;
     font-family: 'Noto Sans KR', sans-serif;
     position: absolute;
-    top: 15px;
+    top: 20px;
     left: 10px;
 }
 
-/*.banner-final .boton-ver-mas{
+.banner-final .boton-ver-mas{
+    text-decoration: none;
+    color: var(--grisOscuro);
+    background-color: #fff;
+    padding: 6px 14px;
+    border-radius: 10px;
+    display: block;
+    position: absolute;
+    bottom: 76px;
+    left: 76%;
+    transform: translate(-50%);
+}
 
-}*/
+
+footer{
+    padding: 2px;
+    background-color: var(--grisOscuro);
+}
+
+.secciones a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.secciones  p{
+    color: #fff;
+}
