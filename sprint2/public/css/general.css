@@ -20,5 +20,6 @@ input, p, li, a,th, td, button,select, option{
 :root{
     --marron:#957255;
     --grisOscuro: #181913;
+    --grisClaro:#848181;
     --grisClaro:#dedcdc;
 }

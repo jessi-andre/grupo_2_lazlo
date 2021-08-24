@@ -1,13 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Lazlo - HOME</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    
+
+<body class="home">
+
+    <!--CONTENIDO DE HEADER-->
+    <header>
+        <a href="/" class="logo">
+            <img src="images/logo.png" alt="">
+        </a>
+        <aside class="header-nav">
+            <div class="btn-cerrarMenu">
+                <i class="fas fa-times"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">mochilas</a></li>
+                    <li><a href="#">indumentaria</a></li>
+                    <li><a href="#">historia</a></li>
+                    <li><a href="#">comunidad</a></li>
+
+                    <form action="" class="busqueda">
+                        <input type="search" name="busqueda" id="busqueda" placeholder="Busca tu producto...">
+                        <i class="fas fa-search"></i>
+                    </form>
+                </ul>
+                <!--ul class="usuario-nav">
+                    <li><a href=""><i class="fas fa-user"></i></a></li>
+                    <li><a href="#">iniciar sesión</a></li>  
+                    <li><a href="#">crear cuenta</a></li> 
+                </ul-->
+            </nav>
+        </aside>
+        <div class="btns-menu">
+            <div class="btn-user">
+                <a href="/login"><i class="fas fa-user"></i></a>
+            </div>
+            <div class="btn-carrito">
+                <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+            <div class="btn-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+
+    <!--Caorusel-->
+    <section>
+        <main>
+            <article>
+                <div id="carouselExampleSlidesOnly" class="carousel-slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/images/carousel-home.jpg" class="d-block w-100" alt="imagen carousel">
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+            </script>
+    </section>
+
+    <div style="width:auto">
+        <section class="Productos">
+            <h1>Exclusivo de Lazlo</h1>
+        </section>
+    </div>
+
+    <!--PRODUCTOS-->
+    <section>
+        <div class="imagenes-productos">
+            <article class="producto1">
+                <img src="/images/mochila-home-1.jpg" alt="mochila1">
+                <a class="boton-ver-mas" href="">Mochilas</a>
+            </article>
+            <article class="producto2">
+                <img src="/images/arbol..jpg" alt="arbol">
+                <a class="boton-ver-mas" href="">Ver más</a>
+            </article>
+            <article class="producto3">
+                <img src="/images/mochila-home-2.jpg" alt="mochila2">
+                <a class="boton-ver-mas" href="#">Bolsos</a>
+            </article>
+            <article class="producto4">
+                <img src="/images/mochila-home-3.jpg" alt="indumentaria1">
+                <a class="boton-ver-mas" href="#">Accesorios</a>
+            </article>
+        </div>
+    </section>
+    <section>
+        <div class="banner-final">
+            <article class="banner">
+                <img src="/images/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg" alt="">
+                <h2>Conocenos,<br>para conocerte.</h2>
+                <a class="boton-ver-mas" href="#">Ver más</a>
+            </article>
+        </div>
+    </section>
+
+    <!--FOOTER-->
+
+    <footer>
+        <section class="secciones">
+
+            <section class="contacto">
+                <a href="#">CONTACTO</a>
+
+                <p><i class="fab fa-instagram"></i> Instagran.com/lazlo</p>
+                </i>
+
+                <p><i class="fab fa-facebook-square"></i> faceboook.com/lazlo</p>
+                </i>
+
+                <p><i class="fab fa-twitter"></i> twitter.com/lazlo</p>
+                </i>
+                <p><i class="fas fa-envelope-open-text"></i> info@lazlo.com</p>
+                </i>
+            </section>
+
+            <section class="pagos">
+                <a href="#">MÉTODOS DE PAGO</a>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-diners-club"></i>
+                <i class="fab fa-cc-visa"></i>
+            </section>
+
+
+            <section class="mapa">
+                <a href="#">DIRECCIÓN</a>
+                <p>Calle 123, lugar</p>
+                <img src="/images/mapa-footer.jpg" alt="">
+            </section>
+        </section>
+    </footer>
+
 </body>
+
 </html>
