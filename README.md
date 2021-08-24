@@ -16,7 +16,7 @@
 
 ### 👩 Meza, Cecilia 
  - 35 años
- - Estudiante de programación
+ - Estudiante de programación.
 
 
 ## 💬 Temática del sitio y audiencia
