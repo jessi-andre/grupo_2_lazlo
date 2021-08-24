@@ -1,85 +1,64 @@
-body {
-    font-family: 'Karla', sans-serif;
-    margin: 0%;
-    
-
-
-} 
-
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-}
-
-.contenedor {
+  }
+  
+  
+  
+  .form-register {
+    width: 450px;
+    background: #b69172;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: black;
+    box-shadow: 7px 13px 37px #000;
+  }
+  
+  .form-register h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .controls {
     width: 100%;
-    padding: 15px;
-}
-
-.formulario {
-    background: #fff;
-    margin-top: 150px;
-    padding: 3px;
-}
-
-h1 {
-    text-align: center;
-    color: #181913;
-    font-size:40px;
-}
-
-input[type="text"],
-input[type="password"] {
-    font-size: 20px;
-    width: 82%;
+    background: #eceef0;
     padding: 10px;
-    border: none;
-}
-
-.input-contenedor {
-    margin-bottom: 15px;
-    border: 1px solid #aaa;
-}
-
-.icon{
-    min-width: 50px;
-    text-align: center;
-}
-
-.button {
-    border: none;
-    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #957255;
+    font-family: 'calibri';
+    font-size: 18px;
     color: white;
-    font-size: 20px;
-    background: #181913; 
-    padding: 15px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.button:hover {
-    background: #957255;
-}
-
-p {
+  }
+  
+  .form-register p {
+    height: 40px;
     text-align: center;
-}
-
-.link {
+    font-size: 18px;
+    line-height: 40px;
+  }
+  
+  .form-register a {
+    color: rgb(9, 25, 70);
     text-decoration: none;
-    color:#181913 ;
-    font-weight: 600;
-}
-.link:hover {
-    color:#957255 ;
-}
-
-@media(min-width:768px)
-{
-    .formulario {
-        margin: auto;
-        width: 500px;
-        margin-top: 150px;
-        border-radius: 2px;
-    }
-}
-
+  }
+  
+  .form-register a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .form-register .botons {
+    width: 100%;
+    background: #492a11;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+  }
+  

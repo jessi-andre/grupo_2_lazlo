@@ -6,8 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <a href="/" class="logo">
+            <img src="/images/logo.png" alt="">
+            
+        </a>
+        <aside class="header-nav">
+            <div class="btn-cerrarMenu">
+                <i class="fas fa-times"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">mochilas</a></li>
+                    <li><a href="#">indumentaria</a></li>
+                    <li><a href="#">historia</a></li>
+                    <li><a href="#">comunidad</a></li>
+
+                    <form action="" class="busqueda">
+                        <input type="search" name="busqueda" id="busqueda" placeholder="Busca tu producto...">
+                        <i class="fas fa-search"></i>
+                    </form>
+                </ul>
+            </nav>
+        </aside>
+        <div class="btns-menu">
+            <div class="btn-user">
+                <a href="/login"><i class="fas fa-user"></i></a>
+            </div>
+            <div class="btn-carrito">
+                <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+            <div class="btn-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main> 
+        <section class="form-register">
+            <h4>Iniciar Sesión</h4>
+            <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Usuario">
+            <input class="controls" type="password" name="usuario" id="usuario" placeholder="Ingrese su Contraseña">
+            <a href=""><input class="botons" type="submit" value="Iniciar sesión"></a>
+            <p><a href="#">Olvide mi Contraseña....</a></p>
+          </section>
+    </main>
+    
     
 </body>
 </html>
