@@ -20,8 +20,8 @@ header .logo img{
     display:block;
 }
 
-/*--HEADER-NAV --*/
-header .header-nav{
+/*--headerNav  --*/
+header .headerNav {
     position: absolute;
     top:0;
     left:0;
@@ -33,18 +33,18 @@ header .header-nav{
 }
 
 
-header .header-nav .btn-cerrarMenu{
+header .headerNav  .btn-cerrarMenu{
     position: absolute;
     top:10px;
     right:10px;
     z-index:3;
 }
 
-header .header-nav .btn-cerrarMenu i{
+header .headerNav  .btn-cerrarMenu i{
     font-size:1.8em
 }
 
-header .header-nav nav{
+header .headerNav  nav{
     position: absolute;
     top:0;
     right:0;
@@ -59,23 +59,24 @@ header .header-nav nav{
     justify-content:flex-start;
 }
 
-header .header-nav nav ul{
+header .headerNav  nav ul{
     width: 90%;
 }
 
-header .header-nav nav li{
+header .headerNav  nav li{
     text-align: center;
-    margin: 10px 0;
+    margin: 10px 0!important;
     padding: 8px;
 }
 
-header .header-nav nav li a{
-    padding: 8px;
+header .headerNav nav li a{
+    padding: 8px!important;
     font-family: 'Bebas Neue', cursive;
     font-size:1.1em;
+    color:var(--grisOscuro) !important; 
 }
 
-header .header-nav nav li a i{
+header .headerNav nav li a i{
     padding: 8px 0 4px;
     font-size:1.3em;
     color:var(--marron);
@@ -83,13 +84,13 @@ header .header-nav nav li a i{
 
 /*--BUSQUEDA--*/
 
-header .header-nav .busqueda{
+header .headerNav  .busqueda{
     width: 90%;
     margin: 30px auto;
     position: relative;
 }
 
-header .header-nav .busqueda input{
+header .headerNav  .busqueda input{
     width: 100%;
     background-color: #fff;
     border:0;
@@ -98,7 +99,7 @@ header .header-nav .busqueda input{
     color:var(--marron);
 }
 
-header .header-nav .busqueda i{
+header .headerNav  .busqueda i{
     position: absolute;
     bottom: 8px;
     right: 6px;
@@ -111,15 +112,17 @@ header .header-nav .busqueda i{
 
 /*--USUARTIO-NAV--*/
 
-header .header-nav .usuario-nav li{
+header .headerNav  .usuario-nav li{
     margin: 3px 0;
+    color:var(--grisOscuro) !important; 
 }
 
-header .header-nav .usuario-nav li a{
+header .headerNav  .usuario-nav li a{
     margin: 3px 0;
     font-family: 'Noto Sans KR', sans-serif;
     text-transform: capitalize;
     font-size:1em;
+    color:var(--grisOscuro) !important;
 }
 
 header .btns-menu{
@@ -133,6 +136,10 @@ header .btns-menu{
 header .btn-carrito, header .btn-menu, header .btn-user{
     padding: 5px 10px;
     font-size: 2em;
+}
+
+header .btn-carrito i{
+    color: var(--grisOscuro) !important;
 }
 
 header .btn-user a{
@@ -159,8 +166,8 @@ header .btn-user a{
         width:80px;
     }
 
-    /*--HEADER-NAV --*/
-    header .header-nav{
+    /*--headerNav  --*/
+    header .headerNav {
         position: relative;
         top:inherit;
         left:inherit;
@@ -170,11 +177,11 @@ header .btn-user a{
         display:block;
     }
 
-    header .header-nav .btn-cerrarMenu{
+    header .headerNav  .btn-cerrarMenu{
         display:none;
     }
 
-    header .header-nav nav{
+    header .headerNav  nav{
         position: relative;
         top:inherit;
         left:inherit;
@@ -185,56 +192,56 @@ header .btn-user a{
         justify-content:space-between;
     }
 
-    header .header-nav nav ul{
+    header .headerNav  nav ul{
         width: 100%;
         display:flex;
         justify-content: space-between;
         align-items:center;
     }
     
-    header .header-nav nav li{
-        margin: 0;
+    header .headerNav  nav li{
+        margin: 0 !important;
         padding: 0;
     }
 
-    header .header-nav nav li a{
+    header .headerNav  nav li a{
         font-size:1.3em;
         transition: color .5s
     }
 
-    header .header-nav nav li a:hover{
+    header .headerNav  nav li a:hover{
         color: var(--marron);
     }
 
-    header .header-nav nav li a i{
+    header .headerNav  nav li a i{
         display:none;
     }
 
     /*--BUSQUEDA--*/
 
-    header .header-nav .busqueda{
+    header .headerNav  .busqueda{
         width: 180px;
         margin: 0 0 12px 30px;
     }
 
     /*--USUARIO-NAV--*/
 
-    /*header .header-nav .usuario-nav{
+    /*header .headerNav  .usuario-nav{
         margin:0 0 30px;
         padding: 0;
         border-top:0;
         justify-content: flex-end;
     }
 
-    header .header-nav .usuario-nav li{
+    header .headerNav  .usuario-nav li{
         margin: 0;
     }
 
-    header .header-nav .usuario-nav li:nth-child(2){
+    header .headerNav  .usuario-nav li:nth-child(2){
         border-right: 2px dashed var(--marron);
     }
     
-    header .header-nav .usuario-nav li a{
+    header .headerNav  .usuario-nav li a{
         margin: 0;
         padding: 10px;
     }*/
@@ -259,18 +266,18 @@ header .btn-user a{
     header .logo{
         width:100px;
     }
-    /*--HEADER-NAV --*/
-    header .header-nav{
+    /*--headerNav  --*/
+    header .headerNav {
         width: 70%;
     }
 
-    header .header-nav nav li a{
+    header .headerNav  nav li a{
         font-size:1.5em;
         transition: color .5s
     }
 
     /*--BUSQUEDA--*/
-    header .header-nav .busqueda{
+    header .headerNav  .busqueda{
         width: 230px;
         margin: 0 0 12px 30px;
     }
