@@ -4,10 +4,118 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300&display=swap" rel="stylesheet">
 </head>
-<body>
+
+<body background="/images/fondo.jpg">
     
-</body>
-</html>
+    <header>
+        <a href="/" class="logo">
+            <img src="images/logo.png" alt="">
+        </a>
+        <aside class="headerNav ">
+            <div class="btn-cerrarMenu">
+                <i class="fas fa-times"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">mochilas</a></li>
+                    <li><a href="#">indumentaria</a></li>
+                    <li><a href="#">historia</a></li>
+                    <li><a href="#">comunidad</a></li>
+
+                    <form action="" class="busqueda">
+                        <input type="search" name="busqueda" id="busqueda" placeholder="Busca tu producto...">
+                        <i class="fas fa-search"></i>
+                    </form>
+                </ul>
+            </nav>
+        </aside>
+        <div class="btns-menu">
+            <div class="btn-user">
+                <a href="/login"><i class="fas fa-user"></i></a>
+            </div>
+            <div class="btn-carrito">
+                <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+            <div class="btn-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+
+ <main> 
+<form class="formulario">
+
+     <h1>¡Ya soy usuario!</h1>
+     <div class="contenedor">
+
+     
+
+         </div>
+    
+         <div class="input-contenedor">
+            <i class="fas fa-envelope icon"></i>
+            <input type="text" placeholder="tucorreo@hotmail.com">
+
+             </div>
+
+             <div class="input-contenedor">
+                <i class="fas fa-key icon"></i>
+                <input type="password" placeholder="Contraseña">
+                 </div>
+                  <input type="submit" value="Iniciar sesión" class="button"> <br>
+                 <br> <p>Al registrarte aceptas las Condiciones de uso y Política de privacidad.  </p> <br>
+                  <p>¿No tienes cuenta?  <a class="link" href="register.html">Registrate</a> </p>
+
+
+     </div>
+</form>
+</main>
+        
+ </body>
+ <footer>
+    <section class="secciones">
+
+        <section class="contacto">
+            <a href="#">CONTACTO</a>
+
+            <p><i class="fab fa-instagram"></i> Instagran.com/lazlo</p>
+            </i>
+
+            <p><i class="fab fa-facebook-square"></i> faceboook.com/lazlo</p>
+            </i>
+
+            <p><i class="fab fa-twitter"></i> twitter.com/lazlo</p>
+            </i>
+            <p><i class="fas fa-envelope-open-text"></i> info@lazlo.com</p>
+            </i>
+        </section>
+
+        <section class="pagos">
+            <a href="#">MÉTODOS DE PAGO</a>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+            <i class="fab fa-cc-amex"></i>
+            <i class="fab fa-cc-diners-club"></i>
+            <i class="fab fa-cc-visa"></i>
+        </section>
+
+
+        <section class="mapa">
+            <a href="#">DIRECCIÓN</a>
+            <p>Calle 123, lugar</p>
+            <img src="/images/mapa-footer.jpg" alt="">
+        </section>
+    </section>
+</footer>
+
+
+ </html> 
+    
