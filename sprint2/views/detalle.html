@@ -6,8 +6,226 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/glide.core.css">
+    <link rel="stylesheet" href="css/glide.theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="detalle">
-   
+    <header>
+        <a href="/" class="logo">
+            <img src="images/logo.png" alt="">
+        </a>
+        <aside class="headerNav ">
+            <div class="btn-cerrarMenu">
+                <i class="fas fa-times"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">mochilas</a></li>
+                    <li><a href="#">indumentaria</a></li>
+                    <li><a href="#">historia</a></li>
+                    <li><a href="#">comunidad</a></li>
+
+                    <form action="" class="busqueda">
+                        <input type="search" name="busqueda" id="busqueda" placeholder="Busca tu producto...">
+                        <i class="fas fa-search"></i>
+                    </form>
+                </ul>
+            </nav>
+        </aside>
+        <div class="btns-menu">
+            <div class="btn-user">
+                <a href="/login"><i class="fas fa-user"></i></a>
+            </div>
+            <div class="btn-carrito">
+                <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+            <div class="btn-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="producto">
+            <div class="productoImagen">
+              <img src="images/campera.jpeg" alt="">  
+            </div>
+            <div class="productoDetalle">
+                <div class="productoNombre">
+                   <h3>Tipo de Producto</h3>
+                    <h1>Nombre del Producto</h1> 
+                </div>            
+                <div class="precios-estrellas">
+                    <div>
+                    <h3 class="precio">$1234</h3>
+                        <h4 class="descuento">$1345</h4> 
+                    </div>
+                    <p class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+                </div>
+                <div class="envio">
+                    <p>Envio gratis</p>
+                </div>
+                <div class="caracteristicasFormulario">
+                    <form action="">
+                        <div class="select caja-form">
+                            <label for="color">Color:</label>
+                            <select name="color" id="color">
+                                <option value="none" selected hidden>Eligí un color</option>
+                                <option value="verde">Verde</option>
+                                <option value="negro">Negro</option>
+                                <option value="marron">Marrón</option>
+                            </select>
+                        </div>
+                        <div class="select caja-form">
+                            <label for="talle">Talle:</label>
+                            <select name="talle" id="talle">
+                                <option value="none" selected hidden>Eligí talle</option>
+                                <option value="s">S</option>
+                                <option value="m">M</option>
+                                <option value="l">L</option>
+                            </select>
+                        </div>
+                        <div class="input caja-form">
+                            <label for="cantidad">Cantidad:</label>
+                            <input type="number" name="cantidad" id="cantidad">
+                        </div>
+                        <button>Agregar al carrito</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="infoProducto">
+            <h2>Información del producto</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores hic provident quae voluptas. Cum, temporibus dolore pariatur porro, quis saepe doloribus cupiditate tempora dolores quos sint, consectetur explicabo id laboriosam.</p>
+            <h3>Meteriales</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            <h3>Otro detalles</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        </section>
+        <section class="reseñas">
+            <h2>Reseñas</h2>
+            <div class="reseña">
+                <div class="nombre-estrellas">
+                    <h3>Nombre</h3>
+                    <p class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+                </div>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In quam officiis non odio ex quia eligendi tenetur fuga similique cumque?</p>
+            </div>
+            <div class="reseña">
+                <div class="nombre-estrellas">
+                    <h3>Nombre2</h3>
+                    <p class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+                </div>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In quam officiis non odio ex quia eligendi tenetur fuga similique cumque?</p>
+            </div>
+        </section>
+        <section class="productosRelacionados">
+            <h2>Productos relacionados</h2>
+
+            <!-- carrucel -->
+
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                  <ul class="glide__slides">
+                    <li class="glide__slide">
+                        <div class="relacionado">
+                            <div class="imagenRelacionado">
+                                <img src="images/mochila.jpeg" alt="">
+                            </div>
+                            <div class="detalleRelacionado">
+                                <h3>Nombre del Producto</h3>
+                                <h4>$1234</h4>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div class="relacionado">
+                            <div class="imagenRelacionado">
+                                <img src="images/mochila2.jpeg" alt="">
+                            </div>
+                            <div class="detalleRelacionado">
+                                <h3>Nombre del Producto 2</h3>
+                                <h4>$1234</h4>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div class="relacionado">
+                            <div class="imagenRelacionado">
+                                <img src="images/mochila3.jpeg" alt="">
+                            </div>
+                            <div class="detalleRelacionado">
+                                <h3>Nombre del Producto 3</h3>
+                                <h4>$1234</h4>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div class="relacionado">
+                            <div class="imagenRelacionado">
+                                <img src="images/mochila.jpeg" alt="">
+                            </div>
+                            <div class="detalleRelacionado">
+                                <h3>Nombre del Producto 4</h3>
+                                <h4>$1234</h4>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div class="relacionado">
+                            <div class="imagenRelacionado">
+                                <img src="images/mochila2.jpeg" alt="">
+                            </div>
+                            <div class="detalleRelacionado">
+                                <h3>Nombre del Producto 5</h3>
+                                <h4>$1234</h4>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div class="relacionado">
+                            <div class="imagenRelacionado">
+                                <img src="images/mochila3.jpeg" alt="">
+                            </div>
+                            <div class="detalleRelacionado">
+                                <h3>Nombre del Producto 6</h3>
+                                <h4>$1234</h4>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div class="relacionado">
+                            <div class="imagenRelacionado">
+                                <img src="images/mochila.jpeg" alt="">
+                            </div>
+                            <div class="detalleRelacionado">
+                                <h3>Nombre del Producto 7</h3>
+                                <h4>$1234</h4>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div class="relacionado">
+                            <div class="imagenRelacionado">
+                                <img src="images/mochila2.jpeg" alt="">
+                            </div>
+                            <div class="detalleRelacionado">
+                                <h3>Nombre del Producto 8</h3>
+                                <h4>$1234</h4>
+                            </div>
+                        </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="glide__arrows" data-glide-el="controls">
+                  <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-caret-left"></i></button>
+                  <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-caret-right"></i></button>
+                </div>
+              </div>
+        </section>
+    </main>
+
+    <script src="js/glide.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

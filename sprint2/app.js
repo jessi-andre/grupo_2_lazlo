@@ -13,4 +13,4 @@ app.get('/detalle', (req,res) => res.sendFile(path.join(__dirname, 'views','deta
 app.get('/carrito', (req,res) => res.sendFile(path.join(__dirname, 'views','carrito.html')))
 
 
-app.listen(port, () => console.log("Server running in port http://localhost:"+ port))
+app.listen(port,()=> console.log("Servidor corriendo en http://localhost:" + port)) 
