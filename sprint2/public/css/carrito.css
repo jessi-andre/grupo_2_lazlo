@@ -43,7 +43,7 @@
 
 .carrito main  .productosCarrito table tr.t-body td img{
     display:block;
-    max-width: 200px;
+    max-width: 100px;
 }
 
 .carrito main  .productosCarrito table tr.t-body td div{
@@ -86,7 +86,7 @@
 /*-- FORMULARIO DE ENVIO ---*/
 
 .carrito main  .envioCarrito .envio{
-    background-color: var(--grisClaro);
+    background-color: rgba(222, 220, 220, .5);
     border-radius:5px;
     padding: 10px;
 }
@@ -114,6 +114,7 @@
     width: 100%;
     font-weight: 400;
     margin: 0 0 10px;
+    text-align:left;
 }
 
 .carrito main  .envioCarrito .envio form .radio i{
@@ -132,8 +133,7 @@
 .carrito main  .envioCarrito .envio form .full-width input, .carrito main  .envioCarrito .envio form .full-width select{
     width:100%;
     padding: 8px;
-    border:none;
-    border-radius: 5px;
+    border: 1px solid #aaa;
 }
 
 /*-- TOTAL ---*/
