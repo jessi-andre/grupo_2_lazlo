@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <title>Register</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300&display=swap" rel="stylesheet">
 </head>
 
 <body background="/images/fondo.jpg">
-
+    
     <header>
         <a href="/" class="logo">
             <img src="images/logo.png" alt="">
@@ -53,20 +48,40 @@
             </div>
         </div>
     </header>
- <main> 
-    <section class="form-register">
-        <h4>Formulario Registro</h4>
-        <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
-        <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
-        <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
-        <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su Contraseña">
-        <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-        <a href=""><input class="botons" type="submit" value="Registrar"></a>
-        <p><a href="#">Ya tengo una Cuenta....</a></p>
-      </section>
-</main>
 
-<footer>
+ <main> 
+<form class="formulario">
+
+     <h1>Registrate </h1>
+     <div class="contenedor">
+
+     <div class="input-contenedor">
+        <i class="fas fa-user icon"></i>
+        <input type="text" placeholder="Nombre Completo">
+
+         </div>
+    
+         <div class="input-contenedor">
+            <i class="fas fa-envelope icon"></i>
+            <input type="text" placeholder="tucorreo@hotmail.com">
+
+             </div>
+
+             <div class="input-contenedor">
+                <i class="fas fa-key icon"></i>
+                <input type="password" placeholder="Contraseña">
+                 </div>
+                  <input type="submit" value="Registrate" class="button"> <br>
+                 <br> <p>Al registrarte aceptas las Condiciones de uso y Política de privacidad.  </p> <br>
+                  <p>¿Ya tienes una cuenta? <a class="link" href="/login">Iniciar sesión </a> </p>
+
+
+     </div>
+    </form>
+</main>
+        
+ </body>
+ <footer>
     <section class="secciones">
 
         <section class="contacto">
@@ -102,9 +117,6 @@
     </section>
 </footer>
 
-</body>
 
-        
- </body>
  </html> 
     
