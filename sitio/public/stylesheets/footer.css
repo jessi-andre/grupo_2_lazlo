@@ -1,0 +1,99 @@
+
+footer {
+    background-color: var(--grisOscuro);
+    font-size: 1em;
+    line-height: 1.6em;
+    width: 100%;
+    bottom: 0;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+/*--las 3 cajas--*/
+section.secciones {
+    display: flex;
+    width: 100%;
+    padding: 14px;
+    flex-direction: column;
+}
+
+/*--contacto--*/
+section.contacto{
+    width: 55%;
+    text-align: center;
+    margin:0 auto;
+}
+
+/*--pagos--*/
+section.pagos {
+    width: 70%;
+    margin: 0.5% auto;
+    vertical-align: top;
+    text-align: center;
+}
+
+.secciones a {
+    text-decoration: none;
+    color: #fff;
+    padding: initial;
+    font-size: 20px;
+    margin-top: 20px;
+    display:block;
+}
+
+.secciones .pagos i {
+    color: #fff;
+    margin: 10px 2px;
+    font-size: 20px;
+}
+
+.secciones p {
+    color: #fff;
+}
+/*--direccion y mapa--*/
+
+section.mapa {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.mapa p , .mapa a{
+    width: 100%;
+    text-align: center;
+}
+
+.mapa img {
+    width: 63%;
+    height: 142px;
+    object-fit: cover;
+    margin: 17px auto;
+    display: block;
+}
+
+/*--tablet--*/
+
+@media (min-width :768px){
+    section.secciones {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    section.pagos , section.contacto , section.mapa {
+        width: 30%;
+        margin: 0 auto;
+    }
+}
+
+/*--PC--*/
+
+@media (min-width : 1024px){
+    section.secciones {
+  flex-direction: row;
+  justify-content: space-between;
+    }
+    }
+
+
+    

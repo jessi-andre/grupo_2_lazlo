@@ -1,0 +1,212 @@
+.detalle main {
+    width: 92%;
+    margin: 20px auto;
+}
+
+.detalle img {
+    max-width: 100%;
+    display:block;
+}
+
+/*-- DETALLE DEL PRODUCTO --*/
+
+.detalle .producto  .productoDetalle h1{
+    margin: 10px 0 20px;
+}
+
+.detalle .producto .precios-estrellas{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    margin: 10px 0;
+}
+
+.detalle .producto .precios-estrellas h3, .detalle .producto .precios-estrellas h4{
+    display: inline;
+}
+
+.detalle .producto .precios-estrellas .descuento{
+    justify-self: start;
+    text-decoration: line-through;
+    margin: 0 10px 0;
+}
+
+.detalle .producto .caracteristicasFormulario .caja-form{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 30px;
+}
+
+.detalle .producto .caracteristicasFormulario .caja-form select, .detalle .producto .caracteristicasFormulario .caja-form input{
+    width: 150px;
+    padding: 5px;
+    border-radius: 3px; 
+    border: 1px solid #000;
+}
+
+.detalle .producto .caracteristicasFormulario button{
+    width: 100%;
+    background-color: var(--marron);
+    color:#fff;
+    padding: 5px;
+    border-radius:5px;
+    border:none;
+}
+
+
+.detalle .infoProducto, .detalle .reseñas{
+    margin: 30px 0;
+}
+
+.detalle .infoProducto h2, .detalle .reseñas h2{
+    margin: 0 0 15px;
+    color: var(--marron);
+    border-bottom: 2px dashed var(--marron);
+    padding: 0 0 5px; 
+    width: 80%;
+}
+
+/*-- INFROMACIÓN DEL PRODUCTO --*/
+
+.detalle .infoProducto h3{
+    margin: 8px 0 0;
+}
+
+/*-- RESEÑAS --*/
+
+.detalle .reseñas .nombre-estrellas{
+    margin: 10px 0;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*-- CARRUCEL DE PRODUCTOS --*/
+
+.detalle .productosRelacionados{
+    margin: 30px auto 0;
+}
+
+.detalle .productosRelacionados h2{
+    margin:40px 0;
+    text-align: center;
+}
+
+.detalle .productosRelacionados .relacionado{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 2px solid var(--marron);
+    padding: 20px;
+}
+
+.glide__arrow{
+    border-color: var(--grisOscuro)  !important;
+    color:var(--grisOscuro)  !important;
+}
+
+.detalle .productosRelacionados .relacionado .detalleRelacionado{
+    margin: 20px 0 0;
+    padding: 20px 0 0; 
+    border-top: 2px dashed var(--marron);
+}
+
+.detalle .productosRelacionados .relacionado .detalleRelacionado h3{
+    margin: 0 0 10px;
+}
+
+.detalle .productosRelacionados .relacionado .imagenRelacionado{
+    height: 260px;
+}
+
+.detalle .productosRelacionados .relacionado .imagenRelacionado img{
+    height: 250px;
+    margin: 5px auto;
+}
+
+/*---MEDIA QUERY---*/
+/*--tablet--*/
+
+@media (min-width : 768px){
+   /*-- DETALLE DEL PRODUCTO --*/
+
+    .detalle .producto{
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    .detalle .producto .productoImagen, .detalle .producto  .productoDetalle{
+        width: 46%;
+    }
+
+    .detalle .infoProducto h2, .detalle .reseñas h2{
+        width: 60%;
+    }
+
+    /*-- RESEÑAS --*/
+
+    .detalle .reseñas .nombre-estrellas{
+        width: 50%;
+    }
+
+    /*-- CARRUCEL DE PRODUCTOS --*/
+
+    .detalle .productosRelacionados .relacionado{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .detalle .productosRelacionados .relacionado .imagenRelacionado{
+        height: 200px;
+    }
+    
+    .detalle .productosRelacionados .relacionado .imagenRelacionado img{
+        height: 190px;
+    }
+}
+
+/*--desktop--*/
+
+@media (min-width : 1024px){
+    /*-- DETALLE DEL PRODUCTO --*/
+
+    .detalle .producto{
+        margin: 20px 0;
+    }
+
+    .detalle .producto  .productoDetalle{
+        margin: 30px 0;
+    }
+
+    .detalle .infoProducto h2, .detalle .reseñas h2{
+        width: 50%;
+    }
+
+    /*-- RESEÑAS --*/
+
+    .detalle .reseñas .nombre-estrellas{
+        width: 30%;
+    }
+
+    /*-- CARRUCEL DE PRODUCTOS --*/
+
+    .detalle .productosRelacionados h2{
+        margin:50px 0 40px;
+        text-align: center;
+    }
+
+    .detalle .productosRelacionados .relacionado{
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .detalle .productosRelacionados .relacionado .imagenRelacionado{
+        height: 180px;
+    }
+    
+    .detalle .productosRelacionados .relacionado .imagenRelacionado img{
+        height: 170px;
+    }
+}
