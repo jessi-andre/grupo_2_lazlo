@@ -1,0 +1,106 @@
+.vistaProductos h2{
+    font-size: 2em; 
+    color: var(--marron);
+    margin: 30px auto;
+    text-align:center;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue', cursive;
+    
+}
+
+.vistaProductos .productos{
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.vistaProductos .producto{
+    width: 100%;
+    margin: 20px 0;
+    box-shadow: 2px 2px 10px #888;
+    padding: 10px;
+    display:block;
+    transition: background-color .5s, box-shadow .5s;
+}
+
+.vistaProductos .producto .productoImg{
+    width: 100% !important;
+}
+
+.vistaProductos .producto .productoImg img{
+    width: 100% !important;
+}
+
+.vistaProductos .productoInfo{
+    padding: 10px 0 0;
+    margin: 15px 0  0;
+    border-top: 1px solid var(--marron);
+    transition: border .5s, color .5s;
+}
+
+.vistaProductos .productoInfo h3{
+    font-weight: 800;
+    margin: 0 0 8px;
+    text-transform: capitalize;
+}
+
+.vistaProductos .productoInfo p{
+    color: var(--marron);
+    transition: color .5s;
+    text-align: left;
+}
+
+.vistaProductos .producto:hover{
+    background-color: var(--marron);
+    color: #fff;
+    box-shadow: 0px 0px 5px #888;
+}
+
+
+.vistaProductos .producto:hover  .productoInfo{
+    border-top: 1px solid #fff;
+    color: #fff;
+}
+
+.vistaProductos .producto:hover  .productoInfo p{
+    color: #fff;
+}
+
+@media (min-width : 768px){
+    .vistaProductos .producto .productoImg{
+        width: 100% !important;
+    }
+    
+    .vistaProductos .producto .productoImg img{
+        width: 100% !important;
+    }
+    .vistaProductos .productos{
+        width: 90%;
+    }  
+    
+    .vistaProductos .producto{
+        width: 31%;
+    }
+}
+
+/*--desktop--*/
+
+@media (min-width : 1024px){
+    .vistaProductos .producto .productoImg{
+        width: 100% !important;
+    }
+    
+    .vistaProductos .producto .productoImg img{
+        width: 100% !important;
+    }
+    .vistaProductos .productos{
+        width: 85%;
+    } 
+
+    .vistaProductos .producto{
+        width: 23%;
+    }
+}

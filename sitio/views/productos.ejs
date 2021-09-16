@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include('./partials/head')%> 
+<body class="detalle">
+    <%-include('./partials/header')%> 
+    <main class="vistaProductos">
+        <h2><%= title %></h2>
+        <section class="productos">  
+            <% products.forEach(product => { %>
+
+                <a href="/productos/detalle/<%= product.id %>" class="producto">
+                    <div class="productoImg">
+                        <img src="/images/<%= product.image %>" alt="">
+                    </div>
+                    <div class="productoInfo">
+                        <h3><%= product.name %></h3>
+                        <p>$ <%= product.price %></p>
+                    </div>
+                </a>
+             
+            <% }) %>         
+        </section>
+    </main>
+    <%-include('./partials/footer')%> 
+</body>
+</html>

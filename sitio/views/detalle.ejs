@@ -6,17 +6,16 @@
     <main>
         <section class="producto">
             <div class="productoImagen">
-              <img src="images/campera.jpeg" alt="">  
+              <img src="/images/<%= product.image %>" alt="">  
             </div>
             <div class="productoDetalle">
                 <div class="productoNombre">
-                   <h3>Tipo de Producto</h3>
-                    <h1>Nombre del Producto</h1> 
+                    <h3 class="categoria"><%= product.category %></h3>
+                    <h1><%= product.name %></h1> 
                 </div>            
                 <div class="precios-estrellas">
                     <div>
-                    <h3 class="precio">$1234</h3>
-                        <h4 class="descuento">$1345</h4> 
+                        <h3 class="precio">$ <%= product.price %></h3>
                     </div>
                     <p class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
                 </div>
@@ -28,21 +27,23 @@
                         <div class="select caja-form">
                             <label for="color">Color:</label>
                             <select name="color" id="color">
-                                <option value="none" selected hidden>Eligí un color</option>
-                                <option value="verde">Verde</option>
-                                <option value="negro">Negro</option>
-                                <option value="marron">Marrón</option>
+                                <option value="-" selected hidden>Elegí el color</option>
+                                <% product.colors.forEach(color => { %>
+                                    <option value="<%= color %>"><%= color %></option>
+                                <% }) %>
                             </select>
                         </div>
-                        <div class="select caja-form">
-                            <label for="talle">Talle:</label>
-                            <select name="talle" id="talle">
-                                <option value="none" selected hidden>Eligí talle</option>
-                                <option value="s">S</option>
-                                <option value="m">M</option>
-                                <option value="l">L</option>
-                            </select>
-                        </div>
+                        <% if (product.size) { %>
+                            <div class="select caja-form">
+                                <label for="talle">Talle:</label>
+                                <select name="talle" id="talle">
+                                    <option value="" selected hidden>Eligí talle</option>
+                                    <% product.size.forEach(size => { %>
+                                        <option value="<%= size %>"><%= size %></option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        <% } %>
                         <div class="input caja-form">
                             <label for="cantidad">Cantidad:</label>
                             <input type="number" name="cantidad" id="cantidad">
@@ -54,11 +55,7 @@
         </section>
         <section class="infoProducto">
             <h2>Información del producto</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores hic provident quae voluptas. Cum, temporibus dolore pariatur porro, quis saepe doloribus cupiditate tempora dolores quos sint, consectetur explicabo id laboriosam.</p>
-            <h3>Meteriales</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-            <h3>Otro detalles</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            <p><%= product.description %></p>
         </section>
         <section class="reseñas">
             <h2>Reseñas</h2>
@@ -85,94 +82,21 @@
             <div class="glide">
                 <div class="glide__track" data-glide-el="track">
                   <ul class="glide__slides">
-                    <li class="glide__slide">
-                        <div class="relacionado">
-                            <div class="imagenRelacionado">
-                                <img src="images/mochila.jpeg" alt="">
+                    
+                    <% mochilas.forEach(mochila=> { %>
+                        <li class="glide__slide">
+                            <div class="relacionado">
+                                <div class="imagenRelacionado">
+                                    <img src="/images/<%= mochila.image %>" alt="">
+                                </div>
+                                <div class="detalleRelacionado">
+                                    <h3><%= mochila.name %></h3>
+                                    <h4>$ <%= mochila.price %></h4>
+                                </div>
                             </div>
-                            <div class="detalleRelacionado">
-                                <h3>Nombre del Producto</h3>
-                                <h4>$1234</h4>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="glide__slide">
-                        <div class="relacionado">
-                            <div class="imagenRelacionado">
-                                <img src="images/mochila2.jpeg" alt="">
-                            </div>
-                            <div class="detalleRelacionado">
-                                <h3>Nombre del Producto 2</h3>
-                                <h4>$1234</h4>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="glide__slide">
-                        <div class="relacionado">
-                            <div class="imagenRelacionado">
-                                <img src="images/mochila3.jpeg" alt="">
-                            </div>
-                            <div class="detalleRelacionado">
-                                <h3>Nombre del Producto 3</h3>
-                                <h4>$1234</h4>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="glide__slide">
-                        <div class="relacionado">
-                            <div class="imagenRelacionado">
-                                <img src="images/mochila.jpeg" alt="">
-                            </div>
-                            <div class="detalleRelacionado">
-                                <h3>Nombre del Producto 4</h3>
-                                <h4>$1234</h4>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="glide__slide">
-                        <div class="relacionado">
-                            <div class="imagenRelacionado">
-                                <img src="images/mochila2.jpeg" alt="">
-                            </div>
-                            <div class="detalleRelacionado">
-                                <h3>Nombre del Producto 5</h3>
-                                <h4>$1234</h4>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="glide__slide">
-                        <div class="relacionado">
-                            <div class="imagenRelacionado">
-                                <img src="images/mochila3.jpeg" alt="">
-                            </div>
-                            <div class="detalleRelacionado">
-                                <h3>Nombre del Producto 6</h3>
-                                <h4>$1234</h4>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="glide__slide">
-                        <div class="relacionado">
-                            <div class="imagenRelacionado">
-                                <img src="images/mochila.jpeg" alt="">
-                            </div>
-                            <div class="detalleRelacionado">
-                                <h3>Nombre del Producto 7</h3>
-                                <h4>$1234</h4>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="glide__slide">
-                        <div class="relacionado">
-                            <div class="imagenRelacionado">
-                                <img src="images/mochila2.jpeg" alt="">
-                            </div>
-                            <div class="detalleRelacionado">
-                                <h3>Nombre del Producto 8</h3>
-                                <h4>$1234</h4>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    <% }) %>
+                                                            
                   </ul>
                 </div>
                 <div class="glide__arrows" data-glide-el="controls">
