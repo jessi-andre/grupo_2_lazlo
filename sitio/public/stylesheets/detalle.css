@@ -3,6 +3,21 @@
     margin: 20px auto;
 }
 
+.producto p, .producto h3, .producto h1, .producto h2{
+    text-align:left;
+}
+
+.producto h3, .producto h1{
+    text-transform: capitalize;
+}
+
+.producto .categoria{color: var(--marron)}
+
+
+.reseñas p, .infoProducto p{
+    text-align:left;
+}
+
 .detalle img {
     max-width: 100%;
     display:block;
@@ -18,18 +33,17 @@
     display:flex;
     justify-content: space-between;
     align-items:center;
-    margin: 10px 0;
+    margin: 30px 0;
+}
+
+.detalle .producto .precio{
+    font-size: 2em;
 }
 
 .detalle .producto .precios-estrellas h3, .detalle .producto .precios-estrellas h4{
     display: inline;
 }
 
-.detalle .producto .precios-estrellas .descuento{
-    justify-self: start;
-    text-decoration: line-through;
-    margin: 0 10px 0;
-}
 
 .detalle .producto .caracteristicasFormulario .caja-form{
     display:flex;
@@ -52,8 +66,13 @@
     padding: 5px;
     border-radius:5px;
     border:none;
+    cursor:pointer;
+    transition: opacity .5s;
 }
 
+.detalle .producto .caracteristicasFormulario button:hover{
+    opacity: .8;
+}
 
 .detalle .infoProducto, .detalle .reseñas{
     margin: 30px 0;

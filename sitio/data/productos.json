@@ -3,7 +3,8 @@
         "id": 1,
         "name": "Mochila Strom",
         "price": 159,
-        "descrption": "La mochila más vendida del mundo, diseñada por esquiadores y adoptada por todos",
+        "category": "mochilas",
+        "description": "La mochila más vendida del mundo, diseñada por esquiadores y adoptada por todos",
         "colors": [
             "verde",
             "rojo",
@@ -16,9 +17,10 @@
     },
     {
         "id": 2,
-        "nombre": "Rodillo de nieve",
-        "precio": 269,
-        "descrption": "La primera bolsa para esquís y tablas de snowboard con protección contra costillas, compresible y ajustable en longitud del mundo.",
+        "name": "Rodillo de nieve",
+        "price": 269,
+        "category": "mochilas",
+        "description": "La primera bolsa para esquís y tablas de snowboard con protección contra costillas, compresible y ajustable en longitud del mundo.",
         "colors": [
             "rojo",
             "negro",
@@ -26,13 +28,14 @@
             "azul",
             "violeta"
         ],
-        "imagen": "producto2.png"
+        "image": "producto2.png"
     },
     {
         "id": 3,
-        "nombre": "Sudadera Tech",
-        "precio": 139,
-        "descrption": "Nos encantan las sudaderas con capucha en Topo Designs. Nuestra sudadera con capucha Tech Fleece cuenta con un impresionante vellón unido de poliéster / spandex que absorbe la humedad. Suave y cálido por dentro, protector por fuera.",
+        "name": "Sudadera Tech",
+        "price": 139,
+        "category": "indumentaria",
+        "description": "Nos encantan las sudaderas con capucha en Topo Designs. Nuestra sudadera con capucha Tech Fleece cuenta con un impresionante vellón unido de poliéster / spandex que absorbe la humedad. Suave y cálido por dentro, protector por fuera.",
         "colors": [
             "gris",
             "azul"
@@ -43,13 +46,14 @@
             "l",
             "xl"
         ],
-        "imagen": "producto3.png"
+        "image": "producto3.jpg"
     },
     {
         "id": 4,
-        "nombre": "Polar subalpino",
-        "precio": 189,
-        "descrption": "Una capa suave y acogedora para los días fríos. Hecho de vellón de sherpa Polartec® con codos reforzados, nuestro vellón subalpino es la capa duradera perfecta para temperaturas intermedias.",
+        "name": "Polar subalpino",
+        "price": 189,
+        "category": "indumentaria",
+        "description": "Una capa suave y acogedora para los días fríos. Hecho de vellón de sherpa Polartec® con codos reforzados, nuestro vellón subalpino es la capa duradera perfecta para temperaturas intermedias.",
         "colors": [
             "marrón",
             "negro"
@@ -60,31 +64,89 @@
             "l",
             "xl"
         ],
-        "imagen": "producto4.png"
+        "image": "producto4.jpg"
     },
     {
         "id": 5,
-        "nombre": "Bolsa de embalaje",
-        "precio": 24,
-        "descrption": "Nuestra versión de cubos de embalaje, nuestras bolsas de embalaje modulares están diseñadas para encajar perfectamente en nuestras bolsas de viaje y nuestro rodillo de bolsas de viaje para una experiencia de embalaje que ahorra tiempo y espacio. Optimizar su equipaje nunca ha sido tan fácil.",
+        "name": "Bolsa de embalaje",
+        "price": 24,
+        "category": "accesorios",
+        "description": "Nuestra versión de cubos de embalaje, nuestras bolsas de embalaje modulares están diseñadas para encajar perfectamente en nuestras bolsas de viaje y nuestro rodillo de bolsas de viaje para una experiencia de embalaje que ahorra tiempo y espacio. Optimizar su equipaje nunca ha sido tan fácil.",
         "colors": [
             "azul",
             "rojo",
             "verde",
             "negro"
         ],
-        "imagen": "accesorio1.jpg"
+        "image": "accesorio1.jpg"
     },
     {
         "id": 6,
-        "nombre": "Gorro alcolchado",
-        "precio": 39,
-        "descrption": "Su nuevo accesorio para climas fríos, el Puffer Cap le brinda calidez con aislamiento, cobertura ajustable para los oídos y un estilo fresco de montaña.",
+        "name": "Gorro alcolchado",
+        "price": 39,
+        "category": "accesorios",
+        "description": "Su nuevo accesorio para climas fríos, el Puffer Cap le brinda calidez con aislamiento, cobertura ajustable para los oídos y un estilo fresco de montaña.",
         "colors": [
             "verde",
             "negro"
         ],
-        "imagen": "accesorio2.jpg"
+        "image": "accesorio2.jpg"
+    },
+    {
+        "id": 7,
+        "name": "dual pants",
+        "category": "indumentaria",
+        "price": 129,
+        "description": "Diseñados para funcionar el doble de tiempo, nuestros pantalones dobles son una prenda de trabajo confiable que se ve lo suficientemente bien para el uso diario. Lona elástica cómoda y resistente con un ajuste recto que se usa como un viejo favorito y los refuerzos en las rodillas y el asiento duplican la durabilidad.",
+        "colors": ["beige", "negro"],
+        "size": ["m", "l", "xl"],
+        "image": "producto07.jpg"
+    },
+    {
+        "id": 8,
+        "name": "dirt shorts",
+        "category": "indumentaria",
+        "price": 69,
+        "description": "Con un ajuste relajado, detalles clásicos y bolsillos de parche en las costuras laterales y en la parte posterior, los Dirt Shorts se convertirán rápidamente en uno de tus shorts favoritos. El lavado teñido en prenda suaviza tanto el color como la tela, haciéndola sentir como un viejo favorito desde su primer uso.",
+        "colors": ["marrón", "natural", "azul"],
+        "size": ["s", "m", "l","xl"],
+        "image": "producto08.jpg"
+    },
+    {
+        "id": 9,
+        "name": "nylon camp hat",
+        "category": "accesorios",
+        "price": 32,
+        "description": "La gorra de campamento perfecta, ligera y plegable. Una gorra de 5 paneles 100% nailon con cierre de hebilla de cincha ajustable.",
+        "colors": ["negro", "gris", "beige"],
+        "image": "producto09.jpg"
+    },
+    {
+        "id": 10,
+        "name": "web belt",
+        "category": "accesorios",
+        "price": 39,
+        "description": "Nuestro Web Belt es lo suficientemente fácil para usarlo todos los días, pero lo suficientemente resistente como para durar más que la mayor parte de su guardarropa y lucir bien haciéndolo. El cinturón de 1.5\" está hecho de una cinta de nailon muy duradera con una hebilla de aluminio sólido.",
+        "colors": ["verde", "negro", "gris"],
+        "image": "producto10.jpg"
+    },
+    {
+        "id": 11,
+        "name": "cinch tote",
+        "category": "mochilas",
+        "price": 59,
+        "description": "Nuestro Cinch Tote tiene un cuerpo de nailon 1000D duradero completamente forrado con tela de nailon y cuatro bolsillos externos profundos para evitar que los artículos pequeños se pierdan en el fondo de su bolso. Una correa extraíble le permite llevar el bolso al hombro o quitárselo cuando no lo necesite.",
+        "colors": ["celeste/amarillo", "verde/naranja"],
+        "image": "producto11.jpg"
+    },
+    {
+        "id": 12,
+        "name": "y-pack",
+        "category": "mochilas",
+        "price": 79,
+        "description": "Con una solapa ancha y un solo cierre, el Y-Pack fusiona el estilo clásico y la funcionalidad moderna. La capucha ancha con cremallera proporciona un amplio espacio de almacenamiento, mientras que un cierre de cordón interior, una funda para computadora portátil y bolsillos laterales para botellas de agua hacen que guardar y organizar el equipo sea rápido y fácil.",
+        "colors": ["naranja", "negro"],
+        "image": "producto12.jpg"
     }
 ]
 
