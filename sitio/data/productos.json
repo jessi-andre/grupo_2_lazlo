@@ -1,5 +1,98 @@
 [
     {
+        "id": 1,
+        "name": "Mochila Strom",
+        "price": 159,
+        "category": "mochilas",
+        "description": "La mochila más vendida del mundo, diseñada por esquiadores y adoptada por todos",
+        "colors": [
+            "verde",
+            "rojo",
+            "negro",
+            "blanco",
+            "azul",
+            "beige"
+        ],
+        "image": "producto1.png"
+    },
+    {
+        "id": 2,
+        "name": "Rodillo de nieve",
+        "price": 269,
+        "category": "mochilas",
+        "description": "La primera bolsa para esquís y tablas de snowboard con protección contra costillas, compresible y ajustable en longitud del mundo.",
+        "colors": [
+            "rojo",
+            "negro",
+            "blanco",
+            "azul",
+            "violeta"
+        ],
+        "image": "producto2.png"
+    },
+    {
+        "id": 3,
+        "name": "Sudadera Tech",
+        "price": 139,
+        "category": "indumentaria",
+        "description": "Nos encantan las sudaderas con capucha en Topo Designs. Nuestra sudadera con capucha Tech Fleece cuenta con un impresionante vellón unido de poliéster / spandex que absorbe la humedad. Suave y cálido por dentro, protector por fuera.",
+        "colors": [
+            "gris",
+            "azul"
+        ],
+        "size": [
+            "s",
+            "m",
+            "l",
+            "xl"
+        ],
+        "image": "producto3.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Polar subalpino",
+        "price": 189,
+        "category": "indumentaria",
+        "description": "Una capa suave y acogedora para los días fríos. Hecho de vellón de sherpa Polartec® con codos reforzados, nuestro vellón subalpino es la capa duradera perfecta para temperaturas intermedias.",
+        "colors": [
+            "marrón",
+            "negro"
+        ],
+        "size": [
+            "s",
+            "m",
+            "l",
+            "xl"
+        ],
+        "image": "producto4.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Bolsa de embalaje",
+        "price": 24,
+        "category": "accesorios",
+        "description": "Nuestra versión de cubos de embalaje, nuestras bolsas de embalaje modulares están diseñadas para encajar perfectamente en nuestras bolsas de viaje y nuestro rodillo de bolsas de viaje para una experiencia de embalaje que ahorra tiempo y espacio. Optimizar su equipaje nunca ha sido tan fácil.",
+        "colors": [
+            "azul",
+            "rojo",
+            "verde",
+            "negro"
+        ],
+        "image": "accesorio1.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Gorro alcolchado",
+        "price": 39,
+        "category": "accesorios",
+        "description": "Su nuevo accesorio para climas fríos, el Puffer Cap le brinda calidez con aislamiento, cobertura ajustable para los oídos y un estilo fresco de montaña.",
+        "colors": [
+            "verde",
+            "negro"
+        ],
+        "image": "accesorio2.jpg"
+    },
+    {
         "id": 7,
         "name": "dual pants",
         "category": "indumentaria",
@@ -54,92 +147,5 @@
         "description": "Con una solapa ancha y un solo cierre, el Y-Pack fusiona el estilo clásico y la funcionalidad moderna. La capucha ancha con cremallera proporciona un amplio espacio de almacenamiento, mientras que un cierre de cordón interior, una funda para computadora portátil y bolsillos laterales para botellas de agua hacen que guardar y organizar el equipo sea rápido y fácil.",
         "colors": ["naranja", "negro"],
         "image": "producto12.jpg"
-    },
-    {
-        "id": 1,
-        "name": "Mochila Strom",
-        "price": 159,
-        "descrption": "La mochila más vendida del mundo, diseñada por esquiadores y adoptada por todos",
-        "colors": [
-            "verde",
-            "rojo",
-            "negro",
-            "blanco",
-            "azul",
-            "beige"
-        ],
-        "image": "producto1.png"
-    },
-    {
-        "id": 2,
-        "nombre": "Rodillo de nieve",
-        "precio": 269,
-        "descrption": "La primera bolsa para esquís y tablas de snowboard con protección contra costillas, compresible y ajustable en longitud del mundo.",
-        "colors": [
-            "rojo",
-            "negro",
-            "blanco",
-            "azul",
-            "violeta"
-        ],
-        "imagen": "producto2.png"
-    },
-    {
-        "id": 3,
-        "nombre": "Sudadera Tech",
-        "precio": 139,
-        "descrption": "Nos encantan las sudaderas con capucha en Topo Designs. Nuestra sudadera con capucha Tech Fleece cuenta con un impresionante vellón unido de poliéster / spandex que absorbe la humedad. Suave y cálido por dentro, protector por fuera.",
-        "colors": [
-            "gris",
-            "azul"
-        ],
-        "size": [
-            "s",
-            "m",
-            "l",
-            "xl"
-        ],
-        "imagen": "producto3.png"
-    },
-    {
-        "id": 4,
-        "nombre": "Polar subalpino",
-        "precio": 189,
-        "descrption": "Una capa suave y acogedora para los días fríos. Hecho de vellón de sherpa Polartec® con codos reforzados, nuestro vellón subalpino es la capa duradera perfecta para temperaturas intermedias.",
-        "colors": [
-            "marrón",
-            "negro"
-        ],
-        "size": [
-            "s",
-            "m",
-            "l",
-            "xl"
-        ],
-        "imagen": "producto4.png"
-    },
-    {
-        "id": 5,
-        "nombre": "Bolsa de embalaje",
-        "precio": 24,
-        "descrption": "Nuestra versión de cubos de embalaje, nuestras bolsas de embalaje modulares están diseñadas para encajar perfectamente en nuestras bolsas de viaje y nuestro rodillo de bolsas de viaje para una experiencia de embalaje que ahorra tiempo y espacio. Optimizar su equipaje nunca ha sido tan fácil.",
-        "colors": [
-            "azul",
-            "rojo",
-            "verde",
-            "negro"
-        ],
-        "imagen": "accesorio1.jpg"
-    },
-    {
-        "id": 6,
-        "nombre": "Gorro alcolchado",
-        "precio": 39,
-        "descrption": "Su nuevo accesorio para climas fríos, el Puffer Cap le brinda calidez con aislamiento, cobertura ajustable para los oídos y un estilo fresco de montaña.",
-        "colors": [
-            "verde",
-            "negro"
-        ],
-        "imagen": "accesorio2.jpg"
     }
 ]
