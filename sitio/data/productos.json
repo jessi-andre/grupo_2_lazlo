@@ -94,59 +94,88 @@
     },
     {
         "id": 7,
-        "name": "dual pants",
+        "name": "Dual pants",
         "category": "indumentaria",
         "price": 129,
         "description": "Diseñados para funcionar el doble de tiempo, nuestros pantalones dobles son una prenda de trabajo confiable que se ve lo suficientemente bien para el uso diario. Lona elástica cómoda y resistente con un ajuste recto que se usa como un viejo favorito y los refuerzos en las rodillas y el asiento duplican la durabilidad.",
-        "colors": ["beige", "negro"],
-        "size": ["m", "l", "xl"],
+        "colors": [
+            "beige",
+            "negro"
+        ],
+        "size": [
+            "m",
+            "l",
+            "xl"
+        ],
         "image": "producto07.jpg"
     },
     {
         "id": 8,
-        "name": "dirt shorts",
+        "name": "Dirt shorts",
         "category": "indumentaria",
         "price": 69,
         "description": "Con un ajuste relajado, detalles clásicos y bolsillos de parche en las costuras laterales y en la parte posterior, los Dirt Shorts se convertirán rápidamente en uno de tus shorts favoritos. El lavado teñido en prenda suaviza tanto el color como la tela, haciéndola sentir como un viejo favorito desde su primer uso.",
-        "colors": ["marrón", "natural", "azul"],
-        "size": ["s", "m", "l","xl"],
+        "colors": [
+            "marrón",
+            "natural",
+            "azul"
+        ],
+        "size": [
+            "s",
+            "m",
+            "l",
+            "xl"
+        ],
         "image": "producto08.jpg"
     },
     {
         "id": 9,
-        "name": "nylon camp hat",
+        "name": "Nylon camp hat",
         "category": "accesorios",
         "price": 32,
         "description": "La gorra de campamento perfecta, ligera y plegable. Una gorra de 5 paneles 100% nailon con cierre de hebilla de cincha ajustable.",
-        "colors": ["negro", "gris", "beige"],
+        "colors": [
+            "negro",
+            "gris",
+            "beige"
+        ],
         "image": "producto09.jpg"
     },
     {
         "id": 10,
-        "name": "web belt",
+        "name": "Web belt",
         "category": "accesorios",
         "price": 39,
         "description": "Nuestro Web Belt es lo suficientemente fácil para usarlo todos los días, pero lo suficientemente resistente como para durar más que la mayor parte de su guardarropa y lucir bien haciéndolo. El cinturón de 1.5\" está hecho de una cinta de nailon muy duradera con una hebilla de aluminio sólido.",
-        "colors": ["verde", "negro", "gris"],
+        "colors": [
+            "verde",
+            "negro",
+            "gris"
+        ],
         "image": "producto10.jpg"
     },
     {
         "id": 11,
-        "name": "cinch tote",
+        "name": "Cinch tote",
         "category": "mochilas",
         "price": 59,
         "description": "Nuestro Cinch Tote tiene un cuerpo de nailon 1000D duradero completamente forrado con tela de nailon y cuatro bolsillos externos profundos para evitar que los artículos pequeños se pierdan en el fondo de su bolso. Una correa extraíble le permite llevar el bolso al hombro o quitárselo cuando no lo necesite.",
-        "colors": ["celeste/amarillo", "verde/naranja"],
+        "colors": [
+            "celeste/amarillo",
+            "verde/naranja"
+        ],
         "image": "producto11.jpg"
     },
     {
         "id": 12,
-        "name": "y-pack",
+        "name": "Y-pack",
         "category": "mochilas",
         "price": 79,
         "description": "Con una solapa ancha y un solo cierre, el Y-Pack fusiona el estilo clásico y la funcionalidad moderna. La capucha ancha con cremallera proporciona un amplio espacio de almacenamiento, mientras que un cierre de cordón interior, una funda para computadora portátil y bolsillos laterales para botellas de agua hacen que guardar y organizar el equipo sea rápido y fácil.",
-        "colors": ["naranja", "negro"],
+        "colors": [
+            "naranja",
+            "negro"
+        ],
         "image": "producto12.jpg"
     }
 ]
-

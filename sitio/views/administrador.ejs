@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  
+<%-include('./partials/head')%>
+
+<body class="administrador">
+
+    <%-include('./partials/header')%>
+    <main>
+        <section class="contenedoradminitrador">
+            <h2>administrador</h2>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">PRECIO</th>
+                    <th scope="col">CATEGORIA</th>
+                    <th scope="col">IMAGEN</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(product => { %>
+                        <tr>
+                            <td scope="row"><%= product.id %> </td>
+                            <td><%= product.name%></td>
+                            <td><%= product.price%></td>
+                            <td><%= product.category%></td>
+                            <td><img width='90' src="/images/<%= product.image %>" alt=""></td>
+                            <td><div><a href="/productos/editar-productos"><i class="far fa-edit"></i></a></div></td>
+                            <td><div><form action=""><button>X</button></form></div></td>
+                          </tr>
+                    <% }) %>
+                
+                </tbody>
+              </table>
+        </section>
+    </main>
+    <%-include('./partials/footer')%>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+
+</html>
+

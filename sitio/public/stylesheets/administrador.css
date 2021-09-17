@@ -1,0 +1,60 @@
+.contenedoradminitrador {
+    width: 80%;
+    margin: 20px auto;
+  
+ 
+}
+.contenedoradminitrador table{
+    box-shadow: 1px -4px 20px rgb(150, 149, 149);
+}
+.contenedoradminitrador h2 {
+    text-align: center;
+    color: #957255;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3em;
+    margin: 20px auto;
+}
+
+.contenedoradminitrador td {
+    text-transform: capitalize;
+}
+.contenedoradminitrador tbody tr{
+    transition: background-color .5s;
+}
+.contenedoradminitrador tbody tr:hover{
+    background-color: #815d3f71;
+}
+
+
+.contenedoradminitrador table  td button, .contenedoradminitrador table  td a{
+    width: 35px;
+    height:34px;
+    border: 2px solid var(--marron);
+    border-radius: 50%;
+    color: var(--marron);
+    text-align: center;
+    display: block;
+}
+.contenedoradminitrador table td:last-child button{
+    background-color:var(--marron);
+    border: 0;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/*--tablet--*/
+@media (min-width : 768px){
+    .contenedoradminitrador {
+        width: 90%;
+    }
+}
+
+
+/*--desktop--*/
+
+@media (min-width : 1024px){
+    .contenedoradminitrador {
+        width: 90%;
+    }
+}
