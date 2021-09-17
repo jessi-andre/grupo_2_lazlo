@@ -42,7 +42,22 @@
     font-size:20px;
     cursor:pointer;
 }
+.botonagregar{
+    display: block;
+    width: 270px;
+    background-color:var(--marron);
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    text-align:center ;
+    transition: opacity .5s;
+}
 
+.botonagregar:hover{
+    color: white;
+    opacity: .8;
+}
 /*--tablet--*/
 @media (min-width : 768px){
     .contenedoradminitrador {
