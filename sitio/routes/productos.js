@@ -9,5 +9,4 @@ router.get('/detalle/:id', productoDetalle);
 router.get('/agregar-productos', agregar);
 router.get('/editar-productos', editar);
 
-
 module.exports = router;

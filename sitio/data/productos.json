@@ -177,5 +177,65 @@
             "negro"
         ],
         "image": "producto12.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Rover pack leather",
+        "category": "mochilas",
+        "price": 150,
+        "description": "La durabilidad inspirada en la montaña se combina con el estilo urbano en el Rover Pack Heritage",
+        "colors": ["gris", "negro"],
+        "image": "producto13.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Mountain duffel - 40L ",
+        "category": "mochilas",
+        "price": 120,
+        "description": "Con una base y lados acolchados, el Mountain Duffel lo mantiene a usted (y a su equipo) protegido. Los múltiples bolsillos internos y externos mantienen los artículos más pequeños organizados, mientras que el gran compartimento principal puede llevar cualquier cosa, desde botas de esquí hasta  equipos adicionales." ,
+        "colors": ["negro"],
+        "image": "producto14.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Commuter briefcase heritage canvas",
+        "category": "mochilas",
+        "price": 250,
+        "description": "Fabricado en los EE. UU. Con materiales de primera calidad, nuestro maletín Commuter Briefcase Heritage Canvas es el camaleón de las mochilas. Úselo como un maletín clásico o desempaque las correas y el hombro de la mochila para viajar fácilmente.",
+        "colors": ["beige"],
+        "image": "producto15.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Bike bag",
+        "category": "mochilas",
+        "price": 49,
+        "description": "Nuestra bolsa para bicicletas proporciona un lugar para guardar todo, desde herramientas y tubos hasta una capa adicional o un refrigerio. Lo suficientemente versátil como para sujetarlo a las barras delanteras de la mayoría de las bicicletas, nuestro Bike Bag tiene correas en cadena para sujetar fácilmente una luz de bicicleta.",
+        "colors": ["negro"],
+        "image": "producto16.jpg"
+
+    },
+    {
+        "id": 17,
+        "name": "Classic duffel mini",
+        "category": "mochilas",
+        "price": 49,
+        "description": "Nuestro Classic Duffel Mini es exactamente eso: un estilo clásico en un paquete pequeño. Sencillo por fuera y forrado con un paño de nailon recubierto por dentro.",
+        "colors": ["negro"],
+        "image": "producto17.jpg"
+
+
+    },
+    {
+        "id": 18,
+        "name": "X MIIR CAMP MUG",
+        "category": "accesorios",
+        "price": 25,
+        "description": "Esta taza aislada de acero inoxidable de 12 oz mantiene caliente su elegante café o su cóctel de fogata fresco. ",
+        "colors": ["gris", "negro"],
+        "image": "producto18.jpg"
+
     }
+
+
 ]
