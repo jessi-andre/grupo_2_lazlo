@@ -74,6 +74,7 @@ header .headerNav nav li a{
     font-family: 'Bebas Neue', cursive;
     font-size:1.1em;
     color:var(--grisOscuro) !important; 
+    text-decoration:none !important;
 }
 
 header .headerNav nav li a i{
