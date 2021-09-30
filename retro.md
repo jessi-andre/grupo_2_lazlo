@@ -37,11 +37,12 @@ Prestarle mas atencion a Trello
 
 ## Retrospectiva -- Sprint 3
 **Comenzar hacer:**
-Prestarle mas atención a Trello.
+Participar más atención a Trello.
 
 
 **Hacer más:**
 - Mejorar el manejo del tiempo.
+- En reunión final chequear que este todo OK!
 
 **Continuar haciendo:**
 - Seguir trabajando en equipo.
