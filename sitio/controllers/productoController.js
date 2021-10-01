@@ -31,10 +31,10 @@ module.exports = {
             id: products[products.length - 1].id + 1,
             name: name.trim(),
             category,
-            size: size.trim(),
+            colors: colors.split(','),
+            size: size ? size.split(',') : null,
             price: +price,
             description: description.trim(),
-            colors,
             image: "default.png"
         }
         products.push(product)
