@@ -1,241 +1,276 @@
 [
-    {
-        "id": 1,
-        "name": "Mochila Strom",
-        "price": 159,
-        "category": "mochilas",
-        "description": "La mochila más vendida del mundo, diseñada por esquiadores y adoptada por todos",
-        "colors": [
-            "verde",
-            "rojo",
-            "negro",
-            "blanco",
-            "azul",
-            "beige"
-        ],
-        "image": "producto1.png"
-    },
-    {
-        "id": 2,
-        "name": "Rodillo de nieve",
-        "price": 269,
-        "category": "mochilas",
-        "description": "La primera bolsa para esquís y tablas de snowboard con protección contra costillas, compresible y ajustable en longitud del mundo.",
-        "colors": [
-            "rojo",
-            "negro",
-            "blanco",
-            "azul",
-            "violeta"
-        ],
-        "image": "producto2.png"
-    },
-    {
-        "id": 3,
-        "name": "Sudadera Tech",
-        "price": 139,
-        "category": "indumentaria",
-        "description": "Nos encantan las sudaderas con capucha en Topo Designs. Nuestra sudadera con capucha Tech Fleece cuenta con un impresionante vellón unido de poliéster / spandex que absorbe la humedad. Suave y cálido por dentro, protector por fuera.",
-        "colors": [
-            "gris",
-            "azul"
-        ],
-        "size": [
-            "s",
-            "m",
-            "l",
-            "xl"
-        ],
-        "image": "producto3.jpg"
-    },
-    {
-        "id": 4,
-        "name": "Polar subalpino",
-        "price": 189,
-        "category": "indumentaria",
-        "description": "Una capa suave y acogedora para los días fríos. Hecho de vellón de sherpa Polartec® con codos reforzados, nuestro vellón subalpino es la capa duradera perfecta para temperaturas intermedias.",
-        "colors": [
-            "marrón",
-            "negro"
-        ],
-        "size": [
-            "s",
-            "m",
-            "l",
-            "xl"
-        ],
-        "image": "producto4.jpg"
-    },
-    {
-        "id": 5,
-        "name": "Bolsa de embalaje",
-        "price": 24,
-        "category": "accesorios",
-        "description": "Nuestra versión de cubos de embalaje, nuestras bolsas de embalaje modulares están diseñadas para encajar perfectamente en nuestras bolsas de viaje y nuestro rodillo de bolsas de viaje para una experiencia de embalaje que ahorra tiempo y espacio. Optimizar su equipaje nunca ha sido tan fácil.",
-        "colors": [
-            "azul",
-            "rojo",
-            "verde",
-            "negro"
-        ],
-        "image": "accesorio1.jpg"
-    },
-    {
-        "id": 6,
-        "name": "Gorro alcolchado",
-        "price": 39,
-        "category": "accesorios",
-        "description": "Su nuevo accesorio para climas fríos, el Puffer Cap le brinda calidez con aislamiento, cobertura ajustable para los oídos y un estilo fresco de montaña.",
-        "colors": [
-            "verde",
-            "negro"
-        ],
-        "image": "accesorio2.jpg"
-    },
-    {
-        "id": 7,
-        "name": "Dual pants",
-        "category": "indumentaria",
-        "price": 129,
-        "description": "Diseñados para funcionar el doble de tiempo, nuestros pantalones dobles son una prenda de trabajo confiable que se ve lo suficientemente bien para el uso diario. Lona elástica cómoda y resistente con un ajuste recto que se usa como un viejo favorito y los refuerzos en las rodillas y el asiento duplican la durabilidad.",
-        "colors": [
-            "beige",
-            "negro"
-        ],
-        "size": [
-            "m",
-            "l",
-            "xl"
-        ],
-        "image": "producto07.jpg"
-    },
-    {
-        "id": 8,
-        "name": "Dirt shorts",
-        "category": "indumentaria",
-        "price": 69,
-        "description": "Con un ajuste relajado, detalles clásicos y bolsillos de parche en las costuras laterales y en la parte posterior, los Dirt Shorts se convertirán rápidamente en uno de tus shorts favoritos. El lavado teñido en prenda suaviza tanto el color como la tela, haciéndola sentir como un viejo favorito desde su primer uso.",
-        "colors": [
-            "marrón",
-            "natural",
-            "azul"
-        ],
-        "size": [
-            "s",
-            "m",
-            "l",
-            "xl"
-        ],
-        "image": "producto08.jpg"
-    },
-    {
-        "id": 9,
-        "name": "Nylon camp hat",
-        "category": "accesorios",
-        "price": 32,
-        "description": "La gorra de campamento perfecta, ligera y plegable. Una gorra de 5 paneles 100% nailon con cierre de hebilla de cincha ajustable.",
-        "colors": [
-            "negro",
-            "gris",
-            "beige"
-        ],
-        "image": "producto09.jpg"
-    },
-    {
-        "id": 10,
-        "name": "Web belt",
-        "category": "accesorios",
-        "price": 39,
-        "description": "Nuestro Web Belt es lo suficientemente fácil para usarlo todos los días, pero lo suficientemente resistente como para durar más que la mayor parte de su guardarropa y lucir bien haciéndolo. El cinturón de 1.5\" está hecho de una cinta de nailon muy duradera con una hebilla de aluminio sólido.",
-        "colors": [
-            "verde",
-            "negro",
-            "gris"
-        ],
-        "image": "producto10.jpg"
-    },
-    {
-        "id": 11,
-        "name": "Cinch tote",
-        "category": "mochilas",
-        "price": 59,
-        "description": "Nuestro Cinch Tote tiene un cuerpo de nailon 1000D duradero completamente forrado con tela de nailon y cuatro bolsillos externos profundos para evitar que los artículos pequeños se pierdan en el fondo de su bolso. Una correa extraíble le permite llevar el bolso al hombro o quitárselo cuando no lo necesite.",
-        "colors": [
-            "celeste/amarillo",
-            "verde/naranja"
-        ],
-        "image": "producto11.jpg"
-    },
-    {
-        "id": 12,
-        "name": "Y-pack",
-        "category": "mochilas",
-        "price": 79,
-        "description": "Con una solapa ancha y un solo cierre, el Y-Pack fusiona el estilo clásico y la funcionalidad moderna. La capucha ancha con cremallera proporciona un amplio espacio de almacenamiento, mientras que un cierre de cordón interior, una funda para computadora portátil y bolsillos laterales para botellas de agua hacen que guardar y organizar el equipo sea rápido y fácil.",
-        "colors": [
-            "naranja",
-            "negro"
-        ],
-        "image": "producto12.jpg"
-    },
-    {
-        "id": 13,
-        "name": "Rover pack leather",
-        "category": "mochilas",
-        "price": 150,
-        "description": "La durabilidad inspirada en la montaña se combina con el estilo urbano en el Rover Pack Heritage",
-        "colors": ["gris", "negro"],
-        "image": "producto13.jpg"
-    },
-    {
-        "id": 14,
-        "name": "Mountain duffel - 40L ",
-        "category": "mochilas",
-        "price": 120,
-        "description": "Con una base y lados acolchados, el Mountain Duffel lo mantiene a usted (y a su equipo) protegido. Los múltiples bolsillos internos y externos mantienen los artículos más pequeños organizados, mientras que el gran compartimento principal puede llevar cualquier cosa, desde botas de esquí hasta  equipos adicionales." ,
-        "colors": ["negro"],
-        "image": "producto14.jpg"
-    },
-    {
-        "id": 15,
-        "name": "Commuter briefcase heritage canvas",
-        "category": "mochilas",
-        "price": 250,
-        "description": "Fabricado en los EE. UU. Con materiales de primera calidad, nuestro maletín Commuter Briefcase Heritage Canvas es el camaleón de las mochilas. Úselo como un maletín clásico o desempaque las correas y el hombro de la mochila para viajar fácilmente.",
-        "colors": ["beige"],
-        "image": "producto15.jpg"
-    },
-    {
-        "id": 16,
-        "name": "Bike bag",
-        "category": "mochilas",
-        "price": 49,
-        "description": "Nuestra bolsa para bicicletas proporciona un lugar para guardar todo, desde herramientas y tubos hasta una capa adicional o un refrigerio. Lo suficientemente versátil como para sujetarlo a las barras delanteras de la mayoría de las bicicletas, nuestro Bike Bag tiene correas en cadena para sujetar fácilmente una luz de bicicleta.",
-        "colors": ["negro"],
-        "image": "producto16.jpg"
-
-    },
-    {
-        "id": 17,
-        "name": "Classic duffel mini",
-        "category": "mochilas",
-        "price": 49,
-        "description": "Nuestro Classic Duffel Mini es exactamente eso: un estilo clásico en un paquete pequeño. Sencillo por fuera y forrado con un paño de nailon recubierto por dentro.",
-        "colors": ["negro"],
-        "image": "producto17.jpg"
-
-
-    },
-    {
-        "id": 18,
-        "name": "X MIIR CAMP MUG",
-        "category": "accesorios",
-        "price": 25,
-        "description": "Esta taza aislada de acero inoxidable de 12 oz mantiene caliente su elegante café o su cóctel de fogata fresco. ",
-        "colors": ["gris", "negro"],
-        "image": "producto18.jpg"
-
-    }
-
-
+   {
+      "id": 1,
+      "name": "Mochila Strom",
+      "price": 159,
+      "category": "mochilas",
+      "description": "La mochila más vendida del mundo, diseñada por esquiadores y adoptada por todos",
+      "colors": [
+         "verde",
+         "rojo",
+         "negro",
+         "blanco",
+         "azul",
+         "beige"
+      ],
+      "image": "producto1.png"
+   },
+   {
+      "id": 2,
+      "name": "Rodillo de nieve",
+      "price": 269,
+      "category": "mochilas",
+      "description": "La primera bolsa para esquís y tablas de snowboard con protección contra costillas, compresible y ajustable en longitud del mundo.",
+      "colors": [
+         "rojo",
+         "negro",
+         "blanco",
+         "azul",
+         "violeta"
+      ],
+      "image": "producto2.png"
+   },
+   {
+      "id": 3,
+      "name": "Sudadera Tech",
+      "price": 139,
+      "category": "indumentaria",
+      "description": "Nos encantan las sudaderas con capucha en Topo Designs. Nuestra sudadera con capucha Tech Fleece cuenta con un impresionante vellón unido de poliéster / spandex que absorbe la humedad. Suave y cálido por dentro, protector por fuera.",
+      "colors": [
+         "gris",
+         "azul"
+      ],
+      "size": [
+         "s",
+         "m",
+         "l",
+         "xl"
+      ],
+      "image": "producto3.jpg"
+   },
+   {
+      "id": 4,
+      "name": "Polar subalpino",
+      "price": 189,
+      "category": "indumentaria",
+      "description": "Una capa suave y acogedora para los días fríos. Hecho de vellón de sherpa Polartec® con codos reforzados, nuestro vellón subalpino es la capa duradera perfecta para temperaturas intermedias.",
+      "colors": [
+         "marrón",
+         "negro"
+      ],
+      "size": [
+         "s",
+         "m",
+         "l",
+         "xl"
+      ],
+      "image": "producto4.jpg"
+   },
+   {
+      "id": 5,
+      "name": "Bolsa de embalaje",
+      "price": 24,
+      "category": "accesorios",
+      "description": "Nuestra versión de cubos de embalaje, nuestras bolsas de embalaje modulares están diseñadas para encajar perfectamente en nuestras bolsas de viaje y nuestro rodillo de bolsas de viaje para una experiencia de embalaje que ahorra tiempo y espacio. Optimizar su equipaje nunca ha sido tan fácil.",
+      "colors": [
+         "azul",
+         "rojo",
+         "verde",
+         "negro"
+      ],
+      "image": "accesorio1.jpg"
+   },
+   {
+      "id": 6,
+      "name": "Gorro alcolchado",
+      "price": 39,
+      "category": "accesorios",
+      "description": "Su nuevo accesorio para climas fríos, el Puffer Cap le brinda calidez con aislamiento, cobertura ajustable para los oídos y un estilo fresco de montaña.",
+      "colors": [
+         "verde",
+         "negro"
+      ],
+      "image": "accesorio2.jpg"
+   },
+   {
+      "id": 7,
+      "name": "Dual pants",
+      "category": "indumentaria",
+      "price": 129,
+      "description": "Diseñados para funcionar el doble de tiempo, nuestros pantalones dobles son una prenda de trabajo confiable que se ve lo suficientemente bien para el uso diario. Lona elástica cómoda y resistente con un ajuste recto que se usa como un viejo favorito y los refuerzos en las rodillas y el asiento duplican la durabilidad.",
+      "colors": [
+         "beige",
+         "negro"
+      ],
+      "size": [
+         "m",
+         "l",
+         "xl"
+      ],
+      "image": "producto07.jpg"
+   },
+   {
+      "id": 8,
+      "name": "Dirt shorts",
+      "category": "indumentaria",
+      "price": 69,
+      "description": "Con un ajuste relajado, detalles clásicos y bolsillos de parche en las costuras laterales y en la parte posterior, los Dirt Shorts se convertirán rápidamente en uno de tus shorts favoritos. El lavado teñido en prenda suaviza tanto el color como la tela, haciéndola sentir como un viejo favorito desde su primer uso.",
+      "colors": [
+         "marrón",
+         "natural",
+         "azul"
+      ],
+      "size": [
+         "s",
+         "m",
+         "l",
+         "xl"
+      ],
+      "image": "producto08.jpg"
+   },
+   {
+      "id": 9,
+      "name": "Nylon camp hat",
+      "category": "accesorios",
+      "price": 32,
+      "description": "La gorra de campamento perfecta, ligera y plegable. Una gorra de 5 paneles 100% nailon con cierre de hebilla de cincha ajustable.",
+      "colors": [
+         "negro",
+         "gris",
+         "beige"
+      ],
+      "image": "producto09.jpg"
+   },
+   {
+      "id": 10,
+      "name": "Web belt",
+      "category": "accesorios",
+      "price": 39,
+      "description": "Nuestro Web Belt es lo suficientemente fácil para usarlo todos los días, pero lo suficientemente resistente como para durar más que la mayor parte de su guardarropa y lucir bien haciéndolo. El cinturón de 1.5\" está hecho de una cinta de nailon muy duradera con una hebilla de aluminio sólido.",
+      "colors": [
+         "verde",
+         "negro",
+         "gris"
+      ],
+      "image": "producto10.jpg"
+   },
+   {
+      "id": 11,
+      "name": "Cinch tote",
+      "category": "mochilas",
+      "price": 59,
+      "description": "Nuestro Cinch Tote tiene un cuerpo de nailon 1000D duradero completamente forrado con tela de nailon y cuatro bolsillos externos profundos para evitar que los artículos pequeños se pierdan en el fondo de su bolso. Una correa extraíble le permite llevar el bolso al hombro o quitárselo cuando no lo necesite.",
+      "colors": [
+         "celeste/amarillo",
+         "verde/naranja"
+      ],
+      "image": "producto11.jpg"
+   },
+   {
+      "id": 12,
+      "name": "Y-pack",
+      "category": "mochilas",
+      "price": 79,
+      "description": "Con una solapa ancha y un solo cierre, el Y-Pack fusiona el estilo clásico y la funcionalidad moderna. La capucha ancha con cremallera proporciona un amplio espacio de almacenamiento, mientras que un cierre de cordón interior, una funda para computadora portátil y bolsillos laterales para botellas de agua hacen que guardar y organizar el equipo sea rápido y fácil.",
+      "colors": [
+         "naranja",
+         "negro"
+      ],
+      "image": "producto12.jpg"
+   },
+   {
+      "id": 13,
+      "name": "Rover pack leather",
+      "category": "mochilas",
+      "price": 150,
+      "description": "La durabilidad inspirada en la montaña se combina con el estilo urbano en el Rover Pack Heritage",
+      "colors": [
+         "gris",
+         "negro"
+      ],
+      "image": "producto13.jpg"
+   },
+   {
+      "id": 14,
+      "name": "Mountain duffel - 40L ",
+      "category": "mochilas",
+      "price": 120,
+      "description": "Con una base y lados acolchados, el Mountain Duffel lo mantiene a usted (y a su equipo) protegido. Los múltiples bolsillos internos y externos mantienen los artículos más pequeños organizados, mientras que el gran compartimento principal puede llevar cualquier cosa, desde botas de esquí hasta  equipos adicionales.",
+      "colors": [
+         "negro"
+      ],
+      "image": "producto14.jpg"
+   },
+   {
+      "id": 15,
+      "name": "Commuter briefcase heritage canvas",
+      "category": "mochilas",
+      "price": 250,
+      "description": "Fabricado en los EE. UU. Con materiales de primera calidad, nuestro maletín Commuter Briefcase Heritage Canvas es el camaleón de las mochilas. Úselo como un maletín clásico o desempaque las correas y el hombro de la mochila para viajar fácilmente.",
+      "colors": [
+         "beige"
+      ],
+      "image": "producto15.jpg"
+   },
+   {
+      "id": 16,
+      "name": "Bike bag",
+      "category": "mochilas",
+      "price": 49,
+      "description": "Nuestra bolsa para bicicletas proporciona un lugar para guardar todo, desde herramientas y tubos hasta una capa adicional o un refrigerio. Lo suficientemente versátil como para sujetarlo a las barras delanteras de la mayoría de las bicicletas, nuestro Bike Bag tiene correas en cadena para sujetar fácilmente una luz de bicicleta.",
+      "colors": [
+         "negro"
+      ],
+      "image": "producto16.jpg"
+   },
+   {
+      "id": 17,
+      "name": "Classic duffel mini",
+      "category": "mochilas",
+      "price": 49,
+      "description": "Nuestro Classic Duffel Mini es exactamente eso: un estilo clásico en un paquete pequeño. Sencillo por fuera y forrado con un paño de nailon recubierto por dentro.",
+      "colors": [
+         "negro"
+      ],
+      "image": "producto17.jpg"
+   },
+   {
+      "id": 18,
+      "name": "X MIIR CAMP MUG",
+      "category": "accesorios",
+      "price": 25,
+      "description": "Esta taza aislada de acero inoxidable de 12 oz mantiene caliente su elegante café o su cóctel de fogata fresco. ",
+      "colors": [
+         "gris",
+         "negro"
+      ],
+      "image": "producto18.jpg"
+   },
+   {
+      "id": 19,
+      "size": "",
+      "price": 0,
+      "description": "",
+      "image": "default.png"
+   },
+   {
+      "id": 20,
+      "name": "",
+      "category": "mochilas",
+      "size": "",
+      "price": 0,
+      "description": "",
+      "colors": "",
+      "image": "default.png"
+   },
+   {
+      "id": 21,
+      "name": "sudadera",
+      "category": "mochilas",
+      "size": "",
+      "price": 100,
+      "description": "",
+      "colors": "",
+      "image": "default.png"
+   }
 ]

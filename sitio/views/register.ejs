@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <%-include('./partials/head')%> 
-<body background="/images/fondo.jpg">
-    
-   <%-include('./partials/header')%> 
+<%-include('. /partials/head')%>
 
- <main> 
-<form class="formulario">
+   <body background="/images/fondo.jpg">
 
-     <h1>Registrate </h1>
-     <div class="contenedor">
+      <%-include('. /partials/header')%>
 
-     <div class="input-contenedor">
-        <i class="fas fa-user icon"></i>
-        <input type="text" placeholder="Nombre Completo">
+         <main>
+            <form class="formulario">
 
-         </div>
-    
-         <div class="input-contenedor">
-            <i class="fas fa-envelope icon"></i>
-            <input type="text" placeholder="tucorreo@hotmail.com">
+               <h1>Registrate </h1>
+               <div class="contenedor">
 
-             </div>
+                  <div class="input-contenedor">
+                     <i class="fas fa-user icon"></i>
+                     <input type="text" placeholder="Nombre Completo">
 
-             <div class="input-contenedor">
-                <i class="fas fa-key icon"></i>
-                <input type="password" placeholder="Contraseña">
-                 </div>
+                  </div>
+
+                  <div class="input-contenedor">
+                     <i class="fas fa-envelope icon"></i>
+                     <input type="text" placeholder="tucorreo@hotmail.com">
+
+                  </div>
+
+                  <div class="input-contenedor">
+                     <i class="fas fa-key icon"></i>
+                     <input type="password" placeholder="Contraseña">
+                  </div>
+
                   <input type="submit" value="Registrate" class="button"> <br>
-                 <br> <p>Al registrarte aceptas las Condiciones de uso y Política de privacidad.  </p> <br>
+                  <br>
+                  <p>Al registrarte aceptas las Condiciones de uso y Política de privacidad. </p> <br>
                   <p>¿Ya tienes una cuenta? <a class="link" href="/users/login">Iniciar sesión </a> </p>
 
 
-     </div>
-    </form>
-</main>
-<%-include('./partials/footer')%> 
- </body>
+               </div>
+            </form>
+         </main>
+         <%-include('. /partials/footer')%>
+   </body>
 
 
- </html> 
-    
+</html>
