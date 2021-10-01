@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { productos, productoDetalle, administrador, agregar, editar, store, } = require('../controllers/productoController')
+const { productos, productoDetalle, administrador, agregar, editar, store, destroy} = require('../controllers/productoController')
 
 /* GET home page. */
 router.get('/administrador', administrador);
@@ -11,7 +11,7 @@ router.get('/agregar-productos', agregar);
 router.get('/editar-productos', editar);
 
 /*** DELETE ONE PRODUCT***/ 
-//router.delete('/delete/:id', productoController.destroy); 
+router.delete('/destroy/:id', destroy); 
 
 
 module.exports = router;

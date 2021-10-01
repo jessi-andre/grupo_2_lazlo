@@ -245,32 +245,5 @@
          "negro"
       ],
       "image": "producto18.jpg"
-   },
-   {
-      "id": 19,
-      "size": "",
-      "price": 0,
-      "description": "",
-      "image": "default.png"
-   },
-   {
-      "id": 20,
-      "name": "",
-      "category": "mochilas",
-      "size": "",
-      "price": 0,
-      "description": "",
-      "colors": "",
-      "image": "default.png"
-   },
-   {
-      "id": 21,
-      "name": "sudadera",
-      "category": "mochilas",
-      "size": "",
-      "price": 100,
-      "description": "",
-      "colors": "",
-      "image": "default.png"
    }
 ]

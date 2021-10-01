@@ -18,7 +18,7 @@ module.exports = {
     },
     administrador: (req, res) => {
         return res.render('administrador', {
-            products
+            products : JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'))
         })
     },
     store: (req, res) => {
@@ -52,11 +52,11 @@ module.exports = {
     },
 
     // delete- delete one product 
-    /*destroy: (req, res) => {
-        let productModified = products.filter(product => productos.id !== +req.params.id)
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(products, null, 3), 'utf-8');
+    destroy: (req, res) => {
+        let productModified = products.filter(product => product.id !== +req.params.id)
+        fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(productModified,null, 3), 'utf-8');
         return res.redirect('/productos/administrador');
 
-    }*/
+    }
 
 }
