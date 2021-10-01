@@ -13,42 +13,43 @@
 
         <h2>Editar producto</h2>
 
-        <form class="row g-3">
+        <form class="row g-3" action="/productos/editar-productos/<%= producto.id %>?_method=PUT" method="POST">
             <div class="col-md-6">
               <label for="inputNombre" class="form-label">Nombre del Producto:</label>
-              <input type="text" class="form-control" id="inputNombre">
+              <input type="text" class="form-control" name="name" id="inputNombre" value="<%= producto.name %>">
             </div>
             <div class="col-md-6">
                 <label for="inputPrecio" class="form-label">Precio del Producto:</label>
-                <input type="number" class="form-control" id="inputPrecio">
+                <input type="number" class="form-control" name="price" id="inputPrecio" value="<%= producto.price %>">
               </div>
             <div class="col-12">
               <label for="inputColores" class="form-label">Colores:</label>
-              <input type="text" class="form-control" id="inputColores" placeholder="rojo, verde, azul">
+              <input type="text" class="form-control" name="colors" id="inputColores" placeholder="rojo, verde, azul" value="<%= producto.colors %>">
             </div>
-            <div class="col-12">
+            <% if(producto.size) { %>
+              <div class="col-12">
                 <label for="inputTalles" class="form-label">Talles:</label>
-                <input type="text" class="form-control" id="inputTalles" placeholder="s, m, l">
-            </div>
+                <input type="text" class="form-control" name="size" id="inputTalles" placeholder="s, m, l" value="<%= producto.size %>">
+              </div>
+            <% } %>
             <div class="col-md-6">
               <label for="inputCaregoria" class="form-label">Caregoria:</label>
-              <select id="inputCategoria" class="form-select">
-                <option selected>Categoria</option>
-                <option>mochilas</option>
-                <option>indumentaria</option>
-                <option>acesorios</option>
+              <select id="inputCategoria" class="form-select" name="category">
+                <% categorias.forEach(categoria => { %>
+                  <option name="category" value="<%= producto.category %>" <% categoria === producto.category ? 'selected' : null %>><%= categoria %></option>
+                <% }) %>
               </select>
             </div>
             <div class="col-md-6">
                 <label for="inpurImage" class="form-label">Imagen del Producto:</label>
-                <input class="form-control" type="file" id="inpurImage">
+                <input class="form-control" name="image" type="file" id="inpurImage" value="<%= producto.image %>">
               </div>
             <div class="col-md-12">
-                <label for="inputDescrption" class="form-label">Descripción del Producto::</label>
-                <textarea class="form-control" id="inputDescrption" rows="3"></textarea>
+                <label for="inputDescrption" class="form-label">Descripción del Producto:</label>
+                <textarea class="form-control" name="description" id="inputDescrption" rows="3" ><%= producto.description %></textarea>
               </div>
             <div class="col-md-12 col-sm-12">
-              <button type="submit" class="btn marron col-md-12 col-sm-12">Agragar producto</button>
+              <button type="submit" class="btn marron col-md-12 col-sm-12">Editar producto</button>
             </div>
           </form>
 
