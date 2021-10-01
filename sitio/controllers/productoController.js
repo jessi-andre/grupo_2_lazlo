@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const categorias = require('../data/categorias');
-let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data','productos.json'), 'utf-8'))
+let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'))
 
 module.exports = {
     productos: (req, res) => {
@@ -29,7 +29,7 @@ module.exports = {
             id: products[products.length - 1].id + 1,
             name: name.trim(),
             category,
-            size,
+            size: size.trim(),
             price: +price,
             description: description.trim(),
             colors,
@@ -49,6 +49,14 @@ module.exports = {
 
     editar: (req, res) => {
         return res.render('editar-productos')
-    }
+    },
+
+    // delete- delete one product 
+    /*destroy: (req, res) => {
+        let productModified = products.filter(product => productos.id !== +req.params.id)
+        fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(products, null, 3), 'utf-8');
+        return res.redirect('/productos/administrador');
+
+    }*/
 
 }
