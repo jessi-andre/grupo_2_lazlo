@@ -4,7 +4,7 @@
       "name": "Mochila Strom",
       "price": 159,
       "category": "mochilas",
-      "description": "La mochila más vendida del mundo, diseñada por esquiadores y adoptada por todos",
+      "description": "La mochila más vendida del mundo, diseñada por esquiadores y adoptada por todos.",
       "colors": [
          "verde",
          "rojo",
@@ -14,8 +14,6 @@
          "beige"
       ],
       "size": null,
-      "description": "La mochila más vendida del mundo, diseñada por esquiadores y adoptada por todos.",
-      "category": "mochilas",
       "image": "producto1.png"
    },
    {

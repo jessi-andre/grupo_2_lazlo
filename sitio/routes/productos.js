@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { productos, productoDetalle, administrador, agregar, editar, store, destroy} = require('../controllers/productoController')
+const { productos, productoDetalle, administrador, agregar, editar, store, destroy, actualizar} = require('../controllers/productoController')
 
 /* GET home page. */
 router.get('/administrador', administrador);

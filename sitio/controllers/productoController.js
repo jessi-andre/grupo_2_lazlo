@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const categorias = require('../data/categorias');
-
-let  products = JSON.parse(fs.readFileSync(path.join(__dirname,'..','data','productos.json'),'utf-8'));
+let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'))
 
 module.exports = {
     productos: (req, res) => {
@@ -11,8 +10,10 @@ module.exports = {
             title: req.params.category
         })
     },
-    productoDetalle: (req, res) => {
-        return res.render('detalle', {
+    productoDetalle: (req,res) => {
+        let  products = JSON.parse(fs.readFileSync(path.join(__dirname,'..','data','productos.json'),'utf-8'));
+        
+        return res.render ('detalle', {
             product: products.find(product => product.id === +req.params.id),
             mochilas: products.filter(product => product.category === "mochilas")
         })
@@ -37,9 +38,9 @@ module.exports = {
             image: "default.png"
         }
         products.push(product)
-    },
-    agregar: (req,res) => {
-        return res.render('agregar-productos')
+
+        fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(products, null, 3), 'utf-8');
+        return res.redirect('/productos/administrador');
     },
      editar: (req,res) => {
         return res.render('editar-productos',{
@@ -67,9 +68,17 @@ module.exports = {
         let productosModif = products.map(product => product.id === +req.params.id ? productoModif : product)
 
         fs.writeFileSync(path.join(__dirname,'..','data','productos.json'),JSON.stringify(productosModif,null,3),'utf-8');
-        
+
         res.redirect('/productos/detalle/'+req.params.id)
+        
     },
+
+    agregar: (req, res) => {
+        return res.render('agregar-productos', {
+            categorias
+        })
+    },
+
 
     // delete- delete one product 
     destroy: (req, res) => {
@@ -79,5 +88,5 @@ module.exports = {
 
     }
 
-        
+       
 }

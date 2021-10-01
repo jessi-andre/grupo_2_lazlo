@@ -11,7 +11,7 @@
 
     <section class="formularioProducto">
 
-        <h2>Editar producto</h2>
+        <h2>Agregar producto</h2>
 
         <form class="row g-3" method="POST">
             <div class="col-md-6">
@@ -33,6 +33,7 @@
             <div class="col-md-6">
               <label for="inputCaregoria" class="form-label">Categoria:</label>
               <select id="inputCategoria" class="form-select" name="category">
+                <option value="" selected hidden>Selecciona una categoria</option>
                 <% categorias.forEach(categoria => { %>
                   <option name="category" ><%= categoria %></option>
                 <% }) %>
