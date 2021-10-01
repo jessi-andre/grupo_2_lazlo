@@ -3,6 +3,8 @@
       "id": 1,
       "name": "Mochila Strom",
       "price": 159,
+      "category": "mochilas",
+      "description": "La mochila más vendida del mundo, diseñada por esquiadores y adoptada por todos",
       "colors": [
          "verde",
          "rojo",
@@ -63,8 +65,6 @@
          "l",
          "xl"
       ],
-      "description": "Una capa suave y acogedora para los días fríos. Hecho de vellón de sherpa Polartec® con codos reforzados, nuestro vellón subalpino es la capa duradera perfecta para temperaturas intermedias.",
-      "category": "indumentaria",
       "image": "producto4.jpg"
    },
    {
@@ -113,7 +113,9 @@
    {
       "id": 8,
       "name": "Dirt shorts",
-      "price": 123,
+      "category": "indumentaria",
+      "price": 69,
+      "description": "Con un ajuste relajado, detalles clásicos y bolsillos de parche en las costuras laterales y en la parte posterior, los Dirt Shorts se convertirán rápidamente en uno de tus shorts favoritos. El lavado teñido en prenda suaviza tanto el color como la tela, haciéndola sentir como un viejo favorito desde su primer uso.",
       "colors": [
          "marrón",
          "natural",
@@ -125,8 +127,6 @@
          "l",
          "xl"
       ],
-      "description": "Con un ajuste relajado, detalles clásicos y bolsillos de parche en las costuras laterales y en la parte posterior, los Dirt Shorts se convertirán rápidamente en uno de tus shorts favoritos. El lavado teñido en prenda suaviza tanto el color como la tela, haciéndola sentir como un viejo favorito desde su primer uso.",
-      "category": "indumentaria",
       "image": "producto08.jpg"
    },
    {
