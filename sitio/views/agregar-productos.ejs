@@ -11,44 +11,43 @@
 
     <section class="formularioProducto">
 
-        <h2>Agrega tu producto</h2>
+        <h2>Editar producto</h2>
 
-        <form class="row g-3">
+        <form class="row g-3" method="POST">
             <div class="col-md-6">
               <label for="inputNombre" class="form-label">Nombre del Producto:</label>
-              <input type="text" class="form-control" id="inputNombre">
+              <input type="text" class="form-control" name="name" id="inputNombre">
             </div>
             <div class="col-md-6">
                 <label for="inputPrecio" class="form-label">Precio del Producto:</label>
-                <input type="number" class="form-control" id="inputPrecio">
+                <input type="number" class="form-control" name="price" id="inputPrecio">
               </div>
             <div class="col-12">
               <label for="inputColores" class="form-label">Colores:</label>
-              <input type="text" class="form-control" id="inputColores" placeholder="rojo, verde, azul">
+              <input type="text" class="form-control" name="colors" id="inputColores" placeholder="rojo, verde, azul">
             </div>
-            <div class="col-12">
+              <div class="col-12">
                 <label for="inputTalles" class="form-label">Talles:</label>
-                <input type="text" class="form-control" id="inputTalles" placeholder="s, m, l">
-            </div>
+                <input type="text" class="form-control" name="size" id="inputTalles" placeholder="s, m, l">
+              </div>
             <div class="col-md-6">
-              <label for="inputCaregoria" class="form-label">Caregoria:</label>
-              <select id="inputCategoria" class="form-select">
-                <option selected>Categoria</option>
-                <option>mochilas</option>
-                <option>indumentaria</option>
-                <option>acesorios</option>
+              <label for="inputCaregoria" class="form-label">Categoria:</label>
+              <select id="inputCategoria" class="form-select" name="category">
+                <% categorias.forEach(categoria => { %>
+                  <option name="category" ><%= categoria %></option>
+                <% }) %>
               </select>
             </div>
             <div class="col-md-6">
-                <label for="inpurImage" class="form-label">Imagen del Producto:</label>
-                <input class="form-control" type="file" id="inpurImage">
+                <label for="inputImage" class="form-label">Imagen del Producto:</label>
+                <input class="form-control" name="image" type="file" id="inputImage" >
               </div>
             <div class="col-md-12">
-                <label for="inputDescrption" class="form-label">Descripción del Producto::</label>
-                <textarea class="form-control" id="inputDescrption" rows="3"></textarea>
+                <label for="inputDescrption" class="form-label">Descripción del Producto:</label>
+                <textarea class="form-control" name="description" id="inputDescrption" rows="3" ></textarea>
               </div>
             <div class="col-md-12 col-sm-12">
-              <button type="submit" class="btn marron col-md-12 col-sm-12">Agragar producto</button>
+              <button type="submit" class="btn marron col-md-12 col-sm-12">Agregar producto</button>
             </div>
           </form>
 
@@ -60,6 +59,4 @@
 
 <%-include('./partials/footer')%> 
 </body>
-
-
 </html>
