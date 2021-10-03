@@ -3,8 +3,6 @@
       "id": 1,
       "name": "Mochila Strom",
       "price": 159,
-      "category": "mochilas",
-      "description": "La mochila más vendida del mundo, diseñada por esquiadores y adoptada por todos.",
       "colors": [
          "verde",
          "rojo",
@@ -14,6 +12,8 @@
          "beige"
       ],
       "size": null,
+      "description": "La mochila más vendida del mundo, diseñada por esquiadores y adoptada por todos.",
+      "category": "mochilas",
       "image": "producto1.png"
    },
    {
@@ -29,6 +29,7 @@
          "azul",
          "violeta"
       ],
+      "size": null,
       "image": "producto2.png"
    },
    {
@@ -52,6 +53,8 @@
    {
       "id": 4,
       "name": "Polar subalpino",
+      "category":"indumentaria",
+      "description": "Un vellón clásico, mejorado con sherpa supersuave. Los refuerzos en el pecho, la espalda y los codos garantizan que esta pieza siga siendo un elemento básico para el clima fresco durante los próximos años, mientras que dos bolsillos externos en el pecho, bolsillos para las manos con cremallera y bolsillos internos ocultos significan mucho espacio para el equipo imprescindible (o bocadillos).",
       "price": 200,
       "colors": [
          "marrón",
@@ -77,6 +80,7 @@
          "verde",
          "negro"
       ],
+      "size": null,
       "image": "accesorio1.jpg"
    },
    {
@@ -89,6 +93,7 @@
          "verde",
          "negro"
       ],
+      "size": null,
       "image": "accesorio2.jpg"
    },
    {
@@ -138,6 +143,7 @@
          "gris",
          "beige"
       ],
+      "size": null,
       "image": "producto09.jpg"
    },
    {
@@ -151,6 +157,7 @@
          "negro",
          "gris"
       ],
+      "size": null,
       "image": "producto10.jpg"
    },
    {
@@ -163,6 +170,7 @@
          "celeste/amarillo",
          "verde/naranja"
       ],
+      "size": null,
       "image": "producto11.jpg"
    },
    {
@@ -175,6 +183,7 @@
          "naranja",
          "negro"
       ],
+      "size": null,
       "image": "producto12.jpg"
    },
    {
@@ -187,6 +196,7 @@
          "gris",
          "negro"
       ],
+      "size": null,
       "image": "producto13.jpg"
    },
    {
@@ -198,6 +208,7 @@
       "colors": [
          "negro"
       ],
+      "size": null,
       "image": "producto14.jpg"
    },
    {
@@ -209,6 +220,7 @@
       "colors": [
          "beige"
       ],
+      "size": null,
       "image": "producto15.jpg"
    },
    {
@@ -220,6 +232,7 @@
       "colors": [
          "negro"
       ],
+      "size": null,
       "image": "producto16.jpg"
    },
    {
@@ -231,6 +244,7 @@
       "colors": [
          "negro"
       ],
+      "size": null,
       "image": "producto17.jpg"
    },
    {
@@ -243,6 +257,7 @@
          "gris",
          "negro"
       ],
+      "size": null,
       "image": "producto18.jpg"
    }
 ]
