@@ -50,7 +50,7 @@ Participar más atención a Trello.
 - Pensamiento crítico.
 - Comunicación.
 - Pedir ayuda.
-- Epatía.
+- Empatía.
 - Compañerismo.
 
 **Hacer menos:**
