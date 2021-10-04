@@ -49,6 +49,7 @@ module.exports = {
         })
     },
     actualizar: (req,res) => {
+
         let {name, price, colors, size, description, category} = req.body;
 
         let product = products.find(product => product.id === +req.params.id)     
@@ -60,8 +61,8 @@ module.exports = {
             price: +price,
             colors: colors.split(','),
             size: size ? size.split(',') : null,
-            description,
-            category,
+            description: description,
+            category: category,
             image: product.image
         }
 

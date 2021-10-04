@@ -85,6 +85,7 @@
                     
                     <% mochilas.forEach(mochila=> { %>
                         <li class="glide__slide">
+                            <a href="/productos/detalle/<%= mochila.id %>" class="relacionadoContenedor">
                             <div class="relacionado">
                                 <div class="imagenRelacionado">
                                     <img src="/images/<%= mochila.image %>" alt="">
@@ -94,6 +95,7 @@
                                     <h4>$ <%= mochila.price %></h4>
                                 </div>
                             </div>
+                            </a>
                         </li>
                     <% }) %>
                                                             

@@ -115,9 +115,25 @@
 .detalle .productosRelacionados .relacionado{
     display:flex;
     justify-content: space-between;
+    align-items:stretch;
     flex-direction: column;
     border: 2px solid var(--marron);
-    padding: 20px;
+    padding: 20px; 
+}
+
+.relacionadoContenedor{
+    text-decoration: none;
+}
+
+.detalleRelacionado h3, .detalleRelacionado h4{
+    color: var(--grisOscuro);
+    text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+}
+
+.relacionado h3{
+    font-size: 1.5em;
 }
 
 .glide__arrow{
