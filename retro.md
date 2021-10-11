@@ -34,3 +34,52 @@ Prestarle mas atencion a Trello
 
 **Dejar de hacer:**
 - Tomar desiciones importantes por WhatsApp, hacerlos en reuniones.
+
+
+## Retrospectiva -- Sprint 3
+**Comenzar hacer:**
+Participar más atención a Trello.
+
+
+**Hacer más:**
+- Mejorar el manejo del tiempo.
+- En reunión final chequear que este todo OK!
+
+**Continuar haciendo:**
+- Seguir trabajando en equipo.
+- Compartir el proceso de trabajo.
+- Pensamiento crítico.
+- Comunicación.
+- Pedir ayuda.
+- Empatía.
+- Compañerismo.
+
+**Hacer menos:**
+- Dejar todo para último momento.
+
+**Dejar de hacer:**
+- Tomar desiciones importantes por WhatsApp, hacerlos en reuniones.
+
+## Retrospectiva -- Sprint   4
+**Comenzar hacer:**
+Participar más atención a Trello.
+
+
+**Hacer más:**
+- Mejorar el manejo del tiempo.
+- En reunión final chequear que este todo OK!
+
+**Continuar haciendo:**
+- Seguir trabajando en equipo.
+- Compartir el proceso de trabajo.
+- Pensamiento crítico.
+- Comunicación.
+- Pedir ayuda.
+- Empatía.
+- Compañerismo.
+
+**Hacer menos:**
+- Dejar todo para último momento.
+
+**Dejar de hacer:**
+- Tomar desiciones importantes por WhatsApp, hacerlos en reuniones.
