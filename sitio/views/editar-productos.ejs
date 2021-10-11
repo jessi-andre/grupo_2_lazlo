@@ -2,7 +2,6 @@
 <html lang="es">
    <%-include('./partials/head')%> 
 
-   
    <body>
        
    <%-include('./partials/header')%> 
@@ -36,7 +35,7 @@
               <label for="inputCaregoria" class="form-label">Caregoria:</label>
               <select id="inputCategoria" class="form-select" name="category">
                 <% categorias.forEach(categoria => { %>
-                  <option name="category" value="<%= producto.category %>" <% categoria === producto.category ? 'selected' : null %>><%= categoria %></option>
+                  <option name="category" value="<%= categoria %>" <%= categoria === producto.category ? 'selected' : null %>><%= categoria %></option>
                 <% }) %>
               </select>
             </div>

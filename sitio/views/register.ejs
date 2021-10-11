@@ -2,52 +2,41 @@
 <html lang="en">
 
 <%-include('./partials/head')%>
+<body background="/images/fondo.jpg">
 <%-include('./partials/header')%>
  <main> 
 <form class="formulario" action="" method="POST">
 
-      
+   <h1>¡Registrate!</h1>
+   <div class="contenedor">
+
+
+
+   </div>
 
      <div class="input-contenedor">
         <i class="fas fa-user icon"></i>
         <input type="text" placeholder="Nombre Completo" id="nombre" name="name">
+   </div>
 
-         </div>
-    
-         <div class="input-contenedor">
+      <div class="input-contenedor">
             <i class="fas fa-envelope icon"></i>
             <input type="text" placeholder="tucorreo@hotmail.com" id="email" name="email">
+       </div>
+       <div class="input-contenedor">
 
-                  <div class="input-contenedor">
-                     <i class="fas fa-user icon"></i>
-                     <input type="text" placeholder="Nombre Completo">
-
-                  </div>
-
-                  <div class="input-contenedor">
-                     <i class="fas fa-envelope icon"></i>
-                     <input type="text" placeholder="tucorreo@hotmail.com">
-
-                  </div>
-
-                  <div class="input-contenedor">
-                     <i class="fas fa-key icon"></i>
-                     <input type="password" placeholder="Contraseña">
-                  </div>
-
-             <div class="input-contenedor">
                 <i class="fas fa-key icon"></i>
                 <input type="password" placeholder="Contraseña" id="password" name="password"> 
                  </div>
-                  <input type="submit" value="Registrate" class="button"> <br>
-                  <br>
-                  <p>Al registrarte aceptas las Condiciones de uso y Política de privacidad. </p> <br>
-                  <p>¿Ya tienes una cuenta? <a class="link" href="/users/login">Iniciar sesión </a> </p>
-
-
-               </div>
-            </form>
-         </main>
+                 <input type="submit" value="Iniciar sesión" class="button"> <br>
+                 <br>
+                 <p>Al registrarte aceptas las Condiciones de uso y Política de privacidad. </p> <br>
+                 <p>¿No tienes cuenta? <a class="link" href="/users/register">Registrate</a> </p>
+        
+        
+                 </div>
+              </form>
+           </main>
          <%-include('./partials/footer')%>
    </body>
 
