@@ -24,7 +24,7 @@ module.exports = {
         })
     },
     store: (req, res) => {
-        //return res.send(req.body);
+        //return res.send(req.file);
         const { name, category, price, size, description, colors } = req.body;
 
         let product = {
@@ -35,7 +35,7 @@ module.exports = {
             size: size ? size.split(',') : null,
             price: +price,
             description: description.trim(),
-            image: "default.png"
+            image: req.file ? req.file.filename: 'default.png'
         }
         products.push(product)
 
