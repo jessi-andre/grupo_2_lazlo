@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
    <%-include('./partials/head')%> 
+   <style>
+      .errores{
+         font-weight: 500;
+         color: tomato;
+         display:block;
+         margin: -8px 0 20px 65px;
+      }
+   </style>
 <body background="/images/fondo.jpg">
    <%-include('./partials/header')%> 
    <main>
-      <form class="formulario">
+      <form class="formulario" method="POST">
 
          <h1>¡Ya soy usuario!</h1>
-         <div class="contenedor">
-
-
-
-         </div>
 
          <div class="input-contenedor">
             <i class="fas fa-envelope icon"></i>
-            <input type="text" placeholder="tucorreo@hotmail.com" id="email" name="email">
-
+            <input type="text" placeholder="tucorreo@hotmail.com" id="email" name="email" value="<%= locals.errores &&  errores.email === '' ? old.email : null %>" >
          </div>
+         <span class="errores"><%= locals.errores && errores.email ? errores.email.msg : null %> </span>
 
          <div class="input-contenedor">
             <i class="fas fa-key icon"></i>
             <input type="password" placeholder="Contraseña" id="password" name="password">
          </div>
+         <span class="errores"><%= locals.errores && errores.password ? errores.password.msg : null %> </span>
          <input type="submit" value="Iniciar sesión" class="button"> <br>
          <br>
          <p>Al registrarte aceptas las Condiciones de uso y Política de privacidad. </p> <br>

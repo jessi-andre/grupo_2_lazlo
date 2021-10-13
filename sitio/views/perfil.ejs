@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('./partials/head')%>
+  <style>
+    .perfil h2 {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .perfil .usuario {
+      width: 90%;
+      margin: 20px auto;
+      border: 2px solid var(--marron);
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .perfil .imagenUsuario {
+      width: 30%;
+    }
+    .perfil .imagenUsuario img {
+      max-width: 100%;
+    }
+
+    .perfil .infoUsuario {
+      width: 70%;
+      border-left: 2px solid var(--marron);
+    }
+
+    .perfil .infoUsuario p {
+      text-align: left;
+      margin: 20px 20px;
+    }
+
+    .perfil .infoUsuario p span {
+      font-weight: 600;
+    }
+
+    /*---MEDIA QUERY---*/
+    /*--tablet--*/
+
+    @media (min-width: 768px) {
+      .perfil .usuario {
+        width: 80%;
+      }
+    }
+    @media (min-width: 1024px) {
+      .perfil .usuario {
+        width: 60%;
+      }
+    }
+  </style>
+  <body>
+    <%-include('./partials/header')%>
+
+    <main class="perfil">
+      <h2>Bienvenid@, <%= usuario.first_name %></h2>
+      <section class="usuario">
+        <div class="imagenUsuario">
+          <img src="/images/<%= usuario.image %>" alt="" />
+        </div>
+        <div class="infoUsuario">
+          <p>
+            <span>Nombre completo:</span> <%= usuario.first_name %> <%=
+            usuario.last_name %>
+          </p>
+          <p><span>Email:</span> <%= usuario.email %></p>
+        </div>
+      </section>
+    </main>
+
+    <%-include('./partials/footer')%>
+  </body>
+</html>
