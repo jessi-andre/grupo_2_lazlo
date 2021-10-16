@@ -259,23 +259,5 @@
       ],
       "size": null,
       "image": "producto18.jpg"
-   },
-   {
-      "id": 19,
-      "name": "Producto ejemplo",
-      "category": "indumentaria",
-      "colors": [
-         "verde",
-         " azul",
-         " amarillo"
-      ],
-      "size": [
-         "s",
-         " m",
-         " xl"
-      ],
-      "price": 2333,
-      "description": "kdnlkjdndva dvakjbdv dav jd dxcznc eoiejio 8798 uhjuioh",
-      "image": "default.png"
    }
 ]
