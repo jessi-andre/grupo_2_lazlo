@@ -8,6 +8,17 @@
          display:block;
          margin: -8px 0 20px 65px;
       }
+
+      .recordar{
+         margin: 20px 0;
+         display:flex;
+         align-items: center;
+         justify-content: flex-end;
+         cursor: pointer;
+      }
+      .recordar input{
+         margin: 0 10px;
+      }
    </style>
 <body background="/images/fondo.jpg">
    <%-include('./partials/header')%> 
@@ -27,6 +38,10 @@
             <input type="password" placeholder="Contraseña" id="password" name="password">
          </div>
          <span class="errores"><%= locals.errores && errores.password ? errores.password.msg : null %> </span>
+         <div class="recordar">
+            <label for="remember">Mantener sesión</label>
+            <input type="checkbox" id="remember" name="remember">
+         </div>
          <input type="submit" value="Iniciar sesión" class="button"> <br>
          <br>
          <p>Al registrarte aceptas las Condiciones de uso y Política de privacidad. </p> <br>

@@ -1,0 +1,66 @@
+
+.perfil h2 {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.perfil .usuario {
+    width: 90%;
+    margin: 20px auto;
+    border: 2px solid var(--marron);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.perfil .imagenUsuario {
+    width: 30%;
+}
+.perfil .imagenUsuario img {
+    max-width: 100%;
+}
+
+.perfil .infoUsuario {
+    width: 70%;
+    border-left: 2px solid var(--marron);
+    position:relative;
+}
+
+.perfil .infoUsuario p {
+    text-align: left;
+    margin: 20px 20px;
+}
+
+.perfil .infoUsuario p span {
+    font-weight: 600;
+}
+
+.cerrarSesion{
+    padding:10px 15px;
+    position:absolute;
+    bottom: 10px;
+    right:10px;
+    background-color:var(--marron);
+    text-decoration: none;
+    color:#fff;
+    border-radius: 5px;
+    transition: opacity .5s;
+}
+
+.cerrarSesion:hover{
+    color:#fff;
+    opacity: .8;
+}
+
+/*---MEDIA QUERY---*/
+/*--tablet--*/
+
+@media (min-width: 768px) {
+      .perfil .usuario {
+        width: 80%;
+      }
+}
+@media (min-width: 1024px) {
+      .perfil .usuario {
+        width: 60%;
+      }
+}

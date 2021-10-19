@@ -3,38 +3,27 @@
     "id": 1,
     "first_name": "Florencia",
     "last_name": "Saldaño",
-    "email": "flor@hotmail.com",
-    "password": "asdasd123",
+    "email": "flor@lazlo.com",
+    "password": "1234",
     "category": "admin",
-    "image": "user_default.png"
+    "image": "default.png"
   },
   {
     "id": 2,
     "first_name": "Yamil",
     "last_name": "Tassara",
-    "email": "yamil@hotmail.com",
-    "password": "pass2142",
+    "email": "yamil@lazlo.com",
+    "password": "1234",
     "category": "admin",
-    "image": "user_default.png"
+    "image": "default.png"
   },
-
   {
     "id": 3,
     "first_name": "Jessica",
     "last_name": "Andre",
-    "email": "jessica@hotmail.com",
-    "password": "1312fsf",
+    "email": "jessi@lazlo.com",
+    "password": "1234",
     "category": "admin",
-    "image": "user_default.png"
-  },
-
-  {
-    "id": 4,
-    "first_name": "Fulano",
-    "last_name": "Díaz",
-    "email": "prueba@gmail.com",
-    "password": "12345",
-    "category": "user",
-    "image": "user_default.png"
+    "image": "default.png"
   }
 ]

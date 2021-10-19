@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 
+const cookieCheck = require('./middlewares/cookieCheck');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productoRouter = require('./routes/productos');
@@ -27,6 +29,7 @@ app.use(session({
   saveUninitialized: true
 }))
 
+app.use(cookieCheck);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
