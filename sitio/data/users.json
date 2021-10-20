@@ -1,33 +1,6 @@
 [
    {
       "id": 1,
-      "first_name": "Florencia",
-      "last_name": "Saldaño",
-      "email": "flor@lazlo.com",
-      "password": "1234",
-      "category": "admin",
-      "image": "default.png"
-   },
-   {
-      "id": 2,
-      "first_name": "Yamil",
-      "last_name": "Tassara",
-      "email": "yamil@lazlo.com",
-      "password": "1234",
-      "category": "admin",
-      "image": "default.png"
-   },
-   {
-      "id": 3,
-      "first_name": "Jessica",
-      "last_name": "Andre",
-      "email": "jessi@lazlo.com",
-      "password": "1234",
-      "category": "admin",
-      "image": "default.png"
-   },
-   {
-      "id": 4,
       "first_name": "jessica",
       "last_name": "andre",
       "email": "jessicadaianaandre@gmail.com",
@@ -35,12 +8,39 @@
       "image": "default.png"
    },
    {
-      "id": 5,
+      "id": 2,
       "first_name": "Manuel",
       "last_name": "Lazlo",
       "email": "manuel_lazlo@gmail.com",
       "password": "$2a$10$DmDNwk1XiTFfGSMLni0AuOcyImccv55sfWKL4n0xnhHPezkEhYsVW",
       "image": "default.png",
       "category": "admin"
+   },
+   {
+      "id": 3,
+      "first_name": "Celeste",
+      "last_name": "Azul",
+      "email": "azul@gmail.com",
+      "password": "$2a$10$Z9DUSWSv18TTQ/lRrKSB1u9chTWWb2SFERii.DC5IMvvl9.V7iLXy",
+      "image": "user-1634758080378.jpg",
+      "category": "usario"
+   },
+   {
+      "id": 4,
+      "first_name": "Florencia",
+      "last_name": "Saldaño",
+      "email": "flor@gmail.com",
+      "password": "$2a$10$O.zymzjtbiK5I0P6ilTexuc7nZI2XOFXMP4Jsk0lyOq6wBtsyQvPS",
+      "image": "user-1634759878862.png",
+      "category": "admin"
+   },
+   {
+      "id": 5,
+      "first_name": "Juan",
+      "last_name": "Perez",
+      "email": "juanperez@gmail.com",
+      "password": "$2a$10$C5e8HDz7amP7CJcGxkGIC.P6DL.TjZxIjcBzskcpnW9LtNQf..c1K",
+      "image": "user-1634761215051.png",
+      "category": "usario"
    }
 ]

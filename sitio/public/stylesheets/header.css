@@ -1,15 +1,3 @@
-.avatar-usuario{
-    width: 40px;
-    background-color: tomato;
-    align-self: baseline;
-    
-}
-.avatar-usuario img{
-    max-width: 100%;
-}
-.avatar-usuario h2{
-    font-size: 15px;
-}
 header{
     width: 100%;
     background-color: #fff;
@@ -160,6 +148,31 @@ header .btn-user a{
     color:  var(--marron);
 }
 
+.btn-profile{
+    margin:10px;
+}
+
+.btn-profile  a{
+    width: 60px;
+    display:block;
+    text-decoration: none;
+    padding: 0 !important;
+} 
+
+.avatar-usuario img{
+    width: 25px;
+    height: 25px;
+    display:block;
+    margin:0 auto;
+    border-radius: 50%;
+}
+
+.avatar-usuario h2{
+    font-size: 12px;
+    color:var(--marron);
+    margin:3px auto 0 ;  
+    text-align: center;  
+}
 
 /*---MEDIA QUERY---*/
 /*--tablet--*/
