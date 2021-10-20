@@ -12,7 +12,7 @@ module.exports = {
         let errores = validationResult(req);
 
         if(errores.isEmpty()){
-            const {first_name,last_name,email,password,category} = req.body;
+            const {first_name,last_name,email,password} = req.body;
             let usuario = {
                 id : usuarios.length != 0 ? usuarios[usuarios.length - 1].id + 1 : 1,
                 first_name : first_name.trim(),
@@ -20,7 +20,7 @@ module.exports = {
                 email : email.trim(),
                 password :bcrypt.hashSync(password,10),
                 image : req.file ? req.file.filename : 'default.png',
-                category : category
+                category :  'usario'
             }
             usuarios.push(usuario);
 

@@ -1,29 +1,46 @@
 [
-  {
-    "id": 1,
-    "first_name": "Florencia",
-    "last_name": "Saldaño",
-    "email": "flor@lazlo.com",
-    "password": "1234",
-    "category": "admin",
-    "image": "default.png"
-  },
-  {
-    "id": 2,
-    "first_name": "Yamil",
-    "last_name": "Tassara",
-    "email": "yamil@lazlo.com",
-    "password": "1234",
-    "category": "admin",
-    "image": "default.png"
-  },
-  {
-    "id": 3,
-    "first_name": "Jessica",
-    "last_name": "Andre",
-    "email": "jessi@lazlo.com",
-    "password": "1234",
-    "category": "admin",
-    "image": "default.png"
-  }
+   {
+      "id": 1,
+      "first_name": "Florencia",
+      "last_name": "Saldaño",
+      "email": "flor@lazlo.com",
+      "password": "1234",
+      "category": "admin",
+      "image": "default.png"
+   },
+   {
+      "id": 2,
+      "first_name": "Yamil",
+      "last_name": "Tassara",
+      "email": "yamil@lazlo.com",
+      "password": "1234",
+      "category": "admin",
+      "image": "default.png"
+   },
+   {
+      "id": 3,
+      "first_name": "Jessica",
+      "last_name": "Andre",
+      "email": "jessi@lazlo.com",
+      "password": "1234",
+      "category": "admin",
+      "image": "default.png"
+   },
+   {
+      "id": 4,
+      "first_name": "jessica",
+      "last_name": "andre",
+      "email": "jessicadaianaandre@gmail.com",
+      "password": "$2a$10$2B2fWVnM6iW9exqTGjKFcu0hC662Dz9JX7K7acTUFTEE3U.LS9lX2",
+      "image": "default.png"
+   },
+   {
+      "id": 5,
+      "first_name": "Manuel",
+      "last_name": "Lazlo",
+      "email": "manuel_lazlo@gmail.com",
+      "password": "$2a$10$DmDNwk1XiTFfGSMLni0AuOcyImccv55sfWKL4n0xnhHPezkEhYsVW",
+      "image": "default.png",
+      "category": "admin"
+   }
 ]

@@ -1,3 +1,15 @@
+.avatar-usuario{
+    width: 40px;
+    background-color: tomato;
+    align-self: baseline;
+    
+}
+.avatar-usuario img{
+    max-width: 100%;
+}
+.avatar-usuario h2{
+    font-size: 15px;
+}
 header{
     width: 100%;
     background-color: #fff;

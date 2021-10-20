@@ -6,7 +6,7 @@ var logger = require('morgan');
 const session = require('express-session');
 
 const cookieCheck = require('./middlewares/cookieCheck');
-
+const localsCheck = require('./middlewares/localsCheck');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productoRouter = require('./routes/productos');
@@ -30,7 +30,7 @@ app.use(session({
 }))
 
 app.use(cookieCheck);
-
+app.use(localsCheck);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', productoRouter);
