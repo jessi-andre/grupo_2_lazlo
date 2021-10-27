@@ -15,8 +15,8 @@ router.get('/register', notEntry, registro);
 router.post('/register', upload.single('profile'), registerValidation, processRegister);
 router.get('/login', notEntry, login);
 router.post('/login',loginValidation, processLogin);
-router.get('/perfil',userLoginCheck, perfil);
 router.get('/logout',logout);
+router.get('/perfil',userLoginCheck, perfil);
 
 module.exports = router;
 

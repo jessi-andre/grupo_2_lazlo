@@ -10,9 +10,9 @@
 
     <section class="formularioProducto">
 
-        <h2>Editar producto</h2>
+        <h2>Editar producto</h2> 
 
-        <form class="row g-3" action="/productos/editar-productos/<%= producto.id %>?_method=PUT" method="POST">
+        <form class="row g-3" action="/productos/editar-productos/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="col-md-6">
               <label for="inputNombre" class="form-label">Nombre del Producto:</label>
               <input type="text" class="form-control" name="name" id="inputNombre" value="<%= producto.name %>">
@@ -40,8 +40,8 @@
               </select>
             </div>
             <div class="col-md-6">
-                <label for="inpurImage" class="form-label">Imagen del Producto:</label>
-                <input class="form-control" name="image" type="file" id="inpurImage" value="<%= producto.image %>">
+                <label for="inputImage" class="form-label">Imagen del Producto:</label>
+                <input class="form-control" name="product" type="file" id="inputImage" value="<%= producto.image %>">
               </div>
             <div class="col-md-12">
                 <label for="inputDescrption" class="form-label">Descripción del Producto:</label>

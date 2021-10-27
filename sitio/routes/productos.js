@@ -4,6 +4,8 @@ const path = require('path');
 const multer = require('multer');
 const { productos, productoDetalle, administrador, agregar, editar, store, destroy, actualizar } = require('../controllers/productoController')
 const adminCheck = require('../middlewares/adminCheck');
+
+const uploadEdit = require('../middlewares/multerProducts_edit'); //multer
 /** MULTER **/
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -27,10 +29,9 @@ router.get('/categoria/:category', productos);
 router.get('/detalle/:id', productoDetalle);
 router.get('/agregar-productos',adminCheck, agregar);
 router.get('/editar-productos/:id',adminCheck, editar);
-router.put('/editar-productos/:id', actualizar);
+router.put('/editar-productos/:id', uploadEdit.single('product'), actualizar);
 
 /** DELETE ONE PRODUCT***/
 router.delete('/destroy/:id', destroy);
 
 module.exports = router;
-

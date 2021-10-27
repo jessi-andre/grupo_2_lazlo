@@ -63,11 +63,9 @@ module.exports = {
             }
 
             if(req.body.remember){
-                res.cookie('lazloCookie',req.session.loginUsuario,{maxAge : 1000 * 60})
+                res.cookie('lazloCookie',req.session.loginUsuario,{maxAge : 2000 * 60});
+                console.log("req.usuarios- "+req.session.loginUsuario)
             }
-
-            console.log(req.cookies.lazloCookie)
-
             return res.redirect('/users/perfil')
         }else{
             //return res.send(errores.mapped())
@@ -84,7 +82,7 @@ module.exports = {
         })
     },
     logout: (req,res) => {
-        req.session.destroy()
-        res.redirect('/')
+        req.session.destroy();
+        res.redirect('/');
     }
 }

@@ -50,6 +50,8 @@
     border:none;
     font-size: 1.3em;
     transition:  color .5s;
+    height: 25px;
+    overflow:hidden;
 }
 
 .vistaProductos .productoInfo p{

@@ -34,6 +34,7 @@
     color: var(--marron);
     text-align: center;
     display: block;
+    background-color: #fff;
 }
 .contenedoradminitrador table td:last-child button{
     background-color:var(--marron);
