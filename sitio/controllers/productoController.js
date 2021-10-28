@@ -10,17 +10,17 @@ module.exports = {
             title: req.params.category
         })
     },
-    productoDetalle: (req,res) => {
-        let  products = JSON.parse(fs.readFileSync(path.join(__dirname,'..','data','productos.json'),'utf-8'));
-        
-        return res.render ('detalle', {
+    productoDetalle: (req, res) => {
+        let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'));
+
+        return res.render('detalle', {
             product: products.find(product => product.id === +req.params.id),
             mochilas: products.filter(product => product.category === "mochilas")
         })
     },
     administrador: (req, res) => {
         return res.render('administrador', {
-            products : JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'))
+            products: JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'))
         })
     },
     store: (req, res) => {
@@ -35,29 +35,29 @@ module.exports = {
             size: size ? size.split(',') : null,
             price: +price,
             description: description.trim(),
-            image: req.file ? req.file.filename: 'default.png'
+            image: req.file ? req.file.filename : 'default.png'
         }
         products.push(product)
 
         fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(products, null, 3), 'utf-8');
         return res.redirect('/productos/administrador');
     },
-     editar: (req,res) => {
-        return res.render('editar-productos',{
+    editar: (req, res) => {
+        return res.render('editar-productos', {
             producto: products.find(product => product.id === +req.params.id),
             categorias
         })
     },
-    actualizar: (req,res) => {
+    actualizar: (req, res) => {
 
-        let {name, price, colors, size, description, category} = req.body;
+        let { name, price, colors, size, description, category } = req.body;
 
-        let product = products.find(product => product.id === +req.params.id);     
-        
-        
+        let product = products.find(product => product.id === +req.params.id);
+
+
         let productoModif = {
             id: +req.params.id,
-            name:name.trim(),
+            name: name.trim(),
             price: +price,
             colors: colors.split(','),
             size: size ? size.split(',') : null,
@@ -66,14 +66,14 @@ module.exports = {
             image: req.file ? req.file.filename : product.image
         }
 
-        fs.existsSync(path.join(__dirname,'../public/images/products',product.image)) ? fs.unlinkSync(path.join(__dirname,'../public/images/products',product.image)) : null;
+        fs.existsSync(path.join(__dirname, '../public/images/products', product.image)) ? fs.unlinkSync(path.join(__dirname, '../public/images/products', product.image)) : null;
 
         let productosModif = products.map(product => product.id === +req.params.id ? productoModif : product)
 
-        fs.writeFileSync(path.join(__dirname,'..','data','productos.json'),JSON.stringify(productosModif,null,3),'utf-8');
+        fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(productosModif, null, 3), 'utf-8');
 
-        res.redirect('/productos/detalle/'+req.params.id)
-        
+        res.redirect('/productos/detalle/' + req.params.id)
+
     },
 
     agregar: (req, res) => {
@@ -86,14 +86,14 @@ module.exports = {
     // delete- delete one product 
     destroy: (req, res) => {
         let product = products.find(product => product.id === +req.params.id);
-        
-        fs.existsSync(path.join(__dirname,'../public/images/products',product.image)) ? fs.unlinkSync(path.join(__dirname,'../public/images/products',product.image)) : null
+
+        fs.existsSync(path.join(__dirname, '../public/images/products', product.image)) ? fs.unlinkSync(path.join(__dirname, '../public/images/products', product.image)) : null
 
         let productModified = products.filter(product => product.id !== +req.params.id)
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(productModified,null, 3), 'utf-8');
+        fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(productModified, null, 3), 'utf-8');
         return res.redirect('/productos/administrador');
 
     }
 
-       
+
 }

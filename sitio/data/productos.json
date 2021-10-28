@@ -246,18 +246,5 @@
       ],
       "size": null,
       "image": "producto17.jpg"
-   },
-   {
-      "id": 18,
-      "name": "X MIIR CAMP MUG",
-      "category": "accesorios",
-      "price": 25,
-      "description": "Esta taza aislada de acero inoxidable de 12 oz mantiene caliente su elegante café o su cóctel de fogata fresco. ",
-      "colors": [
-         "gris",
-         "negro"
-      ],
-      "size": null,
-      "image": "producto18.jpg"
    }
 ]
