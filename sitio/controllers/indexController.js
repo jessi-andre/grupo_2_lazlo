@@ -4,5 +4,8 @@ module.exports = {
     },
     carrito: (req,res) => {
         return res.render('carrito')
-    }
+    },
+    historia: (req,res) => {
+        return res.render('historia')
+    },
 }
