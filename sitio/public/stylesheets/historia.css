@@ -1,10 +1,10 @@
 body main {
-    background-color: blanchedalmond;
+    background-color:white;
     border: black;
   }
   
   body main .contenedor {
-    background-color: rgb(245, 239, 231);
+    background-color:#ffffff;
     padding: 10px;
   }
   body main .contenedorImagen {
@@ -17,11 +17,12 @@ body main {
   .contenedor .descripcion {
     text-align: center;
     padding: 20px;
+    background-color: rgb(247, 231, 201);
   }
   
   @media (min-width: 768px) {
     .contenedor {
-      background-color: rgb(245, 239, 231);
+      background-color: rgb(247, 231, 201);
       display: flex;
     }
     body main .contenedorImagen {
@@ -37,12 +38,13 @@ body main {
       text-align: center;
       padding: 20px;
       width: 50%;
+      background-color: rgb(247, 231, 201);
     }
   }
   
   @media (min-width: 1024px) {
       .contenedor {
-          background-color: rgb(245, 239, 231);
+          background-color: rgb(247, 231, 201);
           display: flex;
         }
         body main .contenedorImagen {
@@ -58,6 +60,7 @@ body main {
           text-align: center;
           padding: 20px;
           width: 50%;
+          background-color: rgb(247, 231, 201);
         }
   }
   
