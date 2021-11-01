@@ -5,7 +5,8 @@
       "last_name": "andre",
       "email": "jessicadaianaandre@gmail.com",
       "password": "$2a$10$2B2fWVnM6iW9exqTGjKFcu0hC662Dz9JX7K7acTUFTEE3U.LS9lX2",
-      "image": "default.png"
+      "image": "default.png",
+      "category": "usuario"
    },
    {
       "id": 2,

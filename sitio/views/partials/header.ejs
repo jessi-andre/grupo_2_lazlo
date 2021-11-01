@@ -38,19 +38,47 @@
           <img src="/images/users/<%= locals.loginUsuario.image %> " alt="" />
           <h2><%= locals.loginUsuario.first_name %></h2>
         </div>
-      </a>
-    </div>
-    <% }else { %>
-    <div class="btn-user">
-      <a href="/users/login"><i class="fas fa-user"></i></a>
-    </div>
+        <nav>
+            <ul>
+                <li><a href="/productos/categoria/mochilas">mochilas</a></li>
+                <li><a href="/productos/categoria/indumentaria">indumentaria</a></li>
+                <li><a href="#">historia</a></li>
+                <% if (locals.loginUsuario && locals.loginUsuario.category=="admin" ) { %>
+                    <li><a href="/productos/administrador">administrador</a></li>
+                    <% }else { %>
+                        <li><a href="#">comunidad</a></li>
+                        <% } %>
 
-    <% } %>
-    <div class="btn-carrito">
-      <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
+                            <form action="" class="busqueda">
+                                <input type="search" name="busqueda" id="busqueda" placeholder="Busca tu producto..." />
+                                <i class="fas fa-search"></i>
+                            </form>
+            </ul>
+        </nav>
+    </aside>
+    <div class="btns-menu">
+        <% if (locals.loginUsuario){ %>
+            <div class="btn-profile">
+                <a href="/users/perfil">
+                    <div class="avatar-usuario">
+                        <img src="/images/users/<%= locals.loginUsuario.image %> " alt="" />
+                        <h2>
+                            <%= locals.loginUsuario.first_name %>
+                        </h2>
+                    </div>
+                </a>
+            </div>
+            <% }else { %>
+                <div class="btn-user">
+                    <a href="/users/login"><i class="fas fa-user"></i></a>
+                </div>
+
+                <% } %>
+                    <div class="btn-carrito">
+                        <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
+                    </div>
+                    <div class="btn-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
     </div>
-    <div class="btn-menu">
-      <i class="fas fa-bars"></i>
-    </div>
-  </div>
 </header>
