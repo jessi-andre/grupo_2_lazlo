@@ -8,4 +8,7 @@ module.exports = {
     historia: (req,res) => {
         return res.render('historia')
     },
+    comunidad: (req,res) => {
+        return res.render('comunidad')
+    },
 }
