@@ -66,7 +66,7 @@ module.exports = {
             image: req.file ? req.file.filename : product.image
         }
 
-        fs.existsSync(path.join(__dirname,'../public/images/products',product.image)) ? fs.unlinkSync(path.join(__dirname,'../public/images/products',product.image)) : null;
+        //fs.existsSync(path.join(__dirname,'../public/images/products',product.image)) ? fs.unlinkSync(path.join(__dirname,'../public/images/products',product.image)) : null;
 
         let productosModif = products.map(product => product.id === +req.params.id ? productoModif : product)
 
@@ -87,7 +87,7 @@ module.exports = {
     destroy: (req, res) => {
         let product = products.find(product => product.id === +req.params.id);
         
-        fs.existsSync(path.join(__dirname,'../public/images/products',product.image)) ? fs.unlinkSync(path.join(__dirname,'../public/images/products',product.image)) : null
+        //fs.existsSync(path.join(__dirname,'../public/images/products',product.image)) ? fs.unlinkSync(path.join(__dirname,'../public/images/products',product.image)) : null
 
         let productModified = products.filter(product => product.id !== +req.params.id)
         fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(productModified,null, 3), 'utf-8');
