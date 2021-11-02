@@ -17,7 +17,10 @@
 ### 👩 Meza, Cecilia 
  - 35 años
  - Estudiante de programación.
-
+ 
+### 👩 Gaitan, Nathalia 
+ - 30 años
+ - Estudiante de programación.
 
 ## 💬 Temática del sitio y audiencia
 Este sitio comercializa mochilas con alto impacto tecnológico e indumentaria rústica para acompañar su total comodidad para un viaje o vida cotidiana. Nuestro público objetivo es inclusivo donde todos puedan disfrutar de los productos elaborados y donde así también puedan captar su bienestar, tanto para viajar o para darle los usos que desees , así mismo con la compra de la mochila exclusiva (roble) plantamos un árbol para darle más vida al mundo y colaborar con el medio ambiente!  También contamos con envíos gratis a todo el país y excelentes opciones de pagos.
