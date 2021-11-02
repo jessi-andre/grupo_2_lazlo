@@ -89,7 +89,6 @@ Participar más atención a Trello.
 **Comenzar hacer:**
 Prestar más atención a Trello.
 
-
 **Hacer más:**
 - Mejorar el manejo del tiempo.
 - En reunión final chequear que este todo OK!
