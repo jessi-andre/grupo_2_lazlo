@@ -3,7 +3,6 @@ section main .carousel-slide {
     padding: 1px;
     width: 100%;
 }
-
 main .carousel-slide img {
     max-width: 100%;
     object-fit: cover;
@@ -35,6 +34,7 @@ main .carousel-slide img {
     position: relative;
     margin: 5px;
     border-radius: 15px;
+
 }
 
 .imagenes-productos article img {
