@@ -3,6 +3,7 @@ const path = require('path');
 let usuarios =  JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'users.json'), 'utf-8'));
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
+const roles = require('../data/roles');
 
 module.exports = {
     registro:(req,res) => {
@@ -20,7 +21,7 @@ module.exports = {
                 email : email.trim(),
                 password :bcrypt.hashSync(password,10),
                 image : req.file ? req.file.filename : 'default.png',
-                category :  'usario'
+                category :  'usuario'
             }
             usuarios.push(usuario);
 
@@ -66,7 +67,13 @@ module.exports = {
                 res.cookie('lazloCookie',req.session.loginUsuario,{maxAge : 2000 * 60});
                 console.log("req.usuarios- "+req.session.loginUsuario)
             }
-            return res.redirect('/users/perfil')
+
+            if(req.session.loginUsuario.category == 'admin'){
+                return res.redirect('/users/perfilAdmin')
+            }else{
+               return res.redirect('/users/perfil') 
+            }
+            
         }else{
             //return res.send(errores.mapped())
             return res.render('login',{
@@ -84,5 +91,33 @@ module.exports = {
     logout: (req,res) => {
         req.session.destroy();
         res.redirect('/');
+    },
+    perfilAdmin: (req,res) => {
+        let usuarios =  JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'users.json'), 'utf-8'));
+        return res.render('perfilAdmin', {
+            usuario: usuarios.find(usuario => usuario.email === req.session.loginUsuario.email),
+            usuarios, 
+            roles
+        })
+    },
+    cambiarRol: (req, res) => {
+        let usuario= usuarios.find(usuario => usuario.id === +req.params.id);
+
+        let usuarioModif = {
+            id:+req.params.id,
+            id : usuario.id,
+            first_name : usuario.first_name,
+            last_name : usuario.last_name,
+            email : usuario.email,
+            password: usuario.password,
+            image : usuario.image,
+            category : req.body.category
+        }
+
+        let usuariosModif = usuarios.map(usuario => usuario.id === +req.params.id ? usuarioModif : usuario);
+
+        fs.writeFileSync(path.join(__dirname, '..', 'data', 'users.json'), JSON.stringify(usuariosModif, null, 3), 'utf-8');
+
+        res.redirect('/users/perfilAdmin');
     }
 }

@@ -17,17 +17,17 @@ module.exports = {
         allowNull: false,
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(500),
         allowNull: false,
       },
       categoryId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references:{
-          model:{
+        references: {
+          model: {
             tableName: 'Categories'
           },
-          key:'id'
+          key: 'id'
         }
       },
       image: {
@@ -39,7 +39,6 @@ module.exports = {
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE
       }
     });

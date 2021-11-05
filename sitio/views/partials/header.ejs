@@ -1,3 +1,20 @@
+<% if (locals.loginUsuario && locals.loginUsuario.category =="admin" ) {
+  %>
+  <header class="headerAdmin">
+    <nav class="navAdmin_productos">
+       <a href="/productos/administrador"><i class="fas fa-user-cog"></i> Administrador</a>
+       <a href="/productos/agregar-productos"><i class="fas fa-plus"></i> Agregar productos</a>
+      </ul>
+    </nav>
+
+    <nav class="navAdmin">
+      <a href="/users/perfilAdmin" class="navAdmin_btn"><p>Hola, <%= locals.loginUsuario.first_name %></p> <img src="/images/users/<%= locals.loginUsuario.image %>" alt=""></a>
+    </nav>
+ </header>
+<% } else {%>
+<span></span>
+<% } %>
+  
 <header>
   <a href="/" class="logo">
     <img src="/images/logo.png" alt="" />
@@ -11,12 +28,10 @@
         <li><a href="/productos/categoria/mochilas">mochilas</a></li>
         <li><a href="/productos/categoria/indumentaria">indumentaria</a></li>
         <li><a href="/historia">historia</a></li>
-        <% if (locals.loginUsuario && locals.loginUsuario.category=="admin" ) {
-        %>
-        <li><a href="/productos/administrador">administrador</a></li>
-        <% }else { %>
+        
+        
+        
         <li><a href="/comunidad">comunidad</a></li>
-        <% } %>
 
         <form action="" class="busqueda">
           <input
@@ -31,7 +46,7 @@
     </nav>
   </aside>
   <div class="btns-menu">
-    <% if (locals.loginUsuario){ %>
+    <% if (locals.loginUsuario &&  locals.loginUsuario.category === 'usuario'){ %>
     <div class="btn-profile">
       <a href="/users/perfil">
         <div class="avatar-usuario">

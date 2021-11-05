@@ -1,0 +1,49 @@
+.headerAdmin {
+    background-color: var(--grisOscuro);
+    padding: 10px 35px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: none;
+}
+
+.headerAdmin nav i {
+    margin: 0 5px 0 0;
+}
+
+.headerAdmin nav a {
+    color: var(--grisClaro);
+    text-decoration: none;
+    transition: background-color .5s, color .5s;
+    margin: 0 40px 0 0;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.headerAdmin .navAdmin .navAdmin_btn {
+    margin: 0;
+    transition: background-color .5s, color .5s;
+    padding: 2px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.navAdmin_btn p {
+    margin: 0;
+    font-size: 14px;
+    margin: 0 15px 0 0;
+}
+
+.navAdmin .navAdmin_btn img {
+    width: 26px;
+    background-color: var(--grisClaro);
+    border: 2px solid var(--grisClaro);
+}
+
+.headerAdmin .navAdmin_productos a:hover,
+.navAdmin_btn:hover {
+    color: var(--marron);
+    background-color: var(--grisClaro);
+}
