@@ -2,13 +2,37 @@ const fs = require('fs');
 const path = require('path');
 const categorias = require('../data/categorias');
 let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'))
+const db = require('../database/models')
+const {Op} = require('sequelize');
 
 module.exports = {
     productos: (req, res) => {
-        return res.render('vista-productos', {
+        /*return res.render('vista-productos', {
             products: products.filter(product => product.category === req.params.category),
             title: req.params.category
-        })
+        })*/
+        db.Product.findAll({
+            include: [
+                "colors",
+                "size",
+                "category"
+            ],
+        }).then(productos => { 
+            db.Category.findAll ({
+                include: ['products'],
+                where: {
+                    name: {[Op.like]:req.params.category}
+                }
+            }).then(categorias => {
+
+               /* return res.render('vista-productos', {
+                    products: categorias,
+                    title: req.params.category
+                })*/
+                res.send(categorias.products)
+
+            }).catch(error => console.log(error))
+        }).catch(error => console.log(error)) 
     },
     productoDetalle: (req, res) => {
         let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'));

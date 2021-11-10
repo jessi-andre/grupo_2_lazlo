@@ -53,7 +53,7 @@ main .carousel-slide img {
     border-radius: 5px;
     display: block;
     position: absolute;
-    bottom: 14px;
+    bottom: 19px;
     left: 50%;
     transform: translate(-50%);
     transition: opacity .5s, box-shadow .5s;
