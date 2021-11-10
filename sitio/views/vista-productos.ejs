@@ -7,7 +7,7 @@
     <main class="vistaProductos">
         <h2><%= title %></h2>
         <section class="productos">  
-            <% products.forEach(product => { %>
+            <% products[0].forEach(product => { %>
 
                 <a href="/productos/detalle/<%= product.id %>" class="producto">
                     <div class="productoImg">

@@ -3,49 +3,76 @@ const path = require('path');
 const categorias = require('../data/categorias');
 let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'))
 const db = require('../database/models')
-const {Op} = require('sequelize');
+const { Op } = require('sequelize');
 
 module.exports = {
     productos: (req, res) => {
-        /*return res.render('vista-productos', {
-            products: products.filter(product => product.category === req.params.category),
-            title: req.params.category
-        })*/
         db.Product.findAll({
             include: [
                 "colors",
                 "size",
                 "category"
             ],
-        }).then(productos => { 
-            db.Category.findAll ({
+        }).then(productos => {
+            db.Category.findAll({
                 include: ['products'],
                 where: {
-                    name: {[Op.like]:req.params.category}
+                    name: { [Op.like]: req.params.category }
                 }
             }).then(categorias => {
 
-               /* return res.render('vista-productos', {
-                    products: categorias,
+                let producto = categorias.map(categoria => categoria.products);
+
+                /*res.send(producto)*/
+
+                return res.render('vista-productos', {
+                    products: producto,
                     title: req.params.category
-                })*/
-                res.send(categorias.products)
+                })
 
             }).catch(error => console.log(error))
-        }).catch(error => console.log(error)) 
+        }).catch(error => console.log(error))
     },
     productoDetalle: (req, res) => {
-        let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'));
 
-        return res.render('detalle', {
-            product: products.find(product => product.id === +req.params.id),
-            mochilas: products.filter(product => product.category === "mochilas")
+        let productoPromise = db.Product.findByPk(req.params.id, {
+            include: [
+                "colors",
+                "size",
+                "category"
+            ],
         })
+
+        let mochilasPromise =
+            db.Category.findAll({
+                include: ['products'],
+                where: {
+                    id: 1
+                }
+            })
+
+        Promise.all([productoPromise, mochilasPromise])
+            .then(([productoPromise, mochilasPromise]) => {
+                let mochilas = mochilasPromise.map(mochila => mochila.products);
+                return res.render('detalle', {
+                    product: productoPromise,
+                    mochilas
+                })
+            }).catch(error => console.log(error))
+
     },
     administrador: (req, res) => {
-        return res.render('administrador', {
-            products: JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'))
-        })
+        db.Product.findAll({
+            include: [
+                "colors",
+                "size",
+                "category"
+            ]
+        }).then(productos => {
+            return res.render('administrador', {
+                products: productos
+            })
+        }).catch(error => console.log(error))
     },
     store: (req, res) => {
         //return res.send(req.file);
@@ -67,10 +94,31 @@ module.exports = {
         return res.redirect('/productos/administrador');
     },
     editar: (req, res) => {
-        return res.render('editar-productos', {
-            producto: products.find(product => product.id === +req.params.id),
-            categorias
+
+        let producto = db.Product.findByPk(req.params.id, {
+            include: [
+                "colors",
+                "size",
+                "category"
+            ],
         })
+
+        let colores = db.Color.findAll()
+
+        let talles = db.Size.findAll()
+
+        let categorias = db.Category.findAll()
+
+
+        Promise.all([producto, colores, talles, categorias])
+            .then(([producto, colores, talles, categorias]) => {
+                return res.render('editar-productos', {
+                    product,
+                    colores,
+                    talles,
+                    categorias
+                })
+            }).catch(error => console.log(error))
     },
     actualizar: (req, res) => {
 
@@ -101,9 +149,30 @@ module.exports = {
     },
 
     agregar: (req, res) => {
-        return res.render('agregar-productos', {
-            categorias
+        let producto = db.Product.findByPk(req.params.id, {
+            include: [
+                "colors",
+                "size",
+                "category"
+            ],
         })
+
+        let colores = db.Color.findAll()
+
+        let talles = db.Size.findAll()
+
+        let categorias = db.Category.findAll()
+
+
+        Promise.all([producto, colores, talles, categorias])
+            .then(([producto, colores, talles, categorias]) => {
+                return res.render('agregar-productos', {
+                    producto,
+                    colores,
+                    talles,
+                    categorias
+                })
+            }).catch(error => console.log(error))
     },
 
 

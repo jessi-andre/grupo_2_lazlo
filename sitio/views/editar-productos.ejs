@@ -21,21 +21,30 @@
                 <label for="inputPrecio" class="form-label">Precio del Producto:</label>
                 <input type="number" class="form-control" name="price" id="inputPrecio" value="<%= producto.price %>">
               </div>
+
             <div class="col-12">
-              <label for="inputColores" class="form-label">Colores:</label>
-              <input type="text" class="form-control" name="colors" id="inputColores" placeholder="rojo, verde, azul" value="<%= producto.colors %>">
+              
+              <p>Colores:</p>
+
+              <% colores.forEach(color => { %>
+                <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>">
+                 <label for="<%= color.name %>"><%= color.name %></label><br>
+              <% }) %>
             </div>
             <% if(producto.size) { %>
               <div class="col-12">
-                <label for="inputTalles" class="form-label">Talles:</label>
-                <input type="text" class="form-control" name="size" id="inputTalles" placeholder="s, m, l" value="<%= producto.size %>">
+                <p>Talles:</p>
+                <% talles.forEach(talle => { %>
+                  <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>">
+                   <label for="<%= talle.name %>"><%= talle.name %></label><br>
+                <% }) %>
               </div>
             <% } %>
             <div class="col-md-6">
               <label for="inputCaregoria" class="form-label">Caregoria:</label>
               <select id="inputCategoria" class="form-select" name="category">
                 <% categorias.forEach(categoria => { %>
-                  <option name="category" value="<%= categoria %>" <%= categoria === producto.category ? 'selected' : null %>><%= categoria %></option>
+                  <option name="category" value="<%= categoria %>" <%= categoria === producto.category ? 'selected' : null %>><%= categoria.name %></option>
                 <% }) %>
               </select>
             </div>

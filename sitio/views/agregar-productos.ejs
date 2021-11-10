@@ -22,20 +22,28 @@
                 <label for="inputPrecio" class="form-label">Precio del Producto:</label>
                 <input type="number" class="form-control" name="price" id="inputPrecio">
               </div>
-            <div class="col-12">
-              <label for="inputColores" class="form-label">Colores:</label>
-              <input type="text" class="form-control" name="colors" id="inputColores" placeholder="rojo, verde, azul">
-            </div>
               <div class="col-12">
-                <label for="inputTalles" class="form-label">Talles:</label>
-                <input type="text" class="form-control" name="size" id="inputTalles" placeholder="s, m, l">
+              
+                <p>Colores:</p>
+  
+                <% colores.forEach(color => { %>
+                  <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>">
+                   <label for="<%= color.name %>"><%= color.name %></label><br>
+                <% }) %>
               </div>
+                <div class="col-12">
+                  <p>Talles:</p>
+                  <% talles.forEach(talle => { %>
+                    <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>">
+                     <label for="<%= talle.name %>"><%= talle.name %></label><br>
+                  <% }) %>
+                </div>
             <div class="col-md-6">
               <label for="inputCaregoria" class="form-label">Categoria:</label>
               <select id="inputCategoria" class="form-select" name="category">
                 <option value="" selected hidden>Selecciona una categoria</option>
                 <% categorias.forEach(categoria => { %>
-                  <option name="category" ><%= categoria %></option>
+                  <option name="category" ><%= categoria.name %></option>
                 <% }) %>
               </select>
             </div>

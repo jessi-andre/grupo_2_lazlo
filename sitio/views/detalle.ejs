@@ -11,7 +11,7 @@
             </div>
             <div class="productoDetalle">
                 <div class="productoNombre">
-                    <h3 class="categoria"><%= product.category %></h3>
+                    <h3 class="categoria"><%= product.category.name %></h3>
                     <h1><%= product.name %></h1> 
                 </div>            
                 <div class="precios-estrellas">
@@ -34,7 +34,7 @@
                                 <% }) %>
                             </select>
                         </div>
-                        <% if (product.size) { %>
+                        <% if (product.size > 0) { %>
                             <div class="select caja-form">
                                 <label for="talle">Talle:</label>
                                 <select name="talle" id="talle">
@@ -77,14 +77,14 @@
         </section>
         <section class="productosRelacionados">
             <h2>Más vendidos</h2>
-
+        
             <!-- carrucel -->
-
+        
             <div class="glide">
                 <div class="glide__track" data-glide-el="track">
                   <ul class="glide__slides">
                     
-                    <% mochilas.forEach(mochila=> { %>
+                    <% mochilas[0].forEach(mochila=> { %>
                         <li class="glide__slide">
                             <a href="/productos/detalle/<%= mochila.id %>" class="relacionadoContenedor">
                             <div class="relacionado">
