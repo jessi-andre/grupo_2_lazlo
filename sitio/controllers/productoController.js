@@ -56,7 +56,9 @@ module.exports = {
                 let mochilas = mochilasPromise.map(mochila => mochila.products);
                 return res.render('detalle', {
                     product: productoPromise,
-                    mochilas
+                    mochilas,
+                    colors: productoPromise.colors,
+                    sizes: productoPromise.size
                 })
             }).catch(error => console.log(error))
 
@@ -75,23 +77,44 @@ module.exports = {
         }).catch(error => console.log(error))
     },
     store: (req, res) => {
-        //return res.send(req.file);
-        const { name, category, price, size, description, colors } = req.body;
+        const { name, category, price, description } = req.body;
 
-        let product = {
-            id: products[products.length - 1].id + 1,
+        //res.send(req.body)
+        db.Product.create({
             name: name.trim(),
-            category,
-            colors: colors.split(','),
-            size: size ? size.split(',') : null,
             price: +price,
             description: description.trim(),
+            categoryId: category,
             image: req.file ? req.file.filename : 'default.png'
-        }
-        products.push(product)
+        }).then(producto => {
 
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(products, null, 3), 'utf-8');
-        return res.redirect('/productos/administrador');
+            let colores = req.body.color.map(color => {
+                let colorMap = {
+                    colorId: +color,
+                    productId: +producto.id
+                }
+                return colorMap;
+            })
+
+            let talles = req.body.talle.map(size => {
+                let talleMap = {
+                    sizeId: +size,
+                    productId: +producto.id
+                }
+                return talleMap;
+            })
+
+            let coloresPromise = db.ColorProduct.bulkCreate(colores)
+
+            let tallesPromise = db.SizeProduct.bulkCreate(talles)
+
+            Promise.all([colores, talles]).then(([colores, talles]) => {
+                res.send(producto)
+            })
+
+
+            //res.redirect('/productos/administrador')
+        })
     },
     editar: (req, res) => {
 
@@ -112,8 +135,9 @@ module.exports = {
 
         Promise.all([producto, colores, talles, categorias])
             .then(([producto, colores, talles, categorias]) => {
+                //res.send(producto)
                 return res.render('editar-productos', {
-                    product,
+                    producto,
                     colores,
                     talles,
                     categorias
@@ -122,9 +146,66 @@ module.exports = {
     },
     actualizar: (req, res) => {
 
-        let { name, price, colors, size, description, category } = req.body;
+        let { name, price, description, category, color, size } = req.body;
 
-        let product = products.find(product => product.id === +req.params.id);
+        db.Product.findByPk(req.params.id, {
+            include: [
+                "colors",
+                "size",
+                "category"
+            ]
+        }).then(producto => {
+
+            let colores = color.map(colorito => {
+                let colorMap = {
+                    colorId: +colorito,
+                    productId: +producto.id
+                }
+                return colorMap;
+            })
+
+            let sizes;
+
+            if (size > 0) {
+                sizes = size.map(size => {
+                    let talleMap = {
+                        sizeId: +size,
+                        productId: +producto.id
+                    }
+                    return talleMap;
+                })
+            } else {
+                sizes = [];
+            }
+
+
+
+            let productoActualizado = db.Product.update({
+                name: name.trim(),
+                price: +price,
+                description: description.trim(),
+                categoryId: category,
+                image: req.file ? req.file.filename : producto.image
+            },
+                {
+                    where: {
+                        id: req.params.id
+                    }
+                }
+            )
+
+            let coloresPromise = db.ColorProduct.bulkCreate(colores)
+
+            let tallesPromise = db.SizeProduct.bulkCreate(sizes)
+
+            Promise.all(([coloresPromise, tallesPromise, productoActualizado])).then(([coloresPromise, tallesPromise, productoActualizado]) => {
+                //res.send(req.body)
+                return res.redirect('/productos/detalle/' + req.params.id)
+            }).catch(error => console.log(error))
+        }).catch(error => console.log(error))
+
+
+        /*let product = products.find(product => product.id === +req.params.id);
 
 
         let productoModif = {
@@ -144,7 +225,7 @@ module.exports = {
 
         fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(productosModif, null, 3), 'utf-8');
 
-        res.redirect('/productos/detalle/' + req.params.id)
+        res.redirect('/productos/detalle/' + req.params.id)*/
 
     },
 
@@ -178,13 +259,52 @@ module.exports = {
 
     // delete- delete one product 
     destroy: (req, res) => {
-        let product = products.find(product => product.id === +req.params.id);
+
+        db.Product.findByPk(req.params.id, {
+            include: [
+                "colors",
+                "size",
+                "category"
+            ]
+        })
+            .then(producto => {
+                fs.existsSync(path.join(__dirname, '../public/images/products', producto.image)) ? fs.unlinkSync(path.join(__dirname, '../public/images/products', producto.image)) : null;
+                let eliminarColores = db.ColorProduct.destroy({
+                    where: {
+                        productId: req.params.id
+                    }
+                })
+
+                let eliminarTalles = db.SizeProduct.destroy({
+                    where: {
+                        productId: req.params.id
+                    }
+                })
+
+                let eliminarProducto = db.Product.destroy({
+                    where: {
+                        id: req.params.id
+                    },
+                    include: [
+                        "colors",
+                        "size"
+                    ]
+                })
+
+                Promise.all(([eliminarColores, eliminarTalles, eliminarProducto])).then(() => {
+                    return res.redirect('/productos/administrador')
+                }).catch(error => console.log(error))
+            })
+            .catch(error => console.log(error))
+
+
+        /*let product = products.find(product => product.id === +req.params.id);
 
         fs.existsSync(path.join(__dirname, '../public/images/products', product.image)) ? fs.unlinkSync(path.join(__dirname, '../public/images/products', product.image)) : null
 
         let productModified = products.filter(product => product.id !== +req.params.id)
         fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(productModified, null, 3), 'utf-8');
-        return res.redirect('/productos/administrador');
+        return res.redirect('/productos/administrador');*/
 
     }
 

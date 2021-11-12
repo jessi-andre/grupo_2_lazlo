@@ -29,22 +29,24 @@
                             <label for="color">Color:</label>
                             <select name="color" id="color">
                                 <option value="-" selected hidden>Elegí el color</option>
-                                <% product.colors.forEach(color => { %>
-                                    <option value="<%= color %>"><%= color %></option>
+                                <% colors.forEach(color => { %>
+                                    <option value="<%= color.id %>"><%= color.name %></option>
                                 <% }) %>
                             </select>
                         </div>
-                        <% if (product.size > 0) { %>
+                        <% if (sizes.length > 0) { %>
                             <div class="select caja-form">
                                 <label for="talle">Talle:</label>
                                 <select name="talle" id="talle">
                                     <option value="" selected hidden>Eligí talle</option>
-                                    <% product.size.forEach(size => { %>
-                                        <option value="<%= size %>"><%= size %></option>
+                                    <% sizes.forEach(size => { %>
+                                        <option value="<%= size.id %>"><%= size.name %></option>
                                     <% }) %>
                                 </select>
                             </div>
-                        <% } %>
+                        <% } else {%>
+                            <span></span>
+                        <% }%>
                         <div class="input caja-form">
                             <label for="cantidad">Cantidad:</label>
                             <input type="number" name="cantidad" id="cantidad">

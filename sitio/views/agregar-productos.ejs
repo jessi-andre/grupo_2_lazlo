@@ -22,31 +22,37 @@
                 <label for="inputPrecio" class="form-label">Precio del Producto:</label>
                 <input type="number" class="form-control" name="price" id="inputPrecio">
               </div>
-              <div class="col-12">
+
+              <div class="tallesYcolores">
+                <div class="col-6 colores">
               
                 <p>Colores:</p>
   
                 <% colores.forEach(color => { %>
-                  <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>">
-                   <label for="<%= color.name %>"><%= color.name %></label><br>
+                  <input type="checkbox"  id="<%= color.name %>" name="color" value="<%= color.id %>">
+                   <label for="<%= color.name %>" ><%= color.name %></label><br>
                 <% }) %>
               </div>
-                <div class="col-12">
+                
+              <div class="col-6 talles">
                   <p>Talles:</p>
                   <% talles.forEach(talle => { %>
                     <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>">
                      <label for="<%= talle.name %>"><%= talle.name %></label><br>
                   <% }) %>
                 </div>
+              </div>
+            
             <div class="col-md-6">
               <label for="inputCaregoria" class="form-label">Categoria:</label>
               <select id="inputCategoria" class="form-select" name="category">
                 <option value="" selected hidden>Selecciona una categoria</option>
                 <% categorias.forEach(categoria => { %>
-                  <option name="category" ><%= categoria.name %></option>
+                  <option name="categoryId" value="<%= categoria.id %>"><%= categoria.name %></option>
                 <% }) %>
               </select>
-            </div>
+            </div> 
+
             <div class="col-md-6">
                 <label for="inputImage" class="form-label">Imagen del Producto:</label>
                 <input class="form-control" name="image" type="file" id="inputImage" >
