@@ -29,6 +29,7 @@ main .carousel-slide img {
     align-items: center;
 }
 
+
 .imagenes-productos article {
     width: 46%;
     position: relative;
@@ -44,6 +45,10 @@ main .carousel-slide img {
     border-radius: 6px;
     display: block;
 }
+.imagenes-productos article img:hover{
+    opacity: .8;
+    box-shadow: 0 0 1px rgba(87, 87, 87, .7);
+}
 
 .imagenes-productos article .boton-ver-mas{
     text-decoration: none;
@@ -57,8 +62,12 @@ main .carousel-slide img {
     left: 50%;
     transform: translate(-50%);
     transition: opacity .5s, box-shadow .5s;
+    cursor:pointer;
 }
-
+.imagenes-productos article .boton-ver-mas:hover{
+    opacity: .8;
+    box-shadow: 0 0 1px rgba(87, 87, 87, .7);
+}
 
 /*BANNER DE PIE*/
 
@@ -93,7 +102,12 @@ main .carousel-slide img {
     position: absolute;
     bottom: 76px;
     right: 40px;
-    
+    cursor:pointer;
+}
+
+.banner-final.boton-ver-mas:hover{
+    opacity: .8;
+    box-shadow: 0 0 1px rgba(87, 87, 87, .7);  /*no me toma */
 }
 
 
