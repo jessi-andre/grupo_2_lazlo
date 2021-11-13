@@ -148,6 +148,7 @@ module.exports = {
 
         let { name, price, description, category, color, size } = req.body;
 
+
         db.Product.findByPk(req.params.id, {
             include: [
                 "colors",
@@ -156,13 +157,25 @@ module.exports = {
             ]
         }).then(producto => {
 
-            let colores = color.map(colorito => {
-                let colorMap = {
-                    colorId: +colorito,
+            let colores;
+
+            if (color > 0 && color < 1) {
+                colores = color.map(colorito => {
+                    let colorMap = {
+                        colorId: +colorito,
+                        productId: +producto.id
+                    }
+                    return colorMap;
+                })
+            } else if (color === 1) {
+                colores = {
+                    colorId: +color,
                     productId: +producto.id
                 }
-                return colorMap;
-            })
+            }
+            else {
+                colores = [];
+            }
 
             let sizes;
 
