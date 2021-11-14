@@ -1,6 +1,6 @@
 .headerAdmin {
     background-color: var(--grisOscuro);
-    padding: 10px 35px !important;
+    padding: 10px !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,10 +15,15 @@
     color: var(--grisClaro);
     text-decoration: none;
     transition: background-color .5s, color .5s;
-    margin: 0 40px 0 0;
-    font-size: 14px;
+    margin: 0 15px 0 0;
+    font-size: 20px;
     padding: 5px;
 }
+
+.headerAdmin nav a p{
+    display: none;
+}
+
 
 .headerAdmin .navAdmin .navAdmin_btn {
     margin: 0;
@@ -46,4 +51,37 @@
 .navAdmin_btn:hover {
     color: var(--marron);
     background-color: var(--grisClaro);
+}
+
+@media (min-width : 768px){
+
+    .headerAdmin {
+        padding: 10px 35px !important;
+    }
+
+    .headerAdmin nav a {
+        margin: 0 40px 0 0;
+        font-size: 14px;
+    }
+
+    .headerAdmin nav a p{
+        display: inline;
+    }
+}
+
+/*--desktop--*/
+
+@media (min-width : 1024px){
+    .headerAdmin {
+        padding: 10px 35px !important;
+    }
+
+    .headerAdmin nav a {
+        margin: 0 40px 0 0;
+        font-size: 14px;
+    }
+
+    .headerAdmin nav a p{
+        display: inline;
+    }
 }

@@ -6,15 +6,15 @@
     <%-include('./partials/header')%>  
     <main class="perfil">
       <% if (locals.usuario && usuario) { %>
-        <h2>Bienvenid@, <%= usuario.first_name %></h2>
+        <h2>Bienvenid@, <%= usuario.firstName %></h2>
         <section class="usuario">
           <div class="imagenUsuario">
             <img src="/images/users/<%= usuario.image %>" alt="" />
           </div>
           <div class="infoUsuario">
             <p>
-              <span>Nombre completo:</span> <%= usuario.first_name %> <%=
-              usuario.last_name %>
+              <span>Nombre completo:</span> <%= usuario.firstName %> <%=
+              usuario.lastName %>
             </p>
             <p><span>Email:</span> <%= usuario.email %></p>
   
@@ -40,12 +40,12 @@
                  <span></span>
                 <% } else {%>
                 <tr>
-                  <td><%= usuario.first_name %> <%= usuario.last_name %></td>
+                  <td><%= usuario.firstName %> <%= usuario.lastName %></td>
                   <td>
                     <form action="/users/perfilAdmin/<%= usuario.id %>?_method=PUT" method="POST">
                       <select name="category" id="">
                         <% roles.forEach(rol => { %>
-                          <option name="category" value="<%= rol %>" <%= rol === usuario.category ? 'selected' : null %>><%= rol %></option>
+                          <option name="category" value="<%= rol.id %>" <%= rol.id === usuario.roleId ? 'selected' : null %>><%= rol.name %></option>
                         <% }) %>
                       </select>
 

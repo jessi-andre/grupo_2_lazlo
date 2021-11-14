@@ -29,7 +29,7 @@
 
               <% colores.forEach(color => { %>
                 <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>">
-                 <label for="<%= color.name %>" value="<% color.id %>"><%= color.name %></label><br>
+                 <label for="<%= color.name %>" ><%= color.name %></label><br>
               <% }) %>
             </div>
             <% if(producto.size) { %>
@@ -37,7 +37,7 @@
                 <p>Talles:</p>
                 <% talles.forEach(talle => { %>
                   <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>">
-                   <label for="<%= talle.name %>" value="<% talle.id %>"><%= talle.name %></label><br>
+                   <label for="<%= talle.name %>" ><%= talle.name %></label><br>
                 <% }) %>
               </div>
             <% } %>

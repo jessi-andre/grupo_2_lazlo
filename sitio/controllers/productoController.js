@@ -168,10 +168,10 @@ module.exports = {
                     return colorMap;
                 })
             } else if (color === 1) {
-                colores = {
+                colores = [{
                     colorId: +color,
                     productId: +producto.id
-                }
+                }]
             }
             else {
                 colores = [];

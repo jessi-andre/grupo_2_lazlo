@@ -1,8 +1,8 @@
-<% if (locals.loginUsuario && locals.loginUsuario.category=="admin" ) { %>
+<% if (locals.loginUsuario && locals.loginUsuario.rol === 2 ) { %>
   <header class="headerAdmin">
     <nav class="navAdmin_productos">
-      <a href="/productos/administrador"><i class="fas fa-user-cog"></i> Administrador</a>
-      <a href="/productos/agregar-productos"><i class="fas fa-plus"></i> Agregar productos</a>
+      <a href="/productos/administrador"><i class="fas fa-user-cog"></i><p> Administrador</p> </a>
+      <a href="/productos/agregar-productos"><i class="fas fa-plus"></i><p> Agregar productos</p></a>
       </ul>
     </nav>
 

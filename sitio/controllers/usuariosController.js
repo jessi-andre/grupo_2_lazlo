@@ -52,19 +52,19 @@ module.exports = {
 
         const errores = validationResult(req)
 
-        db.User.findOne({where: {email: req.body.email}})
+        db.User.findOne({ where: { email: req.body.email } })
             .then(usuario => {
 
 
                 if (errores.isEmpty()) {
-                    /* let usuario = usuarios.find(usuario => usuario.email === req.body.email);*/
+                    // let usuario = usuarios.find(usuario => usuario.email === req.body.email);
 
                     req.session.loginUsuario = {
                         id: usuario.id,
                         first_name: usuario.firstName,
                         last_name: usuario.lastName,
                         email: usuario.email,
-                        rol: usuario.rolId,
+                        rol: usuario.roleId, // -------------------- Esto decia rol y era role 
                         image: usuario.image
                     }
 
@@ -72,12 +72,13 @@ module.exports = {
                         res.cookie('lazloCookie', req.session.loginUsuario, { maxAge: 2000 * 60 });
                         console.log("req.usuarios- " + req.session.loginUsuario)
                     }
-                    if(req.session.loginUsuario.rol == 2){
+
+                    if (req.session.loginUsuario.rol === 2) {
                         return res.redirect('/users/perfilAdmin')
-                    }else{
-                       return res.redirect('/users/perfil') 
+                    } else {
+                        return res.redirect('/users/perfil')
                     }
-        
+
                 } else {
                     //return res.send(errores.mapped())
                     return res.render('login', {
@@ -88,25 +89,18 @@ module.exports = {
             }).catch(
                 error => console.log(error)
             )
-
-
-
-
-
-
-        
     },
 
     perfil: (req, res) => {
-       /* let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'users.json'), 'utf-8'));
-        return res.render('perfil', {
-            usuario: usuarios.find(usuario => usuario.email === req.session.loginUsuario.email)
-        })*/
-        db.User.findByPk(  req.session.loginUsuario.id,{where:{rolId:1}})
-        .then(usuario => {
-            return res.render('perfil', 
-            {usuario })
-        })
+        /* let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'users.json'), 'utf-8'));
+         return res.render('perfil', {
+             usuario: usuarios.find(usuario => usuario.email === req.session.loginUsuario.email)
+         })*/
+        db.User.findByPk(req.session.loginUsuario.id)
+            .then(usuario => {
+                return res.render('perfil',
+                    { usuario })
+            })
 
     },
     logout: (req, res) => {
@@ -114,7 +108,7 @@ module.exports = {
         res.redirect('/');
     },
 
-    perfilAdmin: (req,res) => {
+    perfilAdmin: (req, res) => {
         /*let usuarios =  JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'users.json'), 'utf-8'));
         return res.render('perfilAdmin', {
             usuario: usuarios.find(usuario => usuario.email === req.session.loginUsuario.email),
@@ -122,41 +116,51 @@ module.exports = {
             roles
 
         })*/
-        db.User.findByPk(  req.session.loginUsuario.id,{where:{rolId:2}})
-        .then(usuario => {
-            db.User.findAll().then(
-              usuarios =>{
-                  return res.render('perfilAdmin',{usuario,usuarios})
-              }  
-            ).catch(
-                error => console.log(error)
-            )
 
-        }).catch(
-            error => console.log(error)
-        )
+        let usuarios = db.User.findAll();
 
+        let roles = db.Role.findAll({
+            include: [
+                'users'
+            ]
+        });
+
+        let usuario = db.User.findByPk(req.session.loginUsuario.id, {
+            include: [
+                'role'
+            ]
+        })
+
+        Promise.all(([usuarios, roles, usuario]))
+            .then(([usuarios, roles, usuario]) => {
+                //res.send(usuario)
+                res.render('perfilAdmin', {
+                    usuario,
+                    usuarios,
+                    roles
+                })
+            }).catch(error => console.log(error))
 
 
     },
     cambiarRol: (req, res) => {
-        let usuario= usuarios.find(usuario => usuario.id === +req.params.id);
+        let usuario = usuarios.find(usuario => usuario.id === +req.params.id);
 
         let usuarioModif = {
-            id:+req.params.id,
-            id : usuario.id,
-            first_name : usuario.first_name,
-            last_name : usuario.last_name,
-            email : usuario.email,
+            id: +req.params.id,
+            id: usuario.id,
+            first_name: usuario.first_name,
+            last_name: usuario.last_name,
+            email: usuario.email,
             password: usuario.password,
-            image : usuario.image,
-            category : req.body.category
+            image: usuario.image,
+            category: req.body.category
         }
 
         let usuariosModif = usuarios.map(usuario => usuario.id === +req.params.id ? usuarioModif : usuario);
 
         fs.writeFileSync(path.join(__dirname, '..', 'data', 'users.json'), JSON.stringify(usuariosModif, null, 3), 'utf-8');
-res.redirect('/users/perfilAdmin');
+        res.redirect('/users/perfilAdmin');
     }
 }
 
