@@ -10,11 +10,38 @@ module.exports = {
         return res.render('register')
     },
     processRegister: (req, res) => {
+
         let errores = validationResult(req);
 
         if (errores.isEmpty()) {
+
+
+
             const { first_name, last_name, email, password } = req.body;
-            let usuario = {
+
+            db.User.create({
+               
+                firstName: first_name.trim(),
+                lastName: last_name.trim(),
+                email: email.trim(),
+                password: bcrypt.hashSync(password, 10),
+                image: req.file ? req.file.filename : 'default.png',
+                roleId: 1
+            }).then(usuario =>{
+
+                req.session.loginUsuario = {
+                    id: usuario.id,
+                    firstName: usuario.firstName,
+                    lastName: usuario.lastName,
+                    email: usuario.email,
+                    rol: usuario.roleId,
+                    image: usuario.image
+                }
+    
+                return res.redirect('/users/perfil')
+            }).catch(error => console.log(error))
+
+            /*let usuario = {
                 id: usuarios.length != 0 ? usuarios[usuarios.length - 1].id + 1 : 1,
                 first_name: first_name.trim(),
                 last_name: last_name.trim(),
@@ -36,7 +63,7 @@ module.exports = {
                 image: usuario.image
             }
 
-            return res.redirect('/users/perfil')
+            return res.redirect('/users/perfil')*/
         } else {
             return res.render('register', {
                 errores: errores.mapped(),
@@ -144,13 +171,40 @@ module.exports = {
 
     },
     cambiarRol: (req, res) => {
-        let usuario = usuarios.find(usuario => usuario.id === +req.params.id);
+       
+        db.User.findByPk(req.params.id).then(usuario =>{
+
+            
+
+           db.User.update({
+               
+                firstName: usuario.firstName,
+                lastName: usuario.lastName,
+                email: usuario.email,
+                password: usuario.password,
+                image: usuario.image,
+                roleId: req.body.rol,
+            } ,{
+                where:{
+                   id: usuario.id
+                }
+            } ).then(usuarioA =>{
+    
+                
+    
+                return res.redirect('/users/perfilAdmin')
+            }).catch(error => console.log(error))
+        }).catch(error => console.log(error))
+
+       
+
+        /*let usuario = usuarios.find(usuario => usuario.id === +req.params.id);
 
         let usuarioModif = {
             id: +req.params.id,
             id: usuario.id,
-            first_name: usuario.first_name,
-            last_name: usuario.last_name,
+            first_name: usuario.firstName,
+            last_name: usuario.lastName,
             email: usuario.email,
             password: usuario.password,
             image: usuario.image,
@@ -160,7 +214,7 @@ module.exports = {
         let usuariosModif = usuarios.map(usuario => usuario.id === +req.params.id ? usuarioModif : usuario);
 
         fs.writeFileSync(path.join(__dirname, '..', 'data', 'users.json'), JSON.stringify(usuariosModif, null, 3), 'utf-8');
-        res.redirect('/users/perfilAdmin');
+        res.redirect('/users/perfilAdmin');*/
     }
 }
 

@@ -45,7 +45,7 @@
                     <form action="/users/perfilAdmin/<%= usuario.id %>?_method=PUT" method="POST">
                       <select name="category" id="">
                         <% roles.forEach(rol => { %>
-                          <option name="category" value="<%= rol.id %>" <%= rol.id === usuario.roleId ? 'selected' : null %>><%= rol.name %></option>
+                          <option name="rol" value="<%= rol.id %>" <%= rol.id === usuario.roleId ? 'selected' : null %>><%= rol.name %></option>
                         <% }) %>
                       </select>
 
