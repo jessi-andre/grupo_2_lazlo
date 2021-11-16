@@ -101,7 +101,7 @@ header .headerNav  .busqueda input{
     color:var(--marron);
 }
 
-header .headerNav  .busqueda i{
+header .headerNav  .busqueda button{
     position: absolute;
     bottom: 8px;
     right: 6px;
@@ -109,8 +109,12 @@ header .headerNav  .busqueda i{
     cursor:pointer;
     background-color:#fff;
     padding:0 8px;
+    border:none
 }
 
+header .headerNav  .busqueda i{
+    color:var(--grisOscuro);
+}
 
 /*--USUARTIO-NAV--*/
 

@@ -1,56 +1,71 @@
-<header>
-  <a href="/" class="logo">
-    <img src="/images/logo.png" alt="" />
-  </a>
-  <aside class="headerNav">
-    <div class="btn-cerrarMenu">
-      <i class="fas fa-times"></i>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="/productos/categoria/mochilas">mochilas</a></li>
-        <li><a href="/productos/categoria/indumentaria">indumentaria</a></li>
-        <li><a href="#">historia</a></li>
-        <% if (locals.loginUsuario && locals.loginUsuario.category=="admin" ) {
-        %>
-        <li><a href="/productos/administrador">administrador</a></li>
-        <% }else { %>
-        <li><a href="#">comunidad</a></li>
-        <% } %>
-
-        <form action="" class="busqueda">
-          <input
-            type="search"
-            name="busqueda"
-            id="busqueda"
-            placeholder="Busca tu producto..."
-          />
-          <i class="fas fa-search"></i>
-        </form>
+<% if (locals.loginUsuario && locals.loginUsuario.rol === 2 ) { %>
+  <header class="headerAdmin">
+    <nav class="navAdmin_productos">
+      <a href="/productos/administrador"><i class="fas fa-user-cog"></i><p> Administrador</p> </a>
+      <a href="/productos/agregar-productos"><i class="fas fa-plus"></i><p> Agregar productos</p></a>
       </ul>
     </nav>
-  </aside>
-  <div class="btns-menu">
-    <% if (locals.loginUsuario){ %>
-    <div class="btn-profile">
-      <a href="/users/perfil">
-        <div class="avatar-usuario">
-          <img src="/images/users/<%= locals.loginUsuario.image %> " alt="" />
-          <h2><%= locals.loginUsuario.first_name %></h2>
-        </div>
-      </a>
-    </div>
-    <% }else { %>
-    <div class="btn-user">
-      <a href="/users/login"><i class="fas fa-user"></i></a>
-    </div>
 
+    <nav class="navAdmin">
+      <a href="/users/perfilAdmin" class="navAdmin_btn">
+        <p>Hola, <%= locals.loginUsuario.first_name %>
+        </p> <img src="/images/users/<%= locals.loginUsuario.image %>" alt="">
+      </a>
+    </nav>
+  </header>
+  <% } else {%>
+    <span></span>
     <% } %>
-    <div class="btn-carrito">
-      <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
-    </div>
-    <div class="btn-menu">
-      <i class="fas fa-bars"></i>
-    </div>
-  </div>
-</header>
+
+      <header>
+        <a href="/" class="logo">
+          <img src="/images/logo.png" alt="" />
+        </a>
+        <aside class="headerNav">
+          <div class="btn-cerrarMenu">
+            <i class="fas fa-times"></i>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="/productos/categoria/mochilas">mochilas</a></li>
+              <li><a href="/productos/categoria/indumentaria">indumentaria</a></li>
+              <li><a href="/historia">historia</a></li>
+
+
+
+              <li><a href="/comunidad">comunidad</a></li>
+
+              <form action="/search" class="busqueda">
+                <input type="search" name="busqueda" id="busqueda" placeholder="Busca tu producto..." />
+                <button><i class="fas fa-search"></i></button>
+
+              </form>
+            </ul>
+          </nav>
+        </aside>
+        <div class="btns-menu">
+          <% if (locals.loginUsuario && locals.loginUsuario.rol === 1 ){ %>
+            <div class="btn-profile">
+              <a href="/users/perfil">
+                <div class="avatar-usuario">
+                  <img src="/images/users/<%= locals.loginUsuario.image %> " alt="" />
+                  <h2>
+                    <%= locals.loginUsuario.firstName %>
+                  </h2>
+                </div>
+              </a>
+            </div>
+            <% }else { %>
+              <div class="btn-user">
+                <a href="/users/login"><i class="fas fa-user"></i></a>
+              </div>
+
+              <% } %>
+                <div class="btn-carrito">
+                  <a href="/carrito"><i class="fas fa-shopping-bag"></i></a>
+                </div>
+                <div class="btn-menu">
+                  <i class="fas fa-bars"></i>
+                </div>
+        </div>
+      </header>

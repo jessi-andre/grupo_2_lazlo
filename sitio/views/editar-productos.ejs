@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
    <%-include('./partials/head')%> 
-
+   <style>
+    .errores {
+      font-weight: 500;
+      color: tomato;
+      display: block;
+      margin: 10px 0 0;
+    }
+  </style>
    <body>
-       
+         
    <%-include('./partials/header')%> 
 
    <main>
@@ -15,38 +22,86 @@
         <form class="row g-3" action="/productos/editar-productos/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="col-md-6">
               <label for="inputNombre" class="form-label">Nombre del Producto:</label>
-              <input type="text" class="form-control" name="name" id="inputNombre" value="<%= producto.name %>">
+              <input type="text" class="form-control" name="name" id="inputNombre" value="<%= locals.errores && errores.price ? old.name : producto.name %>">
+              <span class="errores">
+                <%= locals.errores && errores.name ? errores.name.msg :  null %>
+              </span>
             </div>
+            
             <div class="col-md-6">
                 <label for="inputPrecio" class="form-label">Precio del Producto:</label>
-                <input type="number" class="form-control" name="price" id="inputPrecio" value="<%= producto.price %>">
+                <input type="number" class="form-control" name="price" id="inputPrecio" value="<%= locals.errores && errores.price ? old.price : producto.price %>">
+                <span class="errores">
+                  <%= locals.errores && errores.price ? errores.price.msg :  null %>
+                </span>
               </div>
-            <div class="col-12">
-              <label for="inputColores" class="form-label">Colores:</label>
-              <input type="text" class="form-control" name="colors" id="inputColores" placeholder="rojo, verde, azul" value="<%= producto.colors %>">
+              
+
+            <div class="col-6">
+              
+              <p>Colores:</p>
+
+              <% colores.forEach(color => { %>
+                <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>" 
+                <% producto.colors.forEach(colores => { %>
+                  <%= color.id === colores.id ? 'checked' : null %>
+              <% }) %>
+                >
+                 <label for="<%= color.name %>" ><%= color.name %></label><br>
+              <% }) %>
+              <span class="errores">
+                <%= locals.errores && errores.color ? errores.color.msg : null %>
+              </span>
             </div>
-            <% if(producto.size) { %>
-              <div class="col-12">
-                <label for="inputTalles" class="form-label">Talles:</label>
-                <input type="text" class="form-control" name="size" id="inputTalles" placeholder="s, m, l" value="<%= producto.size %>">
+
+            
+
+              <div class="col-6">
+                <p>Talles:</p>
+                <% talles.forEach(talle => { %>
+                  <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>"
+                  <% locals.errores && errores.price ? old.size : producto.size.forEach(size => { %>
+                      <%= talle.id === size.id ? 'checked' : null %>
+                  <% }) %>
+                  >
+                   <label for="<%= talle.name %>" ><%= talle.name %></label><br>
+                <% }) %>
+                <span class="errores">
+                  <%= locals.errores && errores.talle ? errores.talle.msg : null %>
+                </span>
               </div>
-            <% } %>
+  
+            
+
+
             <div class="col-md-6">
-              <label for="inputCaregoria" class="form-label">Caregoria:</label>
+              <label for="inputCaregoria" class="form-label">Categoria:</label>
               <select id="inputCategoria" class="form-select" name="category">
                 <% categorias.forEach(categoria => { %>
-                  <option name="category" value="<%= categoria %>" <%= categoria === producto.category ? 'selected' : null %>><%= categoria %></option>
+                  <option name="category" value="<%= locals.errores && errores.price ? old.categoryId : categoria.id %>" <%= categoria === producto.category ? 'selected' : null %>><%= categoria.name %></option>
                 <% }) %>
               </select>
+              <span class="errores">
+                <%= locals.errores && errores.category ? errores.category.msg : null %>
+              </span>
             </div>
+
+            
+
             <div class="col-md-6">
                 <label for="inputImage" class="form-label">Imagen del Producto:</label>
                 <input class="form-control" name="product" type="file" id="inputImage" value="<%= producto.image %>">
               </div>
             <div class="col-md-12">
                 <label for="inputDescrption" class="form-label">Descripción del Producto:</label>
-                <textarea class="form-control" name="description" id="inputDescrption" rows="3" ><%= producto.description %></textarea>
+                <textarea class="form-control" name="description" id="inputDescrption" rows="3" ><%= locals.errores && errores.price ? old.description : producto.description %></textarea>
+                <span class="errores">
+                  <%= locals.errores && errores.description ? errores.description.msg : null %>
+                </span>
               </div>
+
+              
+
             <div class="col-md-12 col-sm-12">
               <button type="submit" class="btn marron col-md-12 col-sm-12">Editar producto</button>
             </div>

@@ -5,7 +5,8 @@
       "last_name": "andre",
       "email": "jessicadaianaandre@gmail.com",
       "password": "$2a$10$2B2fWVnM6iW9exqTGjKFcu0hC662Dz9JX7K7acTUFTEE3U.LS9lX2",
-      "image": "default.png"
+      "image": "default.png",
+      "category": "usuario"
    },
    {
       "id": 2,
@@ -23,7 +24,7 @@
       "email": "azul@gmail.com",
       "password": "$2a$10$Z9DUSWSv18TTQ/lRrKSB1u9chTWWb2SFERii.DC5IMvvl9.V7iLXy",
       "image": "user-1634758080378.jpg",
-      "category": "usario"
+      "category": "usuario"
    },
    {
       "id": 4,
@@ -41,6 +42,24 @@
       "email": "juanperez@gmail.com",
       "password": "$2a$10$C5e8HDz7amP7CJcGxkGIC.P6DL.TjZxIjcBzskcpnW9LtNQf..c1K",
       "image": "user-1634761215051.png",
-      "category": "usario"
+      "category": "admin"
+   },
+   {
+      "id": 6,
+      "first_name": "nathalia",
+      "last_name": "gaitan",
+      "email": "nathalia2912dante@gmail.com",
+      "password": "$2a$10$p1UbnAy.h2CJ33fO5x0nWuE6y8.WOnXsEZ2kHzmLDAc75AuvJliX2",
+      "image": "default.png",
+      "category": "admin"
+   },
+   {
+      "id": 7,
+      "first_name": "Nahir",
+      "last_name": "Saldaño",
+      "email": "flornahirs@gmail.com",
+      "password": "$2a$10$B4F5vhDuusyOVCyNzoGAz.IplKV0bOSkYrjg/2McB7JKUh9fpXTuW",
+      "image": "user-1636049093107.jpg",
+      "category": "admin"
    }
 ]

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('./partials/head')%>
+
+  <body class="perfilAdmin">
+    <%-include('./partials/header')%>  
+    <main class="perfil">
+      <% if (locals.usuario && usuario) { %>
+        <h2>Bienvenid@, <%= usuario.firstName %></h2>
+        <section class="usuario">
+          <div class="imagenUsuario">
+            <img src="/images/users/<%= usuario.image %>" alt="" />
+          </div>
+          <div class="infoUsuario">
+            <p>
+              <span>Nombre completo:</span> <%= usuario.firstName %> <%=
+              usuario.lastName %>
+            </p>
+            <p><span>Email:</span> <%= usuario.email %></p>
+  
+            <a href="/users/logout" class="cerrarSesion">Cerrar sesión</a>
+          </div>
+        </section>
+        <% } else{ %>
+        <span></span>
+        <% } %>
+
+        <div class="listaUsuarios_contenedor">
+          <table class="table listaUsuarios">
+            <thead>
+              <tr>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">ROL</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <% usuarios.forEach(user => { %>
+                <% if (user.id === locals.usuario.id && user.id === usuario.id) { %>
+                 <span></span>
+                <% } else {%>
+                <tr>
+                  <td><%= user.firstName %> <%= user.lastName %></td>
+                  <td>
+                    <form action="/users/perfilAdmin/<%= user.id %>?_method=PUT" method="POST">
+                      <select name="rol" id="">
+                        <% roles.forEach(rol => { %>
+                          <option name="rol" value="<%= rol.id %>" <%= rol.id === user.roleId ? 'selected' : null %>><%= rol.name %></option>
+                        <% }) %>
+                      </select>
+
+                      <button class="btn_cambiarRol">Cambiar Rol</button>
+                    </form>
+                  </td>
+                </tr>
+                <% } %>
+              <% }) %>  
+            </tbody>
+          </table>
+        </div>
+        
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  </body>
+</html>

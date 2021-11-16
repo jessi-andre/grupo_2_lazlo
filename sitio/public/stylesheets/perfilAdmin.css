@@ -1,0 +1,58 @@
+.listaUsuarios_contenedor {
+    width: 90%;
+    margin: 50px auto 30px;
+    border: 2px solid var(--marron);
+}
+
+.perfilAdmin table td,
+.perfilAdmin select,
+.perfilAdmin option {
+    text-transform: capitalize;
+}
+
+
+
+.perfilAdmin form {
+    width: 260px;
+    margin: 0 !important;
+}
+
+.btn_cambiarRol {
+    padding: 5px 10px;
+    background-color: var(--marron);
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    transition: opacity .5s;
+    display: inline-block;
+    margin: 0 0 0 30px;
+    border: none;
+    font-size: 14px;
+}
+
+.btn_cambiarRol:hover {
+    opacity: .8;
+}
+
+@media (min-width: 768px) {
+    .listaUsuarios_contenedor {
+        width: 80%;
+    }
+
+    .perfilAdmin form {
+        width: 260px;
+        margin: 0 !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .listaUsuarios_contenedor {
+        width: 60%;
+
+    }
+
+    .perfilAdmin form {
+        width: 260px;
+        margin: 0 !important;
+    }
+}
