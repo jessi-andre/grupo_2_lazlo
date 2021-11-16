@@ -44,6 +44,17 @@ const user = [
     roleId: 2,
     createdAt: new Date,
     updatedAt: new Date
+  },
+  {
+    id: 5,
+    firstName: "Prueba",
+    lastName: "Lazlo",
+    email: "prueba@gmail.com",
+    password: "$2a$10$O.zymzjtbiK5I0P6ilTexuc7nZI2XOFXMP4Jsk0lyOq6wBtsyQvPS",
+    image: "default.png",
+    roleId: 2,
+    createdAt: new Date,
+    updatedAt: new Date
   }
 ]
 

@@ -9,12 +9,10 @@ module.exports = [
         .isInt().withMessage('El precio del producto debe ser un número'),
 
     check('color')
-        .notEmpty().withMessage('El color es requerido').bail()
-        .isLength({ min: 2 }).withMessage('Nececitas elegir al menos dos colores'),
+        .notEmpty().withMessage('El color es requerido'),
 
     check('talle')
-        .notEmpty().withMessage('El talle es requerido').bail()
-        .isLength({ min: 2 }).withMessage('Nececitas elegir al menos dos talles'),
+        .notEmpty().withMessage('El talle es requerido'),
 
     check('category')
         .notEmpty().withMessage('La categoría del producto es requerida'),

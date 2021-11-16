@@ -78,8 +78,6 @@ module.exports = {
         }).catch(error => console.log(error))
     },
     store: (req, res) => {
-
-
         let errores = validationResult(req);
 
         if (errores.isEmpty()) {
@@ -119,10 +117,22 @@ module.exports = {
                 }).catch(error => console.log(error))
             }).catch(error => console.log(error))
         } else {
-            return res.render('agregar-productos', {
-                errores: errores.mapped(),
-                old: req.body
-            })
+            let colores = db.Color.findAll()
+
+            let talles = db.Size.findAll()
+
+            let categorias = db.Category.findAll()
+
+            Promise.all(([colores, talles, categorias])).then(([colores, talles, categorias]) => {
+                //res.send(req.body)
+                return res.render('agregar-productos', {
+                    errores: errores.mapped(),
+                    old: req.body,
+                    colores,
+                    talles,
+                    categorias
+                })
+            }).catch(error => console.log(error))
         }
     },
     editar: (req, res) => {
@@ -155,102 +165,107 @@ module.exports = {
     },
     actualizar: (req, res) => {
 
-        let { name, price, description, category, color, talle } = req.body;
+        let errores = validationResult(req);
 
-        db.Product.findByPk(req.params.id, {
-            include: [
-                "colors",
-                "size",
-                "category"
-            ]
-        }).then(producto => {
+        if (errores.isEmpty()) {
+            let { name, price, description, category} = req.body;
 
-            let colores;
-            if (req.body.color.length > 0) {
-                colores = req.body.color.map(color => {
-                    let colorMap = {
-                        colorId: +color,
-                        productId: +producto.id
-                    }
-                    return colorMap;
-                })
-            } else {
-                colores = []
-            }
+            db.Product.findByPk(req.params.id, {
+                include: [
+                    "colors",
+                    "size",
+                    "category"
+                ]
+            }).then(producto => {
 
-
-            let talles;
-            if (req.body.talle.length > 0) {
-                talles = req.body.talle.map(size => {
-                    let talleMap = {
-                        sizeId: +size,
-                        productId: +producto.id
-                    }
-                    return talleMap;
-                })
-            } else {
-                talles = []
-            }
-
-
-            db.ColorProduct.destroy({
-                where: {
-                    productId: producto.id
+                let colores;
+                if (req.body.color.length > 0) {
+                    colores = req.body.color.map(color => {
+                        let colorMap = {
+                            colorId: +color,
+                            productId: +producto.id
+                        }
+                        return colorMap;
+                    })
+                } else {
+                    colores = []
                 }
-            }).then(() => {
-                db.ColorProduct.bulkCreate(colores)
-            })
 
-            db.SizeProduct.destroy({
-                where: {
-                    productId: producto.id
+
+                let talles;
+                if (req.body.talle.length > 0) {
+                    talles = req.body.talle.map(size => {
+                        let talleMap = {
+                            sizeId: +size,
+                            productId: +producto.id
+                        }
+                        return talleMap;
+                    })
+                } else {
+                    talles = []
                 }
-            }).then(() => {
-                db.SizeProduct.bulkCreate(talles)
-            })
 
-            db.Product.update({
-                name: name.trim(),
-                price: +price,
-                description: description.trim(),
-                categoryId: category,
-                image: req.file ? req.file.filename : producto.image
-            },
-                {
+
+                db.ColorProduct.destroy({
                     where: {
-                        id: req.params.id
+                        productId: producto.id
                     }
-                }
-            ).then(() => {
+                }).then(() => {
+                    db.ColorProduct.bulkCreate(colores)
+                })
 
-                return res.redirect('/productos/detalle/' + req.params.id)
-            })
+                db.SizeProduct.destroy({
+                    where: {
+                        productId: producto.id
+                    }
+                }).then(() => {
+                    db.SizeProduct.bulkCreate(talles)
+                })
 
-        }).catch(error => console.log(error))
+                db.Product.update({
+                    name: name.trim(),
+                    price: +price,
+                    description: description.trim(),
+                    categoryId: category,
+                    image: req.file ? req.file.filename : producto.image
+                },
+                    {
+                        where: {
+                            id: req.params.id
+                        }
+                    }
+                ).then(() => {
+                    return res.redirect('/productos/detalle/' + req.params.id)
+                })
+            }).catch(error => console.log(error))
+        } else {
+            let colores = db.Color.findAll()
 
+            let talles = db.Size.findAll()
 
-        /*let product = products.find(product => product.id === +req.params.id);
+            let categorias = db.Category.findAll()
 
-
-        let productoModif = {
-            id: +req.params.id,
-            name: name.trim(),
-            price: +price,
-            colors: colors.split(','),
-            size: size ? size.split(',') : null,
-            description: description,
-            category: category,
-            image: req.file ? req.file.filename : product.image
+            Promise.all(([colores, talles, categorias])).then(([colores, talles, categorias]) => {
+                //res.send(req.body)
+                db.Product.findByPk(req.params.id, {
+                    include: [
+                        "colors",
+                        "size",
+                        "category"
+                    ],
+                }).then(producto => {
+                    return res.render('editar-productos', {
+                        errores: errores.mapped(),
+                        producto,
+                        old: req.body,
+                        colores,
+                        talles,
+                        categorias
+                    })
+                })
+                
+            }).catch(error => console.log(error))
         }
-
-        fs.existsSync(path.join(__dirname, '../public/images/products', product.image)) ? fs.unlinkSync(path.join(__dirname, '../public/images/products', product.image)) : null;
-
-        let productosModif = products.map(product => product.id === +req.params.id ? productoModif : product)
-
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(productosModif, null, 3), 'utf-8');
-
-        res.redirect('/productos/detalle/' + req.params.id)*/
-
     },
 
     agregar: (req, res) => {
@@ -279,9 +294,6 @@ module.exports = {
                 })
             }).catch(error => console.log(error))
     },
-
-
-    // delete- delete one product 
     destroy: (req, res) => {
 
         db.Product.findByPk(req.params.id, {
@@ -320,16 +332,6 @@ module.exports = {
                 }).catch(error => console.log(error))
             })
             .catch(error => console.log(error))
-
-
-        /*let product = products.find(product => product.id === +req.params.id);
-
-        fs.existsSync(path.join(__dirname, '../public/images/products', product.image)) ? fs.unlinkSync(path.join(__dirname, '../public/images/products', product.image)) : null
-
-        let productModified = products.filter(product => product.id !== +req.params.id)
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'productos.json'), JSON.stringify(productModified, null, 3), 'utf-8');
-        return res.redirect('/productos/administrador');*/
-
     }
 
 

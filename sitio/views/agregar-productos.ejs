@@ -1,116 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
-   <%-include('./partials/head')%> 
+<%-include('./partials/head')%>
 
-   <style>
+  <style>
     .errores {
       font-weight: 500;
       color: tomato;
       display: block;
-      margin: -8px 0 20px 65px;
+      margin: 10px 0 0;
     }
   </style>
-   <body>
-         
-   <%-include('./partials/header')%> 
 
-   <main>
+  <body>
 
-    <section class="formularioProducto">
+    <%-include('./partials/header')%>
 
-        <h2>Agregar producto</h2>
+      <main>
 
-        <form class="row g-3" method="POST" enctype="multipart/form-data">
+        <section class="formularioProducto">
+
+          <h2>Agregar producto</h2>
+
+          <form class="row g-3" method="POST" enctype="multipart/form-data">
             <div class="col-md-6">
               <label for="inputNombre" class="form-label">Nombre del Producto:</label>
-              <input type="text" class="form-control" name="name" id="inputNombre" 
-              value="<%= locals.errores &&  errores === '' ? old.name : null %>"
-              >
+              <input type="text" class="form-control" name="name" id="inputNombre" value="<%= locals.errores &&  errores === '' ? old.name : null %>">
+                <span class="errores">
+                  <%= locals.errores && errores.name ? errores.name.msg : null %>
+                </span>
             </div>
-            <span class="errores">
-              <%= locals.errores && errores.name ? errores.name.msg : null %>
-            </span>
+           
             <div class="col-md-6">
-                <label for="inputPrecio" class="form-label">Precio del Producto:</label>
-                <input type="number" class="form-control" name="price" id="inputPrecio" 
-                value="<%= locals.errores &&  errores === '' ? old.price : null %>"
-                >
-              </div>
-              <span class="errores">
-                <%= locals.errores && errores.price ? errores.price.msg : null %>
-              </span>
+              <label for="inputPrecio" class="form-label">Precio del Producto:</label>
+              <input type="number" class="form-control" name="price" id="inputPrecio"
+                value="<%= locals.errores &&  errores === '' ? old.price : null %>">
+                <span class="errores">
+                  <%= locals.errores && errores.price ? errores.price.msg : null %>
+                </span>
+            </div>
+            
 
-              <div class="tallesYcolores">
-                <div class="col-6 colores">
-              
+            <div class="tallesYcolores">
+              <div class="col-6 colores">
+
                 <p>Colores:</p>
-                <% if (locals.errores &&  errores === '') { %>
-                  <% colores.forEach(color => { %>
-                    <input type="checkbox"  id="<%= color.name %>" name="color" value="<%= color.id %>"                  >
-                     <label for="<%= color.name %>" ><%= color.name %></label><br>
+                  <% colores.forEach(color=> { %>
+                    <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>">
+                      <label for="<%= color.name %>">
+                      <%= color.name %>
+                    </label><br>
                   <% }) %>
-                <% } %>
-                
-              </div>
+                  
               <span class="errores">
                 <%= locals.errores && errores.color ? errores.color.msg : null %>
               </span>
-                
-              <div class="col-6 talles">
-                  <p>Talles:</p>
-                  <% if (locals.errores &&  errores === '') { %>
-                    <% talles.forEach(talle => { %>
-                      <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>">
-                       <label for="<%= talle.name %>"><%= talle.name %></label><br>
-                    <% }) %>
-                  <% } %>
-                </div>
               </div>
-              <span class="errores">
-                <%= locals.errores && errores.talle ? errores.talle.msg : null %>
-              </span>
               
+
+              <div class="col-6 talles">
+                <p>Talles:</p>
+                  <% talles.forEach(talle=> { %>
+                    <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>">
+                      <label for="<%= talle.name %>"><%= talle.name %></label><br>
+                    <% }) %>
+                    <span class="errores">
+                      <%= locals.errores && errores.talle ? errores.talle.msg : null %>
+                    </span>     
+              </div>
+
+            </div>
             
+
+
             <div class="col-md-6">
               <label for="inputCaregoria" class="form-label">Categoria:</label>
               <select id="inputCategoria" class="form-select" name="category">
                 <option value="" selected hidden>Selecciona una categoria</option>
-                <% if (locals.errores &&  errores === '') { %>
-                  <% categorias.forEach(categoria => { %>
-                    <option name="categoryId" value="<%= categoria.id %>"><%= categoria.name %></option>
-                  <% }) %>
-                <% } %>
+
+                  <% categorias.forEach(categoria=> { %>
+                    <option name="categoryId" value="<%= categoria.id %>">
+                      <%= categoria.name %>
+                    </option>
+                    <% }) %>
               </select>
-            </div> 
-
-            <span class="errores">
-              <%= locals.errores && errores.category ? errores.category.msg :  null %>
-            </span>
-
-            <div class="col-md-6">
-                <label for="inputImage" class="form-label">Imagen del Producto:</label>
-                <input class="form-control" name="image" type="file" id="inputImage" >
-              </div>
-            <div class="col-md-12">
-                <label for="inputDescrption" class="form-label">Descripción del Producto:</label>
-                <textarea class="form-control" name="description" id="inputDescrption" rows="3" value="<%= locals.errores &&  errores === '' ? old.price : null %>"></textarea>
+              <span class="errores">
+                <%= locals.errores && errores.category ? errores.category.msg : null %>
+              </span>
             </div>
 
-              <span class="errores">
-                <%= locals.errores && errores.description ? errores.description.msg :  null %>
-              </span>
+            
+
+            <div class="col-md-6">
+              <label for="inputImage" class="form-label">Imagen del Producto:</label>
+              <input class="form-control" name="image" type="file" id="inputImage">
+            </div>
+            <div class="col-md-12">
+              <label for="inputDescrption" class="form-label">Descripción del Producto:</label>
+              <textarea class="form-control" name="description" id="inputDescrption" rows="3"
+                ><%= locals.errores &&  errores === '' ? old.description : null %></textarea>
+                <span class="errores">
+                  <%= locals.errores && errores.description ? errores.description.msg : null %>
+                </span>
+            </div>
+
+            
 
             <div class="col-md-12 col-sm-12">
               <button type="submit" class="btn marron col-md-12 col-sm-12">Agregar producto</button>
             </div>
           </form>
 
-    </section>
+        </section>
 
-</main>
+      </main>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
 
-<%-include('./partials/footer')%> 
-</body>
+      <%-include('./partials/footer')%>
+  </body>
+
 </html>
