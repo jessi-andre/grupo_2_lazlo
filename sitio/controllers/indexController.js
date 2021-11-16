@@ -1,14 +1,66 @@
+const db = require('../database/models')
+const { Op } = require('sequelize');
+
+const fs = require('fs');
+const path = require('path');
+
+let comentarios = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'comentarios.json'), 'utf-8'))
+
+
 module.exports = {
-    index: (req,res) => {
+    index: (req, res) => {
         return res.render('home')
     },
-    carrito: (req,res) => {
+    carrito: (req, res) => {
         return res.render('carrito')
     },
-    historia: (req,res) => {
+    historia: (req, res) => {
         return res.render('historia')
     },
-    comunidad: (req,res) => {
+    comunidad: (req, res) => {
         return res.render('comunidad')
     },
-}
+    guardarComentario: (req, res) => {
+        //return res.send(req.body);
+        const {comentario} = req.body;
+
+        let coment = {
+            id: comentarios[comentarios.length - 1].id + 1,
+            nombre:req.session.loginUsuario.first_name,
+            comentario
+        }
+        comentarios.push(coment)
+
+        fs.writeFileSync(path.join(__dirname, '..', 'data', 'comentarios.json'), JSON.stringify(comentarios, null, 3), 'utf-8');
+        return res.redirect('/comunidad');
+    },
+    search: (req, res) => {
+        db.Product
+            .findAll({
+                include: [
+                    "colors",
+                    "size",
+                    "category"
+                ],
+                where: {
+                    [Op.or]: [
+                        {
+                            name: { [Op.substring]: req.query.busqueda }
+                        },
+                        {
+                            description: { [Op.substring]: req.query.busqueda }
+                        },
+                    ]
+                }
+            })
+            .then(products => {
+                return res.render('search', {
+                    products,
+                    busqueda: req.query.busqueda
+                })
+            })
+            .catch(error => console.log(error))
+
+    },
+
+  }

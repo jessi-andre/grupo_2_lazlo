@@ -21,14 +21,14 @@ body {
     padding: 3px;
 }
 
-h1 {
+.login h1 {
     text-align: center;
     color: #181913;
     font-size:40px;
 }
 
-input[type="text"],
-input[type="password"] {
+.login input[type="text"],
+.login input[type="password"] {
     font-size: 20px;
     width: 82%;
     padding: 10px;
@@ -60,7 +60,7 @@ input[type="password"] {
     background: #957255;
 }
 
-p {
+.login p {
     text-align: center;
 }
 

@@ -2,6 +2,7 @@
 <html lang="en">
     <%-include('./partials/head')%> 
 <body class="detalle">
+     
     <%-include('./partials/header')%> 
     <main>
         <section class="producto">
@@ -10,7 +11,7 @@
             </div>
             <div class="productoDetalle">
                 <div class="productoNombre">
-                    <h3 class="categoria"><%= product.category %></h3>
+                    <h3 class="categoria"><%= product.category.name %></h3>
                     <h1><%= product.name %></h1> 
                 </div>            
                 <div class="precios-estrellas">
@@ -28,22 +29,24 @@
                             <label for="color">Color:</label>
                             <select name="color" id="color">
                                 <option value="-" selected hidden>Elegí el color</option>
-                                <% product.colors.forEach(color => { %>
-                                    <option value="<%= color %>"><%= color %></option>
+                                <% colors.forEach(color => { %>
+                                    <option value="<%= color.id %>"><%= color.name %></option>
                                 <% }) %>
                             </select>
                         </div>
-                        <% if (product.size) { %>
+                        <% if (sizes.length > 0) { %>
                             <div class="select caja-form">
                                 <label for="talle">Talle:</label>
                                 <select name="talle" id="talle">
                                     <option value="" selected hidden>Eligí talle</option>
-                                    <% product.size.forEach(size => { %>
-                                        <option value="<%= size %>"><%= size %></option>
+                                    <% sizes.forEach(size => { %>
+                                        <option value="<%= size.id %>"><%= size.name %></option>
                                     <% }) %>
                                 </select>
                             </div>
-                        <% } %>
+                        <% } else {%>
+                            <span></span>
+                        <% }%>
                         <div class="input caja-form">
                             <label for="cantidad">Cantidad:</label>
                             <input type="number" name="cantidad" id="cantidad">
@@ -76,14 +79,14 @@
         </section>
         <section class="productosRelacionados">
             <h2>Más vendidos</h2>
-
+        
             <!-- carrucel -->
-
+        
             <div class="glide">
                 <div class="glide__track" data-glide-el="track">
                   <ul class="glide__slides">
                     
-                    <% mochilas.forEach(mochila=> { %>
+                    <% mochilas[0].forEach(mochila=> { %>
                         <li class="glide__slide">
                             <a href="/productos/detalle/<%= mochila.id %>" class="relacionadoContenedor">
                             <div class="relacionado">

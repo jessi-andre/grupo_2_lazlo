@@ -14,7 +14,19 @@
     
 }
 
+.tallesYcolores{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 
+.tallesYcolores p{
+    font-size: 16px;
+}
+
+.talles{
+    padding: 0 0 0 10px;
+}
 
 .btn.marron{
     width: 100%;
