@@ -1,71 +1,70 @@
 body .comunidad {
-    background-color:white;
-    
-  }
+  background-color: white;
+}
+
+body .comunidad .contenedor {
+  display: block;
+  background-color: #ffffff;
+  padding: 10px;
+}
+body .comunidad .contenedor .articulo {
+  display: flex;
+  width: 100%;
+  height: 100 px;
+  text-align: center;
+  flex-direction: column;
+  border: rgb(63, 58, 48);
+  background-color:rgb(216, 199, 180);
+}
+
+body .comunidad .contenedor .articulo .image{
   
-  body .comunidad .contenedor {
-     display:block;
-    background-color:#ffffff;
-    padding: 10px;
-    
-  }
+  height: 200px;
+  width: 100%;
+  
+  border-radius: 5px;
+}
+body .comunidad .contenedor .articulo .image img {
+  padding: 7px;
+  padding-bottom: 50px;
+  height: 200px;
+  width: 200px;
+  border: rgb(32, 32, 32) solid 1px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 5px 5px 10px #888;
+  transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+body .comunidad .comentario {
+  text-align: center;
+  background-color: rgb(216, 199, 180);
+  padding: 10px;
+}
+
+body .comunidad .comentario textarea {
+  width: 80%;
+  border: rgb(39, 38, 37) solid 1px;
+}
+
+@media (min-width: 768px) {
   body .comunidad .contenedor .articulo {
-     display: flex;
-      width: 100%;
+    margin: 5px;
+    display: flex;
+    width: 100%;
     height: 100 px;
     text-align: center;
-  flex-direction: column;
-  background-color: rgb(247, 231, 201);
-    
+    flex-direction: row;
+    background-color: rgb(216, 199, 180);
   }
-  
-  body .comunidad .contenedor .articulo .image img{
-      padding: 10px;
-     
-    height: 200px;
-    width: 200px;
-    border-radius: 6px;
-    background-color: white;
-    box-shadow: 2px 2px 10px #888;
-    transition: background-color .5s, box-shadow .5s;
+}
+
+@media (min-width: 1024px) {
+  body .comunidad .contenedor .articulo {
+    display: flex;
+    width: 100%;
+    height: 100 px;
+    text-align: center;
+    flex-direction: row;
   }
-  
-  body .comunidad .comentario {
-      text-align: center;
-      background-color:rgb(247, 231, 201);
-      padding: 10px;
-      
-    }
-  
-    body .comunidad .comentario textarea{
-      width: 80%;
-      border: rgb(39, 38, 37) solid 1px;
-    }
-  
-  
-  
-  
-  @media (min-width: 768px) {
-      body .comunidad .contenedor .articulo {
-          margin: 5px;
-          display: flex;
-          width: 100%;
-        height: 100 px;
-        text-align: center;
-      flex-direction: row;
-      background-color:rgb(247, 231, 201);
-        
-      }
-  }
-  
-  @media (min-width: 1024px) {
-      body .comunidad .contenedor .articulo {
-          display: flex;
-          width: 100%;
-        height: 100 px;
-        text-align: center;
-      flex-direction: row;
-        
-      }
-  }
-  
+}
