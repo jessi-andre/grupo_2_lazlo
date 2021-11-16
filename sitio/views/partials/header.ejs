@@ -44,13 +44,13 @@
           </nav>
         </aside>
         <div class="btns-menu">
-          <% if (locals.loginUsuario && locals.loginUsuario.category==='usuario' ){ %>
+          <% if (locals.loginUsuario && locals.loginUsuario.rol === 1 ){ %>
             <div class="btn-profile">
               <a href="/users/perfil">
                 <div class="avatar-usuario">
                   <img src="/images/users/<%= locals.loginUsuario.image %> " alt="" />
                   <h2>
-                    <%= locals.loginUsuario.first_name %>
+                    <%= locals.loginUsuario.firstName %>
                   </h2>
                 </div>
               </a>

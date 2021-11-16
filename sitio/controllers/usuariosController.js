@@ -15,19 +15,16 @@ module.exports = {
 
         if (errores.isEmpty()) {
 
-
-
             const { first_name, last_name, email, password } = req.body;
 
             db.User.create({
-               
                 firstName: first_name.trim(),
                 lastName: last_name.trim(),
                 email: email.trim(),
                 password: bcrypt.hashSync(password, 10),
                 image: req.file ? req.file.filename : 'default.png',
                 roleId: 1
-            }).then(usuario =>{
+            }).then(usuario => {
 
                 req.session.loginUsuario = {
                     id: usuario.id,
@@ -37,7 +34,7 @@ module.exports = {
                     rol: usuario.roleId,
                     image: usuario.image
                 }
-    
+
                 return res.redirect('/users/perfil')
             }).catch(error => console.log(error))
 
@@ -171,32 +168,21 @@ module.exports = {
 
     },
     cambiarRol: (req, res) => {
-       
-        db.User.findByPk(req.params.id).then(usuario =>{
 
-            
-
-           db.User.update({
-               
-                firstName: usuario.firstName,
-                lastName: usuario.lastName,
-                email: usuario.email,
-                password: usuario.password,
-                image: usuario.image,
+        db.User.findByPk(req.params.id).then(usuario => {
+            //res.send(usuario)
+            db.User.update({
                 roleId: req.body.rol,
-            } ,{
-                where:{
-                   id: usuario.id
+            }, {
+                where: {
+                    id: usuario.id
                 }
-            } ).then(usuarioA =>{
-    
-                
-    
+            }).then(usuarioA => {
                 return res.redirect('/users/perfilAdmin')
             }).catch(error => console.log(error))
         }).catch(error => console.log(error))
 
-       
+
 
         /*let usuario = usuarios.find(usuario => usuario.id === +req.params.id);
 

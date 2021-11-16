@@ -4,6 +4,7 @@ const path = require('path');
 const multer = require('multer');
 const { productos, productoDetalle, administrador, agregar, editar, store, destroy, actualizar } = require('../controllers/productoController')
 const adminCheck = require('../middlewares/adminCheck');
+const productValidation = require('../validations/productoValidation');
 
 const uploadEdit = require('../middlewares/multerProducts_edit'); //multer
 /** MULTER **/
@@ -23,13 +24,13 @@ const upload = multer({
 })
 
 /* GET home page. */
-router.get('/administrador', /*adminCheck,*/ administrador);
-router.post('/agregar-productos',upload.single('image'), store);
+router.get('/administrador', adminCheck, administrador);
+router.post('/agregar-productos', upload.single('image'), productValidation, store);
 router.get('/categoria/:category', productos);
 router.get('/detalle/:id', productoDetalle);
-router.get('/agregar-productos',/*adminCheck,*/ agregar);
-router.get('/editar-productos/:id',/*adminCheck,*/ editar);
-router.put('/editar-productos/:id', uploadEdit.single('product'), actualizar);
+router.get('/agregar-productos', adminCheck, agregar);
+router.get('/editar-productos/:id', adminCheck, editar);
+router.put('/editar-productos/:id', uploadEdit.single('product'), productValidation, actualizar);
 
 /** DELETE ONE PRODUCT***/
 router.delete('/destroy/:id', destroy);

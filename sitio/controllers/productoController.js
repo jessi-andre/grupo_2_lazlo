@@ -4,6 +4,7 @@ const categorias = require('../data/categorias');
 let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'))
 const db = require('../database/models')
 const { Op } = require('sequelize');
+const { validationResult } = require('express-validator');
 
 module.exports = {
     productos: (req, res) => {
@@ -77,44 +78,52 @@ module.exports = {
         }).catch(error => console.log(error))
     },
     store: (req, res) => {
-        const { name, category, price, description } = req.body;
 
-        //res.send(req.body)
-        db.Product.create({
-            name: name.trim(),
-            price: +price,
-            description: description.trim(),
-            categoryId: category,
-            image: req.file ? req.file.filename : 'default.png'
-        }).then(producto => {
 
-            let colores = req.body.color.map(color => {
-                let colorMap = {
-                    colorId: +color,
-                    productId: +producto.id
-                }
-                return colorMap;
+        let errores = validationResult(req);
+
+        if (errores.isEmpty()) {
+            const { name, category, price, description } = req.body;
+            //res.send(req.body)
+            db.Product.create({
+                name: name.trim(),
+                price: +price,
+                description: description.trim(),
+                categoryId: category,
+                image: req.file ? req.file.filename : 'default.png'
+            }).then(producto => {
+
+                let colores = req.body.color.map(color => {
+                    let colorMap = {
+                        colorId: +color,
+                        productId: +producto.id
+                    }
+                    return colorMap;
+                })
+
+                let talles = req.body.talle.map(size => {
+                    let talleMap = {
+                        sizeId: +size,
+                        productId: +producto.id
+                    }
+                    return talleMap;
+                })
+
+                let coloresPromise = db.ColorProduct.bulkCreate(colores)
+
+                let tallesPromise = db.SizeProduct.bulkCreate(talles)
+
+                Promise.all([coloresPromise, tallesPromise]).then(() => {
+                    //res.send(producto)
+                    res.redirect('/productos/administrador')
+                }).catch(error => console.log(error))
+            }).catch(error => console.log(error))
+        } else {
+            return res.render('agregar-productos', {
+                errores: errores.mapped(),
+                old: req.body
             })
-
-            let talles = req.body.talle.map(size => {
-                let talleMap = {
-                    sizeId: +size,
-                    productId: +producto.id
-                }
-                return talleMap;
-            })
-
-            let coloresPromise = db.ColorProduct.bulkCreate(colores)
-
-            let tallesPromise = db.SizeProduct.bulkCreate(talles)
-
-            Promise.all([colores, talles]).then(([colores, talles]) => {
-                res.send(producto)
-            })
-
-
-            //res.redirect('/productos/administrador')
-        })
+        }
     },
     editar: (req, res) => {
 
@@ -146,8 +155,7 @@ module.exports = {
     },
     actualizar: (req, res) => {
 
-        let { name, price, description, category, color, size } = req.body;
-
+        let { name, price, description, category, color, talle } = req.body;
 
         db.Product.findByPk(req.params.id, {
             include: [
@@ -158,29 +166,22 @@ module.exports = {
         }).then(producto => {
 
             let colores;
-
-            if (color > 0 && color < 1) {
-                colores = color.map(colorito => {
+            if (req.body.color.length > 0) {
+                colores = req.body.color.map(color => {
                     let colorMap = {
-                        colorId: +colorito,
+                        colorId: +color,
                         productId: +producto.id
                     }
                     return colorMap;
                 })
-            } else if (color === 1) {
-                colores = [{
-                    colorId: +color,
-                    productId: +producto.id
-                }]
-            }
-            else {
-                colores = [];
+            } else {
+                colores = []
             }
 
-            let sizes;
 
-            if (size > 0) {
-                sizes = size.map(size => {
+            let talles;
+            if (req.body.talle.length > 0) {
+                talles = req.body.talle.map(size => {
                     let talleMap = {
                         sizeId: +size,
                         productId: +producto.id
@@ -188,12 +189,27 @@ module.exports = {
                     return talleMap;
                 })
             } else {
-                sizes = [];
+                talles = []
             }
 
 
+            db.ColorProduct.destroy({
+                where: {
+                    productId: producto.id
+                }
+            }).then(() => {
+                db.ColorProduct.bulkCreate(colores)
+            })
 
-            let productoActualizado = db.Product.update({
+            db.SizeProduct.destroy({
+                where: {
+                    productId: producto.id
+                }
+            }).then(() => {
+                db.SizeProduct.bulkCreate(talles)
+            })
+
+            db.Product.update({
                 name: name.trim(),
                 price: +price,
                 description: description.trim(),
@@ -205,16 +221,11 @@ module.exports = {
                         id: req.params.id
                     }
                 }
-            )
+            ).then(() => {
 
-            let coloresPromise = db.ColorProduct.bulkCreate(colores)
-
-            let tallesPromise = db.SizeProduct.bulkCreate(sizes)
-
-            Promise.all(([coloresPromise, tallesPromise, productoActualizado])).then(([coloresPromise, tallesPromise, productoActualizado]) => {
-                //res.send(req.body)
                 return res.redirect('/productos/detalle/' + req.params.id)
-            }).catch(error => console.log(error))
+            })
+
         }).catch(error => console.log(error))
 
 

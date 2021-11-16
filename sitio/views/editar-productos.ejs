@@ -17,30 +17,51 @@
               <label for="inputNombre" class="form-label">Nombre del Producto:</label>
               <input type="text" class="form-control" name="name" id="inputNombre" value="<%= producto.name %>">
             </div>
+            <span class="errores">
+              <%= locals.errores && errores.name ? errores.name.msg :  null %>
+            </span>
             <div class="col-md-6">
                 <label for="inputPrecio" class="form-label">Precio del Producto:</label>
                 <input type="number" class="form-control" name="price" id="inputPrecio" value="<%= producto.price %>">
               </div>
-
+              <span class="errores">
+                <%= locals.errores && errores.price ? errores.price.msg :  null %>
+              </span>
 
             <div class="col-6">
               
               <p>Colores:</p>
 
               <% colores.forEach(color => { %>
-                <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>">
+                <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>" 
+                <% producto.colors.forEach(colores => { %>
+                  <%= color.id === colores.id ? 'checked' : null %>
+              <% }) %>
+                >
                  <label for="<%= color.name %>" ><%= color.name %></label><br>
               <% }) %>
             </div>
+
+            <span class="errores">
+              <%= locals.errores && errores.color ? errores.color.msg : null %>
+            </span>
+
             <% if(producto.size) { %>
               <div class="col-6">
                 <p>Talles:</p>
                 <% talles.forEach(talle => { %>
-                  <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>">
+                  <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>"
+                  <% producto.size.forEach(size => { %>
+                      <%= talle.id === size.id ? 'checked' : null %>
+                  <% }) %>
+                  >
                    <label for="<%= talle.name %>" ><%= talle.name %></label><br>
                 <% }) %>
               </div>
             <% } %>
+            <span class="errores">
+              <%= locals.errores && errores.talle ? errores.talle.msg : null %>
+            </span>
 
 
             <div class="col-md-6">
@@ -51,6 +72,11 @@
                 <% }) %>
               </select>
             </div>
+
+            <span class="errores">
+              <%= locals.errores && errores.category ? errores.category.msg : null %>
+            </span>
+
             <div class="col-md-6">
                 <label for="inputImage" class="form-label">Imagen del Producto:</label>
                 <input class="form-control" name="product" type="file" id="inputImage" value="<%= producto.image %>">
@@ -59,6 +85,11 @@
                 <label for="inputDescrption" class="form-label">Descripción del Producto:</label>
                 <textarea class="form-control" name="description" id="inputDescrption" rows="3" ><%= producto.description %></textarea>
               </div>
+
+              <span class="errores">
+                <%= locals.errores && errores.description ? errores.description.msg : null %>
+              </span>
+
             <div class="col-md-12 col-sm-12">
               <button type="submit" class="btn marron col-md-12 col-sm-12">Editar producto</button>
             </div>

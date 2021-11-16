@@ -2,7 +2,14 @@
 <html lang="es">
    <%-include('./partials/head')%> 
 
-   
+   <style>
+    .errores {
+      font-weight: 500;
+      color: tomato;
+      display: block;
+      margin: -8px 0 20px 65px;
+    }
+  </style>
    <body>
          
    <%-include('./partials/header')%> 
@@ -16,42 +23,69 @@
         <form class="row g-3" method="POST" enctype="multipart/form-data">
             <div class="col-md-6">
               <label for="inputNombre" class="form-label">Nombre del Producto:</label>
-              <input type="text" class="form-control" name="name" id="inputNombre">
+              <input type="text" class="form-control" name="name" id="inputNombre" 
+              value="<%= locals.errores &&  errores === '' ? old.name : null %>"
+              >
             </div>
+            <span class="errores">
+              <%= locals.errores && errores.name ? errores.name.msg : null %>
+            </span>
             <div class="col-md-6">
                 <label for="inputPrecio" class="form-label">Precio del Producto:</label>
-                <input type="number" class="form-control" name="price" id="inputPrecio">
+                <input type="number" class="form-control" name="price" id="inputPrecio" 
+                value="<%= locals.errores &&  errores === '' ? old.price : null %>"
+                >
               </div>
+              <span class="errores">
+                <%= locals.errores && errores.price ? errores.price.msg : null %>
+              </span>
 
               <div class="tallesYcolores">
                 <div class="col-6 colores">
               
                 <p>Colores:</p>
-  
-                <% colores.forEach(color => { %>
-                  <input type="checkbox"  id="<%= color.name %>" name="color" value="<%= color.id %>">
-                   <label for="<%= color.name %>" ><%= color.name %></label><br>
-                <% }) %>
+                <% if (locals.errores &&  errores === '') { %>
+                  <% colores.forEach(color => { %>
+                    <input type="checkbox"  id="<%= color.name %>" name="color" value="<%= color.id %>"                  >
+                     <label for="<%= color.name %>" ><%= color.name %></label><br>
+                  <% }) %>
+                <% } %>
+                
               </div>
+              <span class="errores">
+                <%= locals.errores && errores.color ? errores.color.msg : null %>
+              </span>
                 
               <div class="col-6 talles">
                   <p>Talles:</p>
-                  <% talles.forEach(talle => { %>
-                    <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>">
-                     <label for="<%= talle.name %>"><%= talle.name %></label><br>
-                  <% }) %>
+                  <% if (locals.errores &&  errores === '') { %>
+                    <% talles.forEach(talle => { %>
+                      <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>">
+                       <label for="<%= talle.name %>"><%= talle.name %></label><br>
+                    <% }) %>
+                  <% } %>
                 </div>
               </div>
+              <span class="errores">
+                <%= locals.errores && errores.talle ? errores.talle.msg : null %>
+              </span>
+              
             
             <div class="col-md-6">
               <label for="inputCaregoria" class="form-label">Categoria:</label>
               <select id="inputCategoria" class="form-select" name="category">
                 <option value="" selected hidden>Selecciona una categoria</option>
-                <% categorias.forEach(categoria => { %>
-                  <option name="categoryId" value="<%= categoria.id %>"><%= categoria.name %></option>
-                <% }) %>
+                <% if (locals.errores &&  errores === '') { %>
+                  <% categorias.forEach(categoria => { %>
+                    <option name="categoryId" value="<%= categoria.id %>"><%= categoria.name %></option>
+                  <% }) %>
+                <% } %>
               </select>
             </div> 
+
+            <span class="errores">
+              <%= locals.errores && errores.category ? errores.category.msg :  null %>
+            </span>
 
             <div class="col-md-6">
                 <label for="inputImage" class="form-label">Imagen del Producto:</label>
@@ -59,8 +93,13 @@
               </div>
             <div class="col-md-12">
                 <label for="inputDescrption" class="form-label">Descripción del Producto:</label>
-                <textarea class="form-control" name="description" id="inputDescrption" rows="3" ></textarea>
-              </div>
+                <textarea class="form-control" name="description" id="inputDescrption" rows="3" value="<%= locals.errores &&  errores === '' ? old.price : null %>"></textarea>
+            </div>
+
+              <span class="errores">
+                <%= locals.errores && errores.description ? errores.description.msg :  null %>
+              </span>
+
             <div class="col-md-12 col-sm-12">
               <button type="submit" class="btn marron col-md-12 col-sm-12">Agregar producto</button>
             </div>

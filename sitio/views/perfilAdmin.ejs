@@ -35,17 +35,17 @@
             </thead>
             <tbody>
               
-              <% usuarios.forEach(usuario => { %>
-                <% if (usuario === locals.usuario && usuario === usuario) { %>
+              <% usuarios.forEach(user => { %>
+                <% if (user.id === locals.usuario.id && user.id === usuario.id) { %>
                  <span></span>
                 <% } else {%>
                 <tr>
-                  <td><%= usuario.firstName %> <%= usuario.lastName %></td>
+                  <td><%= user.firstName %> <%= user.lastName %></td>
                   <td>
-                    <form action="/users/perfilAdmin/<%= usuario.id %>?_method=PUT" method="POST">
-                      <select name="category" id="">
+                    <form action="/users/perfilAdmin/<%= user.id %>?_method=PUT" method="POST">
+                      <select name="rol" id="">
                         <% roles.forEach(rol => { %>
-                          <option name="rol" value="<%= rol.id %>" <%= rol.id === usuario.roleId ? 'selected' : null %>><%= rol.name %></option>
+                          <option name="rol" value="<%= rol.id %>" <%= rol.id === user.roleId ? 'selected' : null %>><%= rol.name %></option>
                         <% }) %>
                       </select>
 
