@@ -75,7 +75,7 @@
 
 
             <div class="col-md-6">
-              <label for="inputCaregoria" class="form-label">Caregoria:</label>
+              <label for="inputCaregoria" class="form-label">Categoria:</label>
               <select id="inputCategoria" class="form-select" name="category">
                 <% categorias.forEach(categoria => { %>
                   <option name="category" value="<%= locals.errores && errores.price ? old.categoryId : categoria.id %>" <%= categoria === producto.category ? 'selected' : null %>><%= categoria.name %></option>
