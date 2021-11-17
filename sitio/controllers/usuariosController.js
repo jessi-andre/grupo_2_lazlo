@@ -64,8 +64,8 @@ module.exports = {
 
                     req.session.loginUsuario = {
                         id: usuario.id,
-                        first_name: usuario.firstName,
-                        last_name: usuario.lastName,
+                        firstName: usuario.firstName,
+                        lastName: usuario.lastName,
                         email: usuario.email,
                         rol: usuario.roleId, // -------------------- Esto decia rol y era role 
                         image: usuario.image
