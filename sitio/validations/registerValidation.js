@@ -10,7 +10,8 @@ module.exports = [
         .notEmpty().withMessage('El email es requerido').bail()
         .isEmail().withMessage('Ingresa un email valido'),
 
-    body('email')
+        
+    /*body('email')
         .custom(value  => {
             let usuario = usuarios.find(usuario => usuario.email === value);
             if(usuario){
@@ -18,7 +19,7 @@ module.exports = [
             }else{
                 return true
             }
-        }).withMessage('Este email ya está registrado'),
+        }).withMessage('Este email ya está registrado'),*/
 
     check('password')
         .notEmpty().withMessage('La contraseña es requerida')

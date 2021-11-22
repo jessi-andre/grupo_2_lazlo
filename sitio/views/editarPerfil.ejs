@@ -15,8 +15,8 @@
     <%-include('./partials/header')%>
 
     <main class="registro">
-      <form class="formulario" method="POST" enctype="multipart/form-data">
-        <h1>¡Registrate!</h1>
+      <form class="formulario" action="/users/editarPerfil/<%= locals.loginUsuario.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <h1>¡Edita tu Perfil!</h1>
 
         <div class="input-contenedor">
           <i class="fas fa-user icon"></i>
@@ -24,8 +24,8 @@
             type="text"
             placeholder="Nombre"
             id="nombre"
-            name="first_name"
-            value="<%= locals.old && old.first_name ? old.first_name : null %>"
+            name="firstName"
+            value="<%=usuario.firstName%>"
 
           />
         </div>
@@ -40,25 +40,13 @@
             type="text"
             placeholder="Apellido"
             id="apellido"
-            name="last_name"
-            value="<%= locals.old && old.last_name ? old.last_name : null %>"
+            name="lastName"
+            value="<%=usuario.lastName %>"
 
           />
         </div>
 
-        <div class="input-contenedor">
-          <i class="fas fa-envelope icon"></i>
-          <input
-            type="text"
-            placeholder="tucorreo@hotmail.com"
-            id="email"
-            name="email"
-            value="<%= locals.errores &&  errores.email === '' ? old.email : null %>"
-          />
-        </div>
-        <span class="errores">
-          <%= locals.errores && errores.email ? errores.email : null %>
-        </span>
+        
 
         <div class="input-contenedor">
           <i class="fas fa-image icon"></i>
@@ -66,7 +54,7 @@
             type="file"
             placeholder="Agrega tu foto de perfil"
             id="profile"
-            name="profile"
+            name="nuevaImagen"
           />
         </div>
 
@@ -74,23 +62,37 @@
           <i class="fas fa-key icon"></i>
           <input
             type="password"
-            placeholder="Contraseña"
+            placeholder="Contraseña Anterior"
             id="password"
-            name="password"
+            name="oldPassword"
           />
         </div>
         <span class="errores">
-          <%= locals.errores && errores.password ? errores.password.msg : null
+          <%= locals.errores && errores.password ? errores.password : null
           %>
         </span>
 
         <div class="input-contenedor">
+            <i class="fas fa-key icon"></i>
+            <input
+              type="password"
+              placeholder="Contraseña Nueva"
+              id="password"
+              name="newPassword"
+            />
+          </div>
+          <span class="errores">
+            <%= locals.errores && errores.password ? errores.password : null
+            %>
+          </span>
+
+        <div class="input-contenedor">
           <i class="fas fa-key icon"></i>
           <input
             type="password"
-            placeholder="Volve a escribir tu contraseña"
+            placeholder="Volve a escribir tu contraseña nueva"
             id="password2"
-            name="password2"
+            name="newPassword2"
           />
         </div>
         <span class="errores">
@@ -98,17 +100,8 @@
           %>
         </span>
 
-        <input type="submit" value="Iniciar sesión" class="button" /> <br />
-        <br />
-        <p>
-          Al registrarte aceptas las Condiciones de uso y Política de
-          privacidad.
-        </p>
-        <br />
-        <p>
-          ¿Ya tienes cuenta?
-          <a class="link" href="/users/login">Inicia sesión</a>
-        </p>
+        <input type="submit" value="Editar" class="button" /> 
+       
       </form>
     </main>
     <%-include('./partials/footer')%>
