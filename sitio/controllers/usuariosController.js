@@ -18,22 +18,22 @@ module.exports = {
 
 
         db.User.findAll({
-            where:{
+            where: {
                 email
             }
         }).then(userExist => {
 
-            if(userExist.length > 0){
-                return res.render("register",{
-                    errores:{
-                        email:"Dirección de correo ya registrado"
+            if (userExist.length > 0) {
+                return res.render("register", {
+                    errores: {
+                        email: "Dirección de correo ya registrado"
                     },
-                    old:req.body,
+                    old: req.body,
                 })
-            }else {
+            } else {
                 if (errores.isEmpty()) {
 
-           
+
 
                     db.User.create({
                         firstName: first_name.trim(),
@@ -43,7 +43,7 @@ module.exports = {
                         image: req.file ? req.file.filename : 'default.png',
                         roleId: 1
                     }).then(usuario => {
-        
+
                         req.session.loginUsuario = {
                             id: usuario.id,
                             firstName: usuario.firstName,
@@ -52,11 +52,11 @@ module.exports = {
                             rol: usuario.roleId,
                             image: usuario.image
                         }
-        
+
                         return res.redirect('/users/perfil')
                     }).catch(error => console.log(error))
-        
-             
+
+
                 } else {
                     return res.render('register', {
                         errores: errores.mapped(),
@@ -67,7 +67,7 @@ module.exports = {
 
         })
 
-        
+
 
     },
     login: (req, res) => {
@@ -85,29 +85,29 @@ module.exports = {
                 if (errores.isEmpty()) {
                     // let usuario = usuarios.find(usuario => usuario.email === req.body.email);
 
-                    if (!usuario || !bcrypt.compareSync(req.body.password, usuario.password )){
-                        return res.render("login",{
-                            errores:{
-                                email:"Credenciales inválidas"
+                    if (!usuario || !bcrypt.compareSync(req.body.password, usuario.password)) {
+                        return res.render("login", {
+                            errores: {
+                                email: "Credenciales inválidas"
                             }
 
                         })
-                        
-                    }else{
+
+                    } else {
                         req.session.loginUsuario = {
                             id: usuario.id,
-                            first_name: usuario.firstName,
-                            last_name: usuario.lastName,
+                            firstName: usuario.firstName,
+                            lastName: usuario.lastName,
                             email: usuario.email,
-                            rol: usuario.roleId, 
+                            rol: usuario.roleId,
                             image: usuario.image
                         }
-    
+
                         if (req.body.remember) {
                             res.cookie('lazloCookie', req.session.loginUsuario, { maxAge: 2000 * 60 });
                             console.log("req.usuarios- " + req.session.loginUsuario)
                         }
-    
+
                         if (req.session.loginUsuario.rol === 2) {
                             return res.redirect('/users/perfilAdmin')
                         } else {
@@ -115,7 +115,7 @@ module.exports = {
                         }
                     }
 
-                    
+
 
                 } else {
                     //return res.send(errores.mapped())
@@ -189,70 +189,76 @@ module.exports = {
 
     },
 
-    editarPerfil:(req,res) =>{
-
+    editarPerfil: (req, res) => {
         db.User.findByPk(req.session.loginUsuario.id)
-        .then(usuario => {
-            
-            return res.render('editarPerfil',
-                { usuario })
-        }).catch(error => console.log(error))
-
-
-
-
+            .then(usuario => {
+                return res.render('editarPerfil', {
+                    usuario
+                })
+            }).catch(error => console.log(error))
     },
 
-    processEditarPerfil:(req,res) =>{
-        
-        const { firstName, lastName,newPassword,oldPassword} = req.body;
+    processEditarPerfil: (req, res) => {
+
+        const { firstName, lastName, newPassword, oldPassword } = req.body;
 
         db.User.findByPk(req.params.id)
-        .then(usuario => {
+            .then(usuario => {
 
-            if(newPassword != oldPassword){
-                let contraHash 
-                if(newPassword.length > 0){
-                     contraHash = bcrypt.hashSync(newPassword, 10)
-                }else{
-                    contraHash = bcrypt.hashSync(oldPassword, 10)
-                }
-                db.User.update(
-                    {
-                        where:{
-                            id:req.params.id
-                        }
-                    },
-                    {
-                        firstName:firstName,
-                        lastName:lastName,
-                        password:contraHash,
-                        image: req.file ? req.file.filename : usuario.image,
-      
-      
+                if (bcrypt.compareSync(oldPassword, usuario.password)) {
+                    let contraHash;
+
+                    if (newPassword) {
+                        contraHash = bcrypt.hashSync(newPassword, 10)
+
+                    } else {
+                        contraHash = bcrypt.hashSync(oldPassword, 10)
                     }
-      
-                 ).then(() => {
-      
-                  if (req.session.loginUsuario.rol === 2) {
-                      return res.redirect('/users/perfilAdmin')
-                  } else {
-                      return res.redirect('/users/perfil')
-                  }
-      
-                 }).catch(error =>res.send(error))
-            }else{
-                return res.render("editarPerfil",{
-                    errores:{
-                        password: "contraseña incorrecta"
 
-                    },usuario
-                })
-            }
+                    db.User.update(
+                        {
+                            firstName: firstName,
+                            lastName: lastName,
+                            password: contraHash,
+                            image: req.file ? req.file.filename : usuario.image,
+                        }, {
+                        where: {
+                            id: req.params.id
+                        }
+                    }
 
-          
-        })
-        
+                    ).then(() => {
+
+                        delete req.session.loginUsuario;
+
+                        req.session.loginUsuario = {
+                            id: usuario.id,
+                            firstName,
+                            lastName,
+                            email: usuario.email,
+                            rol: usuario.roleId,
+                            image: req.file ? req.file.filename : usuario.image,
+                        }
+
+                        if (req.session.loginUsuario.rol === 2) {
+                            return res.redirect('/users/perfilAdmin')
+                        } else {
+                            return res.redirect('/users/perfil')
+                        }
+
+                    }).catch(error => res.send(error))
+                } else {
+                    return res.render("editarPerfil", {
+                        errores: {
+                            password: "contraseña incorrecta"
+
+                        }, usuario
+                    })
+                }
+
+
+            }).catch(error => console.log(error))
+
 
     }
 

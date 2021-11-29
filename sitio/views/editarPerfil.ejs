@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%-include('./partials/head')%>
+<%-include('./partials/head')%>
   <style>
     .errores {
       font-weight: 500;
@@ -8,102 +8,77 @@
       display: block;
       margin: -8px 0 20px 65px;
     }
+    h2{
+      text-align: center;
+      margin-bottom: 10px;
+    }
   </style>
 
   <body background="/images/fondo.jpg">
-     
+
     <%-include('./partials/header')%>
 
-    <main class="registro">
-      <form class="formulario" action="/users/editarPerfil/<%= locals.loginUsuario.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-        <h1>¡Edita tu Perfil!</h1>
+      <main class="registro">
 
-        <div class="input-contenedor">
-          <i class="fas fa-user icon"></i>
-          <input
-            type="text"
-            placeholder="Nombre"
-            id="nombre"
-            name="firstName"
-            value="<%=usuario.firstName%>"
+        <form class="formulario" action="/users/editarPerfil/<%= locals.loginUsuario.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+          <h2>Editar perfil</h2>
 
-          />
-        </div>
-        <span class="errores">
-          <%= locals.errores && errores.first_name ? errores.first_name.msg :
-          null %>
-        </span>
-
-        <div class="input-contenedor">
-          <i class="fas fa-user icon"></i>
-          <input
-            type="text"
-            placeholder="Apellido"
-            id="apellido"
-            name="lastName"
-            value="<%=usuario.lastName %>"
-
-          />
-        </div>
-
-        
-
-        <div class="input-contenedor">
-          <i class="fas fa-image icon"></i>
-          <input
-            type="file"
-            placeholder="Agrega tu foto de perfil"
-            id="profile"
-            name="nuevaImagen"
-          />
-        </div>
-
-        <div class="input-contenedor">
-          <i class="fas fa-key icon"></i>
-          <input
-            type="password"
-            placeholder="Contraseña Anterior"
-            id="password"
-            name="oldPassword"
-          />
-        </div>
-        <span class="errores">
-          <%= locals.errores && errores.password ? errores.password : null
-          %>
-        </span>
-
-        <div class="input-contenedor">
-            <i class="fas fa-key icon"></i>
-            <input
-              type="password"
-              placeholder="Contraseña Nueva"
-              id="password"
-              name="newPassword"
-            />
+          <div class="input-contenedor">
+            <i class="fas fa-user icon"></i>
+            <input type="text" name="firstName" id="firstName" placeholder="Nombre*" value="<%= usuario.firstName %>">
           </div>
           <span class="errores">
-            <%= locals.errores && errores.password ? errores.password : null
-            %>
+            <%= locals.errores && errores.firstName ? errores.firstName : null %>
           </span>
 
-        <div class="input-contenedor">
-          <i class="fas fa-key icon"></i>
-          <input
-            type="password"
-            placeholder="Volve a escribir tu contraseña nueva"
-            id="password2"
-            name="newPassword2"
-          />
-        </div>
-        <span class="errores">
-          <%= locals.errores && errores.password2 ? errores.password2.msg : null
-          %>
-        </span>
+          <div class="input-contenedor">
+            <i class="fas fa-user icon"></i>
+            <input type="text" name="lastName" placeholder="Apellido" id="lastName" value="<%= usuario.lastName %>">
+          </div>
 
-        <input type="submit" value="Editar" class="button" /> 
-       
-      </form>
-    </main>
-    <%-include('./partials/footer')%>
+          <div class="input-contenedor">
+            <i class="fas fa-envelope icon"></i>
+            <input type="text" name="emain" id="email" placeholder="Email" value="<%= usuario.email %>" disabled>
+          </div>
+
+          <div class="input-contenedor">
+            <i class="fas fa-image icon"></i>
+            <input type="file" placeholder="Agrega tu foto de perfil" id="profile" name="profile" />
+          </div>
+
+          <div class="input-contenedor">
+            <i class="fas fa-key icon"></i>
+            <input type="password" name="oldPassword" id="oldPassword" placeholder="Contraseña actual*">
+          </div>
+          <span class="errores">
+            <%= locals.errores && errores.password ? errores.password : null %>
+          </span>
+          <br>
+
+          <h4>Cambiar contraseña</h4>
+
+          <div class="input-contenedor">
+            <i class="fas fa-key icon"></i>
+            <input type="password" name="newPassword" id="newPassword" placeholder="Nueva contraseña">
+          </div>
+          <span class="errores">
+            <%= locals.errores && errores.newPassword ? errores.newPassword : null %>
+          </span>
+
+          <div class="input-contenedor">
+            <i class="fas fa-key icon"></i>
+            <input type="password" name="newPassword2" id="newPassword2" placeholder="Volvé a escribir la ueva contraseña">
+          </div>
+          <span class="errores">
+            <%= locals.errores && errores.newPassword2 ? errores.newPassword2 : null %>
+          </span>
+
+          <button class="button">Editar</button>
+
+        </form>
+
+      </main>
+      <%-include('./partials/footer')%>
   </body>
+
 </html>
