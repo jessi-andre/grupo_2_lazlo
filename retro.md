@@ -107,3 +107,28 @@ Prestar más atención a Trello.
 
 **Dejar de hacer:**
 - Tomar desiciones importantes por WhatsApp, hacerlos en reuniones.
+
+## Retrospectiva -- Sprint   6
+**Comenzar hacer:**
+- empezar a realizar las consignas apenas las comunican los profes.
+
+**Hacer más:**
+- Mejorar el manejo del tiempo.
+- En reunión final chequear que este todo OK!
+
+**Continuar haciendo:**
+- Prestar más atención a Trello.
+- Seguir trabajando en equipo.
+- Compartir el proceso de trabajo.
+- Pensamiento crítico.
+- Comunicación.
+- Pedir ayuda.
+- Empatía.
+- Compañerismo.
+- Reuniones Diarias.
+
+**Hacer menos:**
+- Dejar todo para último momento.
+
+**Dejar de hacer:**
+- 
