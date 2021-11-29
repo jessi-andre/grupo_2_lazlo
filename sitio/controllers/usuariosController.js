@@ -204,57 +204,82 @@ module.exports = {
     },
 
     processEditarPerfil:(req,res) =>{
-        
-        const { firstName, lastName,newPassword,oldPassword} = req.body;
 
-        db.User.findByPk(req.params.id)
-        .then(usuario => {
-
-            if(newPassword != oldPassword){
-                let contraHash 
-                if(newPassword.length > 0){
-                     contraHash = bcrypt.hashSync(newPassword, 10)
-                }else{
-                    contraHash = bcrypt.hashSync(oldPassword, 10)
-                }
-                db.User.update(
-                    {
-                        where:{
-                            id:req.params.id
+       
+            const errors = validationResult(req);
+    
+    
+            if (errors.isEmpty()) {
+                
+                 db.User.findByPk(req.session.loginUsuario.id)
+                .then( usuario => {
+    
+                    const {firstName,lastName,newPassword} = req.body;
+    
+                    /*if (req.file) {
+                        if(fs.existsSync(path.join(__dirname,'..','..','public','images','usuarios',user.avatar))) {
+                            fs.unlinkSync(path.join(__dirname,'..','..','public','images','usuarios',user.avatar))
                         }
+                    }*/
+                    
+                    db.User.update(
+                      {  
+                        firstName : firstName.trim(),
+                        lastName : lastName.trim(),
+                        password : newPassword ? bcrypt.hashSync(newPassword.trim(),10) : usuario.password,
+                        roleId : usuario.roleId,
+                        image : req.file ? req.file.filename : usuario.image
                     },
+                    
                     {
-                        firstName:firstName,
-                        lastName:lastName,
-                        password:contraHash,
-                        image: req.file ? req.file.filename : usuario.image,
-      
-      
+                        where : {
+                            id : req.session.loginUsuario.id
+                            
+                        }
+                        
                     }
-      
-                 ).then(() => {
-      
-                  if (req.session.loginUsuario.rol === 2) {
-                      return res.redirect('/users/perfilAdmin')
-                  } else {
-                      return res.redirect('/users/perfil')
-                  }
-      
-                 }).catch(error =>res.send(error))
-            }else{
-                return res.render("editarPerfil",{
-                    errores:{
-                        password: "contraseña incorrecta"
+                    )
+                    .then(() => {
+                        
+                        delete req.session.loginUsuario
+                        req.session.loginUsuario ={
 
-                    },usuario
+                            firstName : firstName.trim(),
+                            lastName : lastName.trim(),
+                            password : newPassword ? bcrypt.hashSync(newPassword.trim(),10) : usuario.password,
+                            roleId : usuario.roleId,
+                            image : req.file ? req.file.filename : usuario.image
+                        }
+                       if (req.session.loginUsuario.rol === 2) {
+                        return res.redirect('/users/perfilAdmin')
+                    } else {
+                        return res.redirect('/users/perfil')
+                    }
+
+                    })
+                    .catch(error => console.log(error))
                 })
+                .catch(error => res.send(error))
+    
+            } else {
+                db.User.findByPk
+                (req.session.loginUsuario.id)
+                .then(usuario =>{
+                    return res.render('editarPerfil',
+                    {
+                        usuario,
+                        errors : errors.mapped(),
+                        old : req.body
+                })
+                })              
             }
+        },
 
-          
-        })
-        
+
+
 
     }
+      
 
-}
+
 

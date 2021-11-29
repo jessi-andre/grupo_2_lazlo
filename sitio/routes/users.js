@@ -21,7 +21,7 @@ router.get('/logout',logout);
 router.get('/perfil',userLoginCheck,notEntryAdmin, perfil);
 router.get('/perfilAdmin',adminCheck,perfilAdmin);
 router.put('/perfilAdmin/:id', cambiarRol);
-router.get('/editarPerfil',adminCheck,editarPerfil);
+router.get('/editarPerfil',editarPerfil);
 router.put('/editarPerfil/:id', processEditarPerfil);
 
 
