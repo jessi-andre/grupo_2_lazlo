@@ -82,12 +82,14 @@
                 </div>
                 <div class="comentario">
 
-                    <form  method="POST">
+                    <form  method="POST" enctype="multipart/form-data"
+                    >
 
                         <div class="caja-comentario">
                             
                             <textarea name="comentario" id="comentario" cols="30"
                                 rows="10"></textarea>
+                                <input type="file" name="foto" id="fotoComunity">
                         </div>
                         <div>
                            <button type="submit">Enviar Comentario</button>

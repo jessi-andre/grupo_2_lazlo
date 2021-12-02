@@ -4,28 +4,27 @@ const usuarios = require('../data/users.json');
 module.exports = [
 
     check('first_name')
-        .notEmpty().withMessage('El nombre es requerido'),
+        .notEmpty().withMessage('El nombre es requerido') 
+        .isLength({
+            min : 2
+        }).withMessage('Su nombre debe tener un mínimo de 2 caracteres'),
+
+    check('last_name')
+        .notEmpty().withMessage('El apellido es requerido') 
+        .isLength({
+            min : 2
+        }).withMessage('Su apellido debe tener un mínimo de 2 caracteres'),    
 
     check('email')
         .notEmpty().withMessage('El email es requerido').bail()
         .isEmail().withMessage('Ingresa un email valido'),
 
-        
-    /*body('email')
-        .custom(value  => {
-            let usuario = usuarios.find(usuario => usuario.email === value);
-            if(usuario){
-                return false
-            }else{
-                return true
-            }
-        }).withMessage('Este email ya está registrado'),*/
 
     check('password')
         .notEmpty().withMessage('La contraseña es requerida')
         .isLength({
-            min : 6
-        }).withMessage('La contraseña debe tener un mínimo de 6 caracteres'),
+            min : 8
+        }).withMessage('La contraseña debe tener un mínimo de 8 caracteres'),
     
     body('password2')
         .custom((value,{req}) => {

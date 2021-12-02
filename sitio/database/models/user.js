@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
         as : 'role',
         foreignKey:'roleId'
       })
+      User.hasMany(models.Community,{
+        as : 'community',
+        foreignKey:'userId'
+      })
       /*User.hasMany(models.Cart,{
         as : 'carts'
       })*/

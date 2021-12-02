@@ -21,8 +21,8 @@ module.exports = {
         return res.render('comunidad')
     },
     guardarComentario: (req, res) => {
-        //return res.send(req.body);
-        const {comentario} = req.body;
+       //return res.send(req.file);
+       /* const {comentario} = req.body;
 
         let coment = {
             id: comentarios[comentarios.length - 1].id + 1,
@@ -32,7 +32,15 @@ module.exports = {
         comentarios.push(coment)
 
         fs.writeFileSync(path.join(__dirname, '..', 'data', 'comentarios.json'), JSON.stringify(comentarios, null, 3), 'utf-8');
-        return res.redirect('/comunidad');
+        return res.redirect('/comunidad');*/
+        /*db.Community.create({
+            userId: 
+            comment:
+            image: 
+        })*/
+
+
+
     },
     search: (req, res) => {
         db.Product
