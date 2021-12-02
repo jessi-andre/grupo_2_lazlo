@@ -19,13 +19,22 @@ const storage = multer.diskStorage({
     }
 });
 
+const fileFilter = function (req, file, callback) {
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif|webp)$/)) {
+        req.fileValidationError = 'Solo se pueden subir imagenes con extensión jpg, jpeg, png, gif y webp'
+        return callback(null, false, req.fileValidationError)
+    }
+    callback(null, true)
+}
+
 const upload = multer({
-    storage
+    storage,
+    fileFilter
 })
 
 /* GET home page. */
 router.get('/administrador', adminCheck, administrador);
-router.post('/agregar-productos', upload.single('image'), productValidation, store);
+router.post('/agregar-productos', upload.any(), productValidation, store);
 router.get('/categoria/:category', productos);
 router.get('/detalle/:id', productoDetalle);
 router.get('/agregar-productos', adminCheck, agregar);

@@ -58,8 +58,18 @@ module.exports = {
 
 
                 } else {
+                    errores = errores.mapped();
+
+                    if (req.fileValidationError) {
+                        errores = {
+                            ...errores,
+                            image: {
+                                msg: req.fileValidationError
+                            }
+                        }
+                    }
                     return res.render('register', {
-                        errores: errores.mapped(),
+                        errores: errores,
                         old: req.body
                     })
                 }
