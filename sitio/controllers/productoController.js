@@ -125,8 +125,18 @@ module.exports = {
 
             Promise.all(([colores, talles, categorias])).then(([colores, talles, categorias]) => {
                 //res.send(req.body)
+                errores = errores.mapped();
+
+                    if (req.fileValidationError) {
+                        errores = {
+                            ...errores,
+                            image: {
+                                msg: req.fileValidationError
+                            }
+                        }
+                    }
                 return res.render('agregar-productos', {
-                    errores: errores.mapped(),
+                    errores: errores,
                     old: req.body,
                     colores,
                     talles,

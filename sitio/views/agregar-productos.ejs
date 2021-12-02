@@ -93,7 +93,11 @@
             <div class="col-md-6">
               <label for="inputImage" class="form-label">Imagen del Producto:</label>
               <input class="form-control" name="image" type="file" id="inputImage">
+              <span class="errores">
+                <%= locals.errores && errores.image ? errores.image.msg : null %>
+              </span>
             </div>
+
             <div class="col-md-12">
               <label for="inputDescrption" class="form-label">Descripción del Producto:</label>
               <textarea class="form-control" name="description" id="inputDescrption" rows="3"

@@ -57,7 +57,7 @@
           />
         </div>
         <span class="errores">
-          <%= locals.errores && errores.email ? errores.email : null %>
+          <%= locals.errores && errores.email ? errores.email.msg : null %>
         </span>
 
         <div class="input-contenedor">
@@ -69,6 +69,9 @@
             name="profile"
           />
         </div>
+        <span class="errores">
+          <%= locals.errores && errores.image ? errores.image.msg : null %>
+        </span>
 
         <div class="input-contenedor">
           <i class="fas fa-key icon"></i>
