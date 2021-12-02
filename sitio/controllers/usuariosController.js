@@ -16,7 +16,7 @@ module.exports = {
 
         if (errores.isEmpty()) {
 
-            const { first_name, last_name, email, password } = req.body;
+            const { first_name, last_name, email, password } = req.body; //-------- deberiamos cambiar el first y el last??
 
             db.User.create({
                 firstName: first_name.trim(),

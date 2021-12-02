@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-   <%-include('./partials/head')%> 
+<%-include('. /partials/head')%>
    <style>
-      .errores{
+      .errores {
          font-weight: 500;
          color: tomato;
-         display:block;
+         display: block;
          margin: 10px 0 0 65px;
       }
 
-      .recordar{
+      .recordar {
          margin: 20px 0;
-         display:flex;
+         display: flex;
          align-items: center;
          justify-content: flex-end;
          cursor: pointer;
       }
-      .recordar input{
+
+      .recordar input {
          margin: 0 10px;
       }
    </style>
-<body background="/images/fondo.jpg">
-    
-   <%-include('./partials/header')%> 
-   <main class="login">
-      
-      <form class="formulario" method="POST">
 
-         <h1>¡Ya soy usuario!</h1>
+   <body background="/images/fondo.jpg">
 
-         
-         <div class="input-contenedor">
-            <i class="fas fa-envelope icon"></i>
-            <input type="text" placeholder="tucorreo@hotmail.com" id="email" name="email" value="<%= locals.errores &&  errores.email === '' ? old.email : null %>" >
-         </div>
-         <div class="input-contenedor">
-            <i class="fas fa-key icon"></i>
-            <input type="password" placeholder="Contraseña" id="password" name="password">
-         </div>
-         <span class="errores"><%= locals.errores && errores.email ? errores.email.msg : null %> </span>
-         <div class="recordar">
-            <label for="remember">Mantener sesión</label>
-            <input type="checkbox" id="remember" name="remember">
-         </div>
-         <input type="submit" value="Iniciar sesión" class="button"> <br>
-         <br>
-         <p>Al registrarte aceptas las Condiciones de uso y Política de privacidad. </p> <br>
-         <p>¿No tienes cuenta? <a class="link" href="/users/register">Registrate</a> </p>
+      <%-include('. /partials/header')%>
+         <main class="login">
+
+            <form class="formulario" method="POST">
+
+               <h1>¡Ya soy usuario!</h1>
 
 
-         </div>
-      </form>
-   </main>
-   <%-include('./partials/footer')%> 
-</body>
+               <div class="input-contenedor">
+                  <i class="fas fa-envelope icon"></i>
+                  <input type="text" placeholder="tucorreo@hotmail.com" id="email" name="email"
+                     value="<%= locals.errores &&  errores.email === '' ? old.email : null %>">
+               </div>
+               <div class="input-contenedor">
+                  <i class="fas fa-key icon"></i>
+                  <input type="password" placeholder="Contraseña" id="password" name="password">
+               </div>
+               <span class="errores">
+                  <%= locals.errores && errores.email ? errores.email.msg : null %>
+               </span>
+               <div class="recordar">
+                  <label for="remember">Mantener sesión</label>
+                  <input type="checkbox" id="remember" name="remember">
+               </div>
+               <input type="submit" value="Iniciar sesión" class="button"> <br>
+               <br>
+               <p>Al registrarte aceptas las Condiciones de uso y Política de privacidad. </p> <br>
+               <p>¿No tienes cuenta? <a class="link" href="/users/register">Registrate</a> </p>
 
 
+               </div>
+            </form>
+         </main>
+         <%-include('. /partials/footer')%>
+   </body>
 
 </html>
