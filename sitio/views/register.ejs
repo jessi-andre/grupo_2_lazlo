@@ -11,6 +11,7 @@
   </style>
 
   <body background="/images/fondo.jpg">
+<<<<<<< HEAD
 
     <%-include('./partials/header')%>
 
@@ -80,6 +81,117 @@
         </form>
       </main>
       <%-include('./partials/footer')%>
+=======
+     
+    <%-include('./partials/header')%>
+
+    <main class="registro">
+      <form class="formulario" id="registro" method="POST" enctype="multipart/form-data">
+        <h1>¡Registrate!</h1>
+
+        <div class="input-contenedor">
+          <i class="fas fa-user icon"></i>
+          <input
+            type="text"
+            placeholder="Nombre"
+            id="name"
+            name="first_name"
+            value="<%= locals.old && old.first_name ? old.first_name : null %>"
+            
+
+          />
+        </div>
+        <span class="errores" id="errorName"> 
+          <%= locals.errores && errores.first_name ? errores.first_name.msg :
+          null %>
+        </span>
+
+        <div class="input-contenedor">
+          <i class="fas fa-user icon"></i>
+          <input
+            type="text"
+            placeholder="Apellido"
+            id="lastName"
+            name="last_name"
+            value="<%= locals.old && old.last_name ? old.last_name : null %>"
+
+          />
+        </div>
+        <span class="errores" id="errorLastName"> 
+          
+        </span>
+
+        <div class="input-contenedor">
+          <i class="fas fa-envelope icon"></i>
+          <input
+            type="text"
+            placeholder="tucorreo@hotmail.com"
+            id="email"
+            name="email"
+            value="<%= locals.errores &&  errores.email === '' ? old.email : null %>"
+          />
+        </div>
+        <span class="errores" id="errorEmail">
+          <%= locals.errores && errores.email ? errores.email.msg : null %>
+        </span>
+
+        <div class="input-contenedor">
+          <i class="fas fa-image icon"></i>
+          <input
+            type="file"
+            placeholder="Agrega tu foto de perfil"
+            id="profile"
+            name="profile"
+          />
+        </div>
+        <span class="errores" id="errorImage">
+          <%= locals.errores && errores.image ? errores.image.msg : null %>
+        </span>
+
+        <div class="input-contenedor">
+          <i class="fas fa-key icon"></i>
+          <input
+            type="password"
+            placeholder="Contraseña"
+            id="password"
+            name="password"
+          />
+        </div>
+        <span class="errores" id="errorPassword">
+          <%= locals.errores && errores.password ? errores.password.msg : null
+          %>
+        </span>
+
+        <div class="input-contenedor">
+          <i class="fas fa-key icon"></i>
+          <input
+            type="password"
+            placeholder="Volve a escribir tu contraseña"
+            id="password2"
+            name="password2"
+          />
+        </div>
+        <span class="errores" id="errorPassword2">
+          <%= locals.errores && errores.password2 ? errores.password2.msg : null
+          %>
+        </span>
+
+        <input type="submit" value="Iniciar sesión" class="button" /> <br />
+        <br />
+        <p>
+          Al registrarte aceptas las Condiciones de uso y Política de
+          privacidad.
+        </p>
+        <br />
+        <p>
+          ¿Ya tienes cuenta?
+          <a class="link" href="/users/login">Inicia sesión</a>
+        </p>
+      </form>
+    </main>
+    <%-include('./partials/footer')%>
+    <script src="/javascripts/validaciones/registerValidationFront.js"></script>
+>>>>>>> 022c5a0864ac78a55a8c21257c0c85a9a6ec6320
   </body>
 
 </html>
