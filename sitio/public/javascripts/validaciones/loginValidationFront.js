@@ -1,5 +1,6 @@
 const $ = id => document.getElementById(id);
-
+console.log('ssssssssssssssssssssssssssssssssssssssss')
+ 
 let regExLetter = /^[A-Z]+$/i;
 let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/; //mayuscula, numero y 6 a 12 caracteres
@@ -36,10 +37,10 @@ $('password').addEventListener('focus', () => {
 
 
 
-$('registro').addEventListener('submit', e => {
+$('login').addEventListener('submit', e => {
     e.preventDefault();
 
-    let elementForm = $('registro').elements;
+    let elementForm = $('login').elements;
 
 
     let errors = false
@@ -62,7 +63,7 @@ $('registro').addEventListener('submit', e => {
     }
 
     if (!errors) {
-        $('registro').submit()
+        $('login').submit()
     }
 
 
