@@ -9,7 +9,18 @@ let comentarios = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 
 
 module.exports = {
     index: (req, res) => {
-        return res.render('home')
+        db.Category.findAll({
+            include: ['products'],
+            where: {
+                id: 1
+            }
+        })
+        .then( mochis => {
+            let mochilas = mochis.map(mochila => mochila.products);
+            return res.render('home', {
+                mochilas
+            })
+        }).catch(error => console.log(error))
     },
     carrito: (req, res) => {
         return res.render('carrito')

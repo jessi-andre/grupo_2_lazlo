@@ -58,16 +58,59 @@
         </section>
         <section>
             <div class="banner-final">
-                <article class="banner">
+                <!--article class="banner">
                     <img src="/images/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg" alt="">
                     <h2>Conocenos,<br>para conocerte.</h2>
                     <a class="boton-ver-mas" href="/historia">Ver más</a>
-                </article>
+                </article-->
+                <div class="video">
+                    <video playsinline autoplay muted loop id="video">
+                        <source src="/images/Boat.mp4" type="video/mp4">
+                    </video>
+                    <h2>Conocenos, para conocerte.</h2>
+                </div>
             </div>
         </section>
+
+        <section class="productosRelacionados">
+            <h2>Más vendidos</h2>
+        
+            <!-- carrucel de productos -->
+        
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                  <ul class="glide__slides">
+                    
+                    <% mochilas[0].forEach(mochila=> { %>
+                        <li class="glide__slide">
+                            <a href="/productos/detalle/<%= mochila.id %>" class="relacionadoContenedor">
+                            <div class="relacionado">
+                                <div class="imagenRelacionado">
+                                    <img src="/images/products/<%= mochila.image %>" alt="">
+                                </div>
+                                <div class="detalleRelacionado">
+                                    <h3><%= mochila.name %></h3>
+                                    <h4>$ <%= mochila.price %></h4>
+                                </div>
+                            </div>
+                            </a>
+                        </li>
+                    <% }) %>
+                                                            
+                  </ul>
+                </div>
+                <div class="glide__arrows" data-glide-el="controls">
+                  <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-caret-left"></i></button>
+                  <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-caret-right"></i></button>
+                </div>
+              </div>
+        </section>
+
     </main>
 
     <%-include('./partials/footer')%> 
+    <script src="/javascripts/glide.js"></script>
+    <script src="/javascripts/index.js"></script>
 </body>
 
 </html>
