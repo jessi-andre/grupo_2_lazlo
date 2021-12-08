@@ -81,12 +81,12 @@
                 <div class="glide__track" data-glide-el="track">
                   <ul class="glide__slides">
                     
-                    <% mochilas[0].forEach(mochila=> { %>
+                    <% mochilas[0].forEach(mochila=>{%>
                         <li class="glide__slide">
-                            <a href="/productos/detalle/<%= mochila.id %>" class="relacionadoContenedor">
+                            <a href="/productos/detalle/<%=mochila.id%>" class="relacionadoContenedor">
                             <div class="relacionado">
                                 <div class="imagenRelacionado">
-                                    <img src="/images/products/<%= mochila.image %>" alt="">
+                                    <img src="/images/products/<%=mochila.image%>" alt="">
                                 </div>
                                 <div class="detalleRelacionado">
                                     <h3><%= mochila.name %></h3>
@@ -95,9 +95,9 @@
                             </div>
                             </a>
                         </li>
-                    <% }) %>
-                                                            
-                  </ul>
+                    <%})%>
+
+                 </ul>
                 </div>
                 <div class="glide__arrows" data-glide-el="controls">
                   <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-caret-left"></i></button>
