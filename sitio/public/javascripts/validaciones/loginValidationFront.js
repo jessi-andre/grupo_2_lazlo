@@ -3,7 +3,7 @@ console.log('ssssssssssssssssssssssssssssssssssssssss')
  
 let regExLetter = /^[A-Z]+$/i;
 let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
-let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/; //mayuscula, numero y 6 a 12 caracteres
+let regExPass = /^{6,12}$/; //mayuscula, numero y 6 a 12 caracteres
 
 
 $('email').addEventListener('blur', () => {
@@ -20,7 +20,7 @@ $('email').addEventListener('blur', () => {
 
 $('password').addEventListener('blur', () => {
     if (!regExPass.test($('password').value)) {
-        $('errorPassword').innerText = "La contraseña debe tener una mayúscula, un número y entre 6 y 12 caracteres"
+        $('errorPassword').innerText = "La contraseña debe tener entre 6 y 12 caracteres"
         $('password').classList.add('is-invalid')
     } else {
         $('errorPassword').innerText = null
