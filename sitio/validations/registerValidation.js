@@ -24,7 +24,8 @@ module.exports = [
         .notEmpty().withMessage('La contraseña es requerida')
         .isLength({
             min : 8
-        }).withMessage('La contraseña debe tener un mínimo de 8 caracteres'),
+        }).withMessage('La contraseña debe tener un mínimo de 8 caracteres')
+        .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/).withMessage('La contraseña debe tener una mayúscula, un número y entre 8 y 12 caracteres'),
     
     body('password2')
         .custom((value,{req}) => {

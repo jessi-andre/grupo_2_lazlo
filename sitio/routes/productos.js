@@ -34,7 +34,7 @@ const upload = multer({
 
 /* GET home page. */
 router.get('/administrador', adminCheck, administrador);
-router.post('/agregar-productos', upload.any(), productValidation, store);
+router.post('/agregar-productos', upload.single('image'), productValidation, store);
 router.get('/categoria/:category', productos);
 router.get('/detalle/:id', productoDetalle);
 router.get('/agregar-productos', adminCheck, agregar);

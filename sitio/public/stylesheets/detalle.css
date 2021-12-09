@@ -219,7 +219,17 @@
         width: 50%;
     }
 
+    .detalle .infoProducto{
+        width: 90%;
+        margin: 30px auto 80px;
+    }
+
+    
     /*-- RESEÑAS --*/
+    .detalle .reseñas{
+        width: 90%;
+        margin: 30px auto;
+    }
 
     .detalle .reseñas .nombre-estrellas{
         width: 30%;
