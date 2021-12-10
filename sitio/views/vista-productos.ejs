@@ -7,11 +7,11 @@
     <main class="vistaProductos">
         <h2><%= title %></h2>
         <section class="productos">  
-            <% products[0].forEach(product => { %>
+            <% products.forEach(product => { %>
 
                 <a href="/productos/detalle/<%= product.id %>" class="producto">
                     <div class="productoImg">
-                        <img src="/images/products/<%= product.image %>" alt="">
+                        <img src="/images/products/<%= product.images[0].file %> " alt="">
                     </div>
                     <div class="productoInfo">
                         <h3><%= product.name %></h3>

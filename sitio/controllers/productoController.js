@@ -5,26 +5,31 @@ let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'pr
 const db = require('../database/models')
 const { Op } = require('sequelize');
 const { validationResult } = require('express-validator');
+const { send } = require('process');
 
 module.exports = {
     productos: (req, res) => {
-        db.Product.findAll({
-            include: [
-                "colors",
-                "size",
-                "category"
-            ],
-        }).then(productos => {
-            db.Category.findAll({
-                include: ['products'],
-                where: {
-                    name: { [Op.like]: req.params.category }
+
+        db.Category.findAll({
+            include: [{ all: true }],
+            where: {
+                name: { [Op.like]: req.params.category }
+            }
+        }).then(categorias => {
+
+            db.Product.findAll(
+                {
+                    include: [
+                        "colors",
+                        "size",
+                        "category",
+                        "images"
+                    ]
                 }
-            }).then(categorias => {
+            ).then(productos => {
 
-                let producto = categorias.map(categoria => categoria.products);
+                let producto = productos.filter(producto => producto.category.name === categorias[0].name)
 
-                /*res.send(producto)*/
 
                 return res.render('vista-productos', {
                     products: producto,
@@ -32,7 +37,11 @@ module.exports = {
                 })
 
             }).catch(error => console.log(error))
+
         }).catch(error => console.log(error))
+
+
+
     },
     productoDetalle: (req, res) => {
 
@@ -40,7 +49,8 @@ module.exports = {
             include: [
                 "colors",
                 "size",
-                "category"
+                "category",
+                "images"
             ],
         })
 
@@ -55,6 +65,9 @@ module.exports = {
         Promise.all([productoPromise, mochilasPromise])
             .then(([productoPromise, mochilasPromise]) => {
                 let mochilas = mochilasPromise.map(mochila => mochila.products);
+
+                //return res.send(productoPromise)
+
                 return res.render('detalle', {
                     product: productoPromise,
                     mochilas,
@@ -87,9 +100,9 @@ module.exports = {
                 name: name.trim(),
                 price: +price,
                 description: description.trim(),
-                categoryId: category,
-                image: req.file ? req.file.filename : 'default.png'
+                categoryId: category
             }).then(producto => {
+                
 
                 let colores = req.body.color.map(color => {
                     let colorMap = {
@@ -112,6 +125,21 @@ module.exports = {
                 let tallesPromise = db.SizeProduct.bulkCreate(talles)
 
                 Promise.all([coloresPromise, tallesPromise]).then(() => {
+
+                    if (req.files[0] != undefined) {
+
+                        let images = req.files.map(image => {
+                            let img = {
+                                file: image.filename,
+                                productId: producto.id
+                            }
+                            return img
+                        });
+                        db.Image.bulkCreate(images, { validate: true })
+                            .then(() => console.log('imagenes agregadas'))
+                    } 
+
+                    
                     //res.send(producto)
                     res.redirect('/productos/administrador')
                 }).catch(error => console.log(error))
@@ -127,14 +155,14 @@ module.exports = {
                 //res.send(req.body)
                 errores = errores.mapped();
 
-                    if (req.fileValidationError) {
-                        errores = {
-                            ...errores,
-                            image: {
-                                msg: req.fileValidationError
-                            }
+                if (req.fileValidationError) {
+                    errores = {
+                        ...errores,
+                        image: {
+                            msg: req.fileValidationError
                         }
                     }
+                }
                 return res.render('agregar-productos', {
                     errores: errores,
                     old: req.body,
@@ -178,7 +206,7 @@ module.exports = {
         let errores = validationResult(req);
 
         if (errores.isEmpty()) {
-            let { name, price, description, category} = req.body;
+            let { name, price, description, category } = req.body;
 
             db.Product.findByPk(req.params.id, {
                 include: [
@@ -273,7 +301,7 @@ module.exports = {
                         categorias
                     })
                 })
-                
+
             }).catch(error => console.log(error))
         }
     },
