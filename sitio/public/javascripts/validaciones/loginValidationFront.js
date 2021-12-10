@@ -3,7 +3,6 @@ console.log('ssssssssssssssssssssssssssssssssssssssss')
  
 let regExLetter = /^[A-Z]+$/i;
 let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
-let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/; //mayuscula, numero y 6 a 12 caracteres
 
 
 $('email').addEventListener('blur', () => {

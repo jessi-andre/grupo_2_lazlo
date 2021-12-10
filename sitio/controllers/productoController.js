@@ -99,13 +99,19 @@ module.exports = {
                     return colorMap;
                 })
 
-                let talles = req.body.talle.map(size => {
-                    let talleMap = {
-                        sizeId: +size,
-                        productId: +producto.id
-                    }
-                    return talleMap;
-                })
+                let talles;
+                if (req.body.talle) {
+                    talles = req.body.talle.map(size => {
+                        let talleMap = {
+                            sizeId: +size,
+                            productId: +producto.id
+                        }
+                        return talleMap;
+                    })
+                }else{
+                    talles = []
+                }
+
 
                 let coloresPromise = db.ColorProduct.bulkCreate(colores)
 
@@ -127,14 +133,14 @@ module.exports = {
                 //res.send(req.body)
                 errores = errores.mapped();
 
-                    if (req.fileValidationError) {
-                        errores = {
-                            ...errores,
-                            image: {
-                                msg: req.fileValidationError
-                            }
+                if (req.fileValidationError) {
+                    errores = {
+                        ...errores,
+                        image: {
+                            msg: req.fileValidationError
                         }
                     }
+                }
                 return res.render('agregar-productos', {
                     errores: errores,
                     old: req.body,
@@ -178,7 +184,7 @@ module.exports = {
         let errores = validationResult(req);
 
         if (errores.isEmpty()) {
-            let { name, price, description, category} = req.body;
+            let { name, price, description, category } = req.body;
 
             db.Product.findByPk(req.params.id, {
                 include: [
@@ -273,7 +279,7 @@ module.exports = {
                         categorias
                     })
                 })
-                
+
             }).catch(error => console.log(error))
         }
     },

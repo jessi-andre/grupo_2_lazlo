@@ -62,7 +62,7 @@
               <div class="col-6 talles">
                 <p>Talles:</p>
                 <% talles.forEach(talle=> { %>
-                  <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>">
+                  <input type="checkbox" id="<%= talle.name %>" class="checkboxTalle" name="talle" value="<%= talle.id %>">
                     <label for="<%= talle.name %>">
                     <%= talle.name %>
                   </label><br>
