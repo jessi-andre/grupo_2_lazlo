@@ -14,10 +14,16 @@ body .comunidad .contenedor .articulo {
   text-align: center;
   flex-direction: column;
   border: rgb(63, 58, 48);
-  background-color:rgb(216, 199, 180);
+  /*background-color:rgb(216, 199, 180);*/
   padding: 15px;
 }
 body .comunidad .contenedor .articulo .descripcionC{
+  background-color :  rgba(216, 199, 180, .3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 25px;
+
   width: 100%;
 }
 body .comunidad .contenedor .articulo .descripcionC p{
@@ -47,7 +53,7 @@ body .comunidad .contenedor .articulo .image img {
 
 body .comunidad .comentario {
   text-align: center;
-  background-color: rgb(216, 199, 180);
+  /*background-color: rgb(216, 199, 180);*/
   padding: 10px;
 }
 
@@ -79,7 +85,7 @@ body .comunidad .comentario textarea {
     height: 100 px;
     text-align: center;
     flex-direction: row;
-    background-color: rgb(216, 199, 180);
+    /*background-color: rgb(216, 199, 180);*/
   }
   body .comunidad .contenedor .articulo .descripcionC{
     width: 60%;
