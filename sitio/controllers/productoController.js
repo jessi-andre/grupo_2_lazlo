@@ -30,7 +30,6 @@ module.exports = {
 
                 let producto = productos.filter(producto => producto.category.name === categorias[0].name)
 
-
                 return res.render('vista-productos', {
                     products: producto,
                     title: req.params.category
@@ -82,11 +81,13 @@ module.exports = {
             include: [
                 "colors",
                 "size",
-                "category"
+                "category",
+                "images"
             ]
         }).then(productos => {
+            return res.send(productos)
             return res.render('administrador', {
-                products: productos
+                products: productos,
             })
         }).catch(error => console.log(error))
     },
@@ -102,6 +103,15 @@ module.exports = {
                 description: description.trim(),
                 categoryId: category
             }).then(producto => {
+                if (req.file != undefined) {
+                    let images =  {
+                            file: req.file.filename,
+                            productId: producto.id
+                    }
+
+                    db.Image.create(images)
+                        .then(() => console.log('imagenes agregadas')).catch(error => console.log(error))
+                } 
                 
 
                 let colores = req.body.color.map(color => {
@@ -126,21 +136,10 @@ module.exports = {
 
                 Promise.all([coloresPromise, tallesPromise]).then(() => {
 
-                    if (req.files[0] != undefined) {
-
-                        let images = req.files.map(image => {
-                            let img = {
-                                file: image.filename,
-                                productId: producto.id
-                            }
-                            return img
-                        });
-                        db.Image.bulkCreate(images, { validate: true })
-                            .then(() => console.log('imagenes agregadas'))
-                    } 
+                    
 
                     
-                    //res.send(producto)
+                    
                     res.redirect('/productos/administrador')
                 }).catch(error => console.log(error))
             }).catch(error => console.log(error))

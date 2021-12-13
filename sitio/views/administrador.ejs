@@ -29,7 +29,7 @@
                             <td><%= product.name%></td>
                             <td>$<%= product.price%></td>
                             <td><%= product.category.name%></td>
-                            <td><img width='90' src="/images/products/<%= product.image %>" alt=""></td>
+                            <td><img width='90' src="/images/products/<%= product.images[0].file %>" alt=""></td>
                             <td><div><a href="/productos/editar-productos/<%= product.id %>"><i class="far fa-edit"></i></a></div></td>
                             <td><div><form  class="delete" action="/productos/destroy/<%= product.id %>?_method=DELETE" method="POST"><button>X</button></form></div></td>
                           </tr>

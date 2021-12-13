@@ -11,7 +11,7 @@ header{
 
 /*--LOGO--*/
 header .logo{
-    width:80px;
+    width:100px;
     display:block;
 }
 
@@ -194,7 +194,7 @@ header .btn-user a{
 
     /*--LOGO--*/
     header .logo{
-        width:80px;
+        width:150px;
     }
 
     /*--headerNav  --*/
@@ -295,7 +295,7 @@ header .btn-user a{
 @media (min-width : 1440px){
     /*--LOGO--*/
     header .logo{
-        width:100px;
+        width:150px;
     }
     /*--headerNav  --*/
     header .headerNav {

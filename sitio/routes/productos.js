@@ -33,12 +33,12 @@ const upload = multer({
 })
 
 /* GET home page. */
-router.get('/administrador', adminCheck, administrador);
+router.get('/administrador',  administrador);
 router.post('/agregar-productos', upload.single('image'), productValidation, store);
 router.get('/categoria/:category', productos);
 router.get('/detalle/:id', productoDetalle);
-router.get('/agregar-productos', adminCheck, agregar);
-router.get('/editar-productos/:id', adminCheck, editar);
+router.get('/agregar-productos',  agregar);
+router.get('/editar-productos/:id',  editar);
 router.put('/editar-productos/:id', uploadEdit.single('product'), productValidation, actualizar);
 
 /** DELETE ONE PRODUCT***/
