@@ -96,7 +96,7 @@ const products = [
     name: "Cinch tote",
     categoryId: 1,
     price: 59,
-    description: "Nuestro Cinch Tote tiene un cuerpo de nailon 1000D duradero completamente forrado con tela de nailon y cuatro bolsillos externos profundos para evitar que los artículos pequeños se pierdan en el fondo de su bolso. Una correa extraíble le permite llevar el bolso al hombro o quitárselo cuando no lo necesite.",
+    description: "Nuestro Cinch Tote tiene un cuerpo de nailon 1000D duradero completamente forrado con tela de nailon y cuatro bolsillos externos profundos para evitar que los artículos pequeños se pierdan en el fondo de su mochila. Una correa extraíble le permite llevar el mochila al hombro o quitárselo cuando no lo necesite.",
     createdAt: new Date,
     updatedAt: new Date
   },
@@ -156,10 +156,154 @@ const products = [
   },
   {
     id: 18,
-    name: "Campera reversible",
+    name: "Campera sherpa",
     categoryId: 2,
-    price: 100,
-    description: "Hermosa campera reversible. Comoda y calentita.",
+    price: 99,
+    description: "Nuestra campera corta de sherpa es una campera 2 en 1 completamente reversible y es una campera bomber de estilo mínimo creada pensando en la versatilidad y la durabilidad.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 19,
+    name: "Camiseta Dirt",
+    categoryId: 2,
+    price: 98,
+    description: "Con un corte recto, detalles clásicos y un solo bolsillo, la camiseta Dirt se convertirá rápidamente en una de tus prendas favoritas. El lavado teñido en prenda suaviza tanto el color como la tela, haciéndola sentir como un viejo favorito desde la primera vez que se usa.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 20,
+    name: "Campera Mountain Shirt - Hombre",
+    categoryId: 2,
+    price: 159,
+    description: "Confeccionada con hilo de algodón 100% orgánico, pespuntes superpuestos y un ajuste sobrecamisa más largo, la campera Mountain Shirt es una prenda de capas funcional y cómoda. Con patrones llamativos a cuadros, esta pieza destaca en climas más fríos.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 21,
+    name: "Mini mochila de hombro",
+    categoryId: 1,
+    price: 19,
+    description: "El mini mochila de hombro es el mochila perfecto para llevar por encima del hombro para los artículos y accesorios diarios que necesita mientras está fuera de casa.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 22,
+    name: "Pantalones Boulder",
+    categoryId: 2,
+    price: 89,
+    description: "Nuestros pantalones Boulder son cómodos, informales y están diseñados para manejar el aire libre. Con un dobladillo ajustable, un bolsillo trasero con cremallera y un acabado repelente al agua duradero, los pantalones Boulder se mantendrán en cualquier entorno.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 23,
+    name: "Rover Pack Mini",
+    categoryId: 1,
+    price: 79,
+    description: "En una gama de colores tan atrevidos y versátiles como sus intereses, el Rover Pack Mini tiene un tamaño compacto pero ofrece un gran impacto. Toda la funcionalidad y versatilidad de nuestro icónico Rover Pack se reduce a una mochila brillante y llamativo que tiene el tamaño perfecto para hacer recados en la ciudad o en el camino.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 24,
+    name: "Correa para cámara",
+    categoryId: 3,
+    price: 14,
+    description: "Nuestra correa para cámara inspirada en la cuerda de escalada Colorado: rediseñada y lista para cualquier sesión. Patrones de diamantes personalizados en una cuerda de nailon resistente de 10 mm, con hebillas SR de fijación rápida para que pueda cambiar colores o dispositivos en segundos.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 25,
+    name: "Medias Mountain",
+    categoryId: 3,
+    price: 22,
+    description: "Diseñados para actividades atléticas pero igualmente cómodos para usar en la casa, los medias Mountain son un imprescindible versátil.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 26,
+    name: "Pantalones Dirt",
+    categoryId: 2,
+    price: 98,
+    description: "Con un corte recto, detalles clásicos y bolsillos de parche en las costuras laterales y en la parte posterior, los pantalones Dirt se convertirán rápidamente en uno de tus pantalones favoritos. El lavado teñido en prenda suaviza tanto el color como la tela, haciéndola sentir como un viejo favorito desde la primera vez que se usa.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 27,
+    name: "Camiseta de punto",
+    categoryId: 2,
+    price: 59,
+    description: "Nuestras camisetas de punto súper cómodas y ultra suaves tienen una construcción de punto de doble cara y se usan como un básico de algodón. El exterior de algodón y poliéster y el interior de malla ayudan a que esta camisa se seque rápidamente después de actividades de alta intensidad o un clima inesperado. Utilice la banda de embalaje PackFast ™ para guardarlo fácilmente durante el embalaje y el viaje.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 28,
+    name: "Campera Mountain Shirt - Mujer",
+    categoryId: 2,
+    price: 159,
+    description: "Confeccionada con hilo de algodón pesado 100% orgánico, pespuntes superpuestos y un ajuste sobrecamisa más largo, la campera Mountain Shirt es una de las prendas funcionales favoritas. Acentuada con colores llamativos y patrones de cuadros personalizados, esta pieza destaca en climas más fríos.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 29,
+    name: "Mini Quick Pack",
+    categoryId: 1,
+    price: 29,
+    description: "Nuestro Mini Quick Pack se puede colgar del hombro o llevar alrededor de la cintura, estilo riñonera. Un lazo de sujeción de luz para bicicleta externo y un bolsillo interno de organización son prácticos para el uso diario, y el bolsillo externo con cremallera tiene un clip para llaves interno para tenerlos a mano (y no perderlos).",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 30,
+    name: "Global Travel Bag",
+    categoryId: 1,
+    price: 229,
+    description: "Su compañero de viaje ideal con una sola bolsa. Nuestra mochila de mano Global Travel Bag, fabricado con materiales reciclados, ofrece opciones de transporte de 3 vías, mucha organización interna, bolsillos laterales expandibles para botellas de agua y una funda externa para computadora portátil para un fácil acceso. El tamaño es perfecto para una semana de viaje.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 31,
+    name: "Rover Pack Classic",
+    categoryId: 1,
+    price: 49,
+    description: "Con su estilo atemporal y construcción duradera, la Rover Pack Classic es nuestra silueta de mochila más icónica. Diseñado para la versatilidad en la ciudad o en el comienzo del sendero, este paquete de nailon duradero se mantendrá en cualquier entorno y se destacará en todos ellos.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 32,
+    name: "Accessory Bags Canvas",
+    categoryId: 3,
+    price: 15,
+    description: "Organice todo, desde bolígrafos hasta cables de carga en nuestras bolsas de accesorios. Estas duraderas bolsas vienen en tres tamaños de fácil transporte para optimizar su transporte diario.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 33,
+    name: "Clip para llaves",
+    categoryId: 3,
+    price: 15,
+    description: "Mantenga las llaves a mano y visibles con el clip para llaves. Este robusto accesorio combinado de aluminio y nailon se encuentra fácilmente en un bolsillo, se sujeta a una correa de mochila o se sujeta al cinturón para mayor comodidad.",
+    createdAt: new Date,
+    updatedAt: new Date
+  },
+  {
+    id: 34,
+    name: "Gorra Mountain",
+    categoryId: 3,
+    price: 32,
+    description: "Tu nueva gorra favorito que luce como un viejo amigo. Suave, sutil y el complemento perfecto para la comodidad informal.",
     createdAt: new Date,
     updatedAt: new Date
   }

@@ -86,8 +86,8 @@
               <label for="inputCaregoria" class="form-label">Categoria:</label>
               <select id="inputCategoria" class="form-select" name="category">
                 <% categorias.forEach(categoria=> { %>
-                  <option name="category" value="<%= locals.errores && errores.price ? old.categoryId : categoria.id %>"
-                    <%=categoria===producto.category ? 'selected' : null %>><%= categoria.name %>
+                  <option name="category" value="<%= categoria.id %>"
+                    <%=categoria.id === producto.category.id ? 'selected' : null %>><%= categoria.name %>
                   </option>
                   <% }) %>
               </select>
@@ -100,7 +100,7 @@
 
             <div class="col-md-6">
               <label for="inputImage" class="form-label">Imagen del Producto:</label>
-              <input class="form-control" name="product" type="file" id="inputImage" value="<%= producto.image %>">
+              <input class="form-control" name="product" type="file" id="inputImage" value="<%= producto.image %>" multiple>
               <span class="errores" id="imageError">
                 <%= locals.errores && errores.image ? errores.image.msg : null %>
               </span>

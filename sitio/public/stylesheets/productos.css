@@ -25,6 +25,7 @@
     display:block;
     transition: background-color .5s, box-shadow .5s;
     text-decoration: none;
+    justify-self: left;
 }
 
 .vistaProductos .producto:nth-child(1){

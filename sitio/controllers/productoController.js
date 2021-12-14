@@ -28,7 +28,8 @@ module.exports = {
                 }
             ).then(productos => {
 
-                let producto = productos.filter(producto => producto.category.name === categorias[0].name)
+                let producto = productos.filter(producto => producto.category.name === categorias[0].name);
+
 
                 return res.render('vista-productos', {
                     products: producto,
@@ -54,22 +55,19 @@ module.exports = {
         })
 
         let mochilasPromise =
-            db.Category.findAll({
-                include: ['products'],
+            db.Product.findAll({
+                include: ['images'],
                 where: {
-                    id: 1
+                    categoryId: 1
                 }
             })
 
         Promise.all([productoPromise, mochilasPromise])
             .then(([productoPromise, mochilasPromise]) => {
-                let mochilas = mochilasPromise.map(mochila => mochila.products);
-
-                //return res.send(productoPromise)
 
                 return res.render('detalle', {
                     product: productoPromise,
-                    mochilas,
+                    mochilas: mochilasPromise,
                     colors: productoPromise.colors,
                     sizes: productoPromise.size
                 })
@@ -85,7 +83,7 @@ module.exports = {
                 "images"
             ]
         }).then(productos => {
-            return res.send(productos)
+            //return res.send(productos)
             return res.render('administrador', {
                 products: productos,
             })
@@ -103,16 +101,19 @@ module.exports = {
                 description: description.trim(),
                 categoryId: category
             }).then(producto => {
-                if (req.file != undefined) {
-                    let images =  {
-                            file: req.file.filename,
-                            productId: producto.id
-                    }
+                if (req.files[0] != undefined) {
 
-                    db.Image.create(images)
-                        .then(() => console.log('imagenes agregadas')).catch(error => console.log(error))
-                } 
-                
+                    let images = req.files.map(image => {
+                        let img = {
+                            file: image.filename,
+                            productId: producto.id
+                        }
+                        return img
+                    });
+                    db.Image.bulkCreate(images, { validate: true })
+                        .then(() => console.log('imagenes agregadas'))
+                }
+
 
                 let colores = req.body.color.map(color => {
                     let colorMap = {
@@ -122,24 +123,24 @@ module.exports = {
                     return colorMap;
                 })
 
-                let talles = req.body.talle.map(size => {
-                    let talleMap = {
-                        sizeId: +size,
-                        productId: +producto.id
-                    }
-                    return talleMap;
-                })
+                let talles;
+                if (req.body.talle) {
+                    talles = req.body.talle.map(size => {
+                        let talleMap = {
+                            sizeId: +size,
+                            productId: +producto.id
+                        }
+                        return talleMap;
+                    })
+                } else {
+                    talles = []
+                }
 
                 let coloresPromise = db.ColorProduct.bulkCreate(colores)
 
                 let tallesPromise = db.SizeProduct.bulkCreate(talles)
 
                 Promise.all([coloresPromise, tallesPromise]).then(() => {
-
-                    
-
-                    
-                    
                     res.redirect('/productos/administrador')
                 }).catch(error => console.log(error))
             }).catch(error => console.log(error))
@@ -178,7 +179,8 @@ module.exports = {
             include: [
                 "colors",
                 "size",
-                "category"
+                "category",
+                "images"
             ],
         })
 
@@ -211,7 +213,8 @@ module.exports = {
                 include: [
                     "colors",
                     "size",
-                    "category"
+                    "category",
+                    "images"
                 ]
             }).then(producto => {
 
@@ -243,6 +246,7 @@ module.exports = {
                 }
 
 
+
                 db.ColorProduct.destroy({
                     where: {
                         productId: producto.id
@@ -259,12 +263,13 @@ module.exports = {
                     db.SizeProduct.bulkCreate(talles)
                 })
 
+
+
                 db.Product.update({
                     name: name.trim(),
                     price: +price,
                     description: description.trim(),
-                    categoryId: category,
-                    image: req.file ? req.file.filename : producto.image
+                    categoryId: category
                 },
                     {
                         where: {
@@ -272,7 +277,30 @@ module.exports = {
                         }
                     }
                 ).then(() => {
-                    return res.redirect('/productos/detalle/' + req.params.id)
+
+                    let images;
+                    if (req.files[0] != undefined) {
+
+                        images = req.files.map(image => {
+                            let img = {
+                                file: image.filename,
+                                productId: producto.id
+                            }
+                            return img
+                        });
+                    }
+
+                    db.Image.destroy({
+                        where: {
+                            productId: producto.id
+                        }
+                    }).then(() => {
+                        db.Image.bulkCreate(images, { validate: true }).then(() => {
+                            return res.redirect('/productos/detalle/' + req.params.id)
+                        })
+                    })
+
+
                 })
             }).catch(error => console.log(error))
         } else {
@@ -288,7 +316,8 @@ module.exports = {
                     include: [
                         "colors",
                         "size",
-                        "category"
+                        "category",
+                        "images"
                     ],
                 }).then(producto => {
                     return res.render('editar-productos', {
@@ -310,7 +339,8 @@ module.exports = {
             include: [
                 "colors",
                 "size",
-                "category"
+                "category",
+                "images"
             ],
         })
 
@@ -337,7 +367,8 @@ module.exports = {
             include: [
                 "colors",
                 "size",
-                "category"
+                "category",
+                "images"
             ]
         })
             .then(producto => {
@@ -360,7 +391,8 @@ module.exports = {
                     },
                     include: [
                         "colors",
-                        "size"
+                        "size",
+                        "images"
                     ]
                 })
 

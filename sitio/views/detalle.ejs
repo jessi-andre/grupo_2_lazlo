@@ -7,7 +7,15 @@
     <main>
         <section class="producto">
             <div class="productoImagen">
-              <img src="/images/products/<%= product.images[0].file %>" alt="">  
+                <div class="all-images">
+                    <% product.images.forEach(image=> { %>
+                        <img id="img-prev1" src="/images/products/<%= image.file %>" alt=""
+                            onclick="document.getElementById('main-image').setAttribute('src','/images/products/<%=image.file%>')">
+                        <% }) %>
+                </div>
+                <div class="main-image">
+                    <img id="main-image" src="/images/products/<%= product.images[0].file %>" alt="">
+                </div>               
             </div>
             <div class="productoDetalle">
                 <div class="productoNombre">
@@ -99,12 +107,12 @@
                 <div class="glide__track" data-glide-el="track">
                   <ul class="glide__slides">
                     
-                    <% mochilas[0].forEach(mochila=> { %>
+                    <% mochilas.forEach(mochila=> { %>
                         <li class="glide__slide">
                             <a href="/productos/detalle/<%= mochila.id %>" class="relacionadoContenedor">
                             <div class="relacionado">
                                 <div class="imagenRelacionado">
-                                    <img src="/images/products/<%= mochila.image %>" alt="">
+                                    <img src="/images/products/<%= mochila.images[0].file %>" alt="">
                                 </div>
                                 <div class="detalleRelacionado">
                                     <h3><%= mochila.name %></h3>

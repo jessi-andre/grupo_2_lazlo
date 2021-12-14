@@ -11,7 +11,7 @@
 
                 <a href="/productos/detalle/<%= product.id %>" class="producto">
                     <div class="productoImg">
-                        <img src="/images/products/<%= product.images[0].file %> " alt="">
+                        <img src="/images/products/<%= product.images[0].file %>" alt="">  
                     </div>
                     <div class="productoInfo">
                         <h3><%= product.name %></h3>
@@ -22,6 +22,7 @@
             <% }) %>         
         </section>
     </main>
+    
     <%-include('./partials/footer')%> 
 </body>
 </html>
