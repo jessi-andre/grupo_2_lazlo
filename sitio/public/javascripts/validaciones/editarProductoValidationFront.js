@@ -13,9 +13,10 @@ $('inputNombre').addEventListener('blur', function () {
     if (this.value.length <= 0) {
         $('nameError').innerHTML = "El nombre es requerido";
         $('inputNombre').classList.add('is-invalid');
-    } else if(this.value.length < 5){
-        $('nameError').innerHTML = "El nombre debe tener mas de 5 caractéres";
-        $('inputNombre').classList.add('is-invalid');
+    }
+    else if(this.value.length < 5){
+            $('nameError').innerHTML = "El nombre debe tener mas de 5 caractéres";
+            $('inputNombre').classList.add('is-invalid');
     } else {
         $('inputNombre').classList.remove('is-invalid');
         $('inputNombre').classList.add('is-valid');
@@ -43,6 +44,22 @@ $('inputPrecio').addEventListener('focus', function () {
     this.classList.remove('is-invalid');
 })
 
+$('inputImage').addEventListener('blur', function () {
+    if (this.value.length <= 0) {
+        this.classList.remove('is-invalid');
+        this.classList.add('is-valid');
+        $('imageError').innerHTML = null;
+    } else {
+        this.classList.remove('is-invalid');
+        this.classList.add('is-valid');
+        $('imageError').innerHTML = null;
+    }
+})
+
+$('inputImage').addEventListener('focus', function () {
+    this.classList.remove('is-invalid');
+})
+
 /*---- VALIDACIÓN CATEGORÍA DEL PRODUCTO ----*/
 $('inputCategoria').addEventListener('blur', function () {
     if (this.value.length <= 0) {
@@ -59,21 +76,7 @@ $('inputCategoria').addEventListener('focus', function () {
     this.classList.remove('is-invalid');
 })
 
-/*---- VALIDACIÓN iMAGEN DEL PRODUCTO ----*/
-$('inputImage').addEventListener('blur', function () {
-    if (this.value.length <= 0) {
-        $('imageError').innerHTML = "La imagén es requerida";
-        this.classList.add('is-invalid');
-    } else {
-        this.classList.remove('is-invalid');
-        this.classList.add('is-valid');
-        $('imageError').innerHTML = null;
-    }
-})
 
-$('inputImage').addEventListener('focus', function () {
-    this.classList.remove('is-invalid');
-})
 
 /*---- VALIDACIÓN DESCRIPCIÓN DEL PRODUCTO ----*/
 $('inputDescrption').addEventListener('blur', function () {
@@ -133,7 +136,7 @@ $('productsForm').addEventListener('submit', e => {
     }
 
 
-    for (let i = 0; i < elementForm.length - 1; i++) {
+    for (let i = 0; i < elementForm.length - 2; i++) {
 
         if (!elementForm[i].value) {
             elementForm[i].classList.add('is-invalid')
@@ -141,7 +144,7 @@ $('productsForm').addEventListener('submit', e => {
             errors = true
         }
     }
-    for (let i = 0; i < elementForm.length - 1; i++) {
+    for (let i = 0; i < elementForm.length - 2; i++) {
 
         if (elementForm[i].classList.contains('is-invalid')) {
             errors = true

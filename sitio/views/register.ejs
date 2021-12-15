@@ -65,18 +65,7 @@
           <%= locals.errores && errores.email ? errores.email.msg : null %>
         </span>
 
-        <div class="input-contenedor">
-          <i class="fas fa-image icon"></i>
-          <input
-            type="file"
-            placeholder="Agrega tu foto de perfil"
-            id="profile"
-            name="profile"
-          />
-        </div>
-        <span class="errores" id="errorImage">
-          <%= locals.errores && errores.image ? errores.image.msg : null %>
-        </span>
+        
 
         <div class="input-contenedor">
           <i class="fas fa-key icon"></i>
@@ -105,6 +94,18 @@
           <%= locals.errores && errores.password2 ? errores.password2.msg : null
           %>
         </span>
+        <div class="input-contenedor">
+          <i class="fas fa-image icon"></i>
+          <input
+            type="file"
+            placeholder="Agrega tu foto de perfil"
+            id="profile"
+            name="profile"
+          />
+        </div>
+        <span class="errores" id="errorImage">
+          <%= locals.errores && errores.image ? errores.image.msg : null %>
+        </span>
         <span class="errores" id="campo-vacio">
 
         </span>
@@ -123,7 +124,7 @@
       </form>
     </main>
     <%-include('./partials/footer')%>
-    <!--script-- src="/javascripts/validaciones/registerValidationFront.js"></!--script-->
+    <script src="/javascripts/validaciones/registerValidationFront.js"></script>
   </body>
 
 </html>

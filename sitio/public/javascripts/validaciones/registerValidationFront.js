@@ -3,7 +3,7 @@ const $ = id => document.getElementById(id);
 let regExLetter = /^[A-Z]+$/i;
 let regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/; //mayuscula, numero y 6 a 12 caracteres
-
+const regImg = /\.(jpg|jpeg|png|gif|webp)$/
 
 $('name').addEventListener('focus', () => {
     if($('name').value.trim() === ""){
@@ -126,6 +126,22 @@ $('name').addEventListener('keydown', () => {
             $('password2').classList.remove('is-invalid')
     
         })
+
+        $('profile').addEventListener('change', function (){
+            switch (true) {
+                case !regImg.exec(this.value):
+                    $("errorImage").innerHTML = "Solo imágenes con extensión jpg, jpeg, png, gif, webp"
+                    this.classList.add('is-invalid')
+                    break;
+               
+               
+                default:
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                  
+                    break;
+            }
+        })
     
       
 
@@ -136,7 +152,7 @@ $('name').addEventListener('keydown', () => {
 
 
             let errors = false
-            for (let i = 0; i < elementForm.length - 1; i++) {
+            for (let i = 0; i < elementForm.length - 2; i++) {
 
                 if(!elementForm[i].value){
                     elementForm[i].classList.add('is-invalid')
@@ -147,7 +163,7 @@ $('name').addEventListener('keydown', () => {
 
             
 
-            for (let i = 0; i < elementForm.length - 1; i++) {
+            for (let i = 0; i < elementForm.length - 2; i++) {
             
                 if(elementForm[i].classList.contains('is-invalid')){
                     errors = true

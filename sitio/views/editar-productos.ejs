@@ -46,7 +46,7 @@
               <p>Colores:</p>
 
               <% colores.forEach(color=> { %>
-                <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>" <%
+                <input type="checkbox" id="<%= color.name %>" class="checkboxColor" name="color" value="<%= color.id %>" <%
                   producto.colors.forEach(colores=> { %>
                 <%= color.id===colores.id ? 'checked' : null %>
                   <% }) %>
@@ -55,7 +55,7 @@
                       <%= color.name %>
                     </label><br>
                     <% }) %>
-                      <span class="errores">
+                      <span class="errores" id="colorError">
                         <%= locals.errores && errores.color ? errores.color.msg : null %>
                       </span>
             </div>
@@ -65,7 +65,7 @@
             <div class="col-6">
               <p>Talles:</p>
               <% talles.forEach(talle=> { %>
-                <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>" <% locals.errores &&
+                <input type="checkbox" id="<%= talle.name %>"  class="checkboxTalle" name="talle" value="<%= talle.id %>" <% locals.errores &&
                   errores.price ? old.size : producto.size.forEach(size=> { %>
                 <%= talle.id===size.id ? 'checked' : null %>
                   <% }) %>
@@ -98,14 +98,8 @@
 
 
 
+            
             <div class="col-md-6">
-              <label for="inputImage" class="form-label">Imagen del Producto:</label>
-              <input class="form-control" name="product" type="file" id="inputImage" value="<%= producto.image %>">
-              <span class="errores" id="imageError">
-                <%= locals.errores && errores.image ? errores.image.msg : null %>
-              </span>
-            </div>
-            <div class="col-md-12">
               <label for="inputDescrption" class="form-label">Descripción del Producto:</label>
               <textarea class="form-control" name="description" id="inputDescrption"
                 rows="3"><%= locals.errores && errores.price ? old.description : producto.description %></textarea>
@@ -114,6 +108,13 @@
               </span>
             </div>
 
+            <div class="col-md-12">
+              <label for="inputImage" class="form-label">Imagen del Producto:</label>
+              <input class="form-control" name="product" type="file" id="inputImage" value="<%= producto.image %>">
+              <span class="errores" id="imageError">
+                <%= locals.errores && errores.image ? errores.image.msg : null %>
+              </span>
+            </div>
 
             <span class="errores" id="campo-vacio"></span>
             <div class="col-md-12 col-sm-12">
@@ -130,7 +131,7 @@
         crossorigin="anonymous"></script>
 
       <%-include('./partials/footer')%>
-      <script src="/javascripts/validaciones/productoValidationFront.js"></script>
+      <script src="/javascripts/validaciones/editarProductoValidationFront.js"></script>
   </body>
 
 

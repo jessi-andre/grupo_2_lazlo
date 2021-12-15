@@ -91,16 +91,17 @@ module.exports = {
                 image: req.file ? req.file.filename : 'default.png'
             }).then(producto => {
 
-                let colores = req.body.color.map(color => {
-                    let colorMap = {
-                        colorId: +color,
-                        productId: +producto.id
-                    }
-                    return colorMap;
-                })
-
                 let talles;
-                if (req.body.talle) {
+              
+                if(!req.body.talle){
+                    talles =[]
+
+                }else if(req.body.talle == 1){
+                    talles =[{
+                        sizeId: req.body.talle,
+                            productId: +producto.id
+                    }]
+                }else{
                     talles = req.body.talle.map(size => {
                         let talleMap = {
                             sizeId: +size,
@@ -108,10 +109,29 @@ module.exports = {
                         }
                         return talleMap;
                     })
-                }else{
-                    talles = []
+
                 }
 
+                let colores ;
+
+                if(!req.body.color){
+                    colores =[]
+
+                }else if(req.body.color == 1){
+                    colores =[{
+                        colorId: req.body.color,
+                            productId: +producto.id
+                    }]
+                }else{
+                    colores = req.body.color.map(color => {
+                        let colorMap = {
+                            colorId: +color,
+                            productId: +producto.id
+                        }
+                        return colorMap;
+                    })
+
+                }
 
                 let coloresPromise = db.ColorProduct.bulkCreate(colores)
 
