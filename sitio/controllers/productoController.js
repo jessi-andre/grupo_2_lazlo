@@ -91,21 +91,47 @@ module.exports = {
                 image: req.file ? req.file.filename : 'default.png'
             }).then(producto => {
 
-                let colores = req.body.color.map(color => {
-                    let colorMap = {
-                        colorId: +color,
-                        productId: +producto.id
-                    }
-                    return colorMap;
-                })
+                let talles;
+              
+                if(!req.body.talle){
+                    talles =[]
 
-                let talles = req.body.talle.map(size => {
-                    let talleMap = {
-                        sizeId: +size,
-                        productId: +producto.id
-                    }
-                    return talleMap;
-                })
+                }else if(req.body.talle == 1){
+                    talles =[{
+                        sizeId: req.body.talle,
+                            productId: +producto.id
+                    }]
+                }else{
+                    talles = req.body.talle.map(size => {
+                        let talleMap = {
+                            sizeId: +size,
+                            productId: +producto.id
+                        }
+                        return talleMap;
+                    })
+
+                }
+
+                let colores ;
+
+                if(!req.body.color){
+                    colores =[]
+
+                }else if(req.body.color == 1){
+                    colores =[{
+                        colorId: req.body.color,
+                            productId: +producto.id
+                    }]
+                }else{
+                    colores = req.body.color.map(color => {
+                        let colorMap = {
+                            colorId: +color,
+                            productId: +producto.id
+                        }
+                        return colorMap;
+                    })
+
+                }
 
                 let coloresPromise = db.ColorProduct.bulkCreate(colores)
 
@@ -127,14 +153,14 @@ module.exports = {
                 //res.send(req.body)
                 errores = errores.mapped();
 
-                    if (req.fileValidationError) {
-                        errores = {
-                            ...errores,
-                            image: {
-                                msg: req.fileValidationError
-                            }
+                if (req.fileValidationError) {
+                    errores = {
+                        ...errores,
+                        image: {
+                            msg: req.fileValidationError
                         }
                     }
+                }
                 return res.render('agregar-productos', {
                     errores: errores,
                     old: req.body,
@@ -178,7 +204,7 @@ module.exports = {
         let errores = validationResult(req);
 
         if (errores.isEmpty()) {
-            let { name, price, description, category} = req.body;
+            let { name, price, description, category } = req.body;
 
             db.Product.findByPk(req.params.id, {
                 include: [
@@ -273,7 +299,7 @@ module.exports = {
                         categorias
                     })
                 })
-                
+
             }).catch(error => console.log(error))
         }
     },

@@ -9,10 +9,6 @@
     
 }
 
-.formularioProducto input, .formularioProducto textarea, .formularioProducto select, .formularioProducto option {
-    border: 1px solid var(--marron) !important;
-    
-}
 
 .tallesYcolores{
     display: flex;

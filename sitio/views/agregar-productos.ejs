@@ -21,55 +21,59 @@
 
           <h2>Agregar producto</h2>
 
-          <form class="row g-3" method="POST" enctype="multipart/form-data">
+          <form class="row g-3" id="productsForm" method="POST" enctype="multipart/form-data">
             <div class="col-md-6">
               <label for="inputNombre" class="form-label">Nombre del Producto:</label>
-              <input type="text" class="form-control" name="name" id="inputNombre" value="<%= locals.errores &&  errores === '' ? old.name : null %>">
-                <span class="errores">
-                  <%= locals.errores && errores.name ? errores.name.msg : null %>
-                </span>
+              <input type="text" class="form-control" name="name" id="inputNombre"
+                value="<%= locals.errores &&  errores === '' ? old.name : null %>">
+              <span class="errores" id="nameError">
+                <%= locals.errores && errores.name ? errores.name.msg : null %>
+              </span>
             </div>
-           
+
             <div class="col-md-6">
               <label for="inputPrecio" class="form-label">Precio del Producto:</label>
               <input type="number" class="form-control" name="price" id="inputPrecio"
                 value="<%= locals.errores &&  errores === '' ? old.price : null %>">
-                <span class="errores">
-                  <%= locals.errores && errores.price ? errores.price.msg : null %>
-                </span>
+              <span class="errores" id="priceError">
+                <%= locals.errores && errores.price ? errores.price.msg : null %>
+              </span>
             </div>
-            
+
 
             <div class="tallesYcolores">
               <div class="col-6 colores">
 
                 <p>Colores:</p>
-                  <% colores.forEach(color=> { %>
-                    <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>">
-                      <label for="<%= color.name %>">
-                      <%= color.name %>
-                    </label><br>
+                <% colores.forEach(color=> { %>
+                  <input type="checkbox" id="<%= color.name %>" class="checkboxColor" name="color"
+                    value="<%= color.id %>">
+                    <label for="<%= color.name %>">
+                    <%= color.name %>
+                  </label><br>
                   <% }) %>
-                  
-              <span class="errores">
-                <%= locals.errores && errores.color ? errores.color.msg : null %>
-              </span>
+
+                    <span class="errores" id="colorError">
+                      <%= locals.errores && errores.color ? errores.color.msg : null %>
+                    </span>
               </div>
-              
+
 
               <div class="col-6 talles">
                 <p>Talles:</p>
-                  <% talles.forEach(talle=> { %>
-                    <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>">
-                      <label for="<%= talle.name %>"><%= talle.name %></label><br>
-                    <% }) %>
-                    <span class="errores">
+                <% talles.forEach(talle=> { %>
+                  <input type="checkbox" id="<%= talle.name %>" class="checkboxTalle" name="talle" value="<%= talle.id %>">
+                    <label for="<%= talle.name %>">
+                    <%= talle.name %>
+                  </label><br>
+                  <% }) %>
+                    <span class="errores" id="sizeError">
                       <%= locals.errores && errores.talle ? errores.talle.msg : null %>
-                    </span>     
+                    </span>
               </div>
 
             </div>
-            
+
 
 
             <div class="col-md-6">
@@ -77,38 +81,38 @@
               <select id="inputCategoria" class="form-select" name="category">
                 <option value="" selected hidden>Selecciona una categoria</option>
 
-                  <% categorias.forEach(categoria=> { %>
-                    <option name="categoryId" value="<%= categoria.id %>">
-                      <%= categoria.name %>
-                    </option>
-                    <% }) %>
+                <% categorias.forEach(categoria=> { %>
+                  <option name="categoryId" value="<%= categoria.id %>">
+                    <%= categoria.name %>
+                  </option>
+                  <% }) %>
               </select>
-              <span class="errores">
+              <span class="errores" id="categoryError">
                 <%= locals.errores && errores.category ? errores.category.msg : null %>
               </span>
             </div>
 
-            
+
 
             <div class="col-md-6">
               <label for="inputImage" class="form-label">Imagen del Producto:</label>
               <input class="form-control" name="image" type="file" id="inputImage">
-              <span class="errores">
+              <span class="errores" id="imageError">
                 <%= locals.errores && errores.image ? errores.image.msg : null %>
               </span>
             </div>
 
             <div class="col-md-12">
               <label for="inputDescrption" class="form-label">Descripción del Producto:</label>
-              <textarea class="form-control" name="description" id="inputDescrption" rows="3"
-                ><%= locals.errores &&  errores === '' ? old.description : null %></textarea>
-                <span class="errores">
-                  <%= locals.errores && errores.description ? errores.description.msg : null %>
-                </span>
+              <textarea class="form-control" name="description" id="inputDescrption"
+                rows="3"><%= locals.errores &&  errores === '' ? old.description : null %></textarea>
+              <span class="errores" id="descrptionError">
+                <%= locals.errores && errores.description ? errores.description.msg : null %>
+              </span>
             </div>
 
-            
 
+            <span class="errores" id="campo-vacio"></span>
             <div class="col-md-12 col-sm-12">
               <button type="submit" class="btn marron col-md-12 col-sm-12">Agregar producto</button>
             </div>
@@ -123,6 +127,7 @@
         crossorigin="anonymous"></script>
 
       <%-include('./partials/footer')%>
+        <script src="/javascripts/validaciones/productoValidationFront.js"></script>
   </body>
 
 </html>
