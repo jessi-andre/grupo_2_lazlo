@@ -47,7 +47,8 @@
           />
         </div>
         <span class="errores" id="errorLastName"> 
-          
+          <%= locals.errores && errores.last_name ? errores.last_name.msg :
+          null %>
         </span>
 
         <div class="input-contenedor">
@@ -122,7 +123,7 @@
       </form>
     </main>
     <%-include('./partials/footer')%>
-    <script src="/javascripts/validaciones/registerValidationFront.js"></script>
+    <!--script-- src="/javascripts/validaciones/registerValidationFront.js"></!--script-->
   </body>
 
 </html>

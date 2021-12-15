@@ -7,6 +7,7 @@ module.exports = {
         return res.render('register')
     },
     processRegister: (req, res) => {
+    
 
         const { first_name, last_name, email, password } = req.body;
 
@@ -20,10 +21,15 @@ module.exports = {
         }).then(userExist => {
 
             if (userExist.length > 0) {
+                errores = errores.mapped();
+                errores = {
+                    ...errores,
+                    email: {
+                        msg:"Dirección de correo ya registrado"
+                    }
+                }
                 return res.render("register", {
-                    errores: {
-                        email: "Dirección de correo ya registrado"
-                    },
+                    errores: errores,
                     old: req.body,
                 })
             } else {
@@ -64,6 +70,7 @@ module.exports = {
                             }
                         }
                     }
+                   // return res.send(errores)
                     return res.render('register', {
                         errores: errores,
                         old: req.body
