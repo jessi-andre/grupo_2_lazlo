@@ -3,6 +3,9 @@ console.log('Validaciones Front')
 const $ = id => document.getElementById(id);
 const colores = document.querySelectorAll('.checkboxColor');
 const talles = document.querySelectorAll('.checkboxTalle');
+const regImg = /\.(jpg|jpeg|png|gif|webp)$/
+
+
 
 
 /*---- VALIDACIÓN NOMBRE DEL PRODUCTO ----*/
@@ -54,18 +57,27 @@ $('inputCategoria').addEventListener('focus', function () {
 })
 
 /*---- VALIDACIÓN iMAGEN DEL PRODUCTO ----*/
-$('inputImage').addEventListener('blur', function () {
-    if (this.value.length <= 0) {
-        $('imageError').innerHTML = "La imagén es requerida";
-        this.classList.add('is-invalid');
-    } else {
-        this.classList.remove('is-invalid');
-        this.classList.add('is-valid');
-        $('imageError').innerHTML = null;
+$('inputImage').addEventListener('change', function (){
+    switch (true) {
+        case !regImg.exec(this.value):
+            $("imageError").innerHTML = "Solo imágenes con extensión jpg, jpeg, png, gif, webp"
+            this.classList.add('is-invalid')
+            break;
+        case !this.value :
+            $("imageError").innerHTML = "Tiene subir una imagen"
+            this.classList.add('is-invalid');
+            
+            break
+       
+        default:
+            this.classList.remove('is-invalid');
+            this.classList.add('is-valid');
+          
+            break;
     }
 })
 
-$('inputImage').addEventListener('focus', function () {
+   $('inputImage').addEventListener('focus', function () {
     this.classList.remove('is-invalid');
 })
 

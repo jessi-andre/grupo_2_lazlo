@@ -97,12 +97,15 @@
             type="password"
             placeholder="Volve a escribir tu contraseña"
             id="password2"
-            name="password2"
+            name="password2" 
           />
         </div>
         <span class="errores" id="errorPassword2">
           <%= locals.errores && errores.password2 ? errores.password2.msg : null
           %>
+        </span>
+        <span class="errores" id="campo-vacio">
+
         </span>
 
         <input type="submit" value="Registrate" class="button" /> <br />
