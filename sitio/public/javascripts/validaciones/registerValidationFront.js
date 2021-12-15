@@ -89,7 +89,7 @@ $('name').addEventListener('keydown', () => {
             }else{
                 $('errorEmail').innerText = null
                 $('email').classList.remove('is-invalid')
-                $('email').classList.add('is-valid')
+                $('email').classList.add('is-valid') 
             }
         })
 

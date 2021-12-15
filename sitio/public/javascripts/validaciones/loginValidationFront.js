@@ -6,19 +6,31 @@ let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\�
 
 
 $('email').addEventListener('blur', () => {
-    if (!regExEmail.test($('email').value)) {
+    if(!this.value){
+        $('errorEmail').innerText = "El email es obligatorio" 
+        $('email').classList.add('is-invalid')
+    }else if(!regExEmail.test($('email').value)) {
+      
         $('errorEmail').innerText = "Tiene que ser un email válido" 
         $('email').classList.add('is-invalid')
-    } else {
+    }else {
         $('errorEmail').innerText = null
         $('email').classList.remove('is-invalid')
         $('email').classList.add('is-valid')
     }
 })
+$('email').addEventListener('focus', () => {
+    $('errorEmail').innerText = null
+    $('email').classList.remove('is-invalid')
+})
 
 
 $('password').addEventListener('blur', () => {
-    if (!regExPass.test($('password').value)) {
+    if(!this.value){
+        $('errorPassword').innerText = "La contraseña es obligatoria"
+        $('password').classList.add('is-invalid')
+    }
+    else if (!regExPass.test($('password').value)) {
         $('errorPassword').innerText = "La contraseña debe tener una mayúscula, un número y entre 8 y 12 caracteres"
         $('password').classList.add('is-invalid')
     } else {
