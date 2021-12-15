@@ -3,10 +3,7 @@ console.log('Validaciones Front')
 const $ = id => document.getElementById(id);
 const colores = document.querySelectorAll('.checkboxColor');
 const talles = document.querySelectorAll('.checkboxTalle');
-
-
-
-
+const regImg = /\.(jpg|jpeg|png|gif|webp)$/
 
 /*---- VALIDACIÓN NOMBRE DEL PRODUCTO ----*/
 $('inputNombre').addEventListener('blur', function () {
@@ -81,19 +78,37 @@ $('inputCategoria').addEventListener('focus', function () {
 /*---- VALIDACIÓN DESCRIPCIÓN DEL PRODUCTO ----*/
 $('inputDescrption').addEventListener('blur', function () {
     if (this.value.length <= 0) {
-        $('descrptionError').innerHTML = "La descripción es requerida";
+        $('descriptionError').innerHTML = "La descripción es requerida";
         this.classList.add('is-invalid');
     } else if (this.value.length > 1 && this.value.length < 20) {
-        $('descrptionError').innerHTML = "La descripcion debe tener al menos 20 caracteres";
+        $('descriptionError').innerHTML = "La descripcion debe tener al menos 20 caracteres";
         this.classList.add('is-invalid');
     } else {
         this.classList.remove('is-invalid');
         this.classList.add('is-valid');
-        $('descrptionError').innerHTML = null;
+        $('descriptionError').innerHTML = null;
     }
 })
 
 $('inputDescrption').addEventListener('focus', function () {
+    this.classList.remove('is-invalid');
+    this.classList.remove('is-valid');
+    $('descriptionError').innerHTML = null;
+})
+
+/*---- VALIDACIÓN iMAGEN DEL PRODUCTO ----*/
+$('inputImage').addEventListener('blur', function () {
+    if (!regImg.exec(this.value)) {
+        $('imageError').innerHTML = "Solo se pueden subir imagenes con extensión jpg, jpeg, png, gif y webp";
+        this.classList.add('is-invalid');
+    } else {
+        this.classList.remove('is-invalid');
+        this.classList.add('is-valid');
+        $('imageError').innerHTML = null;
+    }
+})
+
+$('inputImage').addEventListener('focus', function () {
     this.classList.remove('is-invalid');
 })
 

@@ -92,16 +92,14 @@ module.exports = {
             }).then(producto => {
 
                 let talles;
-              
-                if(!req.body.talle){
-                    talles =[]
-
-                }else if(req.body.talle == 1){
-                    talles =[{
+                if (!req.body.talle) {
+                    talles = []
+                } else if (req.body.talle == 1) {
+                    talles = [{
                         sizeId: req.body.talle,
-                            productId: +producto.id
+                        productId: +producto.id
                     }]
-                }else{
+                } else {
                     talles = req.body.talle.map(size => {
                         let talleMap = {
                             sizeId: +size,
@@ -109,20 +107,18 @@ module.exports = {
                         }
                         return talleMap;
                     })
-
                 }
 
-                let colores ;
+                let colores;
+                if (!req.body.color) {
+                    colores = []
 
-                if(!req.body.color){
-                    colores =[]
-
-                }else if(req.body.color == 1){
-                    colores =[{
+                } else if (req.body.color == 1) {
+                    colores = [{
                         colorId: req.body.color,
-                            productId: +producto.id
+                        productId: +producto.id
                     }]
-                }else{
+                } else {
                     colores = req.body.color.map(color => {
                         let colorMap = {
                             colorId: +color,
@@ -130,7 +126,6 @@ module.exports = {
                         }
                         return colorMap;
                     })
-
                 }
 
                 let coloresPromise = db.ColorProduct.bulkCreate(colores)
@@ -214,22 +209,15 @@ module.exports = {
                 ]
             }).then(producto => {
 
-                let colores;
-                if (req.body.color.length > 0) {
-                    colores = req.body.color.map(color => {
-                        let colorMap = {
-                            colorId: +color,
-                            productId: +producto.id
-                        }
-                        return colorMap;
-                    })
-                } else {
-                    colores = []
-                }
-
-
                 let talles;
-                if (req.body.talle.length > 0) {
+                if (!req.body.talle) {
+                    talles = []
+                } else if (req.body.talle == 1) {
+                    talles = [{
+                        sizeId: req.body.talle,
+                        productId: +producto.id
+                    }]
+                } else {
                     talles = req.body.talle.map(size => {
                         let talleMap = {
                             sizeId: +size,
@@ -237,8 +225,25 @@ module.exports = {
                         }
                         return talleMap;
                     })
+                }
+
+                let colores;
+                if (!req.body.color) {
+                    colores = []
+
+                } else if (req.body.color == 1) {
+                    colores = [{
+                        colorId: req.body.color,
+                        productId: +producto.id
+                    }]
                 } else {
-                    talles = []
+                    colores = req.body.color.map(color => {
+                        let colorMap = {
+                            colorId: +color,
+                            productId: +producto.id
+                        }
+                        return colorMap;
+                    })
                 }
 
 
@@ -290,8 +295,20 @@ module.exports = {
                         "category"
                     ],
                 }).then(producto => {
+
+                    errores = errores.mapped();
+
+                    if (req.fileValidationError) {
+                        errores = {
+                            ...errores,
+                            image: {
+                                msg: req.fileValidationError
+                            }
+                        }
+                    }
+
                     return res.render('editar-productos', {
-                        errores: errores.mapped(),
+                        errores: errores,
                         producto,
                         old: req.body,
                         colores,

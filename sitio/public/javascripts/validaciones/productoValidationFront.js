@@ -3,10 +3,7 @@ console.log('Validaciones Front')
 const $ = id => document.getElementById(id);
 const colores = document.querySelectorAll('.checkboxColor');
 const talles = document.querySelectorAll('.checkboxTalle');
-
-
-
-
+const regImg = /\.(jpg|jpeg|png|gif|webp)$/;
 
 /*---- VALIDACIÓN NOMBRE DEL PRODUCTO ----*/
 $('inputNombre').addEventListener('blur', function () {
@@ -63,6 +60,9 @@ $('inputCategoria').addEventListener('focus', function () {
 $('inputImage').addEventListener('blur', function () {
     if (this.value.length <= 0) {
         $('imageError').innerHTML = "La imagén es requerida";
+        this.classList.add('is-invalid');
+    }else if(!regImg.exec(this.value)){
+        $('imageError').innerHTML = "Solo se pueden subir imagenes con extensión jpg, jpeg, png, gif y webp";
         this.classList.add('is-invalid');
     } else {
         this.classList.remove('is-invalid');

@@ -74,7 +74,7 @@
                       <%= talle.name %>
                     </label><br>
                     <% }) %>
-                      <span class="errores">
+                      <span class="errores" id="sizeError">
                         <%= locals.errores && errores.talle ? errores.talle.msg : null %>
                       </span>
             </div>
@@ -95,8 +95,6 @@
                 <%= locals.errores && errores.category ? errores.category.msg : null %>
               </span>
             </div>
-
-
 
             
             <div class="col-md-6">

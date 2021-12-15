@@ -1,7 +1,7 @@
 const $ = id => document.getElementById(id);
 
 let regExLetter = /^[A-Z]+$/i;
-let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/; //mayuscula, numero y 6 a 12 caracteres
+let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/; //mayuscula, numero y 8 a 12 caracteres
 
 
 $('firstName').addEventListener('focus', () => {
@@ -80,7 +80,7 @@ $('lastName').addEventListener('keydown', () => {
 
 $('newPassword').addEventListener('blur', () => {
     if (!regExPass.test($('newPassword').value)) {
-        $('errorNewPassword').innerText = "La contraseña debe tener una mayúscula, un número y entre 6 y 12 caracteres"
+        $('errorNewPassword').innerText = "La contraseña debe tener una mayúscula, un número y entre 8 y 12 caracteres"
         $('newPassword').classList.add('is-invalid')
     } else {
         $('errorNewPassword').innerText = null
