@@ -10,7 +10,7 @@ module.exports = {
       },
       file: {
         type: Sequelize.STRING,
-        defaultValue: 'default.png'
+        defaultValue: 'default.jpg'
       },
       productId: {
         type: Sequelize.INTEGER,

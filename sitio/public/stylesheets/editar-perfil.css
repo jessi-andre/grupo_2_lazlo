@@ -1,0 +1,17 @@
+#caja-contraseña{
+    display: none;
+    height: 0;
+    transition: height .6s;
+}
+
+#caja-contraseña.mostrar{
+    display: block;
+    height: auto;
+    transition: height .6s;
+}
+
+#cambiarContraseña{
+    margin: 15px auto 0;
+    text-align: center;
+    cursor: pointer;
+}

@@ -30,7 +30,7 @@ body {
 .login input[type="text"],
 .login input[type="password"] {
     font-size: 20px;
-    width: 82%;
+    width: 80%;
     padding: 10px;
     border: none;
 }
@@ -39,6 +39,17 @@ body {
     margin-bottom: 15px;
     border: 1px solid #aaa;
 }
+
+#verPass{
+    display:inline;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+#verPass i{
+    font-size: 22px;
+}
+
 
 .icon{
     min-width: 50px;

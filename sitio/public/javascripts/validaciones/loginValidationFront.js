@@ -79,9 +79,10 @@ $('login').addEventListener('submit', e => {
     if (!errors) {
         $('login').submit()
     }
-
-
-
-
-
  })
+
+
+ /* ver contraseña */
+$('verPass').addEventListener('click', () => {
+    $('password').type === "text" ? $('password').type = "password" : $('password').type = "text";
+})

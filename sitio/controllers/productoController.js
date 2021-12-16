@@ -1,11 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const categorias = require('../data/categorias');
-let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productos.json'), 'utf-8'))
 const db = require('../database/models')
 const { Op } = require('sequelize');
 const { validationResult } = require('express-validator');
-const { send } = require('process');
 
 module.exports = {
     productos: (req, res) => {
@@ -111,9 +108,13 @@ module.exports = {
                         return img
                     });
                     db.Image.bulkCreate(images, { validate: true })
-                        .then(() => console.log('imagenes agregadas'))
+                }else{
+                    let images = [{
+                        file: 'default.jpg',
+                        productId: producto.id
+                    }]
+                    db.Image.bulkCreate(images, { validate: true })
                 }
-
 
                 let talles;
                 if (!req.body.talle) {
@@ -179,6 +180,9 @@ module.exports = {
                         }
                     }
                 }
+
+                return res.send(errores)
+
                 return res.render('agregar-productos', {
                     errores: errores,
                     old: req.body,

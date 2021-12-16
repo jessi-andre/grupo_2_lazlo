@@ -116,24 +116,21 @@ $('newPassword2').addEventListener('focus', () => {
 $('editarPerfil').addEventListener('submit', e => {
     e.preventDefault();
 
-    let elementForm = $('editarPerfil').elements;
-
+    let camposObligatorios = [$('firstName'), $('lastName'), $('oldPassword')];
 
     let errors = false
-    for (let i = 0; i < elementForm.length - 1; i++) {
+    for (let i = 0; i < camposObligatorios.length - 2; i++) {
 
-        if (!elementForm[i].value) {
-            elementForm[i].classList.add('is-invalid')
-            $('campo-vacio').innerHTML = "Debes completar todos los campos";
+        if (!camposObligatorios[i].value) {
+            camposObligatorios[i].classList.add('is-invalid')
+            $('campo-vacio').innerHTML = "Debes completar los campos obligatorios (Nombre, apellido y contraseña actual)";
             errors = true
         }
     }
 
+    for (let i = 0; i < camposObligatorios.length - 2; i++) {
 
-
-    for (let i = 0; i < elementForm.length - 1; i++) {
-
-        if (elementForm[i].classList.contains('is-invalid')) {
+        if (camposObligatorios[i].classList.contains('is-invalid')) {
             errors = true
         }
     }
@@ -142,8 +139,8 @@ $('editarPerfil').addEventListener('submit', e => {
         $('editarPerfil').submit()
     }
 
-
-
-
 })
 
+$('verPass').addEventListener('click', () => {
+    $('oldPassword').type === "text" ? $('oldPassword').type = "password" : $('oldPassword').type = "text";
+})

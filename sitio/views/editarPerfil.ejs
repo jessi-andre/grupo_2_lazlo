@@ -8,7 +8,8 @@
       display: block;
       margin: -8px 0 20px 65px;
     }
-    h2{
+
+    h2 {
       text-align: center;
       margin-bottom: 10px;
     }
@@ -20,7 +21,9 @@
 
       <main class="registro">
 
-        <form class="formulario" id="editarPerfil" action="/users/editarPerfil/<%= locals.loginUsuario.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+        <form class="formulario" id="editarPerfil"
+          action="/users/editarPerfil/<%= locals.loginUsuario.id %>?_method=PUT" method="post"
+          enctype="multipart/form-data">
           <h2>Editar perfil</h2>
 
           <div class="input-contenedor">
@@ -44,6 +47,9 @@
             <input type="text" name="email" id="email" placeholder="Email" value="<%= usuario.email %>" disabled>
           </div>
 
+
+
+
           <div class="input-contenedor">
             <i class="fas fa-image icon"></i>
             <input type="file" placeholder="Agrega tu foto de perfil" id="profile" name="profile" />
@@ -52,42 +58,52 @@
             <%= locals.errores && errores.image ? errores.image.msg : null %>
           </span>
 
+
+          <!-- Fromulario de cambio de contraseña -->
+          
+            <h4 id="cambiarContraseña">Cambiar contraseña</h4>
+          <div id="caja-contraseña">
+            <div class="input-contenedor">
+              <i class="fas fa-key icon"></i>
+              <input type="password" name="newPassword" id="newPassword" placeholder="Nueva contraseña">
+            </div>
+            <span class="errores" id="errorNewPassword">
+              <%= locals.errores && errores.newPassword ? errores.newPassword.msg : null %>
+            </span>
+
+            <div class="input-contenedor">
+              <i class="fas fa-key icon"></i>
+              <input type="password" name="newPassword2" id="newPassword2"
+                placeholder="Volvé a escribir la nueva contraseña">
+            </div>
+            <span class="errores" id="errorNewPassword2">
+              <%= locals.errores && errores.newPassword2 ? errores.newPassword2.msg : null %>
+            </span>
+          </div>
+
+          <br>
           <div class="input-contenedor">
             <i class="fas fa-key icon"></i>
             <input type="password" name="oldPassword" id="oldPassword" placeholder="Contraseña actual*">
+            <div id="verPass">
+              <i class="far fa-eye"></i>
+           </div>
           </div>
           <span class="errores">
-            <%= locals.errores && errores.password ? errores.password : null %>
+            <%= locals.errores && errores.oldPassword ? errores.oldPassword.msg : null %>
           </span>
-          <br>
-
-          <h4>Cambiar contraseña</h4>
-
-          <div class="input-contenedor">
-            <i class="fas fa-key icon"></i>
-            <input type="password" name="newPassword" id="newPassword" placeholder="Nueva contraseña">
-          </div>
-          <span class="errores" id="errorNewPassword">
-            <%= locals.errores && errores.newPassword ? errores.newPassword.msg : null %>
-          </span>
-
-          <div class="input-contenedor">
-            <i class="fas fa-key icon"></i>
-            <input type="password" name="newPassword2" id="newPassword2" placeholder="Volvé a escribir la nueva contraseña">
-          </div>
-          <span class="errores" id="errorNewPassword2">
-            <%= locals.errores && errores.newPassword2 ? errores.newPassword2.msg : null %>
-          </span>
-
 
           <span class="errores" id="campo-vacio"></span>
-          <button class="button">Editar</button>
+          <button class="button" for="editarPerfil">Editar</button>
 
         </form>
 
+
+
       </main>
       <%-include('./partials/footer')%>
-      <script src="/javascripts/validaciones/editarPerfilValidation.js"></script>
+        <script src="/javascripts/editar-perfil.js"></script>
+        <script src="/javascripts/validaciones/editarPerfilValidation.js"></script>
   </body>
 
 </html>

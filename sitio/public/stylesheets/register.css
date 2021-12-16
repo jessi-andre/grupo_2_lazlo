@@ -31,7 +31,7 @@ h1 {
 .registro input[type="text"],
 .registro input[type="password"] {
   font-size: 20px;
-  width: 82%;
+  width: 80%;
   padding: 10px;
   border: none;
 }
@@ -39,6 +39,16 @@ h1 {
 .input-contenedor {
   margin-bottom: 15px;
   border: 1px solid #aaa;
+}
+
+#verPass{
+  display:inline;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+#verPass i{
+  font-size: 22px;
 }
 
 .icon{

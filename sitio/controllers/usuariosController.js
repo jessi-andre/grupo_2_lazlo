@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator');
 const db = require('../database/models')
 const bcrypt = require('bcryptjs');
-
+ 
 module.exports = {
     registro: (req, res) => {
         return res.render('register')
@@ -289,3 +289,4 @@ module.exports = {
             }).catch(error => console.log(error))
     }
 }
+ 

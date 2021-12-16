@@ -1,5 +1,6 @@
 const {body,check} = require('express-validator');
-const usuarios = require('../data/users.json');
+const db = require('../database/models');
+const bcrypt = require('bcryptjs');
 
 module.exports = [
 
@@ -15,6 +16,20 @@ module.exports = [
             min : 2
         }).withMessage('Su apellido debe tener un mínimo de 2 caracteres'),    
 
+    /*body('oldPassword')
+        .custom((value,{req}) => {
+            return db.User.findOne({
+                where : {
+                    id : req.session.loginUsuario.id
+                }
+            })
+                .then(user => {
+                    console.log(user)
+                    if(bcrypt.compareSync(value, user.password)){
+                        return Promise.reject()
+                    }
+                }).catch( () => Promise.reject('Credenciales inválidas'))
+        })
 
     check('newPassword')
         .notEmpty().withMessage('La contraseña es requerida')
@@ -30,5 +45,5 @@ module.exports = [
             }else{
                 return true
             }
-        }).withMessage('Las contraseñas no coinciden')   
+        }).withMessage('Las contraseñas no coinciden')   */
 ]

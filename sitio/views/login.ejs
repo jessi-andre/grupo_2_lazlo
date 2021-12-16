@@ -38,7 +38,10 @@
          <span class="errores" id="errorEmail">  </span>
          <div class="input-contenedor">
             <i class="fas fa-key icon" id="iconPassword"></i>
-            <input type="password" placeholder="Contraseña" id="password" name="password">
+            <input type="password" placeholder="Contraseña" id="password" name="password"> 
+            <div id="verPass">
+               <i class="far fa-eye"></i>
+            </div>
          </div>
          <span class="errores" id="errorPassword"><%= locals.errores && errores.email ? errores.email.msg : null %> </span>
          <div class="recordar">
@@ -52,8 +55,6 @@
          <br>
          <p>Al registrarte aceptas las Condiciones de uso y Política de privacidad. </p> <br>
          <p>¿No tienes cuenta? <a class="link" href="/users/register">Registrate</a> </p>
-
-
          </div>
       </form>
    </main>

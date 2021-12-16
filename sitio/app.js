@@ -12,6 +12,7 @@ const cookieCheck = require('./middlewares/cookieCheck');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productoRouter = require('./routes/productos');
+var apiRouter = require('./routes/api')
 var app = express();
 const methodOverride = require('method-override');
 
@@ -37,6 +38,7 @@ app.use(cookieCheck);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', productoRouter);
+app.use('/api', apiRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
