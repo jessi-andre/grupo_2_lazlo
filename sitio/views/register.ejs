@@ -19,7 +19,7 @@
         <h1>¡Registrate!</h1>
 
         <div class="input-contenedor">
-          <i class="fas fa-user icon"></i>
+          <i class="fas fa-user icon" id="iconFirstName"></i>
           <input
             type="text"
             placeholder="Nombre"
@@ -36,7 +36,7 @@
         </span>
 
         <div class="input-contenedor">
-          <i class="fas fa-user icon"></i>
+          <i class="fas fa-user icon" id="iconLastName"></i>
           <input
             type="text"
             placeholder="Apellido"
@@ -47,11 +47,12 @@
           />
         </div>
         <span class="errores" id="errorLastName"> 
-          
+          <%= locals.errores && errores.last_name ? errores.last_name.msg :
+          null %>
         </span>
 
         <div class="input-contenedor">
-          <i class="fas fa-envelope icon"></i>
+          <i class="fas fa-envelope icon" id="iconEmail"></i>
           <input
             type="text"
             placeholder="tucorreo@hotmail.com"
@@ -64,21 +65,10 @@
           <%= locals.errores && errores.email ? errores.email.msg : null %>
         </span>
 
-        <div class="input-contenedor">
-          <i class="fas fa-image icon"></i>
-          <input
-            type="file"
-            placeholder="Agrega tu foto de perfil"
-            id="profile"
-            name="profile"
-          />
-        </div>
-        <span class="errores" id="errorImage">
-          <%= locals.errores && errores.image ? errores.image.msg : null %>
-        </span>
+        
 
         <div class="input-contenedor">
-          <i class="fas fa-key icon"></i>
+          <i class="fas fa-key icon" id="iconPassword"></i>
           <input
             type="password"
             placeholder="Contraseña"
@@ -92,20 +82,35 @@
         </span>
 
         <div class="input-contenedor">
-          <i class="fas fa-key icon"></i>
+          <i class="fas fa-key icon" id="iconPassword2"></i>
           <input
             type="password"
             placeholder="Volve a escribir tu contraseña"
             id="password2"
-            name="password2"
+            name="password2" 
           />
         </div>
         <span class="errores" id="errorPassword2">
           <%= locals.errores && errores.password2 ? errores.password2.msg : null
           %>
         </span>
+        <div class="input-contenedor">
+          <i class="fas fa-image icon" id="iconImage"></i>
+          <input
+            type="file"
+            placeholder="Agrega tu foto de perfil"
+            id="profile"
+            name="profile"
+          />
+        </div>
+        <span class="errores" id="errorImage">
+          <%= locals.errores && errores.image ? errores.image.msg : null %>
+        </span>
+        <span class="errores" id="campo-vacio">
 
-        <input type="submit" value="Iniciar sesión" class="button" /> <br />
+        </span>
+
+        <input type="submit" value="Registrate" class="button" /> <br />
         <br />
         <p>
           Al registrarte aceptas las Condiciones de uso y Política de

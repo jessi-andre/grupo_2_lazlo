@@ -1,73 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%-include('./partials/head')%> 
-<body class="home">
-     
-    <%-include('./partials/header')%> 
+<%-include('./partials/head')%>
 
-<!-- MAIN -->
+    <body class="home">
 
-    <!--Caorusel-->
+        <%-include('./partials/header')%>
 
-    <main>
-        <section>
-            <article>
-                <div id="carouselExampleSlidesOnly" class="carousel-slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-image">
-                            <img src="/images/imageCarouselPrueba.jpg" class="d-block w-100" alt="imagen carousel">
+            <!-- MAIN -->
+
+            <!--Caorusel-->
+
+            <main>
+                <section>
+                    <article>
+                        <div id="carouselExampleSlidesOnly" class="carousel-slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-image">
+                                    <img src="/images/imageCarouselPrueba.jpg" class="d-block w-100"
+                                        alt="imagen carousel">
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+                        crossorigin="anonymous">
+                        </script>
+                </section>
+
+                <div style="width:auto">
+                    <section class="Productos">
+                        <h1>Exclusivo de Lazlo</h1>
+                    </section>
+                </div>
+
+                <!--PRODUCTOS-->
+                <section>
+                    <div class="imagenes-productos">
+                        <div class="flip-box">
+                            <a href="/productos/categoria/mochilas" class="flip-box-inner">
+                                <div class="flip-box-front" id="tarjetaProducto1">
+                                    <h2>Mochilas</h2>
+                                </div>
+                                <div class="flip-box-back">
+                                    <img src="/images/iconomochi.png" alt="" width="80px">
+                                    <h2>Mochilas de diseño exclusivo,todo terreno.</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="flip-box">
+                            <a href="/historia"
+                            class="flip-box-inner">
+                                <div class="flip-box-front" id="tarjetaProducto2">
+                                    
+                                    <h2>Sumate</h2>
+                                </div>
+                                <div class="flip-box-back">
+                                    <img src="/images/iconoarbol.png" alt="" width="80px">
+                                    <h2>Una mochila,un árbol.</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="flip-box">
+                            <a href="/productos/categoria/indumentaria"
+                            class="flip-box-inner">
+                                <div class="flip-box-front" id="tarjetaProducto3">
+                                    <h2>Indumentaria</h2>
+                                </div>
+                                <div class="flip-box-back">
+                                    <img src="/images/iconoindu.png" alt="" width="80px">
+                                    <h2>La ropa más comoda para la vida al aire libre.</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="flip-box">
+                            <a href="/productos/categoria/accesorios"
+                            class="flip-box-inner">
+                                <div class="flip-box-front" id="tarjetaProducto4">
+                                    <h2>Accesorios</h2>
+                                </div>
+                                <div class="flip-box-back">
+                                    <img src="/images/iconoaccesorio.png" alt="" width="80px">
+                                    <h2>Busca tu accesorio ideal.</h2>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </section>
+                <section>
+                    <div class="banner-final">
+                 
+                        <div class="video">
+                            <video playsinline autoplay muted loop id="video">
+                                <source src="/images/Boat.mp4" type="video/mp4">
+                            </video>
+                            <div class="newsletter">
+                                <h2>Conocenos, para conocerte.</h2>
+                                <p>Ingresa tu email para suscribirte a nuestro newsletter</p>
+                                <form action="">
+                                    <input type="text" placeholder=" Tu email">
+                                    <button type="submit">Suscribite</button>
+                                </form>
+                            </div>
+                            
                         </div>
                     </div>
-                </div>
-            </article>
+                </section>
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-                crossorigin="anonymous">
-                </script>
-        </section>
+                <section class="productosRelacionados">
+                    <h2>Más vendidos</h2>
 
-        <div style="width:auto">
-            <section class="Productos">
-                <h1>Exclusivo de Lazlo</h1>
-            </section>
-        </div>
+                    <!-- carrucel de productos -->
 
-        <!--PRODUCTOS-->
-        <section>
-            <div class="imagenes-productos">
-                <article class="producto1">
-                    <img src="/images/mochila-home-1.jpg" alt="mochila1">
-                    <a class="boton-ver-mas" href="/productos/categoria/mochilas">Mochilas</a>
-                </article>
-                    
-                </article>
-                <article class="producto2">
-                    <img src="/images/arbol..jpg" alt="arbol">
-                    <a class="boton-ver-mas" href="/comunidad">Ver más</a>
-                </article>
-                <article class="producto3">
-                    <img src="/images/mochila-home-2.jpg" alt="mochila2">
-                    <a class="boton-ver-mas" href="/productos/categoria/indumentaria">Indumentaria</a>
-                </article>
-                <article class="producto4">
-                    <img src="/images/mochila-home-3.jpg" alt="indumentaria1">
-                    <a class="boton-ver-mas" href="/productos/categoria/accesorios">Accesorios</a>
-                </article>
-            </div>
-        </section>
-        <section>
-            <div class="banner-final">
-                <article class="banner">
-                    <img src="/images/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg" alt="">
-                    <h2>Conocenos,<br>para conocerte.</h2>
-                    <a class="boton-ver-mas" href="/historia">Ver más</a>
-                </article>
-            </div>
-        </section>
-    </main>
+                    <div class="glide">
+                        <div class="glide__track" data-glide-el="track">
+                            <ul class="glide__slides">
 
-    <%-include('./partials/footer')%> 
-</body>
+                                <% mochilas[0].forEach(mochila=>{%>
+                                    <li class="glide__slide">
+                                        <a href="/productos/detalle/<%=mochila.id%>" class="relacionadoContenedor">
+                                            <div class="relacionado">
+                                                <div class="imagenRelacionado">
+                                                    <img src="/images/products/<%=mochila.image%>" alt="">
+                                                </div>
+                                                <div class="detalleRelacionado">
+                                                    <h3>
+                                                        <%= mochila.name %>
+                                                    </h3>
+                                                    <h4>$ <%= mochila.price %>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <%})%>
+
+                            </ul>
+                        </div>
+                        <div class="glide__arrows" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i
+                                    class="fas fa-caret-left"></i></button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i
+                                    class="fas fa-caret-right"></i></button>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+           
+
+            <%-include('./partials/footer')%>
+                <script src="/javascripts/glide.js"></script>
+                <script src="/javascripts/index.js"></script>
+    </body>
 
 </html>

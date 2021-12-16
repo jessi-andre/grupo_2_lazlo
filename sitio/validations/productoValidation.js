@@ -17,6 +17,10 @@ module.exports = [
     /*check('talle')
         .notEmpty().withMessage('El talle es requerido'),*/
 
+
+    check('image')
+        .notEmpty().withMessage('La imagen del producto es requerida'),
+
     check('category')
         .notEmpty().withMessage('La categoría del producto es requerida'),
 

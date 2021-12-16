@@ -42,6 +42,9 @@ section.pagos {
     display:block;
     
 }
+.secciones a:hover{
+    color: #fff;
+}
 
 .secciones .pagos i {
     color: #fff;

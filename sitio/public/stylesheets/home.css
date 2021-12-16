@@ -31,11 +31,12 @@ main .carousel-slide img {
 
 
 .imagenes-productos article {
-    width: 46%;
+    width: 44%;
     position: relative;
     margin: 5px;
-    border-radius: 15px;
-
+    border-radius: 5px;
+    border: 2px solid var(--marron);
+    padding: 20px; 
 }
 
 .imagenes-productos article img {
@@ -68,46 +69,208 @@ main .carousel-slide img {
     opacity: .8;
     box-shadow: 0 0 1px rgba(87, 87, 87, .7);
 }
+#tarjetaProducto1{
+    background-image:url(../images/mochila-home-1.jpg) ;
+    background-size: cover;
+}
+#tarjetaProducto2{
+    background-image:url(../images/arbol..jpg) ;
+    background-size: cover;
+}
+#tarjetaProducto3{
+    background-image:url(../images/mochila-home-2.jpg) ;
+    background-size: cover;
+}
+#tarjetaProducto4{
+    background-image:url(../images/mochila-home-3.jpg) ;
+    background-size: cover;
+}
 
-/*BANNER DE PIE*/
-
-.banner-final {
-    padding: 1px;
+/* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-box {
+    margin: 20px auto;
+    background-color: transparent;
+    width: 250px;
+    height: 300px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-box-inner {
+      display: block;
+    position: relative;
     width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-box-front h2{
+   
+    display: block;
+    color: #f1f1f1
+}
+  
+  
+  /* Position the front and back side */
+  .flip-box-front, .flip-box-back {
+    position: absolute;
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side */
+  .flip-box-front {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    background-color: #bbb;
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flip-box-back {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--marron);
+    color: white;
+    transform: rotateY(180deg);
+  }
+  .flip-box-back h2{
+    font-size: 22px; 
+    margin-top: 10px; 
+  }
+
+
+
+/* -- BANNER VIDEO --*/
+
+.video{
+    width: 100%;
+    height: 60vh;
+    margin: 80px 0;
+    overflow: hidden;
     position: relative;
 }
 
-.banner-final article img{
-    max-width: 100%;
+video {
     object-fit: cover;
     width: 100%;
-    height: 200px;
-}
-
-.banner-final h2{
-    color: #fff;
-    font-family: 'Noto Sans KR', sans-serif;
+    height: 60vh;
     position: absolute;
-    top: 20px;
-    left: 10px;
+    top: 0;
+    left: 0;
+    object-position: bottom;
 }
 
-.banner-final .boton-ver-mas{
+.newsletter{
+    position: absolute;
+    top: 15%;
+    right: 150px;
+    color: #fff;
+   
+    padding: 10px;
+   
+
+}
+.newsletter input{
+    margin-top: 8px;
+    width: 70%;
+    margin-right: 15px ;
+    padding: 5px;
+    border-radius: 5px;
+    border:none
+}
+.newsletter input::placeholder{
+    color: #bbb;
+}
+.newsletter button{
+    padding:5px 10px;
+    background-color:var(--marron);
     text-decoration: none;
-    color: #fff;
-    background-color: var(--marron);
-    padding: 6px 14px;
-    border-radius: 10px;
-    display: block;
-    position: absolute;
-    bottom: 76px;
-    right: 40px;
-    cursor:pointer;
+    color:#fff;
+    border-radius: 5px;
+    border:none;
+    transition: opacity .5s;
 }
 
-.banner-final.boton-ver-mas:hover{
-    opacity: .8;
-    box-shadow: 0 0 1px rgba(87, 87, 87, .7);  /*no me toma */
+/*-- CARRUCEL DE PRODUCTOS --*/
+
+.home .productosRelacionados{
+    margin: 30px auto 0;
+}
+
+.home .productosRelacionados h2{
+    margin:40px 0;
+    text-align: center;
+    font-size: 46px;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.home .productosRelacionados .relacionado{
+    display:flex;
+    justify-content: space-between;
+    align-items:stretch;
+    flex-direction: column;
+    border: 2px solid var(--marron);
+    padding: 20px; 
+}
+
+.relacionadoContenedor{
+    text-decoration: none;
+}
+
+.imagenRelacionado img{
+    display: block;
+    margin: 0 auto;
+}
+
+.detalleRelacionado h3, .detalleRelacionado h4{
+    color: var(--grisOscuro);
+    text-decoration: none;    
+}
+
+.relacionado h3{
+    font-size: 1.5em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.glide__arrow{
+    border-color: var(--grisOscuro)  !important;
+    color:var(--grisOscuro)  !important;
+}
+
+.home .productosRelacionados .relacionado .detalleRelacionado{
+    margin: 20px 0 0;
+    padding: 20px 0 0; 
+    border-top: 2px dashed var(--marron);
+}
+
+.home .productosRelacionados .relacionado .detalleRelacionado h3{
+    margin: 0 0 10px;
+}
+
+.home .productosRelacionados .relacionado .imagenRelacionado{
+    height: 260px;
+}
+
+.home .productosRelacionados .relacionado .imagenRelacionado img{
+    height: 250px;
+    margin: 5px auto;
 }
 
 
@@ -115,26 +278,68 @@ main .carousel-slide img {
 /*--tablet--*/
 
 @media (min-width : 768px){
+    .flip-box-front h2{
+        display: block;
+    }
     .imagenes-productos article img {
         height: 280px;
         border-radius: 3px;
+    }
+
+    /*-- CARRUCEL DE PRODUCTOS --*/
+
+    .home .productosRelacionados .relacionado{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .home .productosRelacionados .relacionado .imagenRelacionado{
+        height: 200px;
+    }
+    
+    .home .productosRelacionados .relacionado .imagenRelacionado img{
+        height: 190px;
     }
 }
 
 /*--PC--*/
 
 @media (min-width : 1024px){
+    .flip-box-front h2{
+        display: none;
+    }
     .imagenes-productos article img {
-        height: 350px;
+        height: 370px;
         border-radius: 3px;
     }
     .imagenes-productos article {
-        width: 24%;
-        margin: 5px;
+        width: 22%;
+        margin: 15px;
     }
     .Productos h1 {
         margin: 26px;
         font-size: 50px;
+    }
+
+     /*-- CARRUCEL DE PRODUCTOS --*/
+
+     .home .productosRelacionados h2{
+        margin:50px 0 40px;
+        text-align: center;
+        font-size: 46px;
+    }
+
+    .home .productosRelacionados .relacionado{
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .home .productosRelacionados .relacionado .imagenRelacionado{
+        height: 180px;
+    }
+    
+    .home .productosRelacionados .relacionado .imagenRelacionado img{
+        height: 170px;
     }
 }
 

@@ -62,7 +62,7 @@
               <div class="col-6 talles">
                 <p>Talles:</p>
                 <% talles.forEach(talle=> { %>
-                  <input type="checkbox" id="<%= talle.name %>" name="talle" value="<%= talle.id %>">
+                  <input type="checkbox" id="<%= talle.name %>" class="checkboxTalle" name="talle" value="<%= talle.id %>">
                     <label for="<%= talle.name %>">
                     <%= talle.name %>
                   </label><br>
@@ -92,17 +92,7 @@
               </span>
             </div>
 
-
-
             <div class="col-md-6">
-              <label for="inputImage" class="form-label">Imagen del Producto:</label>
-              <input class="form-control" name="image" type="file" id="inputImage" multiple>
-              <span class="errores" id="imageError">
-                <%= locals.errores && errores.image ? errores.image.msg : null %>
-              </span>
-            </div>
-
-            <div class="col-md-12">
               <label for="inputDescrption" class="form-label">Descripción del Producto:</label>
               <textarea class="form-control" name="description" id="inputDescrption"
                 rows="3"><%= locals.errores &&  errores === '' ? old.description : null %></textarea>
@@ -110,6 +100,15 @@
                 <%= locals.errores && errores.description ? errores.description.msg : null %>
               </span>
             </div>
+
+            <div class="col-md-12">
+              <label for="inputImage" class="form-label">Imagen del Producto:</label>
+              <input class="form-control" name="image" type="file" id="inputImage">
+              <span class="errores" id="imageError">
+                <%= locals.errores && errores.image ? errores.image.msg : null %>
+              </span>
+            </div>
+
 
 
             <span class="errores" id="campo-vacio"></span>

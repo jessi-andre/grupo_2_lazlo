@@ -3,29 +3,46 @@ console.log('ssssssssssssssssssssssssssssssssssssssss')
  
 let regExLetter = /^[A-Z]+$/i;
 let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
-let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/; //mayuscula, numero y 6 a 12 caracteres
 
 
 $('email').addEventListener('blur', () => {
-    if (!regExEmail.test($('email').value)) {
+    if(!$('email').value){
+        $('errorEmail').innerText = "El email es obligatorio" 
+        $('email').classList.add('is-invalid')
+        $('iconEmail').style.color = 'tomato';
+    }else if(!regExEmail.test($('email').value)) {
+        $('iconEmail').style.color = 'tomato';
         $('errorEmail').innerText = "Tiene que ser un email válido" 
         $('email').classList.add('is-invalid')
-    } else {
+    }else {
         $('errorEmail').innerText = null
         $('email').classList.remove('is-invalid')
         $('email').classList.add('is-valid')
+        $('iconEmail').style.color = 'green';
     }
+})
+$('email').addEventListener('change', () => {
+    $('errorEmail').innerText = null
+    $('email').classList.remove('is-invalid')
+    $('iconEmail').style.color = '#181913';
 })
 
 
 $('password').addEventListener('blur', () => {
-    if (!regExPass.test($('password').value)) {
+    if(!$('password').value){
+        $('errorPassword').innerText = "La contraseña es obligatoria"
+        $('password').classList.add('is-invalid')
+        $('iconPassword').style.color = 'tomato';
+    }
+    /*else if (!regExPass.test($('password').value)) {
         $('errorPassword').innerText = "La contraseña debe tener una mayúscula, un número y entre 8 y 12 caracteres"
         $('password').classList.add('is-invalid')
-    } else {
+        $('iconPassword').style.color = 'tomato';
+    } */else {
         $('errorPassword').innerText = null
         $('password').classList.remove('is-invalid')
         $('password').classList.add('is-valid')
+        $('iconPassword').style.color = 'green';
     }
 })
 $('password').addEventListener('focus', () => {

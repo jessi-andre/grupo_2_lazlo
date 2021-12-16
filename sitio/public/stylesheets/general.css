@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 *{
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 li{list-style:none;}
@@ -12,11 +14,6 @@ a{
     text-decoration: none;
     color: var(--grisOscuro)
 }
-
-input, p, li, a,th, td, button,select, option, label{
-    font-family: 'Noto Sans KR', sans-serif;
-}
-
 
 :root{
     --marron:#957255;

@@ -5,6 +5,7 @@ const {registro,processRegister, login, processLogin, perfil, logout,perfilAdmin
 
 const loginValidation = require('../validations/loginValidation');
 const registerValidation = require('../validations/registerValidation');
+const edicionPerfilValidator = require('../validations/edicionPerfilValidation')
 const userLoginCheck = require('../middlewares/userLoginCheck');
 const notEntry = require('../middlewares/notEntry');
 const adminCheck = require('../middlewares/adminCheck');
@@ -22,7 +23,7 @@ router.get('/perfil',userLoginCheck,notEntryAdmin, perfil);
 router.get('/perfilAdmin',adminCheck,perfilAdmin);
 router.put('/perfilAdmin/:id', cambiarRol);
 router.get('/editarPerfil', editarPerfil);
-router.put('/editarPerfil/:id',upload.single('profile'), processEditarPerfil);
+router.put('/editarPerfil/:id',upload.single('profile'),edicionPerfilValidator, processEditarPerfil);
 
 
 module.exports = router; 
