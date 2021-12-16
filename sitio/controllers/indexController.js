@@ -9,16 +9,21 @@ let comentarios = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 
 
 module.exports = {
     index: (req, res) => {
-        db.Category.findAll({
-            include: ['products'],
+        db.Product.findAll({
+            include: [
+                "colors",
+                "size",
+                "category",
+                "images"
+            ],
             where: {
-                id: 1
+                categoryId: 1
             }
         })
             .then(mochis => {
-                let mochilas = mochis.map(mochila => mochila.products);
+
                 return res.render('home', {
-                    mochilas
+                    mochis
                 })
             }).catch(error => console.log(error))
     },

@@ -118,12 +118,12 @@
                         <div class="glide__track" data-glide-el="track">
                             <ul class="glide__slides">
 
-                                <% mochilas[0].forEach(mochila=>{%>
+                                <% mochis.forEach(mochila=>{%>
                                     <li class="glide__slide">
                                         <a href="/productos/detalle/<%=mochila.id%>" class="relacionadoContenedor">
                                             <div class="relacionado">
                                                 <div class="imagenRelacionado">
-                                                    <img src="/images/products/<%=mochila.image%>" alt="">
+                                                    <img src="/images/products/<%=mochila.images[0].file%>" alt="">
                                                 </div>
                                                 <div class="detalleRelacionado">
                                                     <h3>
