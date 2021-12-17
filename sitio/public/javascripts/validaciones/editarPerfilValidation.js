@@ -111,7 +111,16 @@ $('newPassword2').addEventListener('focus', () => {
 
 })
 
+// verificacion de la contraseña
 
+let passwordCheck = async() =>{
+    try { let response = await fetch("/api/passwordCheck/" 
+        )
+        
+    } catch (error) {
+        
+    }
+}
 
 $('editarPerfil').addEventListener('submit', e => {
     e.preventDefault();

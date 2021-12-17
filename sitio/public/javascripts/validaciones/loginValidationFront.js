@@ -1,11 +1,23 @@
 const $ = id => document.getElementById(id);
-console.log('ssssssssssssssssssssssssssssssssssssssss')
+
+const emailVerify = async email =>{
+    try {
+        let respuesta = await fetch('/api/getEmail?email=' + email)  
+
+        let resultado = await respuesta.json()
+
+        return resultado; 
+    } catch (error) {
+        console.log(error);
+    }
+}
+
  
 let regExLetter = /^[A-Z]+$/i;
 let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 
 
-$('email').addEventListener('blur', () => {
+$('email').addEventListener('blur', async() => {
     if(!$('email').value){
         $('errorEmail').innerText = "El email es obligatorio" 
         $('email').classList.add('is-invalid')
@@ -13,6 +25,10 @@ $('email').addEventListener('blur', () => {
     }else if(!regExEmail.test($('email').value)) {
         $('iconEmail').style.color = 'tomato';
         $('errorEmail').innerText = "Tiene que ser un email válido" 
+        $('email').classList.add('is-invalid')
+        
+    }else if (await emailVerify($("email").value) == false) {
+        $('campo-vacio').innerText = "Credenciales invalidas" 
         $('email').classList.add('is-invalid')
     }else {
         $('errorEmail').innerText = null

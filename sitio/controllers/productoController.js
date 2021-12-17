@@ -3,6 +3,7 @@ const path = require('path');
 const db = require('../database/models')
 const { Op } = require('sequelize');
 const { validationResult } = require('express-validator');
+const Swal = require('sweetalert2')
 
 module.exports = {
     productos: (req, res) => {
@@ -403,8 +404,10 @@ module.exports = {
                 })
             }).catch(error => console.log(error))
     },
+
     destroy: (req, res) => {
 
+       
         db.Product.findByPk(req.params.id, {
             include: [
                 "colors",
@@ -414,7 +417,7 @@ module.exports = {
             ]
         })
             .then(producto => {
-                fs.existsSync(path.join(__dirname, '../public/images/products', producto.image)) ? fs.unlinkSync(path.join(__dirname, '../public/images/products', producto.image)) : null;
+               // fs.existsSync(path.join(__dirname, '../public/images/products', producto.image)) ? fs.unlinkSync(path.join(__dirname, '../public/images/products', producto.image)) : null;
                 let eliminarColores = db.ColorProduct.destroy({
                     where: {
                         productId: req.params.id

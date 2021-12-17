@@ -4,6 +4,6 @@ const {getEmails, passwordCheck} = require('../controllers/apiController');
 
 /* /api/*/
 router.get('/getEmail', getEmails);
-router.get('/passwordCheck/:id', passwordCheck);
+//router.get('/passwordCheck/:id', passwordCheck);
 
 module.exports = router;

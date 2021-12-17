@@ -5,6 +5,18 @@ let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\�
 let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/; //mayuscula, numero y 8 a 12 caracteres
 const regImg = /\.(jpg|jpeg|png|gif|webp)$/
 
+const emailVerify = async email =>{
+    try {
+        let respuesta = await fetch('/api/getEmail?email=' + email)  
+
+        let resultado = await respuesta.json()
+
+        return resultado; 
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 $('name').addEventListener('focus', () => {
     if ($('name').value.trim() === "") {
         $('errorName').innerHTML = "<span><i class='fas fa-info-circle'></i> Solo caracteres alfabéticos</span>"
@@ -81,7 +93,7 @@ $('lastName').addEventListener('keydown', () => {
     $('errorLastName').innerText = null
 })
 
-$('email').addEventListener('blur', () => {
+$('email').addEventListener('blur', async() => {
     if(!$('email').value){
         $('errorEmail').innerText = "El email es obligatorio"
         $('email').classList.add('is-invalid')
@@ -90,7 +102,12 @@ $('email').addEventListener('blur', () => {
         $('errorEmail').innerText = "Tiene que ser un email válido"
         $('email').classList.add('is-invalid')
         $('iconEmail').style.color = 'tomato'
-    } else {
+    }else if ( await emailVerify($('email').value)) {
+        $('errorEmail').innerText = "Este email ya existe"
+        $('email').classList.add('is-invalid')
+        $('iconEmail').style.color = 'tomato'
+    }
+ else {
         $('errorEmail').innerText = null
         $('email').classList.remove('is-invalid')
         $('email').classList.add('is-valid')
@@ -186,5 +203,9 @@ $('registro').addEventListener('submit', e => {
 
 
 
+})
+ /* ver contraseña */
+ $('verPass').addEventListener('click', () => {
+    $('password').type === "text" ? $('password').type = "password" : $('password').type = "text";
 })
 

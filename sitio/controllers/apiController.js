@@ -16,7 +16,8 @@ module.exports = {
             return res.status(500).json(error)
         }
     },
-    passwordCheck : async (req,res) => {
+    
+    /*passwordCheck : async (req,res) => {
         try {
             let usuario = await db.User.findOne({  
                 where : {
@@ -34,5 +35,5 @@ module.exports = {
             console.log(error)
             return res.status(500).json(error)
         }
-    }
+    }*/
 }
