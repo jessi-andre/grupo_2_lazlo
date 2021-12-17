@@ -32,7 +32,7 @@
                             <td><%= product.category.name%></td>
                             <td><img width="90" src="/images/products/<%= product.images[0].file %>" alt="">  </td>
                             <td><div><a href="/productos/editar-productos/<%= product.id %>"><i class="far fa-edit"></i></a></div></td>
-                            <td><div><form id="eliminarProducto" class="delete" action="/productos/destroy/<%= product.id %>?_method=DELETE" method="POST"><button type="submit" >X</button></form></div></td>
+                            <td><div><form onsubmit="confirm('eliminarProducto<%= product.id %>', event)" id="eliminarProducto<%= product.id %>" class="delete" action="/productos/destroy/<%= product.id %>?_method=DELETE" method="POST"><button type="submit" >X</button></form></div></td>
                           </tr>
                     <% }) %>
                 
@@ -47,6 +47,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/javascripts/sweetalerts.js"></script>
+
+
 </body>
 
 </html>
