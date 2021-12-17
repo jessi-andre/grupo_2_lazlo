@@ -3,7 +3,6 @@ const path = require('path');
 const db = require('../database/models')
 const { Op } = require('sequelize');
 const { validationResult } = require('express-validator');
-const Swal = require('sweetalert2')
 
 module.exports = {
     productos: (req, res) => {

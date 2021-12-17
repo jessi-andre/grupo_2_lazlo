@@ -1,14 +1,9 @@
-body {
-  font-family: 'Karla', sans-serif;
-  margin: 0%;
-  
-
-
-} 
-
-
 * {
   box-sizing: border-box;
+}
+
+.registro{
+  background-color: transparent;
 }
 
 .contenedor {
@@ -17,8 +12,7 @@ body {
 }
 
 .formulario {
-  background: #fff;
-  margin-top: 150px;
+  margin-top: 100px;
   padding: 3px;
 }
 
@@ -36,9 +30,23 @@ h1 {
   border: none;
 }
 
+.registro .errores {
+  font-weight: 500;
+  color: tomato;
+  display: block;
+  margin: -8px 0 20px 65px;
+}
+
 .input-contenedor {
   margin-bottom: 15px;
   border: 1px solid #aaa;
+}
+
+.bg{
+  background-image: url('../images/fondo.jpg');
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 #verPass{

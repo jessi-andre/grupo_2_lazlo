@@ -1,5 +1,3 @@
-const $ = id => document.getElementById(id);
-
 let regExLetter = /^[A-Z]+$/i;
 let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/; //mayuscula, numero y 8 a 12 caracteres
 
@@ -82,10 +80,12 @@ $('newPassword').addEventListener('blur', () => {
     if (!regExPass.test($('newPassword').value)) {
         $('errorNewPassword').innerText = "La contraseña debe tener una mayúscula, un número y entre 8 y 12 caracteres"
         $('newPassword').classList.add('is-invalid')
+        $('newPassIcon').style.color = "tomato"
     } else {
         $('errorNewPassword').innerText = null
         $('newPassword').classList.remove('is-invalid')
         $('newPassword').classList.add('is-valid')
+        $('newPassIcon').style.color = "green"
     }
 })
 $('newPassword').addEventListener('focus', () => {
@@ -97,13 +97,16 @@ $('newPassword2').addEventListener('blur', () => {
     if ($('newPassword').value !== $('newPassword2').value) {
         $('errorNewPassword2').innerText = "Las contraseñas no coinciden"
         $('newPassword2').classList.add('is-invalid')
+        $('newPassIcon2').style.color = "tomato"
     } else if ($('newPassword').value == "") {
         $('errorNewPassword2').innerText = "Debes ingresar una contraseña"
         $('newPassword2').classList.add('is-invalid')
+        $('newPassIcon2').style.color = "tomato"
     } else {
         $('errorNewPassword2').innerText = null
         $('newPassword2').classList.remove('is-invalid')
         $('newPassword2').classList.add('is-valid')
+        $('newPassIcon2').style.color = "green"
     }
 })
 $('newPassword2').addEventListener('focus', () => {
@@ -111,24 +114,25 @@ $('newPassword2').addEventListener('focus', () => {
 
 })
 
-// verificacion de la contraseña
-
-let passwordCheck = async() =>{
-    try { let response = await fetch("/api/passwordCheck/" 
-        )
-        
-    } catch (error) {
-        
+$('password').addEventListener('blur', () => {
+    if ($('password').value == "") {
+        $('errorpasswor').innerText = "Debes ingresar una contraseña"
+        $('password').classList.add('is-invalid')
+        $('newPassIcon2').style.color = "tomato"
+    } else {
+        $('errorpassword').innerText = null
+        $('password').classList.remove('is-invalid')
+        $('password').classList.add('is-valid')
     }
-}
+})
 
 $('editarPerfil').addEventListener('submit', e => {
     e.preventDefault();
 
-    let camposObligatorios = [$('firstName'), $('lastName'), $('oldPassword')];
+    let camposObligatorios = [$('firstName'), $('lastName'), $('password')];
 
     let errors = false
-    for (let i = 0; i < camposObligatorios.length - 2; i++) {
+    for (let i = 0; i < camposObligatorios.length; i++) {
 
         if (!camposObligatorios[i].value) {
             camposObligatorios[i].classList.add('is-invalid')
@@ -137,7 +141,7 @@ $('editarPerfil').addEventListener('submit', e => {
         }
     }
 
-    for (let i = 0; i < camposObligatorios.length - 2; i++) {
+    for (let i = 0; i < camposObligatorios.length; i++) {
 
         if (camposObligatorios[i].classList.contains('is-invalid')) {
             errors = true
@@ -151,5 +155,5 @@ $('editarPerfil').addEventListener('submit', e => {
 })
 
 $('verPass').addEventListener('click', () => {
-    $('oldPassword').type === "text" ? $('oldPassword').type = "password" : $('oldPassword').type = "text";
+    $('password').type === "text" ? $('password').type = "password" : $('password').type = "text";
 })

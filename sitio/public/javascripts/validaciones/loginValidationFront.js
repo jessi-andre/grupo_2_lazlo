@@ -1,5 +1,3 @@
-const $ = id => document.getElementById(id);
-
 const emailVerify = async email =>{
     try {
         let respuesta = await fetch('/api/getEmail?email=' + email)  

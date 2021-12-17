@@ -83,7 +83,6 @@ module.exports = {
                     "size",
                     "category",
                     "images"
-
                 ],
                 where: {
                     [Op.or]: [
@@ -105,7 +104,6 @@ module.exports = {
                 })
             })
             .catch(error => console.log(error))
-
     },
 
 }

@@ -1,24 +1,28 @@
-body {
-    font-family: 'Karla', sans-serif;
-    margin: 0%;
-    
-
-
-} 
+.bg{
+    background-image: url('../images/fondo.jpg');
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 
 * {
     box-sizing: border-box;
 }
 
-.contenedor {
-    width: 100%;
-    padding: 15px;
+.login{
+    background-color: transparent;
 }
 
-.formulario {
-    background: #fff;
-    margin-top: 150px;
+.login .contenedor {
+    width: 100%;
+    padding: 15px;
+    background-color:transparent;
+}
+
+.login .formulario {
+    margin-top: 100px;
     padding: 3px;
+    background-color:transparent;
 }
 
 .login h1 {
@@ -38,6 +42,7 @@ body {
 .input-contenedor {
     margin-bottom: 15px;
     border: 1px solid #aaa;
+    background-color: #fff;
 }
 
 #verPass{
@@ -83,6 +88,25 @@ body {
 .link:hover {
     color:#957255 ;
 }
+
+.login .errores {
+    font-weight: 500;
+    color: tomato;
+    display: block;
+    margin: 10px 0 0 65px;
+ }
+
+ .login  .recordar {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+ }
+
+ .login .recordar input {
+    margin: 0 10px;
+ }
 
 @media(min-width:768px)
 {

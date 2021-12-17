@@ -64,33 +64,33 @@
             <h4 id="cambiarContraseña">Cambiar contraseña</h4>
           <div id="caja-contraseña">
             <div class="input-contenedor">
-              <i class="fas fa-key icon"></i>
+              <i class="fas fa-key icon" id="newPassIcon"></i>
               <input type="password" name="newPassword" id="newPassword" placeholder="Nueva contraseña">
             </div>
             <span class="errores" id="errorNewPassword">
-              <%= locals.errores && errores.newPassword ? errores.newPassword.msg : null %>
+              
             </span>
 
             <div class="input-contenedor">
-              <i class="fas fa-key icon"></i>
+              <i class="fas fa-key icon" id="newPassIcon2"></i>
               <input type="password" name="newPassword2" id="newPassword2"
                 placeholder="Volvé a escribir la nueva contraseña">
             </div>
             <span class="errores" id="errorNewPassword2">
-              <%= locals.errores && errores.newPassword2 ? errores.newPassword2.msg : null %>
+              
             </span>
           </div>
 
           <br>
           <div class="input-contenedor">
             <i class="fas fa-key icon"></i>
-            <input type="password" name="oldPassword" id="oldPassword" placeholder="Contraseña actual*">
+            <input type="password" name="password" id="password" placeholder="Contraseña actual*">
             <div id="verPass">
               <i class="far fa-eye"></i>
            </div>
           </div>
-          <span class="errores">
-            <%= locals.errores && errores.oldPassword ? errores.oldPassword.msg : null %>
+          <span class="errores" id="errorpassword">
+            <%= locals.errores && errores.password ? errores.password.msg : null %>
           </span>
 
           <span class="errores" id="campo-vacio"></span>

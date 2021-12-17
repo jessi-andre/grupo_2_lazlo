@@ -1,13 +1,13 @@
 const { validationResult } = require('express-validator');
 const db = require('../database/models')
 const bcrypt = require('bcryptjs');
- 
+
 module.exports = {
     registro: (req, res) => {
         return res.render('register')
     },
     processRegister: (req, res) => {
-    
+
 
         const { first_name, last_name, email, password } = req.body;
 
@@ -25,7 +25,7 @@ module.exports = {
                 errores = {
                     ...errores,
                     email: {
-                        msg:"Dirección de correo ya registrado"
+                        msg: "Dirección de correo ya registrado"
                     }
                 }
                 return res.render("register", {
@@ -70,7 +70,7 @@ module.exports = {
                             }
                         }
                     }
-                   // return res.send(errores)
+                    // return res.send(errores)
                     return res.render('register', {
                         errores: errores,
                         old: req.body
@@ -215,6 +215,101 @@ module.exports = {
 
         let errores = validationResult(req);
 
+        const { firstName, lastName, newPassword, password } = req.body;
+
+        db.User.findByPk(req.params.id)
+            .then((usuario) => {
+                let passwordCheck = bcrypt.compareSync(password, usuario.password);
+
+                if (errores.isEmpty()) {
+                    errores = errores.mapped()
+                    if (!passwordCheck) {
+                        errores = {
+                            ...errores,
+                            password: {
+                                msg: "Credenciales invalidas"
+                            }
+                        }
+
+                        return res.render('editarPerfil', {
+                            errores,
+                            usuario
+                        })
+                    } else {
+                        if (!newPassword) {
+                            db.User.update(
+                                {
+                                    firstName: firstName,
+                                    lastName: lastName,
+                                    image: req.file ? req.file.filename : usuario.image,
+                                }, {
+                                where: {
+                                    id: req.params.id
+                                }
+                            }).then(() => {
+
+                                if (req.session.loginUsuario.rol === 2) {
+                                    return res.redirect('/users/perfilAdmin')
+                                } else {
+                                    return res.redirect('/users/perfil')
+                                }
+
+                            }).catch(error => res.send(error))
+                        } else {
+                            db.User.update(
+                                {
+                                    firstName: firstName,
+                                    lastName: lastName,
+                                    password: bcrypt.hashSync(newPassword, 10),
+                                    image: req.file ? req.file.filename : usuario.image,
+                                }, {
+                                where: {
+                                    id: req.params.id
+                                }
+                            }).then(() => {
+
+                                if (req.session.loginUsuario.rol === 2) {
+                                    return res.redirect('/users/perfilAdmin')
+                                } else {
+                                    return res.redirect('/users/perfil')
+                                }
+
+                            }).catch(error => res.send(error))
+                        }
+
+                        delete req.session.loginUsuario;
+
+                        req.session.loginUsuario = {
+                            id: usuario.id,
+                            firstName,
+                            lastName,
+                            email: usuario.email,
+                            rol: usuario.roleId,
+                            image: req.file ? req.file.filename : usuario.image,
+                        }
+                    }
+                } else {
+                    errores = errores.mapped();
+
+                    if (req.fileValidationError) {
+                        errores = {
+                            ...errores,
+                            image: {
+                                msg: req.fileValidationError
+                            }
+                        }
+                    }
+
+                    return res.render('editarPerfil', {
+                        errores: errores,
+                        usuario,
+                    })
+                }
+
+            }).catch(error => res.send(error))
+
+        /*let errores = validationResult(req);
+
         const { firstName, lastName, newPassword, oldPassword } = req.body;
 
         db.User.findByPk(req.params.id)
@@ -278,15 +373,14 @@ module.exports = {
 
                     return res.render('editarPerfil', {
                         errores: errores,
-                        /*errores: {
+                        errores: {
                             password: "contraseña incorrecta",
                             ...errores,
-                        }, */
+                        }, 
                         usuario,
                         old: req.body
                     })
                 }
-            }).catch(error => console.log(error))
+            }).catch(error => console.log(error))*/
     }
 }
- 
