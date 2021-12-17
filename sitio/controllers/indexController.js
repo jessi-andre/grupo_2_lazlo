@@ -81,15 +81,19 @@ module.exports = {
                 include: [
                     "colors",
                     "size",
-                    "category"
+                    "category",
+                    "images"
+
                 ],
                 where: {
                     [Op.or]: [
                         {
-                            name: { [Op.substring]: req.query.busqueda }
+                            name: { [Op.substring]:` ${req.query.busqueda} `
+                        }
                         },
                         {
-                            description: { [Op.substring]: req.query.busqueda }
+                            description: { [Op.substring]:` ${req.query.busqueda} `
+                        }
                         },
                     ]
                 }
