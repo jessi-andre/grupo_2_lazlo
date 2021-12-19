@@ -67,6 +67,29 @@ $('inputImage').addEventListener('blur', function () {
         this.classList.remove('is-invalid');
         this.classList.add('is-valid');
         $('imageError').innerHTML = null;
+
+        $('btnImagen').classList.add('btn-outline-secondary');
+        $('btnImagen').classList.remove('btn-outline-danger');
+        imageError.innerHTML = null;
+        btnImagen.innerText = "Cambiar imágenes"
+        if (this.files) {
+            [].forEach.call(this.files, readAndPreview);
+        }
+
+        function readAndPreview(file) {
+
+            var reader = new FileReader();
+            preview.innerHTML = null;
+            reader.addEventListener("load", function () {
+                var image = new Image();
+                image.height = 150;
+                image.title = file.name;
+                image.src = this.result;
+                preview.appendChild(image);
+            });
+            reader.readAsDataURL(file);
+
+        }
     }
 })
 

@@ -1,3 +1,20 @@
+.vistaPrevia{
+    position: relative;
+}
+
+.eliminarImagen{
+    position: absolute;
+    top:-15px;
+    right: 55px;
+    font-size: 30px;
+    color:tomato;
+    transition: color .5s;
+}
+
+.eliminarImagen:hover{
+    color:rgb(219, 59, 31);
+}
+
 .formularioProducto{
     width: 95%;
     margin: 30px auto;

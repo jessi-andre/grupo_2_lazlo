@@ -1,6 +1,5 @@
 console.log('Validaciones Front')
 
-const $ = id => document.getElementById(id);
 const colores = document.querySelectorAll('.checkboxColor');
 const talles = document.querySelectorAll('.checkboxTalle');
 const regImg = /\.(jpg|jpeg|png|gif|webp)$/

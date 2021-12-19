@@ -93,15 +93,15 @@ module.exports = {
         db.User.findOne({ where: { email: req.body.email } })
             .then(usuario => {
 
-
-
                 if (errores.isEmpty()) {
                     // let usuario = usuarios.find(usuario => usuario.email === req.body.email);
 
                     if (!usuario || !bcrypt.compareSync(req.body.password, usuario.password)) {
                         return res.render("login", {
                             errores: {
-                                email: "Credenciales inválidas"
+                                email: {
+                                    msg :"Credenciales inválidas"
+                                }
                             }
 
                         })
