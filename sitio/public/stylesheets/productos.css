@@ -28,9 +28,9 @@
     justify-self: left;
 }
 
-.vistaProductos .producto:nth-child(1){
+/*.vistaProductos .producto:nth-child(1){
     box-shadow: 2px 2px 10px rgb(173, 87, 30);
-}
+}*/
 
 .vistaProductos .producto .productoImg{
     width: 100% !important;

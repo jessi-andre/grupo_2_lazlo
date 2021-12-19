@@ -211,7 +211,7 @@ module.exports = {
 
         Promise.all([producto, colores, talles, categorias])
             .then(([producto, colores, talles, categorias]) => {
-                //res.send(producto)
+                
                 return res.render('editar-productos', {
                     producto,
                     colores,
@@ -305,7 +305,7 @@ module.exports = {
                     }
                 ).then(() => {
 
-                    let images;
+                   /* let images;
                     if (req.files[0] != undefined) {
 
                         images = req.files.map(image => {
@@ -325,9 +325,9 @@ module.exports = {
                         db.Image.bulkCreate(images,{ validate: true }).then(() => {
                             return res.redirect('/productos/detalle/' + req.params.id)
                         })
-                    })
+                    })*/
 
-
+                    return res.redirect('/productos/detalle/' + req.params.id)
                 })
             }).catch(error => console.log(error))
         } else {

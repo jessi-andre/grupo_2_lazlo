@@ -46,8 +46,8 @@
               <p>Colores:</p>
 
               <% colores.forEach(color=> { %>
-                <input type="checkbox" id="<%= color.name %>" class="checkboxColor" name="color" value="<%= color.id %>" <%
-                  producto.colors.forEach(colores=> { %>
+                <input type="checkbox" id="<%= color.name %>" class="checkboxColor" name="color" value="<%= color.id %>"
+                  <% producto.colors.forEach(colores=> { %>
                 <%= color.id===colores.id ? 'checked' : null %>
                   <% }) %>
                     >
@@ -65,8 +65,8 @@
             <div class="col-6">
               <p>Talles:</p>
               <% talles.forEach(talle=> { %>
-                <input type="checkbox" id="<%= talle.name %>"  class="checkboxTalle" name="talle" value="<%= talle.id %>" <% locals.errores &&
-                  errores.price ? old.size : producto.size.forEach(size=> { %>
+                <input type="checkbox" id="<%= talle.name %>" class="checkboxTalle" name="talle" value="<%= talle.id %>"
+                  <% locals.errores && errores.price ? old.size : producto.size.forEach(size=> { %>
                 <%= talle.id===size.id ? 'checked' : null %>
                   <% }) %>
                     >
@@ -86,8 +86,8 @@
               <label for="inputCaregoria" class="form-label">Categoria:</label>
               <select id="inputCategoria" class="form-select" name="category">
                 <% categorias.forEach(categoria=> { %>
-                  <option name="category" value="<%= categoria.id %>"
-                    <%=categoria.id === producto.category.id ? 'selected' : null %>><%= categoria.name %>
+                  <option name="category" value="<%= categoria.id %>" <%=categoria.id===producto.category.id
+                    ? 'selected' : null %>><%= categoria.name %>
                   </option>
                   <% }) %>
               </select>
@@ -96,7 +96,7 @@
               </span>
             </div>
 
-            
+
             <div class="col-md-6">
               <label for="inputDescrption" class="form-label">Descripción del Producto:</label>
               <textarea class="form-control" name="description" id="inputDescrption"
@@ -108,10 +108,22 @@
 
             <div class="col-md-12">
               <label for="inputImage" class="form-label">Imagen del Producto:</label>
-              <input class="form-control" name="product" type="file" id="inputImage" value="<%= producto.image %>" multiple>
+              <input class="form-control" name="product" type="file" id="inputImage" value="<%= producto.image %>"
+                multiple onchange="addImage('<%=producto.id%>',this.files)">
               <span class="errores" id="imageError">
                 <%= locals.errores && errores.image ? errores.image.msg : null %>
               </span>
+            </div>
+
+            <div class="row my-4 g-2" id="preview">
+              <% producto.images.forEach((image,index)=> { %>
+                <div class="col-4 text-center vistaPrevia">
+                  <img width="200" src="/images/products/<%= image.file %>" alt="imagen">
+                  <div>
+                    <a onclick="deleteImage('<%= image.id %>')" class="eliminarImagen"><i class="fas fa-times-circle"></i></a>
+                  </div>
+                </div>
+                <% }) %>
             </div>
 
             <span class="errores" id="campo-vacio"></span>
@@ -129,7 +141,8 @@
         crossorigin="anonymous"></script>
 
       <%-include('./partials/footer')%>
-      <script src="/javascripts/validaciones/editarProductoValidationFront.js"></script>
+        <script src="/javascripts/validaciones/editarProductoValidationFront.js"></script>
+        <script src="/javascripts/edicionProducto.js"></script>
   </body>
 
 
