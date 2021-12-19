@@ -8,39 +8,42 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      date: {
-        type: Sequelize.DATE,
-        allowNull: false,
+      quantity: {
+        type: Sequelize.INTEGER
       },
       userId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references:{
-          model:{
-            tableName: 'Users'
+        references : {
+          model : {
+            tableName : 'Users'
           },
-          key:'id'
+          key : 'id'
         }
       },
       productId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references:{
-          model:{
-            tableName: 'Products'
+        references : {
+          model : {
+            tableName : 'Products'
           },
-          key:'id'
+          key : 'id'
         }
       },
-      quantity: {
+      orderId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        references : {
+          model : {
+            tableName : 'Orders'
+          },
+          key : 'id'
+        }
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
+        allowNull: false,
         type: Sequelize.DATE
       }
     });

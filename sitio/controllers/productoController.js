@@ -119,7 +119,7 @@ module.exports = {
                 let talles;
                 if (!req.body.talle) {
                     talles = []
-                } else if (req.body.talle == 1) {
+                } else if (req.body.talle.length == 1) {
                     talles = [{
                         sizeId: req.body.talle,
                         productId: +producto.id
@@ -138,7 +138,7 @@ module.exports = {
                 if (!req.body.color) {
                     colores = []
 
-                } else if (req.body.color == 1) {
+                } else if (req.body.color.length == 1) {
                     colores = [{
                         colorId: req.body.color,
                         productId: +producto.id
@@ -239,7 +239,7 @@ module.exports = {
                 let talles;
                 if (!req.body.talle) {
                     talles = []
-                } else if (req.body.talle == 1) {
+                } else if (req.body.talle.length == 1) {
                     talles = [{
                         sizeId: req.body.talle,
                         productId: +producto.id
@@ -258,7 +258,7 @@ module.exports = {
                 if (!req.body.color) {
                     colores = []
 
-                } else if (req.body.color == 1) {
+                } else if (req.body.color.length == 1) {
                     colores = [{
                         colorId: req.body.color,
                         productId: +producto.id

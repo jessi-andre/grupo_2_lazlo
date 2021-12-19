@@ -39,7 +39,7 @@ router.post('/agregar-productos', upload.array('image'), productValidation, stor
 router.get('/categoria/:category', productos);
 router.get('/detalle/:id', productoDetalle);
 router.get('/agregar-productos', adminCheck, agregar);
-router.get('/editar-productos/:id',  editar);
+router.get('/editar-productos/:id',adminCheck,editar);
 router.put('/editar-productos/:id', uploadEdit.array('product'), productValidation, actualizar);
 
 /** DELETE ONE PRODUCT***/

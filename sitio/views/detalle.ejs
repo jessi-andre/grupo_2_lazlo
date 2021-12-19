@@ -55,11 +55,7 @@
                         <% } else {%>
                             <span></span>
                         <% }%>
-                        <div class="input caja-form">
-                            <label for="cantidad">Cantidad:</label>
-                            <input type="number" name="cantidad" id="cantidad">
-                        </div>
-                        <button>Agregar al carrito</button>
+                        <button onclick="addItem(event,'<%= product.id %>')">Agregar al carrito</button>
                     </form>
                 </div>
             </div>
@@ -133,7 +129,13 @@
         </section>
     </main>
     <%-include('./partials/footer')%> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+    
     <script src="/javascripts/glide.js"></script>
     <script src="/javascripts/index.js"></script>
+    <script src="/javascripts/cart.js"></script>
+        
 </body>
 </html>
