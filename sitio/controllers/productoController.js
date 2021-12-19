@@ -292,7 +292,6 @@ module.exports = {
                 })
 
 
-
                 db.Product.update({
                     name: name.trim(),
                     price: +price,
@@ -323,7 +322,7 @@ module.exports = {
                             productId: producto.id
                         }
                     }).then(() => {
-                        db.Image.bulkCreate(images, { validate: true }).then(() => {
+                        db.Image.bulkCreate(images,{ validate: true }).then(() => {
                             return res.redirect('/productos/detalle/' + req.params.id)
                         })
                     })
