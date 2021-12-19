@@ -102,14 +102,12 @@
             </div>
 
             <div class="col-md-12">
-              <label for="inputImage" class="form-label">Imagen del Producto:</label>
-              <input class="form-control" name="image" type="file" id="inputImage">
+              <label for="inputImage" class="form-label" id="btnImagen">Imagen del Producto:</label>
+              <input class="form-control" name="image" type="file">
               <span class="errores" id="imageError">
                 <%= locals.errores && errores.image ? errores.image.msg : null %>
               </span>
             </div>
-
-
 
             <span class="errores" id="campo-vacio"></span>
             <div class="col-md-12 col-sm-12">
