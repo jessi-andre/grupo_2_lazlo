@@ -181,8 +181,6 @@ module.exports = {
                     }
                 }
 
-                return res.send(errores)
-
                 return res.render('agregar-productos', {
                     errores: errores,
                     old: req.body,
