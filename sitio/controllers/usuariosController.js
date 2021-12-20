@@ -100,7 +100,7 @@ module.exports = {
                         return res.render("login", {
                             errores: {
                                 email: {
-                                    msg :"Credenciales inválidas"
+                                    msg: "Credenciales inválidas"
                                 }
                             }
 
@@ -121,11 +121,46 @@ module.exports = {
                             console.log("req.usuarios- " + req.session.loginUsuario)
                         }
 
-                        if (req.session.loginUsuario.rol === 2) {
-                            return res.redirect('/users/perfilAdmin')
-                        } else {
-                            return res.redirect('/users/perfil')
-                        }
+                        /* CARRITO */
+                        req.session.carrito = [];
+                        db.Order.findOne({
+                            where: {
+                                userId: req.session.loginUsuario.id,
+                                status: 'pending'
+                            },
+                            include: [
+                                {
+                                    association: 'carts',
+                                    include: [
+                                        {
+                                            association: 'product',
+                                            include: ['category', 'images']
+                                        }
+                                    ]
+                                }
+                            ]
+                        }).then(order => {
+                            if (order) {
+                                order.carts.forEach(item => {
+                                    let product = {
+                                        id: item.productId,
+                                        nombre: item.product.name,
+                                        image: item.product.images[0].file,
+                                        precio: +item.product.price,
+                                        categoria: item.product.category.name,
+                                        cantidad: +item.quantity,
+                                        total: item.product.price * item.quantity,
+                                        orderId: order.id
+                                    }
+                                    req.session.carrito.push(product)
+                                });
+                            }
+                            if (req.session.loginUsuario.rol === 2) {
+                                return res.redirect('/users/perfilAdmin')
+                            } else {
+                                return res.redirect('/users/perfil')
+                            }
+                        })
                     }
 
 

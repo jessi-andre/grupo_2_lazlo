@@ -128,5 +128,4 @@ const emptyCart = async () => {
 btnCartEmpty?.addEventListener('click',() => emptyCart())
 
 
-
 getCarrito();
