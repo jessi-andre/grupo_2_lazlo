@@ -42,12 +42,21 @@ module.exports = {
     },
     productoDetalle: (req, res) => {
 
+        let reviews = db.Review.findAll({
+            include : [{all: true}],
+            include: [{ all: true }],
+            where : {
+                productId : req.params.id
+            }
+        })
+
         let productoPromise = db.Product.findByPk(req.params.id, {
             include: [
                 "colors",
                 "size",
                 "category",
-                "images"
+                "images",
+                "reviews"
             ],
         })
 
@@ -59,17 +68,46 @@ module.exports = {
                 }
             })
 
-        Promise.all([productoPromise, mochilasPromise])
-            .then(([productoPromise, mochilasPromise]) => {
+        Promise.all([productoPromise, mochilasPromise,reviews])
+            .then(([productoPromise, mochilasPromise,reviews]) => {
+                let avg;
+                if(reviews.length > 0){
+                    let estrellitas = [];
+                    for (let i = 0; i < reviews.length; i++) {
+                        estrellitas.push(reviews[i].stars)
+                    }
+
+                    let sum = estrellitas.reduce((previous, current) => current += previous);
+                    avg = Math.round(sum / estrellitas.length);
+                }else{
+                    avg = 0;
+                }
 
                 return res.render('detalle', {
                     product: productoPromise,
                     mochilas: mochilasPromise,
                     colors: productoPromise.colors,
-                    sizes: productoPromise.size
+                    sizes: productoPromise.size,
+                    reviews,
+                    avg
                 })
             }).catch(error => console.log(error))
 
+    },
+    reviews: (req,res) => {
+        
+        let {stars, review} = req.body
+
+        let newReview = {
+            stars,
+            review,
+            userId : +req.session.loginUsuario.id,
+            productId : +req.params.id
+         }
+         
+         db.Review.create(newReview).then(() => {
+            return res.redirect('/productos/detalle/' + req.params.id)
+         })
     },
     administrador: (req, res) => {
         db.Product.findAll({

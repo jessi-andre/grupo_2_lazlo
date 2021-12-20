@@ -26,7 +26,20 @@
                     <div>
                         <h3 class="precio">$ <%= product.price %></h3>
                     </div>
-                    <p class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+                    <p class="estrellas">
+                        <% if (avg === 0) { %>
+                            <% for( let i = 0; i < 5; i++ ) { %>
+                                <i class="far fa-star"></i>
+                            <% } %>
+                        <% } else {%>
+                            <% for( let i = 0; i < avg; i++ ) { %>
+                                <i class="fas fa-star"></i>
+                            <% } %>
+                            <% for( let i = 0; i < (5 - avg); i++ ) { %>
+                                <i class="far fa-star"></i>
+                            <% } %>
+                        <% }%>
+                    </p>
                 </div>
                 <div class="envio">
                     <p>Envio gratis</p>
@@ -66,33 +79,52 @@
         </section>
         <section class="reseñas">
             <h2>Reseñas</h2>
-            <div class="reseña">
-                <div class="nombre-estrellas">
-                    <h3>Nombre</h3>
-                    <p class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
-                </div>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In quam officiis non odio ex quia eligendi tenetur fuga similique cumque?</p>
-            </div>
-            <div class="reseña">
-                <div class="nombre-estrellas">
-                    <h3>Nombre2</h3>
-                    <p class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
-                </div>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In quam officiis non odio ex quia eligendi tenetur fuga similique cumque?</p>
-            </div>
-            <!--div class="reseñaForm">
-                <form method="post">
-                    <div class="campo input">
-                        <label for="title">Titulo</label>
-                        <input type="text" name="title" id="title">
+            <% reviews.forEach(review => { %>
+                <div class="reseña">
+                    <div class="nombre-estrellas">
+                        <h3><%= review.user.firstName %> </h3>
+                        <p class="estrellas">
+                            <% for( let i = 0; i < review.stars; i++ ) { %>
+                                <i class="fas fa-star"></i>
+                            <% } %>
+                            <% for( let i = 0; i < (5 - review.stars); i++ ) { %>
+                                <i class="far fa-star"></i>
+                            <% } %>
+                        </p>
                     </div>
-                    <div class="campo texarea">
-                        <label for="review">Titulo</label>
-                        <textarea type="text" name="review" id="review"></textarea>
-                    </div>
-                    <button>Enviar reseña</button>
-                </form>
-            </div-->
+                    <p><%= review.review %></p>
+                </div>
+            <% }) %>
+            
+
+            <% if (locals.loginUsuario) { %>
+
+                <div class="formularioReseñas">
+                    <h3>Dejanos tu reseña</h3>
+                    <form method="POST">
+                        <div class="labelStars">
+                            <label for="one" class="star_unactive starsLabel"><i class="fas fa-star"></i></label>
+                            <label for="two" class="star_unactive starsLabel"><i class="fas fa-star"></i></label>
+                            <label for="three" class="star_unactive starsLabel"><i class="fas fa-star"></i></label>
+                            <label for="four" class="star_unactive starsLabel"><i class="fas fa-star"></i></label>
+                            <label for="five" class="star_unactive starsLabel"><i class="fas fa-star"></i></label>
+                        </div>
+                        <div class="stars" id="stars">
+                            <input type="radio" name="stars" value="1" class="star star_unactive" id="one">
+                            <input type="radio" name="stars" value="2" class="star star_unactive" id="two">
+                            <input type="radio" name="stars" value="3" class="star star_unactive" id="three">
+                            <input type="radio" name="stars" value="4" class="star star_unactive" id="four">
+                            <input type="radio" name="stars" value="5" class="star star_unactive" id="five">
+                        </div>
+                        <div class="textarea">
+                            <textarea name="review" id="comentario" placeholder="Aquí tu comentario"></textarea>
+                        </div>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+
+                <% } else { null }%>
+
         </section>
         <section class="productosRelacionados">
             <h2>Prodúctos relacionados</h2>
@@ -136,6 +168,6 @@
     <script src="/javascripts/glide.js"></script>
     <script src="/javascripts/index.js"></script>
     <script src="/javascripts/cart.js"></script>
-        
+    <script src="/javascripts/detalleStars.js"></script>   
 </body>
 </html>

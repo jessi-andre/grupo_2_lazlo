@@ -125,6 +125,70 @@
     align-items: center;
 }
 
+.reseña{
+    border: 1px solid rgba(211, 211, 211, .5);
+    padding:5px 10px;
+    margin: 20px 0;
+}
+
+.formularioReseñas {
+    width: 100%;
+    margin: 80px 0;
+  }
+
+  .formularioReseñas h3{
+      margin: 0 0 20px;
+  }
+  
+  .formularioReseñas .labelStars {
+    width: auto;
+    display: inline-block;
+    margin: 10px 0 20px;
+    cursor: pointer;
+  }
+  
+  .formularioReseñas .star_unactive {
+    color: rgba(128, 128, 128, 0.7);
+    font-size: 18px;
+    transition: all .5s;
+    cursor: pointer;
+  }
+
+  .formularioReseñas .star_active {
+    color: var(--grisOscuro);
+    font-size: 18px;
+    transition: all .5s;
+    cursor: pointer;
+  }
+
+
+  .formularioReseñas .stars {
+    display: none;
+  }
+  
+  .formularioReseñas .textarea {
+    width: 100%;
+  }
+  
+  .formularioReseñas .textarea textarea {
+      padding: 5px;
+    width: 100%;
+    height: 170px;
+    border: 1px solid var(--grisOscuro);
+    border-radius: 5px;
+    resize: none;
+  }
+  
+  .formularioReseñas button {
+    margin: 10px 0 0;
+    background-color: var(--marron);
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    display: block;
+  }
+
+
 /*-- CARRUCEL DE PRODUCTOS --*/
 
 .detalle .productosRelacionados{
