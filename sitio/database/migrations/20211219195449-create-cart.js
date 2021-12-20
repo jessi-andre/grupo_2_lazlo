@@ -33,10 +33,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         references : {
           model : {
-            tableName : 'Orders'
+            tableName : 'Orders',
           },
           key : 'id'
-        }
+        },
+        onDelete : 'cascade'
       },
       createdAt: {
         allowNull: false,
