@@ -78,6 +78,8 @@
             <p><%= product.description %></p>
         </section>
         <section class="reseñas">
+        <% if (reviews.length > 0) { %>
+         
             <h2>Reseñas</h2>
             <% reviews.forEach(review => { %>
                 <div class="reseña">
@@ -95,6 +97,9 @@
                     <p><%= review.review %></p>
                 </div>
             <% }) %>
+        <% } else { null } %>
+
+        
             
 
             <% if (locals.loginUsuario) { %>

@@ -2,37 +2,37 @@
 
 var images = [
   {
-    file: 'producto1.png',
+    file: 'producto1a.png',
     productId: 1,
     createdAt: new Date,
     updatedAt: new Date
   },
   {
-    file: 'producto20b.jpg',
+    file: 'producto1c.png',
     productId: 1,
     createdAt: new Date,
     updatedAt: new Date
   },
   {
-    file: 'producto20c.jpg',
+    file: 'producto1b.png',
     productId: 1,
     createdAt: new Date,
     updatedAt: new Date
   },
   {
-    file: 'producto2.png',
+    file: 'producto2a.png',
     productId: 2,
     createdAt: new Date,
     updatedAt: new Date
   },
   {
-    file: 'producto20b.jpg',
+    file: 'producto2b.png',
     productId: 2,
     createdAt: new Date,
     updatedAt: new Date
   },
   {
-    file: 'producto20c.jpg',
+    file: 'producto2c.png',
     productId: 2,
     createdAt: new Date,
     updatedAt: new Date

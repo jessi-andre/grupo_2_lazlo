@@ -34,11 +34,36 @@
 
 .vistaProductos .producto .productoImg{
     width: 100% !important;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
 }
 
 .vistaProductos .producto .productoImg img{
     width: 80% !important;
+    margin: 0 auto;
+    display: block;
 }
+
+.img2{
+    opacity: 1;
+    z-index: 1;
+    transform: scale(.99);
+}
+
+.img1{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 3;
+    transition:opacity .5s;
+}
+
+.producto:hover .img1{
+    opacity: 0;
+}
+
 
 .vistaProductos .productoInfo{
     padding: 10px 0 0;
